@@ -18,10 +18,14 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
 
+    @yield('css')
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
+    <link href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet">
+
 </head>
 
 
@@ -102,6 +106,9 @@
     </div>
 
 <script src="{{ asset('js/sidebar.js') }}" defer></script>
+
+@yield('js')
+
 
 </body>
 

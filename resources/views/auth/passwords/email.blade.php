@@ -1,50 +1,54 @@
 @extends('layouts.app')
 
+@section('css')
+<link href="{{ asset('css/login.css') }}" rel="stylesheet">
+@endsection
+
+
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Reset Password') }}</div>
 
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+    {{-- ------------------ --}}
 
-                        <form method="POST" action="{{ route('password.email') }}">
-                            @csrf
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="images/img-01.png" alt="IMG">
+				</div>
 
-                            <div class="mb-3 row">
-                                <label for="email" class="col-md-4 col-form-label text-end">
-                                    {{ __('E-Mail Address') }} :
-                                </label>
+                <form method="POST" action="{{ route('password.email') }}">
+                    @csrf
 
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                        name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+					<span class="login100-form-title">
+                        {{ __('Reset Password') }}
+					</span>
 
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                         <input id="email" type="email" class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Correo@gmail.com">
 
-                            <div class="mb-3 row">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        {{ __('Send Password Reset Link') }}
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+		    		</div>
+
+
+					<div class="container-login100-form-btn">
+                        <button type="submit" class="login100-form-btn">
+                            {{ __('Send Password Reset Link') }}
+                        </button>
+					</div>
+
+				</form>
+			</div>
+
+@endsection
+
+@section('js')
+<script src="{{ asset('js/login.js') }}" defer></script>
+<script src="{{ asset('js/tilt.jquery.min.js') }}" defer></script>
 @endsection
