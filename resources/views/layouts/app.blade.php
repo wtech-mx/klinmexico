@@ -16,60 +16,93 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
 </head>
 
-<body>
-<div id="app">
-<nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-<div class="container">
-<a class="navbar-brand" href="{{ url('/') }}">
-Laravel 8 User Roles and Permissions - Tutsmake.com
-</a>
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-<span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarSupportedContent">
-<!-- Left Side Of Navbar -->
-<ul class="navbar-nav mr-auto"></ul>
-<!-- Right Side Of Navbar -->
-<ul class="navbar-nav ml-auto">
-<!-- Authentication Links -->
-@guest
-<li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
-<li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
-@else
-<li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
-<li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
-<li><a class="nav-link" href="{{ route('products.index') }}">Manage Product</a></li>
-<li class="nav-item dropdown">
-<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-{{ Auth::user()->name }} <span class="caret"></span>
-</a>
-<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-<a class="dropdown-item" href="{{ route('logout') }}"
-onclick="event.preventDefault();
-document.getElementById('logout-form').submit();">
-{{ __('Logout') }}
-</a>
-<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-@csrf
-</form>
-</div>
-</li>
-@endguest
-</ul>
-</div>
-</div>
-</nav>
-<main class="py-4">
-<div class="container">
-@yield('content')
-</div>
-</main>
-</div>
+
+<body oncontextmenu='return false' class='snippet-body'>
+<body id="body-pd">
+
+    @guest
+
+    @else
+    <header class="header" id="header">
+        <div class="header_toggle">
+            <i class='bx bx-menu' id="header-toggle"></i>
+        </div>
+
+        <div class="tlttle_username">
+            {{ Auth::user()->name }}
+        </div>
+
+        <div class="header_img">
+            <img src="https://i.imgur.com/hczKIze.jpg" alt="">
+        </div>
+    </header>
+
+
+    <div class="l-navbar" id="nav-bar">
+        <nav class="nav">
+            <div>
+                <a href="{{ url('/') }}" class="nav_logo">
+                    <i class='bx bx-layer nav_logo-icon'></i>
+                    <span class="nav_logo-name">Logo</span>
+                </a>
+
+                <div class="nav_list">
+
+                     <a href="#" class="nav_link active">
+                         <i class='bx bx-grid-alt nav_icon'></i>
+                         <span class="nav_name">Dashboard</span>
+                    </a>
+
+                     <a href="{{ route('users.index') }}" class="nav_link">
+                         <i class='bx bx-user nav_icon'></i>
+                         <span class="nav_name">Users</span>
+                    </a>
+
+                     <a href="{{ route('roles.index') }}" class="nav_link">
+                        <i class='bx bxs-user-detail nav_icon'></i>
+                         <span class="nav_name">Role</span>
+                    </a>
+                     <a href="{{ route('products.index') }}" class="nav_link">
+                         <i class='bx bx-bookmark nav_icon'></i>
+                         <span class="nav_name">ProductS</span>
+                    </a>
+                     <a href="#" class="nav_link">
+                         <i class='bx bx-folder nav_icon'></i>
+                         <span class="nav_name">Files</span>
+                    </a>
+                     <a href="#" class="nav_link">
+                         <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                         <span class="nav_name">Stats</span>
+                    </a>
+                </div>
+            </div>
+            <a href="#" class="nav_link" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+                 <i class='bx bx-log-out nav_icon'></i>
+                 <span class="nav_name">{{ __('Logout') }}</span>
+            </a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </nav>
+    </div>
+    @endguest
+
+    <!--Container Main start-->
+    <div class="height-100 bg-light">
+        @yield('content')
+    </div>
+
+<script src="{{ asset('js/sidebar.js') }}" defer></script>
+
 </body>
 
 </html>
