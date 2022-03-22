@@ -20,7 +20,6 @@
 
     @yield('css')
 
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
@@ -28,9 +27,7 @@
 
 </head>
 
-
-<body oncontextmenu='return false' class='snippet-body'>
-<body id="body-pd">
+<body id="body-pd" class="@yield('bg')">
 
     @guest
 
@@ -101,14 +98,11 @@
     @endguest
 
     <!--Container Main start-->
-    <div class="height-100 bg-light">
-        @yield('content')
-    </div>
+     @yield('content')
 
 <script src="{{ asset('js/sidebar.js') }}" defer></script>
 
 @yield('js')
-
 
 </body>
 
