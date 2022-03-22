@@ -4,51 +4,59 @@
 <link href="{{ asset('css/login.css') }}" rel="stylesheet">
 @endsection
 
+@section('bg', 'bg_login')
 
 @section('content')
 
-    {{-- ------------------ --}}
+    <div class="content_dis m-0 vh-100 row justify-content-center align-items-center ">
+    <div class="col-auto">
 
-			<div class="wrap-login100">
-				<div class="login100-pic js-tilt" data-tilt>
-					<img src="images/img-01.png" alt="IMG">
-				</div>
+        <div class="content_login">
+                <div class="row">
 
-                <form method="POST" action="{{ route('password.email') }}">
-                    @csrf
+                    <div class="col-xs-12 col-sm-12 col-lg-6 col-xl-6  text-center">
+                        <img class="img_logo " src="{{asset('image/logo_neon.png')}}" alt="IMG">
+                    </div>
 
-					<span class="login100-form-title">
-                        {{ __('Reset Password') }}
-					</span>
+                    <div class="col-xs-12 col-sm-12 col-lg-6 col-xl-6  text-left">
+                         <form method="POST" action="{{ route('password.email') }}">
+                            @csrf
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                         <input id="email" type="email" class="input100 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Correo@gmail.com">
+                            <h1 class="tittle_login mb-5">
+                                 {{ __('Reset Password') }}
+                            </h1>
 
-                            @error('email')
+                            <div class="input-group mb-3">
+                              <span class="input-group-text" id="basic-addon1">
+                                  <i class="fa fa-envelope icon_login" aria-hidden="true"></i>
+                              </span>
+                               <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Correo@gmail.com">
+                                @error('email')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
-                            @enderror
+                                @enderror
+                            </div>
 
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-		    		</div>
+                            <div class="container-btn-save-2 text-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-login-2">
+                                    Reestablecer contraseña
+                                </button>
+                            </div>
 
+                            <div class="text-center mt-3">
+                                <a href="{{ route('login') }}" class="create_login">
+                                   Volver
+                                    <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                                </a>
+                            </div>
 
-					<div class="container-login100-form-btn">
-                        <button type="submit" class="login100-form-btn">
-                            {{ __('Send Password Reset Link') }}
-                        </button>
-					</div>
+				        </form>
+                    </div>
 
-				</form>
-			</div>
+                </div>
+            </div>
+    </div>
+</div>
 
-@endsection
-
-@section('js')
-<script src="{{ asset('js/login.js') }}" defer></script>
-<script src="{{ asset('js/tilt.jquery.min.js') }}" defer></script>
 @endsection

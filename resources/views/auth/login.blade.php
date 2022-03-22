@@ -6,7 +6,6 @@
 
 @section('bg', 'bg_login')
 
-
 @section('content')
 
 <div class="content_dis m-0 vh-100 row justify-content-center align-items-center ">
@@ -92,10 +91,4 @@
     </div>
 </div>
 
-
-@endsection
-
-@section('js')
-<script src="{{ asset('js/login.js') }}" defer></script>
-<script src="{{ asset('js/tilt.jquery.min.js') }}" defer></script>
 @endsection

@@ -34,6 +34,14 @@
     width: 150px;
 }
 
+.btn-login-2{
+    background-color: #0570F9!important;
+    border-color:  #0570F9!important;
+    color: #ffffff!important;
+    border-radius: 15px!important;
+    width: 220px;
+}
+
 .bg_login {
     background-image: linear-gradient(to right top, #bc75ea, #aa73ee, #9672f1, #7e71f4, #6071f7, #4382fd, #2491ff, #009eff, #00baff, #4ad3f9, #8ae8f3, #c2fbf5);
     background-repeat: no-repeat;
