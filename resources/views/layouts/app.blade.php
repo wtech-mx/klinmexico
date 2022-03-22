@@ -16,7 +16,11 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
+     <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 
     @yield('css')
 
@@ -132,9 +136,27 @@
     <!--Container Main start-->
      @yield('content')
 
-<script src="{{ asset('js/sidebar.js') }}" defer></script>
+    <script src="{{ asset('js/sidebar.js') }}" defer></script>
 
-@yield('js')
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
+    @yield('js')
+     <script>
+         $(document).ready(function () {
+            $.noConflict();
+            var table = $('#tale_id').DataTable(
+
+            );
+         });
+        $('#tale_id').DataTable( {
+            autoFill: true,
+            responsive: true,
+             fixedHeader: true
+        } );
+     </script>
+
 
 </body>
 
