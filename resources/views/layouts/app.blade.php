@@ -37,29 +37,76 @@
             <i class='bx bx-menu' id="header-toggle"></i>
         </div>
 
-        <div class="tlttle_username">
+        <div class="tlttle_username text-center">
+            SUCURSAL    01 - Condesa Nuevo León <br>
             {{ Auth::user()->name }}
+
         </div>
+
 
         <div class="header_img">
-            <img src="https://i.imgur.com/hczKIze.jpg" alt="">
+            <img src="{{asset('image/logo_neon.png')}}" alt="">
         </div>
     </header>
-
 
     <div class="l-navbar" id="nav-bar">
         <nav class="nav">
             <div>
                 <a href="{{ url('/') }}" class="nav_logo">
-                    <i class='bx bx-layer nav_logo-icon'></i>
-                    <span class="nav_logo-name">Logo</span>
+                    <img class="" src="{{asset('image/logo_neon.png')}}" alt="Logo" style="width: 30px">
+                    <span class="nav_logo-name">Klin</span>
                 </a>
 
                 <div class="nav_list">
 
-                     <a href="#" class="nav_link active">
-                         <i class='bx bx-grid-alt nav_icon'></i>
-                         <span class="nav_name">Dashboard</span>
+                     <a href="#" class="nav_link">
+                         <i class='bx bx-money-withdraw nav_icon'></i>
+                         <span class="nav_name">Nueva Venta</span>
+                    </a>
+
+                     <a href="#" class="nav_link">
+                         <i class='bx bxs-check-circle nav_icon'></i>
+                         <span class="nav_name">Servicios Activos </span>
+                    </a>
+
+                     <a href="#" class="nav_link">
+                         <i class='bx bx-certification nav_icon'></i>
+                         <span class="nav_name">Promociones </span>
+                    </a>
+
+                     <a href="#" class="nav_link">
+                         <i class='bx bx-money nav_icon'></i>
+                         <span class="nav_name">Contabilidad </span>
+                    </a>
+
+                     <a href="#" class="nav_link">
+                         <i class='bx bx-walk nav_icon'></i>
+                         <span class="nav_name">Clientes </span>
+                    </a>
+
+                     <a href="#" class="nav_link">
+                         <i class='bx bx-checkbox nav_icon' ></i>
+                         <span class="nav_name">Racks</span>
+                    </a>
+
+                     <a href="#" class="nav_link">
+                         <i class='bx bxs-store nav_icon' ></i>
+                         <span class="nav_name">Sucursal</span>
+                    </a>
+
+                     <a href="{{ route('products.index') }}" class="nav_link">
+                         <i class='bx bx-shopping-bag nav_icon' ></i>
+                         <span class="nav_name">Productos</span>
+                    </a>
+
+                     <a href="#" class="nav_link">
+                         <i class='bx bxs-cog nav_icon'></i>
+                         <span class="nav_name">Configuracion</span>
+                    </a>
+
+                     <a href="{{ route('roles.index') }}" class="nav_link">
+                        <i class='bx bxs-user-detail nav_icon'></i>
+                         <span class="nav_name">Role</span>
                     </a>
 
                      <a href="{{ route('users.index') }}" class="nav_link">
@@ -67,24 +114,9 @@
                          <span class="nav_name">Users</span>
                     </a>
 
-                     <a href="{{ route('roles.index') }}" class="nav_link">
-                        <i class='bx bxs-user-detail nav_icon'></i>
-                         <span class="nav_name">Role</span>
-                    </a>
-                     <a href="{{ route('products.index') }}" class="nav_link">
-                         <i class='bx bx-bookmark nav_icon'></i>
-                         <span class="nav_name">ProductS</span>
-                    </a>
-                     <a href="#" class="nav_link">
-                         <i class='bx bx-folder nav_icon'></i>
-                         <span class="nav_name">Files</span>
-                    </a>
-                     <a href="#" class="nav_link">
-                         <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
-                         <span class="nav_name">Stats</span>
-                    </a>
                 </div>
             </div>
+
             <a href="#" class="nav_link" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
                  <i class='bx bx-log-out nav_icon'></i>
