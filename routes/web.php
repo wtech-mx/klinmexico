@@ -23,12 +23,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
-
 });
-        Route::resource('clients', ClientController::class);
+
+Route::resource('clients', ClientController::class);
+
+Route::get('/ticket/index', 'TicketController@index')->name('ticket.index');
+Route::get('/ticket/crear', 'TicketController@create')->name('ticket.create');
+Route::post('/ticket/store', 'TicketController@store')->name('ticket.store');

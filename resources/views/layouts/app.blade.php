@@ -63,7 +63,7 @@
 
                 <div class="nav_list">
 
-                     <a href="#" class="nav_link">
+                     <a href="{{ route('ticket.index') }}" class="nav_link">
                          <i class='bx bx-money-withdraw nav_icon'></i>
                          <span class="nav_name">Nueva Venta</span>
                     </a>
@@ -83,7 +83,7 @@
                          <span class="nav_name">Contabilidad </span>
                     </a>
 
-                     <a href="#" class="nav_link">
+                     <a href="{{ route('clients.index') }}" class="nav_link">
                          <i class='bx bx-walk nav_icon'></i>
                          <span class="nav_name">Clientes </span>
                     </a>
