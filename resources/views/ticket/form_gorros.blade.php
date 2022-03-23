@@ -1,5 +1,5 @@
 <div class="row d-flex justify-content-center">
-<div class="col-xl-5 col-lg-6 col-md-7">
+<div class="col-12">
                 <div class="card card_steps b-0">
 
                     <ul id="progressbar" class="text-center">
@@ -51,36 +51,34 @@
 
                             </div>
 
-                            <button id="next1" class="btn-block btn-primary mt-3 mb-1 next">NEXT<span
-                                    class="fa fa-long-arrow-right"></span>
+                            <button id="next1" class="btn-block text-center btn_steps mt-3 mb-1 next" style="">NEXT
+                                <span class="fa fa-long-arrow-right"></span>
                             </button>
                         </div>
                     </fieldset>
 
                     <fieldset>
                         <div class="form-card">
-
-                            <button id="next1"
-                                class="btn-block btn-primary mt-3 mb-1 next mt-4" >NEXT<span
-                                    class="fa fa-long-arrow-right"></span>
+                            <button class="btn-block btn_steps_2 mt-3 mb-1 prev">
+                                <span class="fa fa-long-arrow-left"></span>PREVIOUS
                             </button>
-                            <button
-                                class="btn-block btn-secondary mt-3 mb-1 prev"><span
-                                    class="fa fa-long-arrow-left"></span>PREVIOUS</button>
+                             <button id="next1" class="btn-block text-center btn_steps mt-3 mb-1 next" style="">NEXT
+                                <span class="fa fa-long-arrow-right"></span>
+                            </button>
+
                         </div>
                     </fieldset>
 
                     <fieldset>
                         <div class="form-card">
+                            <button class="btn-block btn_steps_2 mt-3 mb-1 prev">
+                                <span class="fa fa-long-arrow-left"></span>PREVIOUS
+                            </button>
 
-                            <button id="next1" class="btn-block btn-primary mt-3 mb-1 next mt-4"
-                                onclick="validate2(0)">SUBMIT REQUEST<span
-                                    class="fa fa-long-arrow-right"></span>
+                            <button id="next1" class="btn-block text-center btn_steps mt-3 mb-1 next" style="">NEXT
+                                <span class="fa fa-long-arrow-right"></span>
                             </button>
-                            <button
-                                class="btn-block btn-secondary mt-3 mb-1 prev"><span
-                                    class="fa fa-long-arrow-left"></span>PREVIOUS
-                            </button>
+
                         </div>
                     </fieldset>
 
