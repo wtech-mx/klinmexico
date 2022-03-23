@@ -4,7 +4,7 @@
         <div class="box-body text-black">
             <div class="row">
 
-                <div class="form-group col-6">
+                <div class="form-group col-xs-6 col-sm-4 col-lg-4">
                     <label for="">Cliente</label>
                     <select class="form-select" aria-label="Default select example">
                         <option selected>Seleccionar usuario</option>
@@ -14,7 +14,7 @@
                     </select>
                 </div>
 
-                <div class="form-group col-6">
+                <div class="form-group col-xs-6 col-sm-4 col-lg-4">
                     <label for="">Servicio Primario</label>
                     <select class="form-select" aria-label="Default select example">
                         <option selected>Seleccionar servicio</option>
@@ -26,7 +26,7 @@
                     </select>
                 </div>
 
-                <div class="form-group mt-5 col-6">
+                <div class="form-group col-xs-6 col-sm-4 col-lg-4">
                     <label for="">Servicio secundario</label>
                     <select class="form-select select2 select2-hidden-accessible" name="grado_academico" id="grado_academico">
                         <option selected>Seleccionar tint</option>
@@ -40,14 +40,19 @@
 
                 <div class="form-group mt-5 col-6">
                     <label for="">Tint personalizado</label> <br>
-                    <input type="text" name="miinput" id="miinput" disabled>
+                    <input class="form-control" type="number" name="miinput" id="miinput" placeholder="$" disabled>
                 </div>
 
                 <div class="form-group mt-5 col-6">
-                    <label for="">Unyellow</label>
-                    <input class="form-check-input" type="checkbox" value="Unyellow" id="flexCheckDefault"> <br> <br>
-                    <label for="">Klin Dye</label>
-                    <input class="form-check-input" type="checkbox" value="Klin Dye" name="personalizado" id="personalizado">
+                    <div class="form-check form-check-inline  mt-4">
+                      <input class="form-check-input" type="checkbox" value="Unyellow" id="flexCheckDefault">
+                      <label class="form-check-label" for="inlineRadio1">Unyellow</label>
+                    </div>
+
+                    <div class="form-check form-check-inline  mt-4">
+                      <input class="form-check-input" type="checkbox" value="Klin Dye" name="personalizado" id="personalizado">
+                      <label class="form-check-label" for="inlineRadio2">Klin Dye</label>
+                    </div>
                 </div>
 
                 <h2 class="mt-5">Fixer</h2>
@@ -70,23 +75,25 @@
                     </select>
                 </div>
 
-                <div class="form-group mt-5 col-6">
-                    <label for="">Generic Sole AF1</label>
-                    <input class="form-check-input" type="checkbox" value="Unyellow" name="sole" id="sole">
+                <div class="form-group mt-5 col-xs-6 col-sm-4 col-lg-4">
+                    <div class="form-check form-check-inline  mt-4">
+                      <input class="form-check-input" type="checkbox" value="Unyellow" name="sole" id="sole">
+                      <label class="form-check-label" for="inlineRadio1">Generic Sole AF1</label>
+                    </div>
+
+                    <div class="form-check form-check-inline  mt-4">
+                      <input class="form-check-input" type="checkbox" value="Klin Dye" name="invisible" id="invisible">
+                      <label class="form-check-label" for="inlineRadio2">Invisible Snkers Patch</label>
+                    </div>
                 </div>
 
-                <div class="form-group mt-5 col-6">
-                    <label for="">Invisible Snkers Patch</label>
-                    <input class="form-check-input" type="checkbox" value="Klin Dye" name="invisible" id="invisible">
-                </div>
-
-                <div class="form-group mt-5 col-6">
+                <div class="form-group mt-5 col-xs-6 col-sm-4 col-lg-4">
                     <label for="">Personalizado</label> <br>
-                    <input type="number" name="personalizado" id="personalizado" placeholder="$">
-                    </select>
+                    <input class="form-control" type="number" name="personalizado" id="personalizado" placeholder="$">
+
                 </div>
 
-                <div class="form-group mt-5 col-6">
+                <div class="form-group mt-5 col-xs-6 col-sm-4 col-lg-4">
                     <label for="">Snkrs</label>
                     <select class="form-select" name="fixer" id="fixer">
                         <option selected>Seleccione Snkrs</option>
@@ -100,8 +107,12 @@
             </div>
         </div>
 
-        <div class="box-footer mt20">
-            <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="d-flex flex-row-reverse bd-highlight mt-5">
+          <div class="p-2 bd-highlight">
+               <button type="submit" class="btn btn-save">
+                   <i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar
+               </button>
+          </div>
         </div>
 
     </div>
