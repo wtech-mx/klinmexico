@@ -2,32 +2,31 @@
     @csrf
     <div class="box box-info padding-1">
         <div class="box-body text-black">
+            <div class="row">
 
-            <div class="form-group">
-                <label for="">Cliente</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Seleccionar usuario</option>
-                    @foreach ($client as $item)
-                        <option value="{{$item->id}}">{{$item->name}}</option>
-                    @endforeach
-                </select>
-            </div>
+                <div class="form-group col-6">
+                    <label for="">Cliente</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Seleccionar usuario</option>
+                        @foreach ($client as $item)
+                            <option value="{{$item->id}}">{{$item->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="">Servicio Primario</label>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Seleccionar servicio</option>
-                        <option value="Essential">Essential</option>
-                        <option value="Plus">Plus</option>
-                        <option value="Elite">Elite</option>
-                        <option value="Pure White">Pure White</option>
-                        <option value="Special Care">Special Care</option>
-                </select>
-            </div>
+                <div class="form-group col-6">
+                    <label for="">Servicio Primario</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option selected>Seleccionar servicio</option>
+                            <option value="Essential">Essential</option>
+                            <option value="Plus">Plus</option>
+                            <option value="Elite">Elite</option>
+                            <option value="Pure White">Pure White</option>
+                            <option value="Special Care">Special Care</option>
+                    </select>
+                </div>
 
-            <br>
-
-                <div class="form-group">
+                <div class="form-group mt-5 col-6">
                     <label for="">Servicio secundario</label>
                     <select class="form-select select2 select2-hidden-accessible" name="grado_academico" id="grado_academico">
                         <option selected>Seleccionar tint</option>
@@ -38,28 +37,22 @@
                             <option value="4">Personalizado</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="">Ingrese monto para tint personalizado</label>
+
+                <div class="form-group mt-5 col-6">
+                    <label for="">Tint personalizado</label> <br>
                     <input type="text" name="miinput" id="miinput" disabled>
                 </div>
 
-
-                <br>
-
-                <div class="form-group">
+                <div class="form-group mt-5 col-6">
                     <label for="">Unyellow</label>
-                    <input class="form-check-input" type="checkbox" value="Unyellow" id="flexCheckDefault">
-                </div>
-
-                <div class="form-group">
+                    <input class="form-check-input" type="checkbox" value="Unyellow" id="flexCheckDefault"> <br> <br>
                     <label for="">Klin Dye</label>
                     <input class="form-check-input" type="checkbox" value="Klin Dye" name="personalizado" id="personalizado">
                 </div>
 
-                <hr>
-                <h5>Fixer</h5>
+                <h2 class="mt-5">Fixer</h2>
 
-                <div class="form-group">
+                <div class="form-group col-6">
                     <label for="">Glue</label>
                     <select class="form-select" name="fixer" id="fixer">
                         <option selected>Seleccione Glue</option>
@@ -68,7 +61,7 @@
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group col-6">
                     <label for="">Sew</label>
                     <select class="form-select" name="fixer" id="fixer">
                         <option selected>Seleccione Sew</option>
@@ -77,24 +70,23 @@
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mt-5 col-6">
                     <label for="">Generic Sole AF1</label>
                     <input class="form-check-input" type="checkbox" value="Unyellow" name="sole" id="sole">
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mt-5 col-6">
                     <label for="">Invisible Snkers Patch</label>
                     <input class="form-check-input" type="checkbox" value="Klin Dye" name="invisible" id="invisible">
                 </div>
 
-
-                <div class="form-group">
-                    <label for="">Personalizado</label>
+                <div class="form-group mt-5 col-6">
+                    <label for="">Personalizado</label> <br>
                     <input type="number" name="personalizado" id="personalizado" placeholder="$">
                     </select>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group mt-5 col-6">
                     <label for="">Snkrs</label>
                     <select class="form-select" name="fixer" id="fixer">
                         <option selected>Seleccione Snkrs</option>
@@ -105,11 +97,12 @@
                     </select>
                 </div>
 
-
-
+            </div>
         </div>
+
         <div class="box-footer mt20">
             <button type="submit" class="btn btn-primary">Submit</button>
         </div>
+
     </div>
 </form>

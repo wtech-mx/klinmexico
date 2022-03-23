@@ -1,0 +1,9 @@
+.nav_custom_btn{
+    background: #1EC4E5!important;
+    border-radius: 15px!important;
+    color: #ffffff!important;
+}
+
+.nav_custom_btn:hover{
+    background: #0a10e9!important;
+}
