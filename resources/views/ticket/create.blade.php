@@ -48,16 +48,16 @@ Crear Ventas
                                 @include('ticket.form_sneakers')
                             </div>
                             <div class="tab-pane fade" id="pills-gorras" role="tabpanel" aria-labelledby="pills-gorras-tab">
-                                <h1>Hola</h1>
+                                @include('ticket.form_gorros')
                             </div>
                             <div class="tab-pane fade" id="pills-bolsos" role="tabpanel" aria-labelledby="pills-bolsos-tab">
-                                <h1>Hola1</h1>
+                                @include('ticket.form_bolsos')
                             </div>
                             <div class="tab-pane fade" id="pills-reparacion" role="tabpanel" aria-labelledby="pills-reparacion-tab">
-                                <h1>Hola2</h1>
+                                @include('ticket.form_reparacion')
                             </div>
                             <div class="tab-pane fade" id="pills-nano" role="tabpanel" aria-labelledby="pills-nano-tab">
-                                <h1>Hola3</h1>
+                                @include('ticket.form_nano')
                             </div>
                         </div>
 
