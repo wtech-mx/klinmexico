@@ -155,7 +155,7 @@
     width: 100%;
     margin-bottom: 30px;
     /*box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);*/
-    background-color: #F7F6FB;
+    background-color: transparent;
 }
 
 .card .card-header {
@@ -233,34 +233,12 @@
 }
 
 
-footer{
-    margin-top:50px;
-    color: #555;
-    background: #fff;
-    padding: 25px;
-    font-weight: 300;
-    background: #f7f7f7;
-
-}
-.footer p{
-    margin-bottom: 0;
-}
-footer p a{
-    color: #555;
-    font-weight: 400;
-}
-
-footer p a:hover{
-    color: #e86c42;
-}
-
 @media screen and (max-width: 768px) {
 
     .nav-tabs {
-        display: inline-block;
         width: 100%;
-        padding-left: 100px;
-        padding-right: 100px;
+        padding-left: 0px;
+        padding-right: 0px;
         text-align: center;
     }
 

@@ -36,6 +36,7 @@ a {
     background-color: var(--white-color);
     z-index: var(--z-fixed);
     transition: .5s;
+    padding: 50px 20px 50px 20px;
 }
 
 .header_toggle {

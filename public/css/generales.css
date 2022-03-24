@@ -1,0 +1,19 @@
+.icon_actions{
+    color: #000000;
+    font-size: 15px;
+}
+
+.icon_actions.eye:hover{
+    color: blue;
+    font-size: 15px;
+}
+
+.icon_actions.edit:hover{
+    color: #F39C12;
+    font-size: 15px;
+}
+
+.icon_actions.trash:hover{
+    color: red;
+    font-size: 15px;
+}

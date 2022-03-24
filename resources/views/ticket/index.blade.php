@@ -57,10 +57,15 @@
 
 
                                             <td>
-                                                    <a class="btn btn-sm btn-primary " href="#"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="#"><i class="fa fa-fw fa-edit"></i> Edit</a>
-
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                <a class="icon_actions eye" href="#">
+                                                    <i class="fa fa-fw fa-eye"></i>
+                                                </a>
+                                                <a class="icon_actions edit" href="#">
+                                                    <i class="fa fa-fw fa-edit"></i>
+                                                </a>
+                                                <a type="submit" class="icon_actions trash">
+                                                    <i class="fa fa-fw fa-trash"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach

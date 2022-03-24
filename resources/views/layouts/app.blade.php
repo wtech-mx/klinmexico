@@ -25,6 +25,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/generales.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet">
 
      @yield('css')
@@ -44,9 +45,7 @@
         <div class="tlttle_username text-center">
             SUCURSAL    01 - Condesa Nuevo León <br>
             {{ Auth::user()->name }}
-
         </div>
-
 
         <div class="header_img">
             <img src="{{asset('image/logo_neon.png')}}" alt="">
@@ -143,6 +142,7 @@
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
 
     @yield('js')
+
      <script>
          $(document).ready(function () {
             $.noConflict();
@@ -156,7 +156,6 @@
              fixedHeader: true
         } );
      </script>
-
 
 </body>
 

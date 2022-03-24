@@ -1,5 +1,5 @@
 <div class="row d-flex justify-content-center">
-    <div class="col-xl-5 col-lg-6 col-md-7">
+    <div class="col-12">
                     <div class="card card_steps b-0">
 
                         <ul id="progressbar" class="text-center">
@@ -12,8 +12,9 @@
                         <fieldset class="show">
                             <div class="form-card text-black">
                                 <div class="row">
-                                    <div class="form-group col-6">
-                                        <label for="">Cliente</label>
+
+                                    <div class="form-group col-xs-12 col-md-6 col-lg-6 ">
+                                        <label class="label_steps" for="">Cliente</label>
                                         <select class="form-select" aria-label="Default select example" name="id_user" id="id_user">
                                             <option selected>Seleccionar usuario</option>
                                             @foreach ($client as $item)
@@ -22,15 +23,15 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-4 col-6">
-                                        <label for="">Klin Cap</label>
-                                        <input class="form-check-input" type="checkbox" checked disabled>
-                                        <input type="hidden" value="Klin Cap" name="servicio_primario" id="servicio_primario">
-                                        <input type="hidden" value="60" name="precio_cap" id="precio_cap">
+                                    <div class="form-group mt-4 col-xs-12 col-md-6 col-lg-6 ">
+                                        <label class="label_steps" for="">Klin Cap</label>
+                                        <input  class="form-check-input form-control" type="checkbox" checked disabled>
+                                        <input  type="hidden" value="Klin Cap" name="servicio_primario" id="servicio_primario">
+                                        <input  type="hidden" value="60" name="precio_cap" id="precio_cap">
                                     </div>
 
-                                    <div class="form-group mt-5 col-6">
-                                        <label for="">Servicio secundario</label>
+                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
+                                        <label class="label_steps" for="">Servicio secundario</label>
                                         <select class="form-select select2 select2-hidden-accessible" name="tint" id="tint">
                                             <option selected>Seleccionar tint</option>
                                                 <option value="1">Tint 1</option>
@@ -40,21 +41,22 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 col-6">
-                                        <label for="">Tint personalizado</label> <br>
-                                        <input type="text" name="tint" id="miinput" disabled>
+                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
+                                        <label class="label_steps" for="">Tint personalizado</label> <br>
+                                        <input  class="form-control" type="text" name="tint" id="miinput" disabled>
                                     </div>
 
-                                    <div class="form-group mt-3 mb-3 col-6">
-                                        <label for="">Protector</label>
-                                        <input class="form-check-input" type="checkbox" value="1" name="protector" id="protector">
+                                    <div class="form-group mt-3 mb-3 col-xs-12 col-md-6 col-lg-6 ">
+                                        <label class="label_steps" for="">Protector</label>
+                                        <input  class="form-check-input" type="checkbox" value="1" name="protector" id="protector">
                                     </div>
-
                                 </div>
 
-                                <a id="next1" class="btn-block btn-primary mt-3 mb-1 next">Siguiente <span
-                                        class="fa fa-long-arrow-right"></span>
-                                </a>
+                                    <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
+                                        Siguiente
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                    </a>
+
                             </div>
                         </fieldset>
 
@@ -63,33 +65,33 @@
                                 <div class="row">
                                     <h5 class="text-center mb-4">Descripcion</h5>
 
-                                    <div class="form-group mt-5 col-6">
-                                        <label for="">Marca</label> <br>
-                                        <input type="text" name="marca" id="marca">
+                                    <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
+                                        <label class="label_steps" for="">Marca</label> <br>
+                                        <input class="form-control"  type="text" name="marca" id="marca" placeholder="Marca de la prenda">
                                     </div>
 
-                                    <div class="form-group mt-5 col-6">
-                                        <label for="">Modelo</label> <br>
-                                        <input type="text" name="modelo" id="modelo">
+                                    <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
+                                        <label class="label_steps" for="">Modelo</label> <br>
+                                        <input class="form-control" type="text" name="modelo" id="modelo" placeholder="Marca de la prenda">
                                     </div>
 
-                                    <div class="form-group mt-5 col-6">
-                                        <label for="">Color 1</label> <br>
-                                        <input type="color" name="color1" id="color1">
+                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
+                                        <label class="label_steps" for="">Color 1</label> <br>
+                                        <input class="form-control" type="color" name="color1" id="color1">
                                     </div>
 
-                                    <div class="form-group mt-5 col-6">
-                                        <label for="">Color 2</label> <br>
-                                        <input type="color" name="color2" id="color2">
+                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
+                                        <label class="label_steps" for="">Color 2</label> <br>
+                                        <input class="form-control" type="color" name="color2" id="color2">
                                     </div>
 
-                                    <div class="form-group mt-5 col-6">
-                                        <label for="">Talla</label> <br>
-                                        <input type="text" name="talla" id="talla">
+                                    <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
+                                        <label class="label_steps" for="">Talla</label> <br>
+                                        <input class="form-control" type="text" name="talla" id="talla" placeholder="S- M - LG - XL">
                                     </div>
 
-                                    <div class="form-group mt-5 col-6">
-                                        <label for="">Categoria</label>
+                                    <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
+                                        <label class="label_steps" for="">Categoria</label>
                                         <select class="form-select select2 select2-hidden-accessible" name="categoria" id="categoria">
                                                 <option selected>Seleccionar categoria</option>
                                                 <option value="Hombre">Hombre</option>
@@ -98,19 +100,20 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 col-6">
-                                        <label for="">Observaciones</label> <br>
-                                        <textarea name="observacion" id="observacion" cols="30" rows="5"></textarea>
+                                    <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
+                                        <label class="label_steps" for="">Observaciones</label> <br>
+                                        <textarea class="form-control" name="observacion" id="observacion" cols="30" rows="5"></textarea>
                                     </div>
                                 </div>
 
-                                    <a id="next1"
-                                        class="btn-block btn-primary mt-3 mb-1 next mt-4" >Siguiente <span
-                                            class="fa fa-long-arrow-right"></span>
+                                    <a class="btn-block btn_prev_tab mt-3 mb-1 prev">
+                                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                        Anterior
                                     </a>
-                                    <button
-                                        class="btn-block btn-secondary mt-3 mb-1 prev"><span
-                                            class="fa fa-long-arrow-left"></span>Anterior </button>
+                                    <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
+                                        Siguiente
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                    </a>
 
                             </div>
                         </fieldset>
@@ -119,7 +122,7 @@
                             <div class="form-card text-black">
                                 <div class="row">
                                     <div class="form-group mt-5 mb-5 col-12">
-                                        <label for="">Tipo de servicio</label>
+                                        <label class="label_steps" for="">Tipo de servicio</label>
                                         <select class="form-select select2 select2-hidden-accessible" name="tipo_servicio" id="tipo_servicio">
                                                 <option selected>Seleccionar servicio</option>
                                                 <option value="0">Estandar $0</option>
@@ -127,27 +130,28 @@
                                         </select>
                                     </div>
 
-                                        <label for="" class="mb-2">Racks para gorras</label>
-                                        @include('ticket.rack_gorras')
+                                    <label class="label_steps" for="" class="mb-2">Racks para gorras</label>
+
+                                    @include('ticket.rack_gorras')
 
                                 </div>
 
-                                <a id="next1"
-                                class="btn-block btn-primary mt-3 mb-1 next mt-4" >Siguiente <span
-                                    class="fa fa-long-arrow-right"></span>
-                                </a>
-                                <button
-                                    class="btn-block btn-secondary mt-3 mb-1 prev"><span
-                                        class="fa fa-long-arrow-left"></span>Anterior
-                                </button>
+                                    <a class="btn-block btn_prev_tab mt-3 mb-1 prev">
+                                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                        Anterior
+                                    </a>
+                                    <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
+                                        Siguiente
+                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                    </a>
                             </div>
                         </fieldset>
 
                         <fieldset>
                             <div class="form-card text-black">
                                 <div class="row">
-                                    <div class="form-group mt-5 mb-5 col-12">
-                                        <label for="">Aplicar Promocion</label>
+                                    <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
+                                        <label class="label_steps" for="">Aplicar Promocion</label>
                                         <select class="form-select select2 select2-hidden-accessible" name="promocion" id="promocion">
                                                 <option selected>Seleccionar forma</option>
                                                 <option value=".10">Cliente Distinguido 1</option>
@@ -159,8 +163,8 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 mb-5 col-12">
-                                        <label for="">Recoleccion</label>
+                                    <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
+                                        <label class="label_steps" for="">Recoleccion</label>
                                         <select class="form-select select2 select2-hidden-accessible" name="recoleccion" id="recoleccion">
                                                 <option selected>Seleccionar recoleecion</option>
                                                 <option value="1">No</option>
@@ -168,13 +172,13 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 col-6">
-                                        <label for="">Recoleccion $</label> <br>
-                                        <input type="number" name="recoleccion" id="input" disabled>
+                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
+                                        <label class="label_steps" for="">Recoleccion $</label> <br>
+                                        <input  class="form-control" type="number" name="recoleccion" id="input" disabled>
                                     </div>
 
-                                    <div class="form-group mt-5 mb-5 col-12">
-                                        <label for="">Forma de pago</label>
+                                    <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
+                                        <label class="label_steps" for="">Forma de pago</label>
                                         <select class="form-select select2 select2-hidden-accessible" name="pago" id="pago">
                                                 <option selected>Seleccionar forma</option>
                                                 <option value="Efectivo">Efectivo</option>
@@ -186,8 +190,8 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 mb-5 col-12">
-                                        <label for="">Por pagar</label>
+                                    <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
+                                        <label class="label_steps" for="">Por pagar</label>
                                         <select class="form-select select2 select2-hidden-accessible" name="por_pagar" id="por_pagar">
                                             <option selected>Seleccionar forma</option>
                                             <option value="No deja anticipo">No deja anticipo</option>
@@ -196,27 +200,28 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 col-6">
-                                        <label for="">Anticipo</label> <br>
-                                        <input type="text" name="por_pagar" id="miinput" disabled>
+                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
+                                        <label class="label_steps" for="">Anticipo</label> <br>
+                                        <input class="form-control"  type="text" name="por_pagar" id="miinput" disabled>
                                     </div>
 
-                                    <div class="form-group mt-5 col-6">
-                                        <label for="">Factura</label> <br>
-                                        <input type="text" value="1" name="factura" id="factura">
+                                    <div class="form-group mt-5 col-12 col-md-12 col-lg-4">
+                                        <label class="label_steps" for="">Factura</label> <br>
+                                        <input class="form-control"  type="text" value="1" name="factura" id="factura">
                                     </div>
 
 
                                  </div>
 
-                                <button id="next1" class="btn-block btn-primary mt-3 mb-1 next mt-4"
-                                    onclick="validate2(0)">Guardar<span
-                                        class="fa fa-long-arrow-right"></span>
+                                    <a class="btn-block btn_prev_tab mt-3 mb-1 prev">
+                                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                        Anterior
+                                    </a>
+
+                                <button id="next1" class="btn-block btn_next_tab mt-3 mb-1 next mt-4">
+                                     <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar
                                 </button>
-                                <button
-                                    class="btn-block btn-secondary mt-3 mb-1 prev"><span
-                                        class="fa fa-long-arrow-left"></span>Anterior
-                                </button>
+
                             </div>
                         </fieldset>
 
@@ -234,4 +239,3 @@
                     </div>
                 </div>
     </div>
-    
