@@ -21,10 +21,6 @@ return new class extends Migration
                 ->references('id')->on('users')
                 ->inDelete('set null');
 
-            $table->foreign('id_descripcion_ticket')
-                ->references('id')->on('descripcion_ticket')
-                ->inDelete('set null');
-
             $table->string('servicio_primario')->nullable();
             $table->string('unyellow')->nullable();
             $table->string('tint')->nullable();
