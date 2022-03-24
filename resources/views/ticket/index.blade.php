@@ -57,7 +57,7 @@
 
 
                                             <td>
-                                                <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleModal_{{$item->id}}">
                                                     <i class="fa fa-fw fa-eye"></i>
                                                 </a>
                                                 <a class="icon_actions edit" href="#">
@@ -72,7 +72,7 @@
                                 </tbody>
                             </table>
             </div>
-                 @foreach ($ticket as $item)
+                 @foreach ($precio_ticket as $item)
                     @include('.ticket.view')
                  @endforeach
         </div>

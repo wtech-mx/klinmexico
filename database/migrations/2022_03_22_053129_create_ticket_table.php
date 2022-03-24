@@ -15,10 +15,14 @@ return new class extends Migration
     {
         Schema::create('ticket', function (Blueprint $table) {
             $table->id();
-            
+
             $table->unsignedBigInteger('id_user')->nullable();
             $table->foreign('id_user')
                 ->references('id')->on('users')
+                ->inDelete('set null');
+
+            $table->foreign('id_descripcion_ticket')
+                ->references('id')->on('descripcion_ticket')
                 ->inDelete('set null');
 
             $table->string('servicio_primario')->nullable();

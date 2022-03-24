@@ -1,9 +1,7 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal_{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel_{{ $item->id }}" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-
-
       <div class="modal-body">
 
         <div class="d-flex justify-content-between">
@@ -28,13 +26,18 @@
           <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
             <div class="limit_ticket">
                 <p class="text-dark">
-                    <strong> Recibo No.  </strong>: 01-0001 <br>
+                    <strong> Recibo No.  </strong>: {{ $item->Ticket->id }} <br>
                     <strong> Sucrusal: </strong> Condesa Nuevo Leon <br>
                     <strong> Fecha: </strong> Martes 22 Febrero 2022 <br><br>
-                    <strong> CLIENTE: </strong> Josue Adrian Ramirez Hernandez <br><br>
-                    <strong> Prenda: </strong> Nike Air Max (Azul, Blanco, No 8 Hombre) <br>
-                    <strong> Observaciones: </strong> Tinta Azuk <br>
-                    <strong> Rack: </strong> 01 <br>
+                    <strong> Cliente: </strong> {{ $item->Ticket->Client->name }} <br><br>
+                    <strong> Prenda: </strong> ({{ $item->Ticket->DescripcionTicket->marca }},
+                    {{ $item->Ticket->DescripcionTicket->modelo }},
+                    {{ $item->Ticket->DescripcionTicket->talla }},
+                    {{ $item->Ticket->DescripcionTicket->categoria }},
+                    <span class="badge rounded-pill " style="background-color: {{ $item->Ticket->DescripcionTicket->color1 }}">-</span>
+                    <span class="badge rounded-pill " style="background-color: {{ $item->Ticket->DescripcionTicket->color2 }}">-</span>) <br>
+                    <strong> Observaciones: </strong> {{ $item->Ticket->DescripcionTicket->observacion }}, <br><br>
+                    <strong> Rack: </strong> {{ $item->Ticket->rack }} <br>
                     <strong> Servicio: </strong> Estandar <br>
                     <strong> Comentarios: </strong> .... <br>
                     <strong> Entrega: </strong> .... <br>
@@ -51,7 +54,7 @@
                       <tbody>
                         <tr>
                           <th>1</th>
-                          <td>Limpieza VIP</td>
+                          <td>{{ $item->Ticket->servicio_primario }}</td>
                           <td>$160.00</td>
                           <td>$190.00</td>
                         </tr>
@@ -76,7 +79,7 @@
                     <strong> Recibo No.:  </strong> 01-0001 <br>
                     <strong> Sucrusal: </strong> Condesa Nuevo Leon <br>
                     <strong> Fecha: </strong> Martes 22 Febrero 2022 <br><br>
-                    <strong> CLIENTE: </strong> Josue Adrian Ramirez Hernandez <br><br>
+                    <strong> Cliente: </strong> Josue Adrian Ramirez Hernandez <br><br>
                     <strong> Prenda: </strong> Nike Air Max (Azul, Blanco, No 8 Hombre) <br>
                     <strong> Observaciones: </strong> Tinta Azuk <br>
                     <strong> Rack: </strong> 01 <br>
@@ -115,13 +118,14 @@
                         <strong>Recolecccion</strong>---------------- $100 <br>
                     </p>
                     <p class="text-dark text-left">
-                       <strong> Forma de pago  </strong> Efectivo <br>
-                       <strong> Factura  </strong> No <br><br>
+                       <strong> Forma de pago:  </strong> {{ $item->pago }} <br>
 
-                       <strong> Anticipo  </strong> $50 <br>
-                       <strong> Resta  </strong> $100 <br><br>
+                       <strong> Factura:  </strong> No <br><br>
 
-                       <strong> Por pagar </strong> $350 <br>
+                       <strong> Anticipo:  </strong> $50 <br>
+                       <strong> Resta:  </strong> $100 <br><br>
+
+                       <strong> Por pagar: </strong> $350 <br>
 
                     </p>
 
