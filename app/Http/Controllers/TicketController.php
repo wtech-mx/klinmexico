@@ -16,7 +16,9 @@ class TicketController extends Controller
 
         $ticket = Ticket::get();
 
-        return view('ticket.index', compact('ticket'));
+        $precio_ticket = PrecioTicket::get();
+
+        return view('ticket.index', compact('ticket', 'precio_ticket'));
     }
 
     public function create()
@@ -38,6 +40,7 @@ class TicketController extends Controller
         $precio_cap = $request->get('precio_cap');
         $por_pagar = $request->get('por_pagar');
         $tipo_servicio = $request->get('tipo_servicio');
+        $tint = $request->get('tint');
 
         if($request->get('glue')){
             $glue = '130';
@@ -71,12 +74,6 @@ class TicketController extends Controller
             $protector = '0';
         }
 
-        if($request->get('recoleccion') == '1'){
-            $recoleccion = '0';
-        }else{
-            $recoleccion = $request->get('recoleccion');
-        }
-
         if($request->get('promocion')){
             $promocion = $request->get('promocion');
         }else{
@@ -101,12 +98,32 @@ class TicketController extends Controller
                 break;
         }
 
-        if($request->get('tint') == 1 || $request->get('glue') || $request->get('sew') || $request->get('sole') || $request->get('patch') || $request->get('invisible') || $request->get('personalizado')){
+        if($request->get('tint') == 1){
             $tint = '160';
-            $suma = $precio_cap+$protector+$tint+$tipo_servicio+$glue+$sew+$sole+$invisible+$patch;
-            $descuento = $suma * $promocion;
-            $subtotal = $suma - $descuento;
-            $total = $subtotal + $recoleccion;
+        }
+        if($request->get('tint') == 2){
+            $tint = '300';
+        }
+        if($request->get('tint') == 3){
+            $tint = '450';
+        }
+
+        $suma = $precio_cap+$protector+$tint+$tipo_servicio;
+        $descuento = $suma * $promocion;
+        $subtotal = $suma - $descuento;
+        $total = $subtotal + $request->get('recoleccion');
+
+        if($request->get('gifcard')){
+            $protector = '55';
+            $por_pagar = $total - $request->get('por_pagar') - $request->get('gifcard');
+        }else{
+            $por_pagar = $total - $request->get('por_pagar');
+        }
+
+
+
+        if($request->get('por_pagar') == 2){
+            $por_pagar = $total;
         }
 
         $ticket = new Ticket;
@@ -141,7 +158,8 @@ class TicketController extends Controller
         $precio->promocion = $request->get('promocion');
         $precio->recoleccion = $request->get('recoleccion');
         $precio->pago = $request->get('pago');
-        $precio->por_pagar = $request->get('por_pagar');
+        $precio->gifcard = $request->get('gifcard');
+        $precio->por_pagar = $por_pagar;
         $precio->save();
 
         $descripcion = new DescripcionTicket;

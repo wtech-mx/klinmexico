@@ -23,33 +23,40 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-4 col-xs-12 col-md-6 col-lg-6 ">
+                                    <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
                                         <label class="label_steps" for="">Klin Cap</label>
                                         <input  class="form-check-input form-control" type="checkbox" checked disabled>
                                         <input  type="hidden" value="Klin Cap" name="servicio_primario" id="servicio_primario">
                                         <input  type="hidden" value="60" name="precio_cap" id="precio_cap">
                                     </div>
 
+                                    <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
+                                        <label class="label_steps" for="">Protector - $55</label>
+                                        <input  class="form-check-input form-control" type="checkbox" value="1" name="protector" id="protector">
+                                    </div>
+
                                     <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
                                         <label class="label_steps" for="">Servicio secundario</label>
                                         <select class="form-select select2 select2-hidden-accessible" name="tint" id="tint">
-                                            <option selected>Seleccionar tint</option>
-                                                <option value="1">Tint 1</option>
-                                                <option value="2">Tint 2</option>
-                                                <option value="3">Tint 3</option>
-                                                <option value="4">Personalizado</option>
+                                            <option value="0" selected>Seleccionar tint</option>
+                                                <option value="1">Tint 1 ----------- $160</option>
+                                                <option value="2">Tint 2 ----------- $300</option>
+                                                <option value="3">Tint 3 ----------- $450</option>
+                                                <option value="4">Personalizado -- $____</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
-                                        <label class="label_steps" for="">Tint personalizado</label> <br>
+                                        <label class="label_steps" for="">Tint personalizado $$</label> <br>
                                         <input  class="form-control" type="text" name="tint" id="miinput" disabled>
                                     </div>
 
-                                    <div class="form-group mt-3 mb-3 col-xs-12 col-md-6 col-lg-6 ">
-                                        <label class="label_steps" for="">Protector</label>
-                                        <input  class="form-check-input" type="checkbox" value="1" name="protector" id="protector">
+                                    <div class="form-group mt-4 mb-3 col-xs-12 col-md-12 col-lg-6">
+                                        <label class="label_steps" for="">Descripcion del tint</label> <br>
+                                        <textarea class="form-control" name="tint_descripcion" id="descripcion" cols="30" rows="5" disabled></textarea>
                                     </div>
+
+
                                 </div>
 
                                     <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
@@ -125,8 +132,8 @@
                                         <label class="label_steps" for="">Tipo de servicio</label>
                                         <select class="form-select select2 select2-hidden-accessible" name="tipo_servicio" id="tipo_servicio">
                                                 <option selected>Seleccionar servicio</option>
-                                                <option value="0">Estandar $0</option>
-                                                <option value="110">Mujer $110</option>
+                                                <option value="0">Estandar --------- $0</option>
+                                                <option value="110">Express ---------- $110</option>
                                         </select>
                                     </div>
 
@@ -153,13 +160,13 @@
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Aplicar Promocion</label>
                                         <select class="form-select select2 select2-hidden-accessible" name="promocion" id="promocion">
-                                                <option selected>Seleccionar forma</option>
-                                                <option value=".10">Cliente Distinguido 1</option>
-                                                <option value=".20">Cliente Distinguido 2</option>
-                                                <option value=".100">Cliente Distinguido 3</option>
-                                                <option value=".10">10% Descuento Total</option>
-                                                <option value=".20">20% Descuento Total</option>
-                                                <option value=".100">Cortesía</option>
+                                                <option value="0" selected>Seleccionar forma</option>
+                                                <option value=".10">Cliente Distinguido 1 ---- 10% </option>
+                                                <option value=".20">Cliente Distinguido 2 ---- 20% </option>
+                                                <option value=".100">Cliente Distinguido 3 ---- 100% </option>
+                                                <option value=".10">Descuento Total --------- 10% </option>
+                                                <option value=".20">Descuento Total --------- 20%</option>
+                                                <option value=".100">Cortesía ------------------ 100%</option>
                                         </select>
                                     </div>
 
@@ -167,14 +174,19 @@
                                         <label class="label_steps" for="">Recoleccion</label>
                                         <select class="form-select select2 select2-hidden-accessible" name="recoleccion" id="recoleccion">
                                                 <option selected>Seleccionar recoleecion</option>
-                                                <option value="1">No</option>
-                                                <option value="2">si</option>
+                                                <option value="0">No ---- 0%</option>
+                                                <option value="1">Si ----- $__</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Recoleccion $</label> <br>
                                         <input  class="form-control" type="number" name="recoleccion" id="input" disabled>
+                                    </div>
+
+                                    <div class="form-group mt-5 col-xs-6 col-md-6 col-lg-6">
+                                        <label class="label_steps" for="">Direccion</label> <br>
+                                        <input  class="form-control" type="number" name="recoleccion" id="rec" disabled>
                                     </div>
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
@@ -186,23 +198,28 @@
                                                 <option value="Tarjeta de credito">Tarjeta de Crédito</option>
                                                 <option value="Transferencia bancaria">Transferencia Bancaria</option>
                                                 <option value="Mercado pago">Mercado Pago</option>
-                                                <option value="Gifcard">Gifcard</option>
+                                                <option value="Gifcard">Gifcard --------------- $___</option>
                                         </select>
+                                    </div>
+
+                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
+                                        <label class="label_steps" for="">Gifcard</label> <br>
+                                        <input class="form-control"  type="text" name="gifcard" id="gif" disabled>
                                     </div>
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Por pagar</label>
                                         <select class="form-select select2 select2-hidden-accessible" name="por_pagar" id="por_pagar">
                                             <option selected>Seleccionar forma</option>
-                                            <option value="No deja anticipo">No deja anticipo</option>
-                                            <option value="Anticipo">Anticipo</option>
-                                            <option value="Liquida la cuenta">Liquida la cuenta</option>
+                                            <option value="2">No deja anticipo</option>
+                                            <option value="1">Anticipo</option>
+                                            <option value="0">Liquida la cuenta</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Anticipo</label> <br>
-                                        <input class="form-control"  type="text" name="por_pagar" id="miinput" disabled>
+                                        <input class="form-control"  type="text" name="por_pagar" id="pagar" disabled>
                                     </div>
 
                                     <div class="form-group mt-5 col-12 col-md-12 col-lg-4">

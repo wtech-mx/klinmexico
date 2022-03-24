@@ -117,6 +117,7 @@ Crear Ventas
 
     <script src="{{ asset('js/steps.js') }}"></script>
     <script>
+// input para tint
     $(document).ready(function () {
         $('#tint').change(function (e) {
           if ($(this).val() === "4") {
@@ -126,16 +127,58 @@ Crear Ventas
           }
         })
       });
-
+// input para descripcion del tint
+    $(document).ready(function () {
+        $('#tint').change(function (e) {
+          if ($(this).val() === "1" || $(this).val() === "2" || $(this).val() === "3" || $(this).val() === "4") {
+            $('#descripcion').prop("disabled", false);
+          } else {
+            $('#descripcion').prop("disabled", true);
+          }
+        })
+      });
+ // input para recoloeccion
       $(document).ready(function () {
         $('#recoleccion').change(function (e) {
-          if ($(this).val() === "2") {
+          if ($(this).val() === "1") {
             $('#input').prop("disabled", false);
           } else {
             $('#input').prop("disabled", true);
           }
         })
       });
+// input para recoloeccion
+       $(document).ready(function () {
+        $('#recoleccion').change(function (e) {
+          if ($(this).val() === "1") {
+            $('#rec').prop("disabled", false);
+          } else {
+            $('#rec').prop("disabled", true);
+          }
+        })
+      });
+ // input para por_pagar
+      $(document).ready(function () {
+        $('#por_pagar').change(function (e) {
+          if ($(this).val() === "1") {
+            $('#pagar').prop("disabled", false);
+          } else {
+            $('#pagar').prop("disabled", true);
+          }
+        })
+      });
+
+// input para por_pagar
+       $(document).ready(function () {
+        $('#pago').change(function (e) {
+          if ($(this).val() === "Gifcard") {
+            $('#gif').prop("disabled", false);
+          } else {
+            $('#gif').prop("disabled", true);
+          }
+        })
+      });
+
     </script>
 @endsection
 

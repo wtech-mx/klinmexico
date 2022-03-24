@@ -35,21 +35,21 @@
                                     <tr>
 										<th>Cliente</th>
 										<th>Servicio</th>
-										<th>Total</th>
+										<th>Por pagar</th>
 										<th>Estatus</th>
 
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($ticket as $item)
+                                    @foreach ($precio_ticket as $item)
                                         <tr>
 
-											<td>{{ $item->Client->name }}</td>
-											<td>{{ $item->servicio_primario }}</td>
-											<td>{{ $item->total }}</td>
+											<td>{{ $item->Ticket->Client->name }}</td>
+											<td>{{ $item->Ticket->servicio_primario }}</td>
+											<td>{{ $item->por_pagar }}</td>
 
-                                            @if ($item->estatus == 0)
+                                            @if ($item->Ticket->estatus == 0)
                                                 <td>Pendiente</td>
                                             @else
                                                 <td>Terminado</td>
