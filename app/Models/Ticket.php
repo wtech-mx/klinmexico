@@ -20,6 +20,8 @@ class Ticket extends Model
         'klin',
         'protector',
         'factura',
+        'estatus',
+        'rack',
     ];
 
     public function Client()

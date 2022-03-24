@@ -15,7 +15,9 @@ return new class extends Migration
     {
         Schema::table('ticket', function (Blueprint $table) {
             $table->float('total')->nullable();
+            $table->float('subtotal')->nullable();
             $table->tinyInteger('estatus')->nullable();
+            $table->integer('rack')->nullable();
         });
     }
 

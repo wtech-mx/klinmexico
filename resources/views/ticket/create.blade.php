@@ -61,12 +61,16 @@ Crear Ventas
                       <!-- Tab panes -->
                       <div class="tab-content text-center " id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                         @include('.ticket.form_sneakers')
+                         {{-- @include('.ticket.form_sneakers') --}}
+                         <p>Hola</p>
                         </div>
 
                         <div class="tab-pane fade" id="pills-Gorras" role="tabpanel" aria-labelledby="pills-Gorras-tab">
                             <p class="text-dark mr-5">
-                                @include('.ticket.form_gorros')
+                                <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
+                                    @csrf
+                                    @include('ticket.form_gorros')
+                                </form>
                             </p>
                         </div>
 
@@ -97,11 +101,21 @@ Crear Ventas
     <script src="{{ asset('js/steps.js') }}"></script>
     <script>
     $(document).ready(function () {
-        $('#grado_academico').change(function (e) {
+        $('#tint').change(function (e) {
           if ($(this).val() === "4") {
             $('#miinput').prop("disabled", false);
           } else {
             $('#miinput').prop("disabled", true);
+          }
+        })
+      });
+
+      $(document).ready(function () {
+        $('#recoleccion').change(function (e) {
+          if ($(this).val() === "2") {
+            $('#input').prop("disabled", false);
+          } else {
+            $('#input').prop("disabled", true);
           }
         })
       });

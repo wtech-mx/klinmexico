@@ -33,8 +33,6 @@
                     <table class="table table-striped table-responsive table-hover" id="tale_id" >
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-
 										<th>Cliente</th>
 										<th>Servicio</th>
 										<th>Total</th>
@@ -46,7 +44,6 @@
                                 <tbody>
                                     @foreach ($ticket as $item)
                                         <tr>
-                                            <td>{{ ++$i }}</td>
 
 											<td>{{ $item->Client->name }}</td>
 											<td>{{ $item->servicio_primario }}</td>
