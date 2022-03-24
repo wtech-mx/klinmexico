@@ -75,11 +75,16 @@ Crear Ventas
                         </div>
 
                         <div class="tab-pane fade" id="pills-Bolsos" role="tabpanel" aria-labelledby="pills-Bolsos-tab">
-                          <p class="text-dark mr-5">Hola 3.</p>
+                            <p class="text-dark mr-5">Hola 3.</p>
                         </div>
 
                         <div class="tab-pane fade" id="pills-Reparacion" role="tabpanel" aria-labelledby="pills-Reparacion-tab">
-                          <p class="text-dark mr-5">Hola 4.</p>
+                          <p class="text-dark mr-5">
+                            <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
+                                @csrf
+                                @include('ticket.form_reparacion')
+                            </form>
+                          </p>
                         </div>
 
                         <div class="tab-pane fade" id="pills-Nano" role="tabpanel" aria-labelledby="pills-Nano-tab">

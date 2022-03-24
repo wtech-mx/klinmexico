@@ -39,6 +39,32 @@ class TicketController extends Controller
         $por_pagar = $request->get('por_pagar');
         $tipo_servicio = $request->get('tipo_servicio');
 
+        if($request->get('glue')){
+            $glue = '130';
+        }else{
+            $glue = '0';
+        }
+
+        if($request->get('sole')){
+            $sole = '130';
+        }else{
+            $sole = '0';
+        }
+
+        if($request->get('invisible')){
+            $invisible = '130';
+        }else{
+            $invisible = '0';
+        }
+
+        if($request->get('sew') == 1){
+            $sew = '130';
+        }elseif($request->get('sew') == 2){
+            $sew = '240';
+        }else{
+            $sew = '0';
+        }
+
         if($request->get('protector')){
             $protector = '55';
         }else{
@@ -57,9 +83,27 @@ class TicketController extends Controller
             $promocion = '0';
         }
 
-        if($request->get('tint') == 1){
+        switch($request->get('patch')){
+            case($request->get('patch') == 1):
+                $patch = '240';
+                break;
+            case($request->get('patch') == 2):
+                    $patch = '160';
+                    break;
+            case($request->get('patch') == 3):
+                $patch = '160';
+                break;
+            case($request->get('patch') == 4):
+                $patch = '240';
+                break;
+            case($request->get('patch')):
+                $patch = '0';
+                break;
+        }
+
+        if($request->get('tint') == 1 || $request->get('glue') || $request->get('sew') || $request->get('sole') || $request->get('patch') || $request->get('invisible') || $request->get('personalizado')){
             $tint = '160';
-            $suma = $precio_cap+$protector+$tint+$tipo_servicio;
+            $suma = $precio_cap+$protector+$tint+$tipo_servicio+$glue+$sew+$sole+$invisible+$patch;
             $descuento = $suma * $promocion;
             $subtotal = $suma - $descuento;
             $total = $subtotal + $recoleccion;
@@ -80,15 +124,17 @@ class TicketController extends Controller
         $ticket->total = $total;
         $ticket->save();
 
-        $fixer = new Fixer;
-        $fixer->id_ticket = $ticket->id;
-        $fixer->glue = $request->get('glue');
-        $fixer->sew = $request->get('sew');
-        $fixer->sole = $request->get('sole');
-        $fixer->patch = $request->get('patch');
-        $fixer->invisible = $request->get('invisible');
-        $fixer->personalizado = $request->get('personalizado');
-        $fixer->save();
+        if($request->get('glue') || $request->get('sew') || $request->get('sole') || $request->get('patch') || $request->get('invisible') || $request->get('personalizado')){
+            $fixer = new Fixer;
+            $fixer->id_ticket = $ticket->id;
+            $fixer->glue = $request->get('glue');
+            $fixer->sew = $request->get('sew');
+            $fixer->sole = $request->get('sole');
+            $fixer->patch = $request->get('patch');
+            $fixer->invisible = $request->get('invisible');
+            $fixer->personalizado = $request->get('personalizado');
+            $fixer->save();
+        }
 
         $precio = new PrecioTicket;
         $precio->id_ticket = $ticket->id;
