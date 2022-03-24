@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/ticket/index', 'TicketController@index')->name('ticket.index');
     Route::get('/ticket/crear', 'TicketController@create')->name('ticket.create');
     Route::post('/ticket/store', 'TicketController@store')->name('ticket.store');
+    Route::post('/ticket/index', 'TicketController@view')->name('ticket.view');
 });
 
 

@@ -17,3 +17,56 @@
     color: red;
     font-size: 15px;
 }
+
+.btn_create{
+    background-color: #bc75ea;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.btn_create:hover{
+    background-color: #1EC4E5;
+    color: #ffffff;
+    border-radius: 30px;
+    padding: 10px;
+}
+
+.na_view_tickets{
+    justify-content: center;
+    display: flex;
+    flex-direction: inherit;
+}
+.modal-content{
+   border-radius: 30px!important;
+}
+
+
+.modal-body{
+    border: solid 2px transparent;
+}
+
+
+.btn_modal_send{
+    background: #0a10e9;
+    border-radius: 30px;
+    color: #fff;
+    padding: 10px;
+}
+
+.btn_modal_send:hover{
+    background: #bc75ea;
+    color: #fff;
+}
+
+.btn_modal{
+    border-radius: 30px!important;
+    background-color: #c2fbf5!important;
+    margin-left: 10px;
+}
+
+.nav-pills .nav-link.btn_modal.active, .nav-pills .show > .nav-link{
+    background-color: #1EC4E5!important;
+}
+
+

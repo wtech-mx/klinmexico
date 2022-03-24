@@ -15,7 +15,7 @@
 
                 <h1> Tickets </h1>
 
-                <a href="{{ route('ticket.create') }}" class="btn btn-primary">
+                <a href="{{ route('ticket.create') }}" class="btn btn_create">
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     Crear Ticket
                 </a>
@@ -57,7 +57,7 @@
 
 
                                             <td>
-                                                <a class="icon_actions eye" href="#">
+                                                <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     <i class="fa fa-fw fa-eye"></i>
                                                 </a>
                                                 <a class="icon_actions edit" href="#">
@@ -71,9 +71,10 @@
                                     @endforeach
                                 </tbody>
                             </table>
-
-
             </div>
+                 @foreach ($ticket as $item)
+                    @include('.ticket.view')
+                 @endforeach
         </div>
     </div>
 
