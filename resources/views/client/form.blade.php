@@ -32,7 +32,7 @@
 
         <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
             {{ Form::label('num_compras') }}
-            {{ Form::number('num_compras', $client->num_compras, ['class' => 'form-control' . ($errors->has('num_compras') ? ' is-invalid' : ''), 'placeholder' => 'Num Compras']) }}
+            {{ Form::number('num_compras', $client->num_compras, ['class' => 'form-control' . ($errors->has('num_compras') ? ' is-invalid' : ''), 'placeholder' => 'Num Compras','disabled']) }}
             {!! $errors->first('num_compras', '<div class="invalid-feedback">:message</div>') !!}
         </div>
 

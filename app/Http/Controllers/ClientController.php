@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 /**
  * Class ClientController
@@ -43,12 +44,48 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Client::$rules);
+       $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'apellido_ma' => 'required',
+            'apellido_pa' => 'required',
+            'telefono' => 'required',
+            'calle' => 'required',
+            'cp' => 'required',
+            'estado' => 'required',
+            'alcaldia' => 'required',
+            'colonia' => 'required',
+            'fecha_nacimiento' => 'required',
+        ]);
 
-        $client = Client::create($request->all());
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->with('errorForm', $validator->errors()->getMessages())
+                ->withInput();
+        }
 
-        return redirect()->route('clients.index')
-            ->with('success', 'Client created successfully.');
+        try {
+            $client = Client::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'apellido_ma' => $request->apellido_ma,
+            'apellido_pa' =>$request->apellido_pa,
+            'telefono' => $request->telefono,
+            'calle' => $request->calle,
+            'cp' => $request->cp,
+            'estado' => $request->estado,
+            'alcaldia' => $request->alcaldia,
+            'colonia' => $request->colonia,
+            'fecha_nacimiento' => $request->fecha_nacimiento,
+            ]);
+
+            return redirect()->route('clients.index')
+                ->with('success', 'Cliente creado exitosamente!');
+        } catch (\Exception $e){
+            return redirect()->back()
+                ->with('error', 'Faltan Validar datos!');
+        }
+
     }
 
     /**
