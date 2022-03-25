@@ -15,7 +15,7 @@
 
                 <h1> Clientes </h1>
 
-                <a href="{{ route('clients.create') }}" class="btn btn-primary">
+                <a href="{{ route('clients.create') }}" class="btn btn_create">
                     <i class="fa fa-plus-circle" aria-hidden="true"></i>
                     Crear cliente
                 </a>
@@ -71,13 +71,20 @@
 
                                             <td>
                                                 <form action="{{ route('clients.destroy',$client->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('clients.show',$client->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('clients.edit',$client->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="icon_actions eye" href="{{ route('clients.show',$client->id) }}">
+                                                        <i class="fa fa-fw fa-eye"></i>
+                                                    </a>
+                                                    <a class="icon_actions edit" href="{{ route('clients.edit',$client->id) }}">
+                                                        <i class="fa fa-fw fa-edit"></i>
+                                                    </a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="icon_actions trash" style="border: 1px solid transparent;padding: 0px;background: transparent">
+                                                        <i class="fa fa-fw fa-trash"></i>
+                                                    </button>
                                                 </form>
                                             </td>
+
                                         </tr>
                                     @endforeach
                                 </tbody>

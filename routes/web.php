@@ -24,17 +24,20 @@ Auth::routes();
 
 
     Route::group(['middleware' => ['auth']], function() {
-        
+
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::get('/', function () {
-        return view('welcome');
+        return view('/home');
     });
 
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
-    Route::resource('clients', ClientController::class);
+
+    Route::resource('clients', App\Http\Controllers\ClientController::class);
+
+
 
     Route::get('/ticket/index', [App\Http\Controllers\TicketController::class, 'index'])->name('ticket.index');
     Route::get('/ticket/crear', [App\Http\Controllers\TicketController::class, 'create'])->name('ticket.create');
