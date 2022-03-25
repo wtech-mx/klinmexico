@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use App\Models\RolesHasPermissions;
 use DB;
 
 class CreateRolesHasPermissions extends Seeder
@@ -15,54 +16,27 @@ class CreateRolesHasPermissions extends Seeder
      *
      * @return void
      */
+
     public function run()
     {
-        $permissions = DB::table('role_has_permissions')
-        ->create([
-            'permission_id' => '1',
-            'role_id' => '1'
-        ]);
 
-        $permissions = DB::table('role_has_permissions')
-        ->create([
-            'permission_id' => '2',
-            'role_id' => '1'
-        ]);
+       $permissions = [
+           '1',
+           '2',
+           '3',
+           '4',
+           '5',
+           '6',
+           '7',
+           '8',
+        ];
 
-        $permissions = DB::table('role_has_permissions')
-        ->create([
-            'permission_id' => '3',
-            'role_id' => '1'
-        ]);
+        foreach ($permissions as $permission) {
+             RolesHasPermissions::create([
+                 'permission_id' => $permission,
+                 'role_id' => 1,
+             ]);
+        }
 
-        $permissions = DB::table('role_has_permissions')
-        ->create([
-            'permission_id' => '4',
-            'role_id' => '1'
-        ]);
-
-        $permissions = DB::table('role_has_permissions')
-        ->create([
-            'permission_id' => '5',
-            'role_id' => '1'
-        ]);
-
-        $permissions = DB::table('role_has_permissions')
-        ->create([
-            'permission_id' => '6',
-            'role_id' => '1'
-        ]);
-
-        $permissions = DB::table('role_has_permissions')
-        ->create([
-            'permission_id' => '7',
-            'role_id' => '1'
-        ]);
-
-        $permissions = DB::table('role_has_permissions')
-        ->create([
-            'permission_id' => '8',
-            'role_id' => '1'
-        ]);
     }
 }
