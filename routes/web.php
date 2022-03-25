@@ -30,10 +30,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('users', UserController::class);
     Route::resource('products', ProductController::class);
     Route::resource('clients', ClientController::class);
-    Route::get('/ticket/index', 'TicketController@index')->name('ticket.index');
-    Route::get('/ticket/crear', 'TicketController@create')->name('ticket.create');
-    Route::post('/ticket/store', 'TicketController@store')->name('ticket.store');
-    Route::post('/ticket/index', 'TicketController@view')->name('ticket.view');
+
+    Route::get('/ticket/index', [App\Http\Controllers\TicketController::class, 'index'])->name('index.ticket');
+    Route::get('/ticket/crear', [App\Http\Controllers\TicketController::class, 'crear'])->name('crear.ticket');
+    Route::get('/ticket/store', [App\Http\Controllers\TicketController::class, 'store'])->name('store.ticket');
+    Route::get('/ticket/index', [App\Http\Controllers\TicketController::class, 'view'])->name('view.ticket');
 });
 
 
