@@ -45,7 +45,7 @@
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Forma de pago</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="pago" id="pago">
+                                        <select class="form-select select2 select2-hidden-accessible" name="pago" id="pago5">
                                                 <option selected>Seleccionar forma</option>
                                                 <option value="Efectivo">Efectivo</option>
                                                 <option value="Tarjeta de debito">Tarjeta de Débito</option>
@@ -58,13 +58,13 @@
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Gifcard</label> <br>
-                                        <input class="form-control"  type="text" name="gifcard" id="gif" disabled>
+                                        <input class="form-control"  type="text" name="gifcard" id="gif5" disabled>
                                     </div>
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Por pagar</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="por_pagar" id="por_pagar">
-                                            <option selected>Seleccionar forma</option>
+                                        <select class="form-select select2 select2-hidden-accessible" name="por_pagar" id="por_pagar5">
+                                            <option value="" selected>Seleccionar forma</option>
                                             <option value="2">No deja anticipo</option>
                                             <option value="1">Anticipo</option>
                                             <option value="0">Liquida la cuenta</option>
@@ -73,12 +73,20 @@
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Anticipo</label> <br>
-                                        <input class="form-control"  type="text" name="por_pagar" id="pagar" disabled>
+                                        <input class="form-control"  type="text" name="por_pagar" id="pagar5" disabled>
                                     </div>
 
-                                    <div class="form-group mt-5 col-12 col-md-12 col-lg-4">
-                                        <label class="label_steps" for="">Factura</label> <br>
-                                        <input class="form-control"  type="text" value="1" name="factura" id="factura">
+                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
+                                        <label class="label_steps" for="">¿Requiere factura?</label>
+                                        <select class="form-select select2 select2-hidden-accessible" name="factura" id="factura5">
+                                            <option value="no">No</option>
+                                            <option value="si">Si</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
+                                        <label class="label_steps" for="">Direccion de factura</label> <br>
+                                        <input class="form-control"  type="text" name="factura" id="facturacion5" disabled>
                                     </div>
 
 

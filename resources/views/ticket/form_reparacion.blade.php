@@ -13,8 +13,8 @@
                 <div class="form-card text-black">
                     <div class="row">
 
-                        <div class="form-group col-6 col-md-6 col-lg-4">
-                            <label for="">Cliente</label>
+                        <div class="form-group col-xs-12 col-md-6 col-lg-6 ">
+                            <label class="label_steps" for="">Cliente</label>
                             <select class="form-select" aria-label="Default select example" name="id_user" id="id_user">
                                 <option selected>Seleccionar usuario</option>
                                 @foreach ($client as $item)
@@ -23,55 +23,53 @@
                             </select>
                         </div>
 
-                        <div class="form-group mt-4 col-6 col-md-6 col-lg-4">
-                            <label for="">Fixer Snkrs</label>
-                            <input class="form-check-input" type="checkbox" checked disabled>
-                            <input type="hidden" value="Fixer Snkrs" name="servicio_primario" id="servicio_primario">
+                        <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
+                            <label class="label_steps" for="">Fixer Snkrs</label>
+                            <input  class="form-check-input form-control" type="checkbox" checked disabled>
+                            <input  type="hidden" value="Fixer Snkrs" name="servicio_primario" id="servicio_primario">
                         </div>
 
-                        <div class="form-group col-6 col-md-6 col-lg-4">
-                            <label for="">Glue</label>
-                            <select class="form-select" name="glue" id="glue">
-                                <option selected>Seleccione Glue</option>
-                                    <option value="1">Sole Glue Media</option>
-                                    <option value="2">Sole Glue Full</option>
+                        <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
+                            <label class="label_steps" for="">Glue</label>
+                            <select class="form-select select2 select2-hidden-accessible" name="glue" id="glue">
+                                <option value="" selected>Seleccionar Glue</option>
+                                <option value="1">Sole Glue Media</option>
+                                <option value="2">Sole Glue Full</option>
                             </select>
                         </div>
 
-                        <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
-                            <label for="">Sew</label>
-                            <select class="form-select" name="sew" id="sew">
-                                <option selected>Seleccione Sew</option>
-                                    <option value="1">Sole Sew 5cm</option>
-                                    <option value="2">Sole Sew Full</option>
+                        <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
+                            <label class="label_steps" for="">Sew</label>
+                            <select class="form-select select2 select2-hidden-accessible" name="sew" id="sew">
+                                <option value="" selected>Seleccionar Sew</option>
+                                <option value="1">Sole Sew 5cm</option>
+                                <option value="2">Sole Sew Full</option>
                             </select>
                         </div>
 
-                        <div class="form-group mt-3 col-6 col-md-6 col-lg-6" style="display: contents;">
-                            <div class="form-check form-check-inline  mt-5">
-                                <input class="form-check-input" type="checkbox" value="1" name="sole" id="sole">
-                                <label class="form-check-label" for="inlineRadio1">Generic Sole AF1</label>
-                            </div>
-
-                            <div class="form-check form-check-inline  mt-5">
-                                <input class="form-check-input" type="checkbox" value="1" name="invisible" id="invisible">
-                                <label class="form-check-label" for="inlineRadio2">Invisible Snkers Patch</label>
-                            </div>
+                        <div class="form-group mt-4 col-xs-12 col-md-6 col-lg-6">
+                            <label class="label_steps" for="">Generic Sole AF1</label>
+                            <input  class="form-check-input form-control" type="checkbox" value="1" name="sole" id="sole">
                         </div>
 
-                        <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
-                            <label for="">Fixer Personalizado</label> <br>
-                            <input class="form-control" type="number" name="personalizado" id="personalizado" placeholder="$">
+                        <div class="form-group mt-4 col-xs-12 col-md-6 col-lg-6">
+                            <label class="label_steps" for="">Invisible Snkers Patch</label>
+                            <input  class="form-check-input form-control" type="checkbox" value="1" name="invisible" id="invisible">
                         </div>
 
-                        <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
-                            <label for="">Snkrs</label>
-                            <select class="form-select" name="patch" id="patch">
-                                <option selected>Seleccione Snkrs</option>
-                                    <option value="1">Snkrs patch par</option>
-                                    <option value="2">Snkrs patch 1pz</option>
-                                    <option value="3">Heel stopper dama</option>
-                                    <option value="4">Heel stopper caballero</option>
+                        <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
+                            <label class="label_steps" for="">Fixer Personalizado</label> <br>
+                            <input  class="form-control" type="number" name="personalizado" id="personalizado" placeholder="$">
+                        </div>
+
+                        <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
+                            <label class="label_steps" for="">Snkrs</label>
+                            <select class="form-select select2 select2-hidden-accessible" name="patch" id="patch">
+                                <option value="" selected>Seleccionar Sew</option>
+                                <option value="1">Snkrs patch par</option>
+                                <option value="2">Snkrs patch 1pz</option>
+                                <option value="3">Heel stopper dama</option>
+                                <option value="4">Heel stopper caballero</option>
                             </select>
                         </div>
 
@@ -189,21 +187,26 @@
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Recoleccion</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="recoleccion" id="recoleccion">
-                                                <option selected>Seleccionar recoleecion</option>
-                                                <option value="1">No</option>
-                                                <option value="2">si</option>
+                                        <select class="form-select select2 select2-hidden-accessible" name="recoleccion" id="recoleccion4">
+                                                <option value="" selected>Seleccionar recoleecion</option>
+                                                <option value="2">No ---- 0%</option>
+                                                <option value="1">si ----- $__</option>
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
+                                    <div class="form-group col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Recoleccion $</label> <br>
-                                        <input  class="form-control" type="number" name="recoleccion" id="input" disabled>
+                                        <input  class="form-control" type="number" name="recoleccion" id="input4" disabled>
                                     </div>
 
-                                    <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
+                                    <div class="form-group col-xs-6 col-md-6 col-lg-6">
+                                        <label class="label_steps" for="">Direccion</label> <br>
+                                        <input  class="form-control" type="number" name="recoleccion" id="rec4" disabled>
+                                    </div>
+
+                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Forma de pago</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="pago" id="pago">
+                                        <select class="form-select select2 select2-hidden-accessible" name="pago" id="pago4">
                                                 <option selected>Seleccionar forma</option>
                                                 <option value="Efectivo">Efectivo</option>
                                                 <option value="Tarjeta de debito">Tarjeta de Débito</option>
@@ -214,26 +217,38 @@
                                         </select>
                                     </div>
 
+                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
+                                        <label class="label_steps" for="">Gifcard</label> <br>
+                                        <input class="form-control"  type="text" name="gifcard" id="gif4" disabled>
+                                    </div>
+
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Por pagar</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="por_pagar" id="por_pagar">
-                                            <option selected>Seleccionar forma</option>
-                                            <option value="No deja anticipo">No deja anticipo</option>
-                                            <option value="Anticipo">Anticipo</option>
-                                            <option value="Liquida la cuenta">Liquida la cuenta</option>
+                                        <select class="form-select select2 select2-hidden-accessible" name="por_pagar" id="por_pagar4">
+                                            <option value="" selected>Seleccionar forma</option>
+                                            <option value="2">No deja anticipo</option>
+                                            <option value="1">Anticipo</option>
+                                            <option value="0">Liquida la cuenta</option>
                                         </select>
                                     </div>
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Anticipo</label> <br>
-                                        <input class="form-control"  type="text" name="por_pagar" id="miinput" disabled>
+                                        <input class="form-control"  type="text" name="por_pagar" id="pagar4" disabled>
                                     </div>
 
-                                    <div class="form-group mt-5 col-12 col-md-12 col-lg-4">
-                                        <label class="label_steps" for="">Factura</label> <br>
-                                        <input class="form-control"  type="text" value="1" name="factura" id="factura">
+                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
+                                        <label class="label_steps" for="">¿Requiere factura?</label>
+                                        <select class="form-select select2 select2-hidden-accessible" name="factura" id="factura4">
+                                            <option value="no">No</option>
+                                            <option value="si">Si</option>
+                                        </select>
                                     </div>
 
+                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
+                                        <label class="label_steps" for="">Direccion de factura</label> <br>
+                                        <input class="form-control"  type="text" name="factura" id="facturacion4" disabled>
+                                    </div>
 
                                  </div>
 

@@ -35,12 +35,12 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 col-xs-12 col-md-3 col-lg-3">
+                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">Unyellow - $80</label>
                                         <input  class="form-check-input form-control" type="checkbox" value="1" name="unyellow" id="unyellow">
                                     </div>
 
-                                    <div class="form-group mt-5 col-xs-12 col-md-3 col-lg-3">
+                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">Klin Dye - $260</label>
                                         <input  class="form-check-input form-control" type="checkbox" value="1" name="klin_dye" id="klin_dye">
                                     </div>
@@ -86,12 +86,12 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 col-xs-12 col-md-3 col-lg-3">
+                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">Generic Sole AF1 --- $520</label>
                                         <input  class="form-check-input form-control" type="checkbox" value="1" name="sole" id="sole">
                                     </div>
 
-                                    <div class="form-group mt-5 col-xs-12 col-md-3 col-lg-3">
+                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">Invisible Snkers Patch --- $180</label>
                                         <input  class="form-check-input form-control" type="checkbox" value="1" name="invisible" id="invisible">
                                     </div>
@@ -266,7 +266,7 @@
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Por pagar</label>
                                         <select class="form-select select2 select2-hidden-accessible" name="por_pagar" id="por_pagar">
-                                            <option selected>Seleccionar forma</option>
+                                            <option value="" selected>Seleccionar forma</option>
                                             <option value="2">No deja anticipo</option>
                                             <option value="1">Anticipo</option>
                                             <option value="0">Liquida la cuenta</option>
@@ -278,11 +278,18 @@
                                         <input class="form-control"  type="text" name="por_pagar" id="pagar" disabled>
                                     </div>
 
-                                    <div class="form-group mt-5 col-12 col-md-12 col-lg-4">
-                                        <label class="label_steps" for="">Factura</label> <br>
-                                        <input class="form-control"  type="text" value="1" name="factura" id="factura">
+                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
+                                        <label class="label_steps" for="">¿Requiere factura?</label>
+                                        <select class="form-select select2 select2-hidden-accessible" name="factura" id="factura">
+                                            <option value="no">No</option>
+                                            <option value="si">Si</option>
+                                        </select>
                                     </div>
 
+                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
+                                        <label class="label_steps" for="">Direccion de factura</label> <br>
+                                        <input class="form-control"  type="text" name="factura" id="facturacion" disabled>
+                                    </div>
 
                                  </div>
 

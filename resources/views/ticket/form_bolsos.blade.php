@@ -41,7 +41,7 @@
 
                                     <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
                                         <label class="label_steps" for="">Servicio secundario</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="tint" id="tint">
+                                        <select class="form-select select2 select2-hidden-accessible" name="tint" id="tint3">
                                             <option value="0" selected>Seleccionar tint</option>
                                                 <option value="1">Tint 1 ----------- $160</option>
                                                 <option value="2">Tint 2 ----------- $300</option>
@@ -52,12 +52,12 @@
 
                                     <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
                                         <label class="label_steps" for="">Tint personalizado $$</label> <br>
-                                        <input  class="form-control" type="text" name="tint" id="miinput" disabled>
+                                        <input  class="form-control" type="text" name="tint" id="miinput3" disabled>
                                     </div>
 
                                     <div class="form-group mt-4 mb-3 col-xs-12 col-md-12 col-lg-6">
                                         <label class="label_steps" for="">Descripcion del tint</label> <br>
-                                        <textarea class="form-control" name="tint_descripcion" id="descripcion" cols="30" rows="5" disabled></textarea>
+                                        <textarea class="form-control" name="tint_descripcion" id="descripcion3" cols="30" rows="5" disabled></textarea>
                                     </div>
 
 
@@ -176,7 +176,7 @@
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Recoleccion</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="recoleccion" id="recoleccion">
+                                        <select class="form-select select2 select2-hidden-accessible" name="recoleccion" id="recoleccion3">
                                                 <option selected>Seleccionar recoleecion</option>
                                                 <option value="0">No ---- 0%</option>
                                                 <option value="1">Si ----- $__</option>
@@ -185,17 +185,17 @@
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Recoleccion $</label> <br>
-                                        <input  class="form-control" type="number" name="recoleccion" id="input" disabled>
+                                        <input  class="form-control" type="number" name="recoleccion" id="input3" disabled>
                                     </div>
 
                                     <div class="form-group mt-5 col-xs-6 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">Direccion</label> <br>
-                                        <input  class="form-control" type="number" name="recoleccion" id="rec" disabled>
+                                        <input  class="form-control" type="number" name="recoleccion" id="rec3" disabled>
                                     </div>
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Forma de pago</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="pago" id="pago">
+                                        <select class="form-select select2 select2-hidden-accessible" name="pago" id="pago3">
                                                 <option selected>Seleccionar forma</option>
                                                 <option value="Efectivo">Efectivo</option>
                                                 <option value="Tarjeta de debito">Tarjeta de Débito</option>
@@ -208,12 +208,12 @@
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Gifcard</label> <br>
-                                        <input class="form-control"  type="text" name="gifcard" id="gif" disabled>
+                                        <input class="form-control"  type="text" name="gifcard" id="gif3" disabled>
                                     </div>
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Por pagar</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="por_pagar" id="por_pagar">
+                                        <select class="form-select select2 select2-hidden-accessible" name="por_pagar" id="por_pagar3">
                                             <option selected>Seleccionar forma</option>
                                             <option value="2">No deja anticipo</option>
                                             <option value="1">Anticipo</option>
@@ -223,12 +223,20 @@
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Anticipo</label> <br>
-                                        <input class="form-control"  type="text" name="por_pagar" id="pagar" disabled>
+                                        <input class="form-control"  type="text" name="por_pagar" id="pagar3" disabled>
                                     </div>
 
-                                    <div class="form-group mt-5 col-12 col-md-12 col-lg-4">
-                                        <label class="label_steps" for="">Factura</label> <br>
-                                        <input class="form-control"  type="text" value="1" name="factura" id="factura">
+                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
+                                        <label class="label_steps" for="">¿Requiere factura?</label>
+                                        <select class="form-select select2 select2-hidden-accessible" name="factura" id="factura3">
+                                            <option value="no">No</option>
+                                            <option value="si">Si</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
+                                        <label class="label_steps" for="">Direccion de factura</label> <br>
+                                        <input class="form-control"  type="text" name="factura" id="facturacion3" disabled>
                                     </div>
 
 
