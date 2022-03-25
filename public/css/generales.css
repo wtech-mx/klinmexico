@@ -68,5 +68,14 @@
 .nav-pills .nav-link.btn_modal.active, .nav-pills .show > .nav-link{
     background-color: #1EC4E5!important;
 }
+.btn_next_tab{
+    background-color: #0a10e9;
+    padding: 10px;
+    color: #fff;
+    border-radius: 15px;
+    top: 20px;
+    position: relative;
+    margin-top: 3rem!important;
+}
 
 

@@ -47,7 +47,7 @@ class ClientController extends Controller
 
         $client = Client::create($request->all());
 
-        return redirect()->route('ClientController.index')
+        return redirect()->route('clients.index')
             ->with('success', 'Client created successfully.');
     }
 
@@ -90,7 +90,7 @@ class ClientController extends Controller
 
         $client->update($request->all());
 
-        return redirect()->route('ClientController.index')
+        return redirect()->route('clients.index')
             ->with('success', 'Client updated successfully');
     }
 
@@ -103,7 +103,7 @@ class ClientController extends Controller
     {
         $client = Client::find($id)->delete();
 
-        return redirect()->route('ClientController.index')
+        return redirect()->route('clients.index')
             ->with('success', 'Client deleted successfully');
     }
 }
