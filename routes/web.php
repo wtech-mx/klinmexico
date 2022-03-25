@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::resource('roles', RoleController::class);
@@ -31,10 +31,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('products', ProductController::class);
     Route::resource('clients', ClientController::class);
 
-    Route::get('/ticket/index', [App\Http\Controllers\TicketController::class, 'index'])->name('index.ticket');
-    Route::get('/ticket/crear', [App\Http\Controllers\TicketController::class, 'crear'])->name('crear.ticket');
-    Route::get('/ticket/store', [App\Http\Controllers\TicketController::class, 'store'])->name('store.ticket');
-    Route::get('/ticket/index', [App\Http\Controllers\TicketController::class, 'view'])->name('view.ticket');
+    Route::get('/ticket/index', [App\Http\Controllers\TicketController::class, 'index'])->name('ticket.index');
+    Route::get('/ticket/crear', [App\Http\Controllers\TicketController::class, 'create'])->name('ticket.create');
+    Route::get('/ticket/store', [App\Http\Controllers\TicketController::class, 'store'])->name('ticket.store');
+    Route::get('/ticket/view', [App\Http\Controllers\TicketController::class, 'view'])->name('ticket.view');
 });
 
 
