@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="form-group mt-4 col-6 col-md-6 col-lg-4">
-                            <label for="">Klin Cap</label>
+                            <label for="">Fixer Snkrs</label>
                             <input class="form-check-input" type="checkbox" checked disabled>
                             <input type="hidden" value="Fixer Snkrs" name="servicio_primario" id="servicio_primario">
                         </div>

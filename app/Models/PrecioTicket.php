@@ -17,6 +17,7 @@ class PrecioTicket extends Model
         'recoleccion',
         'pago',
         'por_pagar',
+        'id_descripcion',
     ];
 
     public function Ticket()
@@ -24,6 +25,9 @@ class PrecioTicket extends Model
         return $this->belongsTo(Ticket::class, 'id_ticket');
     }
 
-
+    public function DescripcionTicket()
+    {
+        return $this->belongsTo(DescripcionTicket::class, 'id_descripcion');
+    }
 
 }

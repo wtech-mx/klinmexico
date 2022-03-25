@@ -73,8 +73,10 @@ Crear Ventas
                       <!-- Tab panes -->
                       <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                         {{-- @include('.ticket.form_sneakers') --}}
-                         <p>Hola</p>
+                            <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
+                                @csrf
+                                @include('ticket.form_sneakers')
+                            </form>
                         </div>
 
                         <div class="tab-pane fade" id="pills-Gorras" role="tabpanel" aria-labelledby="pills-Gorras-tab">
@@ -87,7 +89,12 @@ Crear Ventas
                         </div>
 
                         <div class="tab-pane fade" id="pills-Bolsos" role="tabpanel" aria-labelledby="pills-Bolsos-tab">
-                            <p class="text-dark mr-5">Hola 3.</p>
+                            <p class="text-dark mr-5">
+                                <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
+                                    @csrf
+                                    @include('ticket.form_bolsos')
+                                </form>
+                            </p>
                         </div>
 
                         <div class="tab-pane fade" id="pills-Reparacion" role="tabpanel" aria-labelledby="pills-Reparacion-tab">
@@ -100,7 +107,12 @@ Crear Ventas
                         </div>
 
                         <div class="tab-pane fade" id="pills-Nano" role="tabpanel" aria-labelledby="pills-Nano-tab">
-                            <p class="text-dark mr-5">Hola 5.</p>
+                            <p class="text-dark mr-5">
+                                <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
+                                    @csrf
+                                    @include('ticket.form_nano')
+                                </form>
+                            </p>
                         </div>
 
                       </div>

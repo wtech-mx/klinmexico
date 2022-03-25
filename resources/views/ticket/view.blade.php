@@ -30,13 +30,13 @@
                     <strong> Sucrusal: </strong> Condesa Nuevo Leon <br>
                     <strong> Fecha: </strong> Martes 22 Febrero 2022 <br><br>
                     <strong> Cliente: </strong> {{ $item->Ticket->Client->name }} <br><br>
-                    <strong> Prenda: </strong> ({{ $item->Ticket->DescripcionTicket->marca }},
-                    {{ $item->Ticket->DescripcionTicket->modelo }},
-                    {{ $item->Ticket->DescripcionTicket->talla }},
-                    {{ $item->Ticket->DescripcionTicket->categoria }},
-                    <span class="badge rounded-pill " style="background-color: {{ $item->Ticket->DescripcionTicket->color1 }}">-</span>
-                    <span class="badge rounded-pill " style="background-color: {{ $item->Ticket->DescripcionTicket->color2 }}">-</span>) <br>
-                    <strong> Observaciones: </strong> {{ $item->Ticket->DescripcionTicket->observacion }}, <br><br>
+                    <strong> Prenda: </strong> ({{ $item->DescripcionTicket->marca }},
+                    {{ $item->DescripcionTicket->modelo }},
+                    {{ $item->DescripcionTicket->talla }},
+                    {{ $item->DescripcionTicket->categoria }},
+                    <span class="badge rounded-pill " style="background-color: {{ $item->DescripcionTicket->color1 }}">-</span>
+                    <span class="badge rounded-pill " style="background-color: {{ $item->DescripcionTicket->color2 }}">-</span>) <br>
+                    <strong> Observaciones: </strong> {{ $item->DescripcionTicket->observacion }}, <br><br>
                     <strong> Rack: </strong> {{ $item->Ticket->rack }} <br>
                     <strong> Servicio: </strong> Estandar <br>
                     <strong> Comentarios: </strong> .... <br>

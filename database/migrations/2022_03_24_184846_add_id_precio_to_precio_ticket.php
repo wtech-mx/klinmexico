@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('ticket', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_descripcion_ticket')->nullable();
-            $table->foreign('id_descripcion_ticket')
+        Schema::table('precio_ticket', function (Blueprint $table) {
+            $table->unsignedBigInteger('id_descripcion')->nullable();
+            $table->foreign('id_descripcion')
                 ->references('id')->on('descripcion_ticket')
                 ->inDelete('set null');
         });
@@ -28,7 +28,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('ticket', function (Blueprint $table) {
+        Schema::table('precio_ticket', function (Blueprint $table) {
             //
         });
     }
