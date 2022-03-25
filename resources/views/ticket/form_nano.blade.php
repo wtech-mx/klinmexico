@@ -13,8 +13,8 @@
                                 <div class="row">
 
                                     <div class="form-group col-xs-12 col-md-6 col-lg-6 ">
-                                        <label class="label_steps" for="">Cliente</label>
-                                        <select class="form-select" aria-label="Default select example" name="id_user" id="id_user">
+                                        <label class="label_steps" for="">Cliente</label><br>
+                                        <select class="form-select" aria-label="Default select example" name="id_user" id="mi-selector5">
                                             <option selected>Seleccionar usuario</option>
                                             @foreach ($client as $item)
                                                 <option value="{{$item->id}}">{{$item->name}}</option>
@@ -45,7 +45,7 @@
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Forma de pago</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="pago" id="pago5">
+                                        <select class="form-select select2" name="pago" id="pago5">
                                                 <option selected>Seleccionar forma</option>
                                                 <option value="Efectivo">Efectivo</option>
                                                 <option value="Tarjeta de debito">Tarjeta de Débito</option>
@@ -63,7 +63,7 @@
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Por pagar</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="por_pagar" id="por_pagar5">
+                                        <select class="form-select select2" name="por_pagar" id="por_pagar5">
                                             <option value="" selected>Seleccionar forma</option>
                                             <option value="2">No deja anticipo</option>
                                             <option value="1">Anticipo</option>
@@ -78,7 +78,7 @@
 
                                     <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">¿Requiere factura?</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="factura" id="factura5">
+                                        <select class="form-select select2" name="factura" id="factura5">
                                             <option value="no">No</option>
                                             <option value="si">Si</option>
                                         </select>

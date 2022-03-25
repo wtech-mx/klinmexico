@@ -14,8 +14,8 @@
                     <div class="row">
 
                         <div class="form-group col-xs-12 col-md-6 col-lg-6 ">
-                            <label class="label_steps" for="">Cliente</label>
-                            <select class="form-select" aria-label="Default select example" name="id_user" id="id_user">
+                            <label class="label_steps" for="">Cliente</label> <br>
+                            <select class="form-select" aria-label="Default select example" name="id_user" id="mi-selector4">
                                 <option selected>Seleccionar usuario</option>
                                 @foreach ($client as $item)
                                     <option value="{{$item->id}}">{{$item->name}}</option>
@@ -23,7 +23,7 @@
                             </select>
                         </div>
 
-                        <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
+                        <div class="form-group col-xs-12 col-md-3 col-lg-3">
                             <label class="label_steps" for="">Fixer Snkrs</label>
                             <input  class="form-check-input form-control" type="checkbox" checked disabled>
                             <input  type="hidden" value="Fixer Snkrs" name="servicio_primario" id="servicio_primario">
@@ -31,7 +31,7 @@
 
                         <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
                             <label class="label_steps" for="">Glue</label>
-                            <select class="form-select select2 select2-hidden-accessible" name="glue" id="glue">
+                            <select class="form-select select2 " name="glue" id="glue">
                                 <option value="" selected>Seleccionar Glue</option>
                                 <option value="1">Sole Glue Media</option>
                                 <option value="2">Sole Glue Full</option>
@@ -40,7 +40,7 @@
 
                         <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
                             <label class="label_steps" for="">Sew</label>
-                            <select class="form-select select2 select2-hidden-accessible" name="sew" id="sew">
+                            <select class="form-select select2 " name="sew" id="sew">
                                 <option value="" selected>Seleccionar Sew</option>
                                 <option value="1">Sole Sew 5cm</option>
                                 <option value="2">Sole Sew Full</option>
@@ -64,7 +64,7 @@
 
                         <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
                             <label class="label_steps" for="">Snkrs</label>
-                            <select class="form-select select2 select2-hidden-accessible" name="patch" id="patch">
+                            <select class="form-select select2 " name="patch" id="patch">
                                 <option value="" selected>Seleccionar Sew</option>
                                 <option value="1">Snkrs patch par</option>
                                 <option value="2">Snkrs patch 1pz</option>
@@ -115,7 +115,7 @@
 
                                     <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
                                         <label class="label_steps" for="">Categoria</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="categoria" id="categoria">
+                                        <select class="form-select select2 " name="categoria" id="categoria">
                                                 <option selected>Seleccionar categoria</option>
                                                 <option value="Hombre">Hombre</option>
                                                 <option value="Mujer">Mujer</option>
@@ -146,7 +146,7 @@
                     <div class="row">
                         <div class="form-group mt-5 mb-5 col-12">
                             <label class="label_steps" for="">Tipo de servicio</label>
-                            <select class="form-select select2 select2-hidden-accessible" name="tipo_servicio" id="tipo_servicio">
+                            <select class="form-select select2 " name="tipo_servicio" id="tipo_servicio">
                                     <option selected>Seleccionar servicio</option>
                                     <option value="0">Estandar $0</option>
                                     <option value="110">Mujer $110</option>
@@ -174,7 +174,7 @@
                                 <div class="row">
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Aplicar Promocion</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="promocion" id="promocion">
+                                        <select class="form-select select2 " name="promocion" id="promocion">
                                                 <option selected>Seleccionar forma</option>
                                                 <option value=".10">Cliente Distinguido 1</option>
                                                 <option value=".20">Cliente Distinguido 2</option>
@@ -187,7 +187,7 @@
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Recoleccion</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="recoleccion" id="recoleccion4">
+                                        <select class="form-select select2 " name="recoleccion" id="recoleccion4">
                                                 <option value="" selected>Seleccionar recoleecion</option>
                                                 <option value="2">No ---- 0%</option>
                                                 <option value="1">si ----- $__</option>
@@ -206,7 +206,7 @@
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Forma de pago</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="pago" id="pago4">
+                                        <select class="form-select select2 " name="pago" id="pago4">
                                                 <option selected>Seleccionar forma</option>
                                                 <option value="Efectivo">Efectivo</option>
                                                 <option value="Tarjeta de debito">Tarjeta de Débito</option>
@@ -224,7 +224,7 @@
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Por pagar</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="por_pagar" id="por_pagar4">
+                                        <select class="form-select select2 " name="por_pagar" id="por_pagar4">
                                             <option value="" selected>Seleccionar forma</option>
                                             <option value="2">No deja anticipo</option>
                                             <option value="1">Anticipo</option>
@@ -239,7 +239,7 @@
 
                                     <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">¿Requiere factura?</label>
-                                        <select class="form-select select2 select2-hidden-accessible" name="factura" id="factura4">
+                                        <select class="form-select select2 " name="factura" id="factura4">
                                             <option value="no">No</option>
                                             <option value="si">Si</option>
                                         </select>
