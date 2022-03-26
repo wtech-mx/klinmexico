@@ -109,7 +109,8 @@ a {
 }
 
 .nav_link:hover {
-    color: var(--white-color)
+    color: var(--white-color);
+    background-color: #bc75ea;
 }
 
 .nav_icon {
@@ -141,11 +142,20 @@ a {
     height: 100vh
 }
 
+@media only screen and (max-width: 768px) {
+    .content_card_shadow{
+        margin-left: 0rem!important;
+    }
+}
+
+
 @media screen and (min-width: 768px) {
     body {
         margin: calc(var(--header-height) + 1rem) 0 0 0;
         padding-left: calc(var(--nav-width) + 2rem)
     }
+
+
 
     .header {
         height: calc(var(--header-height) + 1rem);

@@ -84,7 +84,7 @@
         </div>
     </div>
 
-        <div class="col-12">
+        <div class="col-12 mb-5">
             <button type="submit" class=" btn_next_tab mt-3 mb-1 next mt-4" style="border: 1px solid;">
                 <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar
             </button>

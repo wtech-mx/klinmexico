@@ -39,7 +39,7 @@
     @else
     <header class="header" id="header">
         <div class="header_toggle">
-            <i class='bx bx-menu' id="header-toggle"></i>
+            <i class='bx bx-menu'  id="header-toggle"></i>
         </div>
 
         <div class="tlttle_username text-center">
@@ -148,6 +148,14 @@
     @yield('js')
 
      <script>
+        $(window).on("load", function(){
+          function clickbutton() {
+            // simulamos el click del mouse en el boton del formulario
+            $("#header-toggle").click();
+          }
+          setTimeout(clickbutton, 1000);
+      })
+
          $(document).ready(function () {
             $.noConflict();
             var table = $('#tale_id').DataTable(
