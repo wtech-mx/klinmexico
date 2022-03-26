@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Create Client
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/intlTelInput.css') }}">
 @endsection
 
 @section('content')
@@ -35,4 +35,46 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('js')
+
+  <script src="{{ asset('js/intlTelInput.js') }}"></script>
+  <script>
+    var input = document.querySelector("#telefono");
+    window.intlTelInput(input, {
+       initialCountry: "mx",
+       onlyCountries: [
+         'ar',
+         'us',
+         'ad',
+         'at',
+         'be',
+         'ca',
+         'ch',
+         'de',
+         'ee',
+         'nl',
+         'es',
+         'hk',
+         'hr',
+         'ie',
+         'it',
+         'mc',
+         'mx',
+         'pl',
+         'pt',
+         'qa',
+         'se',
+         'th',
+         'ua',
+         'uk',
+         'za',
+       ],
+       placeholderNumberType: "MOBILE",
+       preferredCountries: ['mx', 'us'],
+       separateDialCode: true,
+       utilsScript: "{{ asset('js/utils.js') }}",
+    });
+  </script>
 @endsection
