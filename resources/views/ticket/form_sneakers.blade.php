@@ -242,7 +242,7 @@
 
                                     <div class="form-group mt-5 col-xs-6 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">Direccion</label> <br>
-                                        <input  class="form-control" type="number" name="recoleccion" id="rec" disabled>
+                                        <input  class="form-control" type="text" name="recoleccion" id="rec" disabled>
                                     </div>
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
