@@ -2,7 +2,7 @@
 
     <div class="col-12 col-md-12 col-lg-6">
         <div class="row">
-            <h2>Datos del usuario</h2>
+            <h2 class="mt-5">Datos del usuario</h2>
 
             <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
                 {{ Form::label('Nombre(s)') }}
@@ -29,7 +29,7 @@
             </div>
 
             <div class="form-group mt-5 col-12 col-md-12 col-lg-12">
-                {{ Form::label('Número de contacto ') }}
+                {{ Form::label('Número de contacto ') }} <br>
                 {{ Form::tel('telefono', $client->telefono, ['class' => 'form-control' . ($errors->has('telefono') ? ' is-invalid' : ''),'id' => 'telefono']) }}
                 {!! $errors->first('telefono', '<div class="invalid-feedback">:message</div>') !!}
             </div>
@@ -41,7 +41,7 @@
 
     <div class="col-12 col-md-12 col-lg-6">
         <div class="row">
-            <h2>Direccion</h2>
+            <h2 class="mt-5">Direccion</h2>
 
             {{ Form::number('num_compras', $client->num_compras, ['class' => 'form-control' . ($errors->has('num_compras') ? ' is-invalid' : ''),'hidden']) }}
 
