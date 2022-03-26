@@ -195,7 +195,16 @@
 
                                     <label class="label_steps" for="" class="mb-2">Racks para sneakers o calzado</label>
 
-                                    @include('ticket.rack_reparacion')
+                                        @for ($i = 1; $i <=140; $i++)
+                                                <div class="form-group col-2">
+                                                    <input class="form-check-input" type="checkbox" value="{{$i}}" name="num_rack" id="num_rack">
+                                                    <label class="form-check-label" for="flexCheckDefault">
+                                                        {{$i}}
+                                                    </label>
+                                                </div>
+                                        @endfor
+
+
 
                                 </div>
 
