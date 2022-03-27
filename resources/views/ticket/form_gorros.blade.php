@@ -100,7 +100,7 @@
                                     <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
                                         <label class="label_steps" for="">Categoria</label>
                                         <select class="form-select select2 " name="categoria" id="categoria">
-                                                <option selected>Seleccionar categoria</option>
+                                                <option value="" selected>Seleccionar categoria</option>
                                                 <option value="Hombre">Hombre</option>
                                                 <option value="Mujer">Mujer</option>
                                                 <option value="Niño">Niño</option>
@@ -131,7 +131,7 @@
                                     <div class="form-group mt-5 mb-5 col-12">
                                         <label class="label_steps" for="">Tipo de servicio</label>
                                         <select class="form-select select2 " name="tipo_servicio" id="tipo_servicio">
-                                                <option selected>Seleccionar servicio</option>
+                                                <option value="" selected>Seleccionar servicio</option>
                                                 <option value="0">Estandar --------- $0</option>
                                                 <option value="110">Express ---------- $110</option>
                                         </select>
@@ -139,7 +139,24 @@
 
                                     <label class="label_steps" for="" class="mb-2">Racks para gorras</label>
 
-                                    @include('ticket.rack_gorras')
+                                    @foreach ($racks2 as $item)
+                                    @if ($item->estatus == 1)
+
+                                    <div class="form-group col-2">
+                                        <input class="form-check-input" type="checkbox" value="" name="num_rack" id="num_rack" checked disabled>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                        {{$item->num_rack}}
+                                        </label>
+                                    </div>
+                                        @else
+                                        <div class="form-group col-2">
+                                            <input class="form-check-input" type="checkbox" value="{{$item->num_rack}}" name="num_rack" id="num_rack">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                            {{$item->num_rack}}
+                                            </label>
+                                        </div>
+                                    @endif
+                                @endforeach
 
                                 </div>
 
@@ -173,7 +190,7 @@
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Recoleccion</label>
                                         <select class="form-select select2 " name="recoleccion" id="recoleccion2">
-                                                <option selected>Seleccionar recoleecion</option>
+                                                <option value="" selected>Seleccionar recoleecion</option>
                                                 <option value="0">No ---- 0%</option>
                                                 <option value="1">Si ----- $__</option>
                                         </select>
@@ -192,7 +209,7 @@
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Forma de pago</label>
                                         <select class="form-select select2 " name="pago" id="pago2">
-                                                <option selected>Seleccionar forma</option>
+                                                <option value="" selected>Seleccionar forma</option>
                                                 <option value="Efectivo">Efectivo</option>
                                                 <option value="Tarjeta de debito">Tarjeta de Débito</option>
                                                 <option value="Tarjeta de credito">Tarjeta de Crédito</option>
@@ -210,7 +227,7 @@
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Por pagar</label>
                                         <select class="form-select select2 " name="por_pagar" id="por_pagar2">
-                                            <option selected>Seleccionar forma</option>
+                                            <option value="" selected>Seleccionar forma</option>
                                             <option value="2">No deja anticipo</option>
                                             <option value="1">Anticipo</option>
                                             <option value="0">Liquida la cuenta</option>

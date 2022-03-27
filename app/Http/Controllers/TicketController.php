@@ -29,7 +29,7 @@ class TicketController extends Controller
 
         $racks = Racks::get();
 
-        $racks2 = Racks::get()->makeHidden(['id', 'id_ticket','updated_at', 'created_at']);
+        $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket','updated_at', 'created_at']);
 
 
 

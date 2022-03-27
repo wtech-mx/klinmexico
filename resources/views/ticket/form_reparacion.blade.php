@@ -153,8 +153,25 @@
                             </select>
                         </div>
 
-                            <label class="label_steps" for="" class="mb-2">Racks para gorras</label>
-                            @include('ticket.rack_reparacion')
+                            <label class="label_steps" for="" class="mb-2">Racks para reparacion</label>
+                            @foreach ($racks2 as $item)
+                            @if ($item->estatus == 1)
+
+                            <div class="form-group col-2">
+                                <input class="form-check-input" type="checkbox" value="" name="num_rack" id="num_rack" checked disabled>
+                                <label class="form-check-label" for="flexCheckDefault">
+                                {{$item->num_rack}}
+                                </label>
+                            </div>
+                                @else
+                                <div class="form-group col-2">
+                                    <input class="form-check-input" type="checkbox" value="{{$item->num_rack}}" name="num_rack" id="num_rack">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                    {{$item->num_rack}}
+                                    </label>
+                                </div>
+                            @endif
+                        @endforeach
 
                     </div>
 
