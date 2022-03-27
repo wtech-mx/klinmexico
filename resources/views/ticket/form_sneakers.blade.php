@@ -14,7 +14,7 @@
                                 <div class="row">
 
                                     <div class="form-group col-xs-12 col-md-6 col-lg-6 ">
-                                        <label class="label_steps" for="">Cliente</label>
+                                        <label class="label_steps" for="">Cliente</label> <br>
                                         <select class="form-select" name="id_user" id="mi-selector">
                                             <option selected>Seleccionar usuario</option>
                                             @foreach ($client as $item)
@@ -319,17 +319,6 @@
                                      <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar
                                 </button>
 
-                            </div>
-                        </fieldset>
-
-                        <fieldset>
-                            <div class="form-card">
-                                <h5 class="sub-heading mb-4">Success!</h5>
-                                <p class="message">Thank You for choosing our website.<br>Quotation will be sent to your
-                                    Email ID and Contact Number.</p>
-                                <div class="check">
-                                    <img class="fit-image check-img" src="https://i.imgur.com/QH6Zd6Y.gif">
-                                </div>
                             </div>
                         </fieldset>
 

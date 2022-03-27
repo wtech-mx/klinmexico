@@ -1,7 +1,12 @@
         .card_steps{
-            background-color: #1EC4E5;
-            border-radius: 25px;
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            margin-top: 2rem;
+            margin-left: 0rem!important;
+            margin-right: 0.5rem!important;
+            background-color: #f7f7f7;
+            -webkit-box-shadow: 10px 10px 25px 6px rgba(201,201,201,1);
+            -moz-box-shadow: 10px 10px 25px 6px rgba(201,201,201,1);
+            box-shadow: 10px 10px 25px 6px rgba(201,201,201,1);
             padding: 40px;
             z-index: 0
         }
@@ -89,7 +94,7 @@
         }
 
         .btn_steps_2{
-            background-color: #0570F9!important;
+            background-color: #e2e2e2!important;
             border-radius: 15px!important;
             border: solid 1px transparent;
             width: 150px;
@@ -97,7 +102,7 @@
         }
 
         .btn_steps:hover{
-            background-color: #0570F9!important;
+            background-color: #e2e2e2!important;
             border-radius: 15px!important;
             border: solid 1px transparent;
             width: 150px;
@@ -166,8 +171,8 @@
         }
 
         .form-select{
-            background-color: #c2fbf5!important;
-            border: 1px solid #c2fbf5!important;
+            background-color: #fff!important;
+            border: 1px solid #fff!important;
             border-radius: 10px!important;
         }
 
@@ -177,14 +182,14 @@
         }
 
         .form-control:disabled, .form-control[readonly] {
-            background-color: #0570F9!important;;
-            border: solid #0570F9;
+            background-color: #e2e2e2!important;;
+            border: solid #e2e2e2;
             opacity: 1;
         }
 
         .form-control{
-            background-color: #c2fbf5;
-            border: 1px solid #c2fbf5;
+            background-color: #fff;
+            border: 1px solid #ccc;
             border-radius: 10px!important;
         }
 
@@ -212,4 +217,16 @@
         .label_steps{
             font-weight: bold;
             color: #0a10e9;
+        }
+
+        .select2.select2-container.select2-container--default.select2-container--below.select2-container--focus{
+            width: 200px!important;
+        }
+
+        .select2-selection.select2-selection--single{
+             width: 250px!important;
+        }
+
+        .select2-selection__arrow{
+            width: 300px!important;
         }
