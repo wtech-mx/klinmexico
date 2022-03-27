@@ -245,8 +245,8 @@
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Recoleccion</label>
-                                        <select class="form-select select2 " name="recoleccion" id="recoleccion">
-                                                <option selected>Seleccionar recoleecion</option>
+                                        <select class="form-select select2 " name="recoleccion" id="recoleccio">
+                                                <option value="" selected>Seleccionar recoleecion</option>
                                                 <option value="0">No ---- 0%</option>
                                                 <option value="1">Si ----- $__</option>
                                         </select>

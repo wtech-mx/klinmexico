@@ -49,13 +49,6 @@ class TicketController extends Controller
         $tint = $request->get('tint');
         $klin = $request->get('klin');
 
-
-         if($request->get('num_rack') == true){
-               $racke = Racks::find($request->get('num_rack'));
-               $racke->estatus = 1;
-               $racke->save();
-        }
-
         if($request->get('servicio_primario') == 'Essential'){
             $precio_cap = 110;
         }elseif($request->get('servicio_primario') == 'Plus'){
@@ -155,29 +148,28 @@ class TicketController extends Controller
             $klin = 260;
         }
 
-        $int2 = (int)$tint;
-        $tipo_servicio2 = (int)$tint;
-
-        $suma = $precio_cap+$protector+$int2+$tipo_servicio2+$klin+$klin_dye+$unyellow+$glue+$sew+$sole+$patch+$invisible+$request->get('personalizado');
+        $suma = $precio_cap+$protector+$tint+$tipo_servicio+$klin+$klin_dye+$unyellow+$glue+$sew+$sole+$patch+$invisible+$request->get('personalizado');
 
         $descuento = $suma * $promocion;
         $subtotal = $suma - $descuento;
-        $redondeo = ceil($subtotal);
-
-        $recoleccion = $request->get('recoleccion');
-        $recoleccion2 = (int)$recoleccion;
-
-        $total = $redondeo + $recoleccion2;
-
-        if($request->get('gifcard')){
-            $protector = 55;
-            $por_pagar = $total - $request->get('por_pagar') - $request->get('gifcard');
-        }else{
-            $por_pagar = $total - $request->get('por_pagar');
-        }
+        $total = $subtotal + $request->get('recoleccion');
 
         if($request->get('por_pagar') == 2){
-            $por_pagar = $total;
+            $por_pagar2 = $total;
+        }else{
+            $por_pagar2 = $total - $request->get('por_pagar');
+        }
+
+        if($request->get('gifcard')){
+            $por_pagar = $por_pagar2 - $request->get('gifcard');
+
+        }else{
+            $por_pagar = $total - $por_pagar2 ;
+
+        }
+
+        if($request->get('por_pagar') == 0){
+            $por_pagar = $request->get('por_pagar');
         }
 
         $ticket = new Ticket;
@@ -228,6 +220,12 @@ class TicketController extends Controller
         $precio->gifcard = $request->get('gifcard');
         $precio->por_pagar = $por_pagar;
         $precio->save();
+
+        if($request->get('num_rack') == true){
+            $racke = Racks::find($request->get('num_rack'));
+            $racke->estatus = 1;
+            $racke->save();
+     }
 
         return redirect()->route('ticket.index');
     }

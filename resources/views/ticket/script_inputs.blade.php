@@ -65,7 +65,7 @@ $(document).ready(function () {
 
   // input para recoloeccion
   $(document).ready(function () {
-    $('#recoleccion').change(function (e) {
+    $('#recoleccio').change(function (e) {
       if ($(this).val() === "1") {
         $('#input').prop("disabled", false);
       } else {
@@ -75,7 +75,7 @@ $(document).ready(function () {
   });
 // input para direccion de recoloeccion
    $(document).ready(function () {
-    $('#recoleccion').change(function (e) {
+    $('#recoleccio').change(function (e) {
       if ($(this).val() === "1") {
         $('#rec').prop("disabled", false);
       } else {

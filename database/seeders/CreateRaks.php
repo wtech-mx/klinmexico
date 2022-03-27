@@ -15,7 +15,7 @@ class CreateRaks extends Seeder
      */
     public function run()
     {
-        for ($i = 1; $i <=140; $i++) {
+        for ($i = 1; $i <=182; $i++) {
              Racks::create([
                  'num_rack' => $i,
                  'estatus' => 0,
