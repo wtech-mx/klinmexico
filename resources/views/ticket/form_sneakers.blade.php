@@ -40,12 +40,12 @@
 
                                     <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">Unyellow - $80</label>
-                                        <input  class="form-check-input form-control" type="checkbox" value="1" name="unyellow" id="unyellow" @if(!old() || old('unyellow') == 1) checked="checked" @endif>
+                                        <input  class="form-check-input form-control" type="checkbox" value="1" name="unyellow" id="unyellow" >
                                     </div>
 
                                     <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">Klin Dye - $260</label>
-                                        <input  class="form-check-input form-control" type="checkbox" value="1" name="klin_dye" id="klin_dye" @if(!old() || old('klin_dye') == 1) checked="checked" @endif>
+                                        <input  class="form-check-input form-control" type="checkbox" value="1" name="klin_dye" id="klin_dye" >
                                     </div>
 
                                     <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
@@ -91,12 +91,11 @@
 
                                     <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">Generic Sole AF1 --- $520</label>
-                                        <input  class="form-check-input form-control" type="checkbox" value="1" name="sole" id="sole" @if(!old() || old('sole') == 1) checked="checked" @endif>
-                                    </div>
+                                        <input  class="form-check-input form-control" type="checkbox" value="1" name="sole" id="sole">
 
                                     <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">Invisible Snkers Patch --- $180</label>
-                                        <input  class="form-check-input form-control" type="checkbox" value="1" name="invisible" id="invisible" @if(!old() || old('invisible') == 1) checked="checked" @endif>
+                                        <input  class="form-check-input form-control" type="checkbox" value="1" name="invisible" id="invisible">
                                     </div>
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-6">

@@ -11,19 +11,19 @@
 
         <ul class="nav na_view_tickets nav-pills mb-3" id="pills-tab" role="tablist" style="">
           <li class="nav-item" role="presentation">
-            <button class="nav-link btn_modal active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+            <button class="nav-link btn_modal active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home_{{ $item->id }}" type="button" role="tab" aria-controls="pills-home_{{ $item->id }}" aria-selected="true">
                 Administrador
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link btn_modal" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+            <button class="nav-link btn_modal" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile_{{ $item->id }}" type="button" role="tab" aria-controls="pills-profile_{{ $item->id }}" aria-selected="false">
                 Cliente
             </button>
           </li>
         </ul>
 
         <div class="tab-content" id="pills-tabContent">
-          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+          <div class="tab-pane fade show active" id="pills-home_{{ $item->id }}" role="tabpanel" aria-labelledby="pills-home-tab">
             <div class="limit_ticket">
                 <p class="text-dark">
                     <strong> Recibo No.  </strong>: {{ $item->Ticket->id }} <br>
@@ -73,7 +73,7 @@
             </div>
           </div>
 
-          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+          <div class="tab-pane fade" id="pills-profile_{{ $item->id }}" role="tabpanel" aria-labelledby="pills-profile-tab">
             <div class="limit_ticket">
                 <p class="text-dark">
                     <strong> Recibo No.:  </strong> 01-0001 <br>
