@@ -49,8 +49,6 @@ class TicketController extends Controller
             'talla' => 'required',
             'tipo_servicio' => 'required',
             'num_rack' => 'required',
-
-            'recoleccion' => 'required',
             'pago' => 'required',
             'por_pagar' => 'required',
             'factura' => 'required',
@@ -183,10 +181,8 @@ class TicketController extends Controller
 
         if($request->get('gifcard')){
             $por_pagar = $por_pagar2 - $request->get('gifcard');
-
         }else{
-            $por_pagar = $total - $por_pagar2 ;
-
+            $por_pagar = $por_pagar2;
         }
 
         if($request->get('por_pagar') == 0){
