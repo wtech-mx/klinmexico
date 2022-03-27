@@ -8,13 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Racks extends Model
 {
     use HasFactory;
+
     protected $table = "racks";
     protected $primarykey = "id";
+    public $timestamps = false;
 
     protected $fillable = [
         'id_ticket',
         'num_ticket',
-
+        'estatus',
     ];
 
     public function Ticket()

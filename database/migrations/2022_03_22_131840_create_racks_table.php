@@ -15,14 +15,9 @@ return new class extends Migration
     {
         Schema::create('racks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_ticket')->nullable();
-            $table->foreign('id_ticket')
-                ->references('id')->on('ticket')
-                ->inDelete('set null');
-
             $table->string('num_rack')->nullable();
+            $table->string('estatus')->nullable();
 
-            $table->timestamps();
         });
     }
 

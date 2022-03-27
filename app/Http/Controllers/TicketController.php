@@ -8,6 +8,7 @@ use App\Models\Fixer;
 use App\Models\PrecioTicket;
 use App\Models\Racks;
 use App\Models\Ticket;
+use Illuminate\Support\Arr;
 use DB;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,11 @@ class TicketController extends Controller
 
         $racks = Racks::get();
 
-        return view('ticket.create', compact('client', 'racks'));
+        $racks2 = Racks::get()->makeHidden(['id', 'id_ticket','updated_at', 'created_at']);
+
+
+
+        return view('ticket.create', compact('client', 'racks','racks2'));
     }
 
     public function store(Request $request)
@@ -44,119 +49,132 @@ class TicketController extends Controller
         $tint = $request->get('tint');
         $klin = $request->get('klin');
 
+
+         if($request->get('num_rack') == true){
+               $racke = Racks::find($request->get('num_rack'));
+               $racke->estatus = 1;
+               $racke->save();
+        }
+
         if($request->get('servicio_primario') == 'Essential'){
-            $precio_cap = '110';
+            $precio_cap = 110;
         }elseif($request->get('servicio_primario') == 'Plus'){
-            $precio_cap = '160';
+            $precio_cap = 160;
         }elseif($request->get('servicio_primario') == 'Elite'){
-            $precio_cap = '190';
+            $precio_cap = 190;
         }elseif($request->get('servicio_primario') == 'Pure White'){
-            $precio_cap = '170';
+            $precio_cap = 170;
         }elseif($request->get('servicio_primario') == 'Special Care'){
-            $precio_cap = '160';
+            $precio_cap = 160;
         }
 
         if($request->get('glue')){
-            $glue = '130';
+            $glue =130;
         }else{
-            $glue = '0';
+            $glue = 0;
         }
 
         if($request->get('klin_dye')){
-            $klin_dye = '260';
+            $klin_dye = 260;
         }else{
-            $klin_dye = '0';
+            $klin_dye = 0;
         }
 
         if($request->get('unyellow')){
-            $unyellow = '80';
+            $unyellow = 80;
         }else{
-            $unyellow = '0';
+            $unyellow = 0;
         }
 
         if($request->get('sole')){
-            $sole = '520';
+            $sole = 520;
         }else{
-            $sole = '0';
+            $sole = 0;
         }
 
         if($request->get('invisible')){
-            $invisible = '180';
+            $invisible = 180;
         }else{
-            $invisible = '0';
+            $invisible = 0;
         }
 
         if($request->get('sew') == 1){
-            $sew = '130';
+            $sew = 130;
         }elseif($request->get('sew') == 2){
-            $sew = '240';
+            $sew = 240;
         }else{
-            $sew = '0';
+            $sew = 0;
         }
 
 
         if($request->get('protector')){
-            $protector = '55';
+            $protector = 55;
         }else{
-            $protector = '0';
+            $protector = 0;
         }
 
         if($request->get('promocion')){
             $promocion = $request->get('promocion');
         }else{
-            $promocion = '0';
+            $promocion = 0;
         }
 
         if($request->get('patch') == 1){
-            $patch = '240';
+            $patch = 240;
         }
         if($request->get('patch') == 2){
-            $patch = '160';
+            $patch = 160;
         }
         if($request->get('patch') == 3){
-            $patch = '160';
+            $patch = 160;
         }
         if($request->get('patch') == 4){
-            $patch = '240';
+            $patch = 240;
         }
         if($request->get('patch') == NULL){
-            $patch = '0';
+            $patch = 0;
         }
 
         if($request->get('tint') == 1){
-            $tint = '160';
+            $tint = 160;
         }
         if($request->get('tint') == 2){
-            $tint = '300';
+            $tint = 300;
         }
         if($request->get('tint') == 3){
-            $tint = '450';
+            $tint = 450;
         }
 
         if($request->get('klin') == 'Klin Bag'){
-            $klin = '160';
+            $klin = 160;
         }
         if($request->get('klin') == 'Klin Purse'){
-            $klin = '110';
+            $klin = 110;
         }
         if($request->get('klin') == 'Klin Bag Extra'){
-            $klin = '260';
+            $klin = 260;
         }
 
-        $suma = $precio_cap+$protector+$tint+$tipo_servicio+$klin+$klin_dye+$unyellow+$glue+$sew+$sole+$patch+$invisible+$request->get('personalizado');
+        $int2 = (int)$tint;
+        $tipo_servicio2 = (int)$tint;
+
+        $suma = $precio_cap+$protector+$int2+$tipo_servicio2+$klin+$klin_dye+$unyellow+$glue+$sew+$sole+$patch+$invisible+$request->get('personalizado');
 
         $descuento = $suma * $promocion;
         $subtotal = $suma - $descuento;
-        $total = $subtotal + $request->get('recoleccion');
+        $redondeo = ceil($subtotal);
+
+        $recoleccion = $request->get('recoleccion');
+        $recoleccion2 = (int)$recoleccion;
+
+        $total = $redondeo + $recoleccion2;
 
         if($request->get('gifcard')){
-            $protector = '55';
+            $protector = 55;
             $por_pagar = $total - $request->get('por_pagar') - $request->get('gifcard');
         }else{
             $por_pagar = $total - $request->get('por_pagar');
         }
-
-
 
         if($request->get('por_pagar') == 2){
             $por_pagar = $total;
@@ -210,11 +228,6 @@ class TicketController extends Controller
         $precio->gifcard = $request->get('gifcard');
         $precio->por_pagar = $por_pagar;
         $precio->save();
-
-        $racks = new Racks;
-        $racks->id_ticket = $ticket->id;
-        $racks->num_rack = $request->get('num_rack');
-        $racks->save();
 
         return redirect()->route('ticket.index');
     }

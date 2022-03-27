@@ -6,6 +6,10 @@
 
             <div class="d-flex justify-content-between mt-5">
                 <h1> Tickets </h1>
+                <a href="{{ route('ticket.create') }}" class="btn btn_create">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    Crear Ticket
+                </a>
             </div>
 
             <div class="col-12 mt-5">
