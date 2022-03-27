@@ -45,4 +45,4 @@
 </div>
 {!! Form::close() !!}
 @endsection
-<p class="text-center text-primary"><small>Tutorial by Tutsmake.com</small></p>
+
