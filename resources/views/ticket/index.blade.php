@@ -26,6 +26,7 @@
 										<th>Cliente</th>
 										<th>Servicio</th>
 										<th>Por pagar</th>
+                                        <th>Rack</th>
 										<th>Estatus</th>
 
                                         <th>Acciones</th>
@@ -38,6 +39,7 @@
 											<td>{{ $item->Ticket->Client->name }}</td>
 											<td>{{ $item->Ticket->servicio_primario }}</td>
 											<td>{{ $item->por_pagar }}</td>
+                                            <td>{{ $item->Ticket->rack }}</td>
 
                                             @if ($item->Ticket->estatus == 0)
                                                 <td>Pendiente</td>
