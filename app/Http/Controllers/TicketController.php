@@ -8,9 +8,9 @@ use App\Models\Fixer;
 use App\Models\PrecioTicket;
 use App\Models\Racks;
 use App\Models\Ticket;
-use Illuminate\Support\Arr;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TicketController extends Controller
 {
@@ -31,17 +31,39 @@ class TicketController extends Controller
 
         $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket','updated_at', 'created_at']);
 
-
-
         return view('ticket.create', compact('client', 'racks','racks2'));
     }
 
     public function store(Request $request)
     {
 
-        $validate = $this->validate($request, [
+         $validator = Validator::make($request->all(), [
             'id_user' => 'required',
+            'servicio_primario' => 'required',
+            'tint' => 'required',
+            'marca' => 'required',
+            'modelo' => 'required',
+            'talla' => 'required',
+            'categoria' => 'required',
+            'observacion' => 'required',
+            'talla' => 'required',
+            'tipo_servicio' => 'required',
+            'num_rack' => 'required',
+
+            'recoleccion' => 'required',
+            'pago' => 'required',
+            'por_pagar' => 'required',
+            'factura' => 'required',
+            'num_rack' => 'required',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->with('errorForm', $validator->errors()->getMessages())
+                ->withInput();
+        }
+
+         try {
 
         $precio_cap = $request->get('precio_cap');
         $por_pagar = $request->get('por_pagar');
@@ -98,7 +120,6 @@ class TicketController extends Controller
         }else{
             $sew = 0;
         }
-
 
         if($request->get('protector')){
             $protector = 55;
@@ -227,6 +248,12 @@ class TicketController extends Controller
             $racke->save();
      }
 
-        return redirect()->route('ticket.index');
+            return redirect()->route('ticket.index')
+                ->with('success', 'Ticket creado exitosamente!');
+        } catch (\Exception $e){
+            return redirect()->back()
+                ->with('error', 'Faltan Validar datos!');
+        }
+
     }
 }

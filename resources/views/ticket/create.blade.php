@@ -34,28 +34,28 @@ Crear Ventas
                       <ul class="nav nav-tabs justify-content-center" style=" height: auto;flex-direction: unset;" role="tablist">
                         <li class="nav-item">
                           <a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
-                            <i class="now-ui-icons objects_umbrella-13"></i> Snekers
+                              <img src="{{ asset('icons/sneakers.png') }}" style="width: 30px"> Snekers
                           </a>
 
                         </li>
                         <li class="nav-item">
                           <a class="nav-link " id="pills-Gorras-tab" data-bs-toggle="pill" data-bs-target="#pills-Gorras" type="button" role="tab" aria-controls="pills-Gorras" aria-selected="true">
-                            <i class="now-ui-icons shopping_cart-simple"></i> Gorras
+                             <img src="{{ asset('icons/cap.png') }}" style="width: 30px"> Gorras
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link " id="pills-Bolsos-tab" data-bs-toggle="pill" data-bs-target="#pills-Bolsos" type="button" role="tab" aria-controls="pills-Bolsos" aria-selected="true">
-                            <i class="now-ui-icons shopping_shop"></i> Bolsos
+                             <img src="{{ asset('icons/handbag.png') }}" style="width: 30px"> Bolsos
                           </a>
                         </li>
                         <li class="nav-item">
                          <a class="nav-link " id="pills-Reparacion-tab" data-bs-toggle="pill" data-bs-target="#pills-Reparacion" type="button" role="tab" aria-controls="pills-Reparacion" aria-selected="true">
-                            <i class="now-ui-icons ui-2_settings-90"></i> Reparacion
+                             <img src="{{ asset('icons/repair.png') }}" style="width: 30px"> Reparacion
                           </a>
                         </li>
                            <li class="nav-item">
                               <a class="nav-link " id="pills-Nano-tab" data-bs-toggle="pill" data-bs-target="#pills-Nano" type="button" role="tab" aria-controls="pills-Nano" aria-selected="true">
-                                <i class="now-ui-icons ui-2_settings-90"></i> Nano
+                                <img src="{{ asset('icons/spray.png') }}" style="width: 30px"> Nano
                               </a>
                         </li>
                       </ul>
