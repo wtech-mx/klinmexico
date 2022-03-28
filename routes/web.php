@@ -6,6 +6,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SendEmailController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +26,8 @@ Auth::routes();
 
 
     Route::group(['middleware' => ['auth']], function() {
+    Route::get('send-email', [SendEmailController::class, 'index']);
+//    Route::get('send-email', [App\Http\Controllers\SendEmailController::class, 'index']);
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
