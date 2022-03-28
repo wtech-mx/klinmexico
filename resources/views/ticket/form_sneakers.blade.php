@@ -117,11 +117,11 @@
 
                                 </div>
 
-                                    <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
+                                </div>
+                                    <a id="next1" class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
                                         Siguiente
                                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                     </a>
-
                             </div>
                         </fieldset>
 
