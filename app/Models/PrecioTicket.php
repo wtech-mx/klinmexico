@@ -29,5 +29,4 @@ class PrecioTicket extends Model
     {
         return $this->belongsTo(DescripcionTicket::class, 'id_descripcion');
     }
-
 }

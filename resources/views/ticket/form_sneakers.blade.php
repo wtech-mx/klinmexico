@@ -54,7 +54,7 @@
                                             <option value="0" selected>Seleccionar tint</option>
                                                 <option value="1"{{ old('tint') == 1 ? 'selected' : '' }}>Tint 1 ----------- $160</option>
                                                 <option value="2"{{ old('tint') == 2 ? 'selected' : '' }}>Tint 2 ----------- $300</option>
-                                                <option value="3"{{ old('tint') == 2 ? 'selected' : '' }}>Tint 3 ----------- $450</option>
+                                                <option value="3"{{ old('tint') == 3 ? 'selected' : '' }}>Tint 3 ----------- $450</option>
                                                 <option value="4"{{ old('tint') == 4 ? 'selected' : '' }}>Personalizado -- $____</option>
                                         </select>
                                     </div>

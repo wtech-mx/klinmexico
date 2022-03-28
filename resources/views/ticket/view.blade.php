@@ -33,6 +33,8 @@
                         $matriz = explode(" ", $item->created_at);
                         $originalDate = $matriz[0];
                         $newDate = date("d/m/Y", strtotime($originalDate));
+                        $entrega_estandar = date("d/m/Y",strtotime($originalDate."+ 8 days"));
+                        $entrega_express = date("d/m/Y",strtotime($originalDate."+ 1 days"));
                     @endphp
                     {{$newDate}}
                     <br><br>
@@ -43,12 +45,78 @@
                     {{ $item->DescripcionTicket->categoria }},
                     <span class="badge rounded-pill " style="background-color: {{ $item->DescripcionTicket->color1 }}">-</span>
                     <span class="badge rounded-pill " style="background-color: {{ $item->DescripcionTicket->color2 }}">-</span>) <br>
-                    <strong> Observaciones: </strong> {{ $item->DescripcionTicket->observacion }}, <br><br>
-                    <strong> Rack: </strong> {{ $item->Ticket->rack }} <br>
-                    <strong> Servicio: </strong> Estandar <br>
-                    <strong> Comentarios: </strong> .... <br>
-                    <strong> Entrega: </strong> .... <br>
+                    @if ($item->Ticket->tint != 0)
+                    <strong> Observaciones Tint: </strong> {{ $item->Ticket->tint_descripcion }}, <br>
+                    @endif
+                    <strong> Observaciones del articulo: </strong> {{ $item->DescripcionTicket->observacion }}, <br><br>
+
+                    <strong> Rack: </strong> {{ $item->Ticket->rack }}
+                        @if ($item->DescripcionTicket->tipo_servicio == '0')
+                             Servicio Estandar
+                        @else
+                             Servicio Express
+                        @endif
+                    <br>
+                    <strong> Servicio: </strong> {{ $item->Ticket->servicio_primario }} <br>
+                        @if ($item->DescripcionTicket->tipo_servicio == '110')
+                        <strong> Entrega: </strong> {{ $entrega_express }} <br>
+                        @else
+                        <strong> Entrega: </strong> {{ $entrega_estandar }} <br>
+                        @endif
+
                 </p>
+                @php
+                    switch($item->Ticket->servicio_primario){
+                        case($item->Ticket->servicio_primario == 'Essential'):
+                            $precio_primario  = 110;
+                            break;
+                        case($item->Ticket->servicio_primario == 'Plus'):
+                            $precio_primario = 160;
+                            break;
+                        case($item->Ticket->servicio_primario == 'Elite'):
+                            $precio_primario = 190;
+                            break;
+                        case($item->Ticket->servicio_primario == 'Pure White'):
+                            $precio_primario = 170;
+                            break;
+                        case($item->Ticket->servicio_primario == 'Special Care'):
+                            $precio_primario = 160;
+                            break;
+                        case($item->Ticket->servicio_primario == 'Klin Cap'):
+                            $precio_primario = 60;
+                            break;
+                        case($item->Ticket->servicio_primario == 'Protector'):
+                            $precio_primario = 55;
+                            break;
+                        }
+
+                        if ($item->Ticket->tint == '1') {
+                            $nombre_tint  = 'Tint 1';
+                            $precio_tint  = 160;
+                        }elseif ($item->Ticket->tint == '2') {
+                            $nombre_tint  = 'Tint 2';
+                            $precio_tint  = 300;
+                        }elseif ($item->Ticket->tint == '3') {
+                            $nombre_tint  = 'Tint 3';
+                            $precio_tint  = 160;
+                        }else {
+                            $nombre_tint  = 'Tint Personalizado';
+                            $precio_tint  = $item->Ticket->tint;
+                        }
+
+                        switch($item->Ticket->klin){
+                        case($item->Ticket->klin == 'Klin Bag'):
+                            $precio_klin  = 160;
+                            break;
+                        case($item->Ticket->klin == 'Klin Purse'):
+                            $precio_klin = 110;
+                            break;
+                        case($item->Ticket->klin == 'Klin Bag Extra'):
+                            $precio_klin = 260;
+                            break;
+                        }
+
+                @endphp
                     <table class="table table-borderless">
                       <thead>
                         <tr>
@@ -62,19 +130,72 @@
                         <tr>
                           <th>1</th>
                           <td>{{ $item->Ticket->servicio_primario }}</td>
-                          <td>$160.00</td>
-                          <td>$190.00</td>
+
+                          <td>${{$precio_primario}}.00</td>
+                          <td>${{$precio_primario}}.00</td>
                         </tr>
-                        <tr>
-                          <th >2</th>
-                          <td>Tink 1</td>
-                          <td>$160.00</td>
-                          <td>$190.00</td>
-                        </tr>
+                        @if ($item->Ticket->unyellow == 1)
+                            <tr>
+                            <th>2</th>
+                            <td>
+                                    Unyellow
+                            </td>
+                            <td>$80.00</td>
+                            <td>$80.00</td>
+                            </tr>
+                        @endif
+                        @if ($item->Ticket->tint != 0)
+                            <tr>
+                            <th>3</th>
+                            <td>
+                                {{$nombre_tint}}
+                            </td>
+                            <td>${{$precio_tint}}.00</td>
+                            <td>${{$precio_tint}}.00</td>
+                            </tr>
+                        @endif
+                        @if ($item->Ticket->klin_dye == 1)
+                            <tr>
+                            <th>4</th>
+                            <td>
+                                klin dye
+                            </td>
+                            <td>$260.00</td>
+                            <td>$260.00</td>
+                            </tr>
+                        @endif
+                        @if ($item->Ticket->protector == 1)
+                            <tr>
+                            <th>5</th>
+                            <td>
+                                Protector
+                            </td>
+                            <td>$55.00</td>
+                            <td>$55.00</td>
+                            </tr>
+                        @endif
+                        @if ($item->Ticket->klin != NULL)
+                            <tr>
+                            <th>6</th>
+                            <td>
+                                {{$item->Ticket->klin}}
+                            </td>
+                            <td>${{$precio_klin}}.00</td>
+                            <td>${{$precio_klin}}.00</td>
+                            </tr>
+                        @endif
+                            {{-- <tr>
+                            <th>6</th>
+                            <td>
+                                {{ dd($item->Ticket->Fixer)}}
+                            </td>
+                            <td>${{$precio_klin}}.00</td>
+                            <td>${{$precio_klin}}.00</td>
+                            </tr> --}}
                       </tbody>
                     </table>
                     <p class="text-dark text-center">
-                       <strong>Subtotal</strong> -------------------- $460
+                       <strong>Subtotal</strong> -------------------- ${{$item->Ticket->subtotal}}
                     </p>
 
             </div>
@@ -91,14 +212,29 @@
                             $originalDate = $matriz[0];
                             $newDate = date("d/m/Y", strtotime($originalDate));
                         @endphp
-                    {{$newDate}}
-                    <strong> Cliente: </strong> Josue Adrian Ramirez Hernandez <br><br>
-                    <strong> Prenda: </strong> Nike Air Max (Azul, Blanco, No 8 Hombre) <br>
-                    <strong> Observaciones: </strong> Tinta Azuk <br>
-                    <strong> Rack: </strong> 01 <br>
-                    <strong> Servicio: </strong> Estandar <br>
-                    <strong> Comentarios: </strong> .... <br>
-                    <strong> Entrega: </strong> .... <br>
+                    {{$newDate}}<br>
+                    <strong> Cliente: </strong> {{$item->Ticket->Client->name}} <br><br>
+                    <strong> Prenda: </strong> ({{ $item->DescripcionTicket->marca }},
+                    {{ $item->DescripcionTicket->modelo }},
+                    {{ $item->DescripcionTicket->talla }},
+                    {{ $item->DescripcionTicket->categoria }},
+                    <span class="badge rounded-pill " style="background-color: {{ $item->DescripcionTicket->color1 }}">-</span>
+                    <span class="badge rounded-pill " style="background-color: {{ $item->DescripcionTicket->color2 }}">-</span>) <br>
+                    <strong> Observaciones: </strong> {{$item->DescripcionTicket->observacion}} <br>
+                    <strong>
+                        @if ($item->DescripcionTicket->tipo_servicio == '0')
+                            Servicio Estandar
+                        @else
+                            Servicio Express
+                        @endif
+                    </strong>
+                    <br>
+                    <strong> Servicio: </strong> {{ $item->Ticket->servicio_primario }} <br>
+                        @if ($item->DescripcionTicket->tipo_servicio == '110')
+                        <strong> Entrega: </strong> {{ $entrega_express }} <br>
+                        @else
+                        <strong> Entrega: </strong> {{ $entrega_estandar }} <br>
+                        @endif
                 </p>
                     <table class="table table-borderless">
                       <thead>
@@ -125,10 +261,10 @@
                       </tbody>
                     </table>
                     <p class="text-dark text-center">
-                       <strong>Subtotal</strong> -------------------- $460 <br>
+                       <strong>Subtotal</strong> -------------------- ${{$item->Ticket->subtotal}} <br>
                        <strong>Descuento</strong>-------------------- $46 <br>
                         Cliente distinguido 1 <br>
-                        <strong>Recolecccion</strong>---------------- $100 <br>
+                        <strong>Recolecccion</strong>---------------- ${{$item->recoleccion}} <br>
                     </p>
                     <p class="text-dark text-left">
                        <strong> Forma de pago:  </strong> {{ $item->pago }} <br>
@@ -138,7 +274,7 @@
                        <strong> Anticipo:  </strong> $50 <br>
                        <strong> Resta:  </strong> $100 <br><br>
 
-                       <strong> Por pagar: </strong> $350 <br>
+                       <strong> Por pagar: </strong> ${{ $item->por_pagar }} <br>
 
                     </p>
 

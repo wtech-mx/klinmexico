@@ -29,9 +29,9 @@ class Ticket extends Model
         return $this->belongsTo(Client::class, 'id_user');
     }
 
-    public function DescripcionTicket()
+    public function Fixer()
     {
-        return $this->belongsTo(DescripcionTicket::class, 'id_descripcion_ticket');
+        return $this->hasManyThrough(Fixer::class, 'id_ticket', Ticket::class, 'id');
     }
 
 }

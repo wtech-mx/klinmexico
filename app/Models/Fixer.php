@@ -22,8 +22,4 @@ class Fixer extends Model
         'personalizado',
     ];
 
-    public function Ticket()
-    {
-        return $this->belongsTo(Ticket::class, 'id_ticket');
-    }
 }
