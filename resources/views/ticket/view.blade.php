@@ -28,7 +28,14 @@
                 <p class="text-dark">
                     <strong> Recibo No.  </strong>: {{ $item->Ticket->id }} <br>
                     <strong> Sucrusal: </strong> Condesa Nuevo Leon <br>
-                    <strong> Fecha: </strong> Martes 22 Febrero 2022 <br><br>
+                    <strong> Fecha: </strong>
+                    @php
+                        $matriz = explode(" ", $item->created_at);
+                        $originalDate = $matriz[0];
+                        $newDate = date("d/m/Y", strtotime($originalDate));
+                    @endphp
+                    {{$newDate}}
+                    <br><br>
                     <strong> Cliente: </strong> {{ $item->Ticket->Client->name }} <br><br>
                     <strong> Prenda: </strong> ({{ $item->DescripcionTicket->marca }},
                     {{ $item->DescripcionTicket->modelo }},
@@ -78,7 +85,13 @@
                 <p class="text-dark">
                     <strong> Recibo No.:  </strong> 01-0001 <br>
                     <strong> Sucrusal: </strong> Condesa Nuevo Leon <br>
-                    <strong> Fecha: </strong> Martes 22 Febrero 2022 <br><br>
+                    <strong> Fecha: </strong>
+                        @php
+                            $matriz = explode(" ", $item->created_at);
+                            $originalDate = $matriz[0];
+                            $newDate = date("d/m/Y", strtotime($originalDate));
+                        @endphp
+                    {{$newDate}}
                     <strong> Cliente: </strong> Josue Adrian Ramirez Hernandez <br><br>
                     <strong> Prenda: </strong> Nike Air Max (Azul, Blanco, No 8 Hombre) <br>
                     <strong> Observaciones: </strong> Tinta Azuk <br>
