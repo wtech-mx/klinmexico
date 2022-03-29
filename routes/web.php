@@ -26,6 +26,7 @@ Auth::routes();
 
 
     Route::group(['middleware' => ['auth']], function() {
+
     Route::get('send-email', [SendEmailController::class, 'index']);
 //    Route::get('send-email', [App\Http\Controllers\SendEmailController::class, 'index']);
 
@@ -42,11 +43,14 @@ Auth::routes();
     Route::resource('clients', App\Http\Controllers\ClientController::class);
 
 
-
     Route::get('/ticket/index', [App\Http\Controllers\TicketController::class, 'index'])->name('ticket.index');
     Route::get('/ticket/crear', [App\Http\Controllers\TicketController::class, 'create'])->name('ticket.create');
     Route::post('/ticket/store', [App\Http\Controllers\TicketController::class, 'store'])->name('ticket.store');
     Route::get('/ticket/view', [App\Http\Controllers\TicketController::class, 'view'])->name('ticket.view');
+    Route::get('/ticket/email/admin/{id}', [App\Http\Controllers\TicketController::class, 'email_admin'])->name('email_admin.email');
+    Route::get('/ticket/email/user/{id}', [App\Http\Controllers\TicketController::class, 'email_user'])->name('email_admin.email');
+
+
 });
 
 

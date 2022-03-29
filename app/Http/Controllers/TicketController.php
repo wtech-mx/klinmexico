@@ -11,6 +11,7 @@ use App\Models\Ticket;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Mail;
 
 class TicketController extends Controller
 {
@@ -32,6 +33,28 @@ class TicketController extends Controller
         $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket','updated_at', 'created_at']);
 
         return view('ticket.create', compact('client', 'racks','racks2'));
+    }
+
+    public function email_admin()
+    {
+        $client = Client::get();
+
+        $racks = Racks::get();
+
+        $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket','updated_at', 'created_at']);
+
+        return view('emails.TicketAdminEmail.blade', compact('client', 'racks','racks2'));
+    }
+
+    public function email_user()
+    {
+        $client = Client::get();
+
+        $racks = Racks::get();
+
+        $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket','updated_at', 'created_at']);
+
+        return view('emails.TicketUserEmail.blade', compact('client', 'racks','racks2'));
     }
 
     public function store(Request $request)
@@ -244,6 +267,36 @@ class TicketController extends Controller
             $racke->estatus = 1;
             $racke->save();
      }
+
+        //Envio de Email
+         $id_user = $request->get('id_user');
+         $clients = Client::find($id_user);
+         $emial_user = $clients->email;
+
+        $emailSubject = 'Envio de Ticket';
+        $emailBody = 'Detalles del Ticket  KLINMEXICO';
+
+
+        //usar para un solo correo de destino
+        $emaifor = $emial_user;
+        //usar para varios  correos de destino
+
+        // Enviar para Admin
+        Mail::send('emails.TicketAdminEmail',['msg' => $emailBody], function($message) use($emailSubject,$emaifor){
+            $message->from("noreply@klinmexico.com","KlinMexico");
+            $message->subject($emailSubject);
+            $message->to($emaifor);
+          });
+
+        // Enviar para cliente
+        $arrayEmails = ['noreply@klinmexico.com',$emaifor];
+        $emailBody2 = 'Detalles del Ticket  KLINMEXICO';
+
+        Mail::send('emails.TicketUserEmail',['msg' => $emailBody2], function($message) use($emailSubject,$arrayEmails){
+            $message->from("noreply@klinmexico.com","KlinMexico");
+            $message->subject($emailSubject);
+            $message->to($arrayEmails);
+        });
 
             return redirect()->route('ticket.index')
                 ->with('success', 'Ticket creado exitosamente!');

@@ -15,7 +15,6 @@ Crear Ventas
         .tab-content > .active {
             display: inline;
         }
-
     </style>
 
         <div class="row">

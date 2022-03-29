@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 
 use Mail;
 
-use App\Mail\NotifyMail;
-
 
 class SendEmailController extends Controller
 {
@@ -15,14 +13,20 @@ class SendEmailController extends Controller
     public function index()
     {
 
+        $emailSubject = 'Envio de Ticket';
+        $emailBody = 'Detalles del Ticket  KLINMEXICO';
 
-        $arrayEmails = ['adrianwebtech@gmail.com'];
-        $emailSubject = 'My Subject';
-        $emailBody = 'Hello, this is my message content.';
+        //usar para un solo correo de destino
+        $emaifor = "adrianwebtech@gmail.com";
+        //usar para varios  correos de destino
 
-        Mail::send('emails.demoMail', ['msg' => $emailBody], function ($message) use ($arrayEmails, $emailSubject) {
-            $message->to($arrayEmails)
-                ->subject($emailSubject);
+        $arrayEmails = ['dinopiza@yahoo.com.mx','adrianwebtech@gmail.com'];
+
+        Mail::send('emails.demoMail',['msg' => $emailBody], function($message) use($emailSubject,$arrayEmails){
+            $message->from("noreply@klinmexico.com","KlinMexico");
+            $message->subject($emailSubject);
+            $message->to($arrayEmails);
         });
+
     }
 }
