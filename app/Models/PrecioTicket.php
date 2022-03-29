@@ -18,6 +18,7 @@ class PrecioTicket extends Model
         'pago',
         'por_pagar',
         'id_descripcion',
+        'id_fixer',
     ];
 
     public function Ticket()

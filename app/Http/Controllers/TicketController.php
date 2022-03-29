@@ -231,6 +231,7 @@ class TicketController extends Controller
         $precio = new PrecioTicket;
         $precio->id_ticket = $ticket->id;
         $precio->id_descripcion = $descripcion->id;
+        $precio->id_fixer = $fixer->id;
         $precio->promocion = $request->get('promocion');
         $precio->recoleccion = $request->get('recoleccion');
         $precio->pago = $request->get('pago');
