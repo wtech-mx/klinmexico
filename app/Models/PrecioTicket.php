@@ -19,6 +19,7 @@ class PrecioTicket extends Model
         'por_pagar',
         'id_descripcion',
         'id_fixer',
+        'descuento',
     ];
 
     public function Ticket()
@@ -29,5 +30,10 @@ class PrecioTicket extends Model
     public function DescripcionTicket()
     {
         return $this->belongsTo(DescripcionTicket::class, 'id_descripcion');
+    }
+
+    public function Fixer()
+    {
+        return $this->belongsTo(Fixer::class, 'id_fixer');
     }
 }
