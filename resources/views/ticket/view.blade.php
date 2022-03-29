@@ -188,7 +188,7 @@
                             <td>${{$precio_klin}}.00</td>
                             </tr>
                         @endif
-                        @if($item->Fixer->glue)
+                        @if($item->Fixer->glue != NULL)
                             <tr>
                                 <th>{{$i++}} </th>
                                 @if($item->Fixer->glue == 1)
@@ -388,7 +388,7 @@
                               <td>${{$precio_klin}}.00</td>
                               </tr>
                           @endif
-                          @if($item->Fixer->glue=1)
+                          @if($item->Fixer->glue != NULL)
                               <tr>
                                   <th>{{$ii++}} </th>
                                   @if($item->Fixer->glue == 1)
