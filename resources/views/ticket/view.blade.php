@@ -388,7 +388,7 @@
                               <td>${{$precio_klin}}.00</td>
                               </tr>
                           @endif
-                          @if($item->Fixer->glue)
+                          @if($item->Fixer->glue=1)
                               <tr>
                                   <th>{{$ii++}} </th>
                                   @if($item->Fixer->glue == 1)
