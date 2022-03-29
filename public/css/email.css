@@ -1,0 +1,10 @@
+.limit_ticket{
+    max-width: 600px;
+    margin-top: 3rem;
+    background-color: #f7f7f7;
+    border-radius: 30px;
+    -webkit-box-shadow: 10px 10px 25px 6px rgb(201 201 201);
+    -moz-box-shadow: 10px 10px 25px 6px rgba(201,201,201,1);
+    box-shadow: 10px 10px 25px 6px rgb(201 201 201);
+    padding:30px;
+}

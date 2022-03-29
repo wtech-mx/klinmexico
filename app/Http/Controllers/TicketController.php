@@ -36,26 +36,23 @@ class TicketController extends Controller
         return view('ticket.create', compact('client', 'racks', 'racks2'));
     }
 
-    public function email_admin()
+    public function email_admin($id)
     {
-        $client = Client::get();
+        $ticket = Ticket::findOrFail($id);
 
-        $racks = Racks::get();
+        $precio_ticket = PrecioTicket::where('id_ticket', '=', $id)->first();
 
-        $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
-
-        return view('emails.TicketAdminEmail.blade', compact('client', 'racks', 'racks2'));
+        return view('emails.ticket_admin_email', compact('ticket', 'precio_ticket'));
     }
 
-    public function email_user()
+    public function email_user($id)
     {
-        $client = Client::get();
+        $ticket = Ticket::findOrFail($id);
 
-        $racks = Racks::get();
+        $precio_ticket = PrecioTicket::where('id_ticket', '=', $id)->first();
 
-        $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+        return view('emails.ticket_user_email', compact('ticket', 'precio_ticket'));
 
-        return view('emails.TicketUserEmail.blade', compact('client', 'racks', 'racks2'));
     }
 
     public function store(Request $request)
@@ -285,7 +282,7 @@ class TicketController extends Controller
             //usar para varios  correos de destino
 
             // Enviar para Admin
-            Mail::send('emails.TicketAdminEmail', ['msg' => $emailBody], function ($message) use ($emailSubject, $emaifor) {
+            Mail::send('emails.ticket_admin_email', ['msg' => $emailBody], function ($message) use ($emailSubject, $emaifor) {
                 $message->from("noreply@klinmexico.com", "KlinMexico");
                 $message->subject($emailSubject);
                 $message->to($emaifor);
@@ -295,7 +292,7 @@ class TicketController extends Controller
             $arrayEmails = ['noreply@klinmexico.com', $emaifor];
             $emailBody2 = 'Detalles del Ticket  KLINMEXICO';
 
-            Mail::send('emails.TicketUserEmail', ['msg' => $emailBody2], function ($message) use ($emailSubject, $arrayEmails) {
+            Mail::send('emails.ticket_user_email', ['msg' => $emailBody2], function ($message) use ($emailSubject, $arrayEmails) {
                 $message->from("noreply@klinmexico.com", "KlinMexico");
                 $message->subject($emailSubject);
                 $message->to($arrayEmails);
