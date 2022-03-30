@@ -78,50 +78,58 @@
                   </a>
                   <ul class="list-unstyled ps-0">
                     <li class="mb-1">
-                      <button class="btn  align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                        <i class="fa fa-usd nav_icon" aria-hidden="true"></i>Nueva Venta
+                      <button class="btn align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
+                        <i class="fa fa-usd nav_icon_sidebar" aria-hidden="true" ></i>Nueva Venta
                       </button>
                       <div class="collapse show" id="home-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li><a href="#" class="link-dark rounded">SERVICIOS ACTIVOS</a></li>
-                          <li><a href="#" class="link-dark rounded">PROMOCIONES</a></li>
-                          <li><a href="#" class="link-dark rounded">CONTABILIDAD</a></li>
+                          <li class="li_sidebar">
+                              <a href="#" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>SERVICIOS ACTIVOS</a>
+                          </li>
+                          <li class="li_sidebar">
+                              <a href="#" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>PROMOCIONES</a>
+                         </li>
+                          <li class="li_sidebar">
+                              <a href="#" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>CONTABILIDAD
+
+                              </a>
+                        </li>
                         </ul>
                       </div>
                     </li>
                     <li class="mb-1">
-                      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                        NUEVO CLIENTE
+                      <button class="btn  align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+                        <i class="fa fa-user nav_icon_sidebar" aria-hidden="true" ></i>NUEVO CLIENTE
                       </button>
                       <div class="collapse" id="dashboard-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li><a href="#" class="link-dark rounded">CLIENTES</a></li>
-                          <li><a href="#" class="link-dark rounded">RACKS</a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>CLIENTES</a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>RACKS</a></li>
                         </ul>
                       </div>
                     </li>
                     <li class="mb-1">
-                      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                        SUCURSAL
+                      <button class="btn  align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+                        <i class="fa fa-desktop nav_icon_sidebar" aria-hidden="true" ></i>SUCURSAL
                       </button>
                       <div class="collapse" id="orders-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li><a href="#" class="link-dark rounded">PRODUCTOS </a></li>
-                          <li><a href="#" class="link-dark rounded">RECURSOS</a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>PRODUCTOS </a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>RECURSOS</a></li>
 
                         </ul>
                       </div>
                     </li>
-                    <li class="border-top my-3"></li>
+                    {{-- <li class="border-top my-3"></li> --}}
                     <li class="mb-1">
-                      <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                        CONFIGURACIÓN
+                      <button class="btn  align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+                        <i class="fa fa-cog nav_icon_sidebar" aria-hidden="true" ></i>CONFIGURACIÓN
                       </button>
                       <div class="collapse" id="account-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li><a href="#" class="link-dark rounded">Profile</a></li>
-                          <li><a href="#" class="link-dark rounded">Settings</a></li>
-                          <li><a href="#" class="link-dark rounded">Sign out</a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Profile</a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Settings</a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Sign out</a></li>
                         </ul>
                       </div>
                     </li>

@@ -87,3 +87,25 @@ body {
 
   .fw-semibold { font-weight: 600; }
   .lh-tight { line-height: 1.25; }
+
+  .button_sidebar_padre{
+    background: #fff;
+    margin-bottom: 10px;
+    max-width: 190px;
+    width: 190px;
+  }
+
+  .nav_icon_sidebar{
+    margin-right: 2rem;
+    color: #6e00ff;
+  }
+
+  .link_sidebar{
+    background: #fff;
+    margin-top: 10px;
+    padding: 5px;
+  }
+
+  .li_sidebar{
+    padding: 5px 0;
+  }
