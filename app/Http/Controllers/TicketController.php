@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Mail;
 
+use PHPMailer\PHPMailer\PHPMailer;
+
+require 'PHPMailer/Exception.php';
+require 'PHPMailer/PHPMailer.php';
+require 'PHPMailer/SMTP.php';
+
+
 class TicketController extends Controller
 {
     public function index()
@@ -45,14 +52,92 @@ class TicketController extends Controller
         return view('emails.ticket_admin_email', compact('ticket', 'precio_ticket'));
     }
 
-    public function email_user($id)
+    public function sed_mail(Request $request)
+    {
+
+            $validator = Validator::make($request->all(), [
+                'id_user' => 'required',
+                'id_ticket_id' => 'required',
+            ]);
+
+            $ticket = Ticket::findOrFail($request->get('id_ticket_id'));
+
+            $precio_ticket = PrecioTicket::where('id_ticket', '=', $request->get('id_ticket_id'))->first();
+
+            if ($validator->fails()) {
+                return redirect()->back()
+                    ->with('errorForm', $validator->errors()->getMessages())
+                    ->withInput();
+            }
+
+            try {
+
+            //Envio de Email
+            $id_user = $request->get('id_user');
+            $clients = Client::find($id_user);
+            $emial_user = $clients->email;
+
+
+            $emailSubject = 'Envio de Ticket';
+            $emailBody = 'Detalles del Ticket  KLINMEXICO';
+
+            //usar para un solo correo de destino
+            $emaifor = $emial_user;
+            //usar para varios  correos de destino
+            $arrayEmails = ['noreply@klinmexico.com', $emaifor];
+            // Enviar para Admin
+
+                // Email server settings
+
+                $mail = new PHPMailer(true);
+                $mail->SMTPDebug = 0;
+                $mail->isSMTP();
+                $mail->Host = 'smtp.gmail.com';             //  smtp host
+
+                $mail->SMTPAuth = true;
+                $mail->Username = 'pruebaswebtech@gmail.com';   //  sender username
+                $mail->Password = 'Ytumamatambien1';       // sender password
+                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;                  // encryption - ssl/tls
+                $mail->Port = 587;                          // port - 587/465
+
+                $mail->Subject = $emailSubject;
+                $mail->addAddress('adrianwebtech@gmail.com');
+
+                $mail->setFrom('noreply@klinmexico.com', 'KLINMEXICO');
+
+                $mail->isHTML(true);
+
+                if(isset($_FILES['emailAttachments'])) {
+                    for ($i=0; $i < count($_FILES['emailAttachments']['tmp_name']); $i++) {
+                        $mail->addAttachment($_FILES['emailAttachments']['tmp_name'][$i], $_FILES['emailAttachments']['name'][$i]);
+                    }
+                }
+
+                $mail->isHTML(true);                // Set email content format to HTML
+
+                $mail->Body    = '<p>Por favor, proceda al pago </p>';
+
+                // $mail->AltBody = plain text version of email body;
+
+
+                if( $mail->send() ) {
+                    return redirect()->back()->with('success', 'Email enviado exitosamentee!');
+                 }else {
+                    return back()->with("failed", "No se envio el correo")->withErrors($mail->ErrorInfo);
+                }
+            } catch (\Exception $e){
+
+                return redirect()->back()->with('error', 'No se envio el correo');
+            }
+    }
+
+    public function email_user_send($id)
     {
         $ticket = Ticket::findOrFail($id);
 
         $precio_ticket = PrecioTicket::where('id_ticket', '=', $id)->first();
 
         return view('emails.ticket_user_email', compact('ticket', 'precio_ticket'));
-
     }
 
     public function store(Request $request)
@@ -265,6 +350,9 @@ class TicketController extends Controller
                 $racke->save();
             }
 
+            return redirect()->route('ticket.index')
+                ->with('success', 'Ticket creado exitosamente!');
+
             //Envio de Email
             $id_user = $request->get('id_user');
             $clients = Client::find($id_user);
@@ -294,9 +382,6 @@ class TicketController extends Controller
                 $message->subject($emailSubject);
                 $message->to($arrayEmails);
             });
-
-            return redirect()->route('ticket.index')
-                ->with('success', 'Ticket creado exitosamente!');
         } catch (\Exception $e) {
             return redirect()->back()
                 ->with('error', 'Faltan Validar datos!');
