@@ -68,17 +68,14 @@
                     </a>
 
                      <a href="#" class="nav_link">
-                         <i class='bx bxs-check-circle nav_icon'></i>
                          <span class="nav_name">Servicios Activos </span>
                     </a>
 
                      <a href="#" class="nav_link">
-                         <i class='bx bx-certification nav_icon'></i>
                          <span class="nav_name">Promociones </span>
                     </a>
 
                      <a href="#" class="nav_link">
-                         <i class='bx bx-money nav_icon'></i>
                          <span class="nav_name">Contabilidad </span>
                     </a>
 
@@ -88,7 +85,6 @@
                     </a>
 
                      <a href="#" class="nav_link">
-                         <i class='bx bx-checkbox nav_icon' ></i>
                          <span class="nav_name">Racks</span>
                     </a>
 
@@ -98,7 +94,6 @@
                     </a>
 
                      <a href="{{ route('products.index') }}" class="nav_link">
-                         <i class='bx bx-shopping-bag nav_icon' ></i>
                          <span class="nav_name">Productos</span>
                     </a>
 
