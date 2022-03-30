@@ -95,6 +95,11 @@ body {
     width: 190px;
   }
 
+  .button_sidebar_padre:hover{
+      background-color: #6e00ff;
+      color: #fff;
+  }
+
   .nav_icon_sidebar{
     margin-right: 2rem;
     color: #6e00ff;
@@ -106,6 +111,13 @@ body {
     padding: 5px;
   }
 
+  .link_sidebar:hover{
+      background-color: #123AFF!important;
+      color: #fff;
+  }
+
   .li_sidebar{
     padding: 5px 0;
   }
+
+
