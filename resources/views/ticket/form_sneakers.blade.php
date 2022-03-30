@@ -253,7 +253,7 @@
                         <fieldset>
                             <div class="form-card text-black">
                                 <div class="row">
-                                    <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
+                                    <div class="form-group mt-5 mb-5 col-6 col-md-4 col-lg-4">
                                         <label class="label_steps" for="">Aplicar Promocion</label>
                                         <select class="form-select select2 " name="promocion" id="promocion">
                                                 <option value="0" selected>Seleccionar forma</option>
@@ -266,7 +266,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
+                                    <div class="form-group mt-5 mb-5 col-6 col-md-3 col-lg-3">
                                         <label class="label_steps" for="">Recoleccion</label>
                                         <select class="form-select select2 " name="recoleccion" id="recoleccio">
                                                 <option value="" selected>Seleccionar recoleecion</option>
@@ -275,17 +275,19 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
+                                    <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
                                         <label class="label_steps" for="">Recoleccion $</label> <br>
                                         <input  class="form-control" type="number" name="recoleccion" id="input" disabled>
                                     </div>
 
-                                    <div class="form-group mt-5 col-xs-6 col-md-6 col-lg-6">
+                                    <div class="form-group mt-5 col-xs-6 col-md-2 col-lg-2">
                                         <label class="label_steps" for="">Direccion</label> <br>
-                                        <input  class="form-control" type="text" name="recoleccion" id="rec" disabled>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="rec" disabled>
+                                            +
+                                          </button>
                                     </div>
 
-                                    <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
+                                    <div class="form-group mt-5 mb-5 col-6 col-md-3 col-lg-3">
                                         <label class="label_steps" for="">Forma de pago</label>
                                         <select class="form-select select2 " name="pago" id="pago">
                                                 <option selected>Seleccionar forma</option>
@@ -298,12 +300,12 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
+                                    <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
                                         <label class="label_steps" for="">Gifcard</label> <br>
                                         <input class="form-control"  type="text" name="gifcard" id="gif" disabled>
                                     </div>
 
-                                    <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
+                                    <div class="form-group mt-5 mb-5 col-6 col-md-3 col-lg-3">
                                         <label class="label_steps" for="">Por pagar</label>
                                         <select class="form-select select2 " name="por_pagar" id="por_pagar">
                                             <option value="" selected>Seleccionar forma</option>
@@ -313,7 +315,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
+                                    <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
                                         <label class="label_steps" for="">Anticipo</label> <br>
                                         <input class="form-control"  type="text" name="por_pagar" id="pagar" disabled>
                                     </div>
@@ -328,7 +330,10 @@
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
                                         <label class="label_steps" for="">Direccion de factura</label> <br>
-                                        <input class="form-control"  type="text" name="factura" id="facturacion" disabled>
+                                        <select class="form-select select2 " name="factura" id="facturacion" disabled>
+                                            <option value="no">Direccion 1</option>
+                                            <option value="si">Direccion 2</option>
+                                        </select>
                                     </div>
 
                                  </div>

@@ -55,7 +55,6 @@ Auth::routes();
     Route::post('/ticket/email_send/admin/send', [App\Http\Controllers\TicketController::class, 'sed_mail'])->name('ticket.sed_mail');
     Route::post('/ticket/store', [App\Http\Controllers\TicketController::class, 'store'])->name('ticket.store');
 
-
 });
 
 

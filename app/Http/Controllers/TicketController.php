@@ -6,6 +6,7 @@ use App\Models\Client;
 use App\Models\DescripcionTicket;
 use App\Models\Fixer;
 use App\Models\PrecioTicket;
+use App\Models\Direccion;
 use App\Models\Racks;
 use App\Models\Ticket;
 use DB;
@@ -598,6 +599,17 @@ class TicketController extends Controller
             $descripcion->observacion = $request->get('observacion');
             $descripcion->tipo_servicio = $request->get('tipo_servicio');
             $descripcion->save();
+
+            if ($request->get('calle') != null) {
+                $direccion = new Direccion;
+                $direccion->id_user = $ticket->id_user;
+                $direccion->calle = $request->get('calle');
+                $direccion->colonia = $request->get('colonia');
+                $direccion->alcaldia = $request->get('alcaldia');
+                $direccion->estado = $request->get('estado');
+                $direccion->cp = $request->get('cp');
+                $direccion->save();
+            }
 
             $precio = new PrecioTicket;
             $precio->id_ticket = $ticket->id;

@@ -67,6 +67,7 @@ Crear Ventas
                             <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
                                 @csrf
                                 @include('ticket.form_sneakers')
+                                @include('ticket.direccion_modal')
                             </form>
                         </div>
 
