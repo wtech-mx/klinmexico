@@ -61,19 +61,16 @@ class TicketController extends Controller
         $validator = Validator::make($request->all(), [
             'id_user' => 'required',
             'servicio_primario' => 'required',
-            'tint' => 'required',
             'marca' => 'required',
             'modelo' => 'required',
             'talla' => 'required',
             'categoria' => 'required',
             'observacion' => 'required',
-            'talla' => 'required',
             'tipo_servicio' => 'required',
             'num_rack' => 'required',
             'pago' => 'required',
             'por_pagar' => 'required',
             'factura' => 'required',
-            'num_rack' => 'required',
         ]);
 
         if ($validator->fails()) {
