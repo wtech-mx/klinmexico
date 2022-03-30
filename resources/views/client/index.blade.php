@@ -27,8 +27,8 @@
 
 										<th>Name</th>
 										<th>Email</th>
-										<th>Apellido Ma</th>
-										<th>Apellido Pa</th>
+										<th>Apellido Materno</th>
+										<th>Apellido Paterno</th>
 										<th>Telefono</th>
 										<th>Num Compras</th>
 										<th>Calle</th>

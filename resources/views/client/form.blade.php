@@ -11,13 +11,13 @@
             </div>
 
             <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
-                {{ Form::label('apellido_ma') }}
+                {{ Form::label('apellido materno') }}
                 {{ Form::text('apellido_ma', $client->apellido_ma, ['class' => 'form-control' . ($errors->has('apellido_ma') ? ' is-invalid' : '')]) }}
                 {!! $errors->first('apellido_ma', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
             <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
-                {{ Form::label('apellido_pa') }}
+                {{ Form::label('apellido paterno') }}
                 {{ Form::text('apellido_pa', $client->apellido_pa, ['class' => 'form-control' . ($errors->has('apellido_pa') ? ' is-invalid' : '')]) }}
                 {!! $errors->first('apellido_pa', '<div class="invalid-feedback">:message</div>') !!}
             </div>
