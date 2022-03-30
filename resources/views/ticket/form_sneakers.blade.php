@@ -14,7 +14,7 @@
                                 <div class="row">
 
                                     <div class="form-group col-xs-12 col-md-6 col-lg-6 ">
-                                        <label class="label_steps" for="">Cliente</label> <br>
+                                        <label class="label_steps" for="">Cliente *</label> <br>
                                         <select class="form-select" name="id_user" id="mi-selector">
                                             <option selected>Seleccionar usuario</option>
                                             @foreach ($client as $item)
@@ -24,9 +24,9 @@
                                     </div>
 
                                     <div class="form-group col-xs-12 col-md-6 col-lg-6 ">
-                                        <label class="label_steps" for="">Servicio Sneakeers</label>
+                                        <label class="label_steps" for="">Sneakers y calzado *</label>
                                         <select class="form-select select2" name="servicio_primario" id="servicio_primario" @error('servicio_primario') is-invalid @enderror">
-                                            <option value="0" selected>Seleccionar tint</option>
+                                            <option value="0" selected>Servicio primario</option>
                                                 <option value="Essential" {{ old('servicio_primario') == "Essential" ? 'selected' : '' }}>Essential ----------- $110</option>
                                                 <option value="Plus" {{ old('servicio_primario') == "Plus" ? 'selected' : '' }}>Plus ----------- $160</option>
                                                 <option value="Elite" {{ old('servicio_primario') == "Elite" ? 'selected' : '' }}>Elite ----------- $190</option>
@@ -38,18 +38,22 @@
                                             @enderror
                                     </div>
 
-                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
+                                    <div class="form-group col-md-12 col-lg-12 mt-5 mb-2">
+                                        <h4 class="label_steps">Serivicios secundarios</h4>
+                                    </div>
+
+                                    <div class="form-group col-xs-12 col-md-6 col-lg-6 ">
                                         <label class="label_steps" for="">Unyellow - $80</label>
                                         <input  class="form-check-input form-control" type="checkbox" value="1" name="unyellow" id="unyellow" >
                                     </div>
 
-                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
+                                    <div class="form-group col-xs-12 col-md-6 col-lg-6 ">
                                         <label class="label_steps" for="">Klin Dye - $260</label>
                                         <input  class="form-check-input form-control" type="checkbox" value="1" name="klin_dye" id="klin_dye" >
                                     </div>
 
-                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
-                                        <label class="label_steps" for="">Servicio secundario</label>
+                                    <div class="form-group mt-5 col-xs-12 col-md-3 col-lg-3 ">
+                                        <label class="label_steps" for="">Tint</label>
                                         <select class="form-select select2 " name="tint" id="tint">
                                             <option value="0" selected>Seleccionar tint</option>
                                                 <option value="1"{{ old('tint') == 1 ? 'selected' : '' }}>Tint 1 ----------- $160</option>
@@ -59,19 +63,19 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
+                                    <div class="form-group mt-5 col-xs-12 col-md-3 col-lg-3 ">
                                         <label class="label_steps" for="">Tint personalizado $$</label> <br>
                                         <input  class="form-control" type="text" name="tint" id="miinput" disabled>
                                     </div>
 
-                                    <div class="form-group mt-4 mb-3 col-xs-12 col-md-12 col-lg-6">
+                                    <div class="form-group mt-5 mb-3 col-xs-12 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">Descripcion del tint</label> <br>
-                                        <textarea class="form-control" name="tint_descripcion" id="descripcion" cols="30" rows="5" disabled></textarea>
+                                        <textarea class="form-control" name="tint_descripcion" id="descripcion" cols="30" rows="4" disabled></textarea>
                                     </div>
 
                                     <h4 class="label_steps mt-3">Fixer</h4>
 
-                                    <div class="form-group col-6 col-md-6 col-lg-4">
+                                    <div class="form-group col-xs-12 col-md-3 col-lg-3">
                                         <label class="label_steps" for="">Glue</label>
                                         <select class="form-select" name="glue" id="glue">
                                             <option value="" selected>Seleccione Glue</option>
@@ -80,7 +84,7 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group col-6 col-md-6 col-lg-6">
+                                    <div class="form-group col-xs-12 col-md-3 col-lg-3">
                                         <label class="label_steps" for="">Sew</label>
                                         <select class="form-select" name="sew" id="sew">
                                             <option value="" selected>Seleccione Sew</option>
@@ -89,21 +93,22 @@
                                         </select>
                                     </div>
 
-                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
+                                    <div class="form-group col-xs-12 col-md-3 col-lg-3">
                                         <label class="label_steps" for="">Generic Sole AF1 --- $520</label>
                                         <input  class="form-check-input form-control" type="checkbox" value="1" name="sole" id="sole">
+                                    </div>
 
-                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
+                                    <div class="form-group col-xs-12 col-md-3 col-lg-3">
                                         <label class="label_steps" for="">Invisible Snkers Patch --- $180</label>
                                         <input  class="form-check-input form-control" type="checkbox" value="1" name="invisible" id="invisible">
                                     </div>
 
-                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
+                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">Fixer Personalizado</label>
                                         <input class="form-control" type="number" name="personalizado" id="personalizado" placeholder="$">
                                     </div>
 
-                                    <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
+                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                                         <label class="label_steps" for="">Snkrs</label>
                                         <select class="form-select" name="patch" id="patch">
                                             <option value="" selected>Seleccione Snkrs</option>
