@@ -68,14 +68,17 @@
                     </a>
 
                      <a href="#" class="nav_link">
+                        <i class='fa fa-arrow-right nav_icon'></i>
                          <span class="nav_name">Servicios Activos </span>
                     </a>
 
                      <a href="#" class="nav_link">
+                        <i class='fa fa-arrow-right nav_icon'></i>
                          <span class="nav_name">Promociones </span>
                     </a>
 
                      <a href="#" class="nav_link">
+                        <i class='fa fa-arrow-right nav_icon'></i>
                          <span class="nav_name">Contabilidad </span>
                     </a>
 
@@ -85,6 +88,7 @@
                     </a>
 
                      <a href="#" class="nav_link">
+                        <i class='fa fa-arrow-right nav_icon'></i>
                          <span class="nav_name">Racks</span>
                     </a>
 
@@ -94,6 +98,7 @@
                     </a>
 
                      <a href="{{ route('products.index') }}" class="nav_link">
+                        <i class='fa fa-arrow-right nav_icon'></i>
                          <span class="nav_name">Productos</span>
                     </a>
 
