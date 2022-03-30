@@ -84,13 +84,13 @@
                       <div class="collapse show" id="home-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                           <li class="li_sidebar">
-                              <a href="#" class="link-dark link_sidebar alterno rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>SERVICIOS ACTIVOS</a>
+                              <a href="#" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>SERVICIOS ACTIVOS</a>
                           </li>
                           <li class="li_sidebar">
-                              <a href="#" class="link-dark link_sidebar alterno rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>PROMOCIONES</a>
+                              <a href="#" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>PROMOCIONES</a>
                          </li>
                           <li class="li_sidebar">
-                              <a href="#" class="link-dark link_sidebar alterno rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>CONTABILIDAD
+                              <a href="#" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>CONTABILIDAD
 
                               </a>
                         </li>
@@ -101,10 +101,10 @@
                       <button class="btn  align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
                         <i class="fa fa-user nav_icon_sidebar" aria-hidden="true" ></i>NUEVO CLIENTE
                       </button>
-                      <div class="collapse" id="dashboard-collapse">
+                      <div class="collapse show" id="dashboard-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar alterno"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>CLIENTES</a></li>
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar alterno"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>RACKS</a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>CLIENTES</a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>RACKS</a></li>
                         </ul>
                       </div>
                     </li>
@@ -112,10 +112,10 @@
                       <button class="btn  align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
                         <i class="fa fa-desktop nav_icon_sidebar" aria-hidden="true" ></i>SUCURSAL
                       </button>
-                      <div class="collapse" id="orders-collapse">
+                      <div class="collapse show" id="orders-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar alterno"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>PRODUCTOS </a></li>
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar alterno"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>RECURSOS</a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>PRODUCTOS </a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>RECURSOS</a></li>
 
                         </ul>
                       </div>
@@ -125,11 +125,11 @@
                       <button class="btn  align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
                         <i class="fa fa-cog nav_icon_sidebar" aria-hidden="true" ></i>CONFIGURACIÓN
                       </button>
-                      <div class="collapse" id="account-collapse">
+                      <div class="collapse show" id="account-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar alterno"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Profile</a></li>
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar alterno"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Settings</a></li>
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar alterno"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Sign out</a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Profile</a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Settings</a></li>
+                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Sign out</a></li>
                         </ul>
                       </div>
                     </li>
