@@ -25,7 +25,7 @@
                                     <tr>
                                         <th>No</th>
 
-										<th>Name</th>
+										<th>Nombre</th>
 										<th>Email</th>
 										<th>Apellido Materno</th>
 										<th>Apellido Paterno</th>
