@@ -84,7 +84,7 @@
                       <div class="collapse show" id="home-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
                           <li class="li_sidebar">
-                              <a href="#" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>SERVICIOS ACTIVOS</a>
+                              <a href="{{ route('ticket.index') }}" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>SERVICIOS ACTIVOS</a>
                           </li>
                           <li class="li_sidebar">
                               <a href="#" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>PROMOCIONES</a>
@@ -103,7 +103,7 @@
                       </button>
                       <div class="collapse show" id="dashboard-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>CLIENTES</a></li>
+                          <li class="li_sidebar"><a href="{{ route('clients.index') }}" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>CLIENTES</a></li>
                           <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>RACKS</a></li>
                         </ul>
                       </div>
@@ -114,7 +114,7 @@
                       </button>
                       <div class="collapse show" id="orders-collapse">
                         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>PRODUCTOS </a></li>
+                          <li class="li_sidebar"><a href="{{ route('products.index') }}" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>PRODUCTOS </a></li>
                           <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>RECURSOS</a></li>
 
                         </ul>
