@@ -52,7 +52,7 @@
                                                 <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleModal_{{$item->id}}">
                                                     <i class="fa fa-fw fa-eye"></i>
                                                 </a>
-                                                <a class="icon_actions edit" href="#">
+                                                <a class="icon_actions edit" href="{{ route('ticket.edit', $item->id) }}">
                                                     <i class="fa fa-fw fa-edit"></i>
                                                 </a>
                                                 <a type="submit" class="icon_actions trash">

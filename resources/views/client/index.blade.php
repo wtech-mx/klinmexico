@@ -27,18 +27,10 @@
 
 										<th>Nombre</th>
 										<th>Email</th>
-										<th>Apellido Materno</th>
 										<th>Apellido Paterno</th>
 										<th>Telefono</th>
-										<th>Num Compras</th>
-										<th>Calle</th>
-										<th>Cp</th>
-										<th>Estado</th>
-										<th>Alcaldia</th>
-										<th>Colonia</th>
-										<th>Fecha Nacimiento</th>
 
-                                        <th></th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -46,22 +38,14 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
 
-											<td>{{ $client->name }}</td>
 											<td>{{ $client->email }}</td>
-											<td>{{ $client->apellido_ma }}</td>
+                                            <td>{{ $client->name }}</td>
 											<td>{{ $client->apellido_pa }}</td>
 											<td>{{ $client->telefono }}</td>
-											<td>{{ $client->num_compras }}</td>
-											<td>{{ $client->calle }}</td>
-											<td>{{ $client->cp }}</td>
-											<td>{{ $client->estado }}</td>
-											<td>{{ $client->alcaldia }}</td>
-											<td>{{ $client->colonia }}</td>
-											<td>{{ $client->fecha_nacimiento }}</td>
 
                                             <td>
                                                 <form action="{{ route('clients.destroy',$client->id) }}" method="POST">
-                                                    <a class="icon_actions eye" href="{{ route('clients.show',$client->id) }}">
+                                                    <a type="button" class="icon_actions eye" data-bs-toggle="modal" data-bs-target="#exampleModal{{$client->id}}">
                                                         <i class="fa fa-fw fa-eye"></i>
                                                     </a>
                                                     <a class="icon_actions edit" href="{{ route('clients.edit',$client->id) }}">
@@ -76,6 +60,7 @@
                                             </td>
 
                                         </tr>
+                                        @include('client.modal_view')
                                     @endforeach
                                 </tbody>
                             </table>
