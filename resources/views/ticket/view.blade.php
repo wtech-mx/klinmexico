@@ -308,6 +308,8 @@
                             $matriz = explode(" ", $item->created_at);
                             $originalDate = $matriz[0];
                             $newDate = date("d/m/Y", strtotime($originalDate));
+                            $entrega_estandar = date("d/m/Y",strtotime($originalDate."+ 8 days"));
+                            $entrega_express = date("d/m/Y",strtotime($originalDate."+ 1 days"));
                         @endphp
                     {{$newDate}}<br>
                     <strong> Cliente: </strong> {{$item->Ticket->Client->name}} <br><br>

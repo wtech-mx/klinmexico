@@ -669,4 +669,13 @@ class TicketController extends Controller
                 ->with('error', 'Faltan Validar datos!');
         }
     }
+
+    public function  edit($id)
+    {
+            $client = Client::get();
+            $ticket = PrecioTicket::findOrFail($id);
+            $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+            return view('ticket.edit.edit', compact('ticket', 'client', 'racks2'));
+    }
 }
