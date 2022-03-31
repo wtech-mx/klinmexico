@@ -50,9 +50,12 @@
                                                     </a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="icon_actions trash" style="border: 1px solid transparent;padding: 0px;background: transparent">
-                                                        <i class="fa fa-fw fa-trash"></i>
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                     <button  class="icon_actions trash delete-confirm  show_confirm"  style="border: 1px solid transparent;padding: 0px;background: transparent">
+                                                          <i class="fa fa-fw fa-trash"></i>
                                                     </button>
+                                                     <button type="submit" id="delete_client" style="border: 1px solid transparent;background: transparent;"></button>
+
                                                 </form>
                                             </td>
 
@@ -68,3 +71,24 @@
 
 @endsection
 
+@section('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<script>
+   $('.delete-confirm').on('click', function (event) {
+      event.preventDefault();
+      const url = $(this).attr('href');
+      swal({
+          title: 'Estas seguro?',
+          text: 'Borraras al cliente permanente mente!',
+          icon: 'warning',
+          buttons: ["Cancel", "Yes!"],
+          }).then(function(value) {
+          if (value) {
+           $("#delete_client").click();
+        }
+      });
+     });
+</script>
+@endsection
