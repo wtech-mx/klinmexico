@@ -79,6 +79,7 @@
                     <ul class="nav nav-pills flex-column mb-auto" style="height: auto;">
 
                           <li class="nav-item button_sidebar_padre2 ">
+                              <a href="{{ route('ticket.create') }}">
                               <div class="input-group" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend sidebar_box_icon">
                                   <span class="input-group-text span_sidebar" >
@@ -87,9 +88,11 @@
                                 </div>
                                 <div class="form-control div_text_sidebar_morado">NUEVA VENTA</div>
                               </div>
+                              </a>
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
+                              <a href="{{ route('ticket.index') }}">
                               <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
@@ -98,6 +101,7 @@
                                 </div>
                                 <div class="form-control div_text_sidebar hover2">SERVICIOS ACTIVOS</div>
                               </div>
+                              </a>
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
@@ -123,6 +127,7 @@
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
+                              <a href="{{ route('clients.create') }}">
                               <div class="input-group " style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
@@ -131,9 +136,11 @@
                                 </div>
                                 <div class="form-control div_text_sidebar_morado">NUEVO CLIENTE</div>
                               </div>
+                              </a>
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
+                              <a href="{{ route('clients.index') }}">
                               <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
@@ -142,6 +149,7 @@
                                 </div>
                                 <div class="form-control div_text_sidebar hover2">CLIENTES</div>
                               </div>
+                              </a>
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
