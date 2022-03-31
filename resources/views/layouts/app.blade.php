@@ -80,7 +80,7 @@
 
                           <li class="nav-item button_sidebar_padre2 ">
                               <div class="input-group" style="border: solid 1px #a5a5a5;">
-                                <div class="input-group-prepend">
+                                <div class="input-group-prepend sidebar_box_icon">
                                   <span class="input-group-text span_sidebar" >
                                        <i class="fa fa-usd nav_icon_sidebar2" aria-hidden="true" ></i>
                                   </span>
@@ -90,7 +90,7 @@
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2'></i>
@@ -101,7 +101,7 @@
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2'></i>
@@ -112,7 +112,7 @@
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2'></i>
@@ -123,7 +123,7 @@
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class="fa fa-user nav_icon_sidebar2" aria-hidden="true" ></i>
@@ -145,7 +145,7 @@
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2 '></i>
@@ -167,7 +167,7 @@
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2 '></i>
@@ -178,7 +178,7 @@
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2 '></i>
