@@ -304,15 +304,15 @@
 
          $(document).ready(function () {
             $.noConflict();
-            var table = $('#tale_id').DataTable(
-
-            );
+            var table = $('#tale_id').DataTable({
+                autoFill: true,
+                responsive: true,
+                fixedHeader: true,
+                language: {
+                    url: 'https://cdn.datatables.net/plug-ins/1.11.5/i18n/es-ES.json'
+                }
+            });
          });
-        $('#tale_id').DataTable( {
-            autoFill: true,
-            responsive: true,
-             fixedHeader: true
-        } );
      </script>
 
 </body>
