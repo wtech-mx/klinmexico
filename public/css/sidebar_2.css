@@ -116,6 +116,7 @@
 
   .div_text_sidebar{
     border: solid 1px transparent;
+    background-color: #fff;
   }
 
   .div_text_sidebar:hover{
