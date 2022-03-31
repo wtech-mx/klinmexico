@@ -79,7 +79,6 @@
 <script>
    $('.delete-confirm').on('click', function (event) {
       event.preventDefault();
-      const url = $(this).attr('href');
       swal({
           title: 'Estas seguro?',
           text: 'Borraras al cliente permanente mente!',
