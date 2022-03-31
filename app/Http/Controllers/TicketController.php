@@ -945,4 +945,18 @@ class TicketController extends Controller
                 ->with('error', 'Faltan Validar datos!');
         }
     }
+
+    public function changeUserStatus(Request $request)
+    {
+        $ticket = Ticket::find($request->id);
+        $ticket->estatus = $request->estatus;
+        $ticket->save();
+
+        $rack = Racks::find($ticket->rack);
+        $rack->estatus = 0;
+        $rack->update();
+
+
+        return response()->json(['success' => 'Se cambio el estado exitosamente.']);
+    }
 }
