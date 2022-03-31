@@ -103,6 +103,12 @@
       font-size: 22px!important;
       color: rgba(18,58,255,1) !important;
   }
+
+  .nav_icon_sidebar_morado{
+      font-size: 22px!important;
+      color: #6e00ff;
+  }
+
   .button_sidebar_padre:hover{
       background-color: #6e00ff;
       color: #fff;
@@ -122,6 +128,17 @@
   .div_text_sidebar{
     border: solid 1px transparent;
     background-color: #fff;
+  }
+
+  .div_text_sidebar_morado{
+    border: solid 1px transparent;
+    background-color: #fff;
+    color: #6e00ff;;
+  }
+
+  .div_text_sidebar_morado:hover{
+      background-color: #6e00ff;
+      color: #fff
   }
 
   .div_text_sidebar:hover{

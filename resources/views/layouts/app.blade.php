@@ -82,10 +82,10 @@
                               <div class="input-group" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend sidebar_box_icon">
                                   <span class="input-group-text span_sidebar" >
-                                       <i class="fa fa-usd nav_icon_sidebar2" aria-hidden="true" ></i>
+                                       <i class="fa fa-usd nav_icon_sidebar_morado" aria-hidden="true" ></i>
                                   </span>
                                 </div>
-                                <div class="form-control div_text_sidebar">NUEVA VENTA</div>
+                                <div class="form-control div_text_sidebar_morado">NUEVA VENTA</div>
                               </div>
                           </li>
 
@@ -123,18 +123,18 @@
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
+                              <div class="input-group " style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
-                                       <i class="fa fa-user nav_icon_sidebar2" aria-hidden="true" ></i>
+                                       <i class="fa fa-user nav_icon_sidebar_morado" aria-hidden="true" ></i>
                                   </span>
                                 </div>
-                                <div class="form-control div_text_sidebar">NUEVO CLIENTE</div>
+                                <div class="form-control div_text_sidebar_morado">NUEVO CLIENTE</div>
                               </div>
                           </li>
 
                           <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2 '></i>
@@ -159,10 +159,10 @@
                               <div class="input-group" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
-                                       <i class="fa fa-desktop nav_icon_sidebar2" aria-hidden="true" ></i>
+                                       <i class="fa fa-desktop nav_icon_sidebar_morado" aria-hidden="true" ></i>
                                   </span>
                                 </div>
-                                <div class="form-control div_text_sidebar">SUCURSAL</div>
+                                <div class="form-control div_text_sidebar_morado">SUCURSAL</div>
                               </div>
                           </li>
 
@@ -192,10 +192,10 @@
                               <div class="input-group" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
-                                       <i class="fa fa-cog nav_icon_sidebar2" aria-hidden="true" ></i>
+                                       <i class="fa fa-cog nav_icon_sidebar_morado" aria-hidden="true" ></i>
                                   </span>
                                 </div>
-                                <div class="form-control div_text_sidebar">CONFIGURACIÓN</div>
+                                <div class="form-control div_text_sidebar_morado">CONFIGURACIÓN</div>
                               </div>
                           </li>
 
