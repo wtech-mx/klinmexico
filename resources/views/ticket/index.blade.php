@@ -36,11 +36,11 @@
 											<td>{{ $item->por_pagar }}</td>
                                             <td>{{ $item->Ticket->rack }}</td>
 
-                                            @if ($item->Ticket->estatus == 0)
-                                                <td>Pendiente</td>
-                                            @else
-                                                <td>Terminado</td>
-                                            @endif
+                                                <td>
+                                                    <input data-id="{{ $item->Ticket->id }}" class="toggle-class" type="checkbox"
+                                            data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
+                                            data-on="Active" data-off="InActive" {{ $item->Ticket->estatus ? 'checked disabled' : '' }}>
+                                                </td>
 
 
                                             <td>
@@ -64,5 +64,28 @@
                  @endforeach
         </div>
     </div>
+@endsection
 
+@section('js')
+    <script>
+        $(function() {
+            $('.toggle-class').change(function() {
+                var estatus = $(this).prop('checked disabled') == true ? 1 : 0;
+                var id = $(this).data('id');
+
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: '{{ route('ticket.ChangeUserStatus') }}',
+                    data: {
+                        'estatus': estatus,
+                        'id': id
+                    },
+                    success: function(data) {
+                        console.log(data.success)
+                    }
+                });
+            })
+        })
+    </script>
 @endsection
