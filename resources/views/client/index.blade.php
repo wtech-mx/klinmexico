@@ -22,8 +22,8 @@
                                     <tr>
                                         <th>No</th>
 
+                                        <th>Email</th>
 										<th>Nombre</th>
-										<th>Email</th>
 										<th>Apellido Paterno</th>
 										<th>Telefono</th>
 
@@ -81,10 +81,10 @@
       event.preventDefault();
       const url = $(this).attr('href');
       swal({
-          title: 'Estas seguro?',
-          text: 'Borraras al cliente permanente mente!',
+          title: '¿Estas seguro?',
+          text: '¡Borrarás al cliente permanentemente!',
           icon: 'warning',
-          buttons: ["Cancel", "Yes!"],
+          buttons: ["Cancelar", "¡Si!"],
           }).then(function(value) {
           if (value) {
            $("#delete_client").click();
