@@ -110,8 +110,9 @@ class TicketController extends Controller
 
                 $mail->Body    = 'Envio de corre de ticker';
 
-//                $mail->Body    = '<!doctype html>
+//              $mail->Body    = '<!doctype html>
 //                                    <html lang="es">
+
 //                                    <head>
 //                                        <meta charset="utf-8">
 //                                        <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -122,6 +123,7 @@ class TicketController extends Controller
 //                                        <link href="css/email.css" rel="stylesheet">
 //                                        <link href="fonts/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 //                                    </head>
+
 //                                    <body id="body-pd" class="">
 //                                             <div class="d-flex justify-content-center">
 //                                                <div class="limit_ticket">

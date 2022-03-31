@@ -1,11 +1,4 @@
-body {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-  }
 
-  html {
-    height: -webkit-fill-available;
-  }
 
   main {
     display: flex;
@@ -95,9 +88,44 @@ body {
     width: 190px;
   }
 
+  .button_sidebar_padre2{
+    background: #fff;
+    margin-bottom: 1rem;
+  }
+
+  .button_sidebar_padre2 .nav-link{
+    background: #fff;
+    padding: 10px 7px;
+    color: rgba(64,67,83,1) !important;
+  }
+
+  .nav_icon_sidebar2{
+      font-size: 20px!important;
+      color: rgba(18,58,255,1) !important;
+  }
   .button_sidebar_padre:hover{
       background-color: #6e00ff;
       color: #fff;
+  }
+
+
+  .span_sidebar{
+      background-color: #f7f7f7;
+      border: solid 1px transparent;
+  }
+
+  .div_text_sidebar{
+    border: solid 1px transparent;
+  }
+
+  .div_text_sidebar:hover{
+      background-color: #6e00ff;
+      color: #fff
+  }
+
+  .div_text_sidebar.hover2:hover{
+      background-color: rgba(18,58,255,1) !important;
+      color: #fff
   }
 
   .nav_icon_sidebar{

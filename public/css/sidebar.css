@@ -167,7 +167,7 @@ a {
 
     .l-navbar {
         left: 0;
-        padding: 0em 0rem 0 0;
+        padding: 0px 5px 0px 0px;
     }
 
     .l-navbar.show {

@@ -16,8 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-     <link href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
-
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" rel="stylesheet">
@@ -28,6 +27,7 @@
     <link href="{{ asset('css/sidebar_2.css') }}" rel="stylesheet">
     <link href="{{ asset('css/generales.css') }}" rel="stylesheet">
     <link href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet">
+
 
      @yield('css')
 
@@ -76,64 +76,188 @@
                         <img class="" src="{{asset('image/logo_neon.png')}}" alt="Logo" style="width: 30px">
                         <span class="nav_logo-name text-dark">Klin</span>
                   </a>
-                  <ul class="list-unstyled ps-0">
-                    <li class="mb-1">
-                      <button class="btn align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-                        <i class="fa fa-usd nav_icon_sidebar" aria-hidden="true" ></i>Nueva Venta
-                      </button>
-                      <div class="collapse show" id="home-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li class="li_sidebar">
-                              <a href="{{ route('ticket.index') }}" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>SERVICIOS ACTIVOS</a>
+                    <ul class="nav nav-pills flex-column mb-auto" style="height: auto;">
+
+                          <li class="nav-item button_sidebar_padre2 ">
+                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text span_sidebar" >
+                                       <i class="fa fa-usd nav_icon_sidebar2" aria-hidden="true" ></i>
+                                  </span>
+                                </div>
+                                <div class="form-control div_text_sidebar">NUEVA VENTA</div>
+                              </div>
                           </li>
-                          <li class="li_sidebar">
-                              <a href="#" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>PROMOCIONES</a>
-                         </li>
-                          <li class="li_sidebar">
-                              <a href="#" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>CONTABILIDAD
 
-                              </a>
-                        </li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mb-1">
-                      <button class="btn  align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-                        <i class="fa fa-user nav_icon_sidebar" aria-hidden="true" ></i>NUEVO CLIENTE
-                      </button>
-                      <div class="collapse show" id="dashboard-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li class="li_sidebar"><a href="{{ route('clients.index') }}" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>CLIENTES</a></li>
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>RACKS</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li class="mb-1">
-                      <button class="btn  align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                        <i class="fa fa-desktop nav_icon_sidebar" aria-hidden="true" ></i>SUCURSAL
-                      </button>
-                      <div class="collapse show" id="orders-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li class="li_sidebar"><a href="{{ route('products.index') }}" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>PRODUCTOS </a></li>
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>RECURSOS</a></li>
+                          <li class="nav-item button_sidebar_padre2 ">
+                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text span_sidebar" >
+                                       <i class='bx bxs-right-arrow nav_icon_sidebar2'></i>
+                                  </span>
+                                </div>
+                                <div class="form-control div_text_sidebar hover2">SERVICIOS ACTIVOS</div>
+                              </div>
+                          </li>
+
+                          <li class="nav-item button_sidebar_padre2 ">
+                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text span_sidebar" >
+                                       <i class='bx bxs-right-arrow nav_icon_sidebar2'></i>
+                                  </span>
+                                </div>
+                                <div class="form-control div_text_sidebar hover2">PROMOCIONES</div>
+                              </div>
+                          </li>
+
+                          <li class="nav-item button_sidebar_padre2 ">
+                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text span_sidebar" >
+                                       <i class='bx bxs-right-arrow nav_icon_sidebar2'></i>
+                                  </span>
+                                </div>
+                                <div class="form-control div_text_sidebar hover2">CONTABILIDAD</div>
+                              </div>
+                          </li>
+
+                          <li class="nav-item button_sidebar_padre2 ">
+                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text span_sidebar" >
+                                       <i class="fa fa-user nav_icon_sidebar2" aria-hidden="true" ></i>
+                                  </span>
+                                </div>
+                                <div class="form-control div_text_sidebar">NUEVO CLIENTE</div>
+                              </div>
+                          </li>
+
+                          <li class="nav-item button_sidebar_padre2 ">
+                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text span_sidebar" >
+                                       <i class='bx bxs-right-arrow nav_icon_sidebar2 '></i>
+                                  </span>
+                                </div>
+                                <div class="form-control div_text_sidebar hover2">CLIENTES</div>
+                              </div>
+                          </li>
+
+                          <li class="nav-item button_sidebar_padre2 ">
+                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text span_sidebar" >
+                                       <i class='bx bxs-right-arrow nav_icon_sidebar2 '></i>
+                                  </span>
+                                </div>
+                                <div class="form-control div_text_sidebar hover2">RACKS</div>
+                              </div>
+                          </li>
+
+                          <li class="nav-item button_sidebar_padre2">
+                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text span_sidebar" >
+                                       <i class="fa fa-desktop nav_icon_sidebar2" aria-hidden="true" ></i>
+                                  </span>
+                                </div>
+                                <div class="form-control div_text_sidebar">SUCURSAL</div>
+                              </div>
+                          </li>
+
+                          <li class="nav-item button_sidebar_padre2 ">
+                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text span_sidebar" >
+                                       <i class='bx bxs-right-arrow nav_icon_sidebar2 '></i>
+                                  </span>
+                                </div>
+                                <div class="form-control div_text_sidebar hover2">PRODUCTOS</div>
+                              </div>
+                          </li>
+
+                          <li class="nav-item button_sidebar_padre2 ">
+                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text span_sidebar" >
+                                       <i class='bx bxs-right-arrow nav_icon_sidebar2 '></i>
+                                  </span>
+                                </div>
+                                <div class="form-control div_text_sidebar hover2">RECURSOS</div>
+                              </div>
+                          </li>
+
+                          <li class="nav-item button_sidebar_padre2">
+                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text span_sidebar" >
+                                       <i class="fa fa-cog nav_icon_sidebar2" aria-hidden="true" ></i>
+                                  </span>
+                                </div>
+                                <div class="form-control div_text_sidebar">CONFIGURACIÓN</div>
+                              </div>
+                          </li>
 
                         </ul>
-                      </div>
-                    </li>
-                    {{-- <li class="border-top my-3"></li> --}}
-                    <li class="mb-1">
-                      <button class="btn  align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
-                        <i class="fa fa-cog nav_icon_sidebar" aria-hidden="true" ></i>CONFIGURACIÓN
-                      </button>
-                      <div class="collapse show" id="account-collapse">
-                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Profile</a></li>
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Settings</a></li>
-                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Sign out</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
+{{--                  <ul class="list-unstyled ps-0">--}}
+{{--                    <li class="mb-1">--}}
+{{--                      <button class="btn align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">--}}
+{{--                        <i class="fa fa-usd nav_icon_sidebar" aria-hidden="true" ></i>Nueva Venta--}}
+{{--                      </button>--}}
+{{--                      <div class="collapse show" id="home-collapse">--}}
+{{--                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">--}}
+{{--                          <li class="li_sidebar">--}}
+{{--                              <a href="{{ route('ticket.index') }}" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>SERVICIOS ACTIVOS</a>--}}
+{{--                          </li>--}}
+{{--                          <li class="li_sidebar">--}}
+{{--                              <a href="#" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>PROMOCIONES</a>--}}
+{{--                         </li>--}}
+{{--                          <li class="li_sidebar">--}}
+{{--                              <a href="#" class="link-dark link_sidebar rounded"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>CONTABILIDAD--}}
+
+{{--                              </a>--}}
+{{--                        </li>--}}
+{{--                        </ul>--}}
+{{--                      </div>--}}
+{{--                    </li>--}}
+{{--                    <li class="mb-1">--}}
+{{--                      <button class="btn  align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">--}}
+{{--                        <i class="fa fa-user nav_icon_sidebar" aria-hidden="true" ></i>NUEVO CLIENTE--}}
+{{--                      </button>--}}
+{{--                      <div class="collapse show" id="dashboard-collapse">--}}
+{{--                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">--}}
+{{--                          <li class="li_sidebar"><a href="{{ route('clients.index') }}" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>CLIENTES</a></li>--}}
+{{--                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>RACKS</a></li>--}}
+{{--                        </ul>--}}
+{{--                      </div>--}}
+{{--                    </li>--}}
+{{--                    <li class="mb-1">--}}
+{{--                      <button class="btn  align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">--}}
+{{--                        <i class="fa fa-desktop nav_icon_sidebar" aria-hidden="true" ></i>SUCURSAL--}}
+{{--                      </button>--}}
+{{--                      <div class="collapse show" id="orders-collapse">--}}
+{{--                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">--}}
+{{--                          <li class="li_sidebar"><a href="{{ route('products.index') }}" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>PRODUCTOS </a></li>--}}
+{{--                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>RECURSOS</a></li>--}}
+
+{{--                        </ul>--}}
+{{--                      </div>--}}
+{{--                    </li>--}}
+{{--                    --}}{{-- <li class="border-top my-3"></li> --}}
+{{--                    <li class="mb-1">--}}
+{{--                      <button class="btn  align-items-center rounded button_sidebar_padre collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">--}}
+{{--                        <i class="fa fa-cog nav_icon_sidebar" aria-hidden="true" ></i>CONFIGURACIÓN--}}
+{{--                      </button>--}}
+{{--                      <div class="collapse show" id="account-collapse">--}}
+{{--                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">--}}
+{{--                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Profile</a></li>--}}
+{{--                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Settings</a></li>--}}
+{{--                          <li class="li_sidebar"><a href="#" class="link-dark rounded link_sidebar"><i class="fa fa-arrow-right nav_icon_sidebar" aria-hidden="true"></i>Sign out</a></li>--}}
+{{--                        </ul>--}}
+{{--                      </div>--}}
+{{--                    </li>--}}
+{{--                  </ul>--}}
                 </div>
               </main>
     </div>
