@@ -48,6 +48,7 @@ Auth::routes();
     Route::post('/ticket/store', [App\Http\Controllers\TicketController::class, 'store'])->name('ticket.store');
     Route::get('/ticket/view', [App\Http\Controllers\TicketController::class, 'view'])->name('ticket.view');
     Route::get('/ticket/edit/{id}', [App\Http\Controllers\TicketController::class, 'edit'])->name('ticket.edit');
+    Route::post('/ticket/update/{id}', [App\Http\Controllers\TicketController::class, 'update'])->name('ticket.update');
 
     //email
     Route::get('/ticket/email/admin/{id}', [App\Http\Controllers\TicketController::class, 'email_admin'])->name('email_admin.email');
