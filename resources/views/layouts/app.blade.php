@@ -39,22 +39,22 @@
 
     @else
     <header class="header" id="header">
+
         <div class="header_toggle">
             <i class='bx bx-menu'  id="header-toggle"></i>
         </div>
 
-        <div class="tlttle_username text-center">
-            SUCURSAL    01 - Condesa Nuevo León <br>
-            {{ Auth::user()->name }}
-        </div>
+        <div class="btn-group">
+          <p style="margin-right: 3rem;">
+                SUCURSAL
+            </p>
+          </div>
 
         <div class="btn-group">
             <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: solid 1px transparent;
-            background: transparent;">
-                <div class="header_img">
-                    <img src="{{asset('image/logo_neon.png')}}" alt="">
-                </div>
+            background: transparent;">Condesa Nuevo León <br>{{ Auth::user()->name }}
             </button>
+
             <ul class="dropdown-menu">
                 <a href="#" class="nav_link" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
@@ -66,7 +66,12 @@
             </ul>
           </div>
 
+        <div class="btn-group">
+                <div class="header_img">
+                    <img src="{{asset('image/logo_neon.png')}}" alt="">
+                </div>
 
+          </div>
     </header>
 
     <div class="l-navbar" id="nav-bar">

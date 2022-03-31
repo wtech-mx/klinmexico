@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <section class="content container-fluid content_card_shadow p-3">
+    <section class="content container-fluid  p-3">
         <div class="row">
 
             <div class="d-flex justify-content-between mt-5">
@@ -92,7 +92,7 @@
             .replace(/\s/g, '')
 
             // Agregar un espacio cada dos numeros
-            .replace(/([0-9]{2})/g, '$1 ')
+            .replace(/([0-9]{3})/g, '$1 ')
 
             // Borrar espacio al final
             .trim();

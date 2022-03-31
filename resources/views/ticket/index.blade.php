@@ -1,19 +1,14 @@
 @extends('layouts.app')
 @section('content')
 
-    <div class="content container-fluid content_card_shadow p-3">
+    <div class="content container-fluid p-3">
         <div class="row">
 
             <div class="d-flex justify-content-between mt-5">
                 <h1> Tickets </h1>
-                <a href="{{ route('ticket.create') }}" class="btn btn_create">
-                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                    Crear Ticket
-                </a>
             </div>
 
             <div class="col-12 mt-5">
-
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
                             <p>{{ $message }}</p>

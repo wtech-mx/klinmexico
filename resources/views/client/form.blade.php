@@ -28,11 +28,18 @@
                 {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
-            <div class="form-group mt-5 col-12 col-md-12 col-lg-12">
+            <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
                 {{ Form::label('Número de contacto ') }} <br>
                 {{ Form::tel('telefono', $client->telefono, ['class' => 'form-control' . ($errors->has('telefono') ? ' is-invalid' : ''),'id' => 'telefono']) }}
                 {!! $errors->first('telefono', '<div class="invalid-feedback">:message</div>') !!}
             </div>
+
+            <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
+                {{ Form::label('fecha_nacimiento') }}
+                {{ Form::date('fecha_nacimiento', $client->fecha_nacimiento, ['class' => 'form-control' . ($errors->has('fecha_nacimiento') ? ' is-invalid' : '')]) }}
+                {!! $errors->first('fecha_nacimiento', '<div class="invalid-feedback">:message</div>') !!}
+            </div>
+
 
 {{--            <input id="phone" name="phone" type="tel">--}}
 
@@ -73,12 +80,6 @@
                 {{ Form::label('colonia') }}
                 {{ Form::text('colonia', $client->colonia, ['class' => 'form-control' . ($errors->has('colonia') ? ' is-invalid' : '')]) }}
                 {!! $errors->first('colonia', '<div class="invalid-feedback">:message</div>') !!}
-            </div>
-
-            <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
-                {{ Form::label('fecha_nacimiento') }}
-                {{ Form::date('fecha_nacimiento', $client->fecha_nacimiento, ['class' => 'form-control' . ($errors->has('fecha_nacimiento') ? ' is-invalid' : '')]) }}
-                {!! $errors->first('fecha_nacimiento', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
         </div>
