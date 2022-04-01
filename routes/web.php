@@ -19,11 +19,7 @@ use App\Http\Controllers\SendEmailController;
 |
 */
 
-
-
 Auth::routes();
-
-
 
     Route::group(['middleware' => ['auth']], function() {
 
@@ -58,7 +54,6 @@ Auth::routes();
     Route::get('/ticket/email/user/{id}', [App\Http\Controllers\TicketController::class, 'email_user'])->name('email_user.email');
 
     Route::post('/ticket/email_send/admin/send', [App\Http\Controllers\TicketController::class, 'sed_mail'])->name('ticket.sed_mail');
-    Route::post('/ticket/store', [App\Http\Controllers\TicketController::class, 'store'])->name('ticket.store');
 
 });
 

@@ -288,7 +288,7 @@
             <div class="d-flex justify-content-center mt-5">
                 <form method="POST" action="{{ route('ticket.sed_mail') }}"  role="form" enctype="multipart/form-data">
                     @csrf
-                    <input type="hidden" name="id_ticket_id" id="id_ticket_id" value="{{$item->Ticket->id}}">
+                    <input type="hidden" name="id_ticket_id" id="id_ticket_id" value="{{$item->id}}">
                     <input type="hidden" name="id_user" id="id_user" value="{{$item->Ticket->Client->id}}">
                       <button type="submit" class="btn btn_modal_send">
                           <i class="fa fa-envelope-o" aria-hidden="true"></i> Enviar Recibo
