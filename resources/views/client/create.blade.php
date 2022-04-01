@@ -9,7 +9,7 @@
         <div class="row">
 
             <div class="d-flex justify-content-between mt-5">
-                <h1> Clientes </h1>
+                <h1> Ingresar los datos del cliente </h1>
             </div>
 
             <div class="col-12">

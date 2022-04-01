@@ -20,13 +20,12 @@
                     <table class="table table-striped table-responsive table-hover " id="tale_id" >
                                 <thead class="thead">
                                     <tr>
-                                        <th>No</th>
-
-                                        <th>Email</th>
-										<th>Nombre</th>
-										<th>Apellido Paterno</th>
-										<th>Telefono</th>
-
+                                        <th>ID Cliente</th>
+                                        <th>Nombre y Apellidos</th>
+										<th>Número de Contacto</th>
+                                        <th>Correo Electrónico</th>
+                                        <th>Dirección Completa</th>
+                                        <th>Fecha de Nacimiento</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -34,11 +33,11 @@
                                     @foreach ($clients as $client)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-
-											<td>{{ $client->email }}</td>
-                                            <td>{{ $client->name }}</td>
-											<td>{{ $client->apellido_pa }}</td>
+                                            <td>{{ $client->name }} <br> {{$client->apellido_pa }} {{$client->apellido_ma }}</td>
 											<td>{{ $client->telefono }}</td>
+                                            <td>{{ $client->email }}</td>
+                                            <td>Direccion</td>
+                                            <td>{{ $client->fecha_nacimiento }}</td>
 
                                             <td>
                                                 <form action="{{ route('clients.destroy',$client->id) }}" method="POST">
