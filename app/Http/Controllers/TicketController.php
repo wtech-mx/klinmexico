@@ -50,11 +50,9 @@ class TicketController extends Controller
             $validator = Validator::make($request->all(), [
                 'id_user' => 'required',
                 'id_ticket_id' => 'required',
+                'email_client' => 'required',
+                'estatus' => 'required',
             ]);
-
-            $ticket = Ticket::findOrFail($request->get('id_ticket_id'));
-
-            $precio_ticket = PrecioTicket::where('id_ticket', '=', $request->get('id_ticket_id'))->first();
 
             if ($validator->fails()) {
                 return redirect()->back()
@@ -62,33 +60,47 @@ class TicketController extends Controller
                     ->withInput();
             }
 
-            try {
-                $subject = "Asunto del correo";
-                $for = "dayannaespinosa54@gmail.com";
+            if($request->get('estatus') == 'admin'){
+
+                $ticket = Ticket::findOrFail($request->get('id_ticket_id'));
+                $precio_ticket = PrecioTicket::where('id_ticket', '=', $request->get('id_ticket_id'))->first();
+
+                $subject = "Ticket KLINMEXICO";
+                $for = "noreply@klinmexico.com";
+
                 Mail::send('emails.ticket_admin_email',['precio_ticket' => $precio_ticket], function($msj) use($subject,$for){
-                    $msj->from("dayanna.wtech@gmail.com","NombreQueApareceráComoEmisor");
+                    $msj->from("noreply@klinmexico.com");
                     $msj->subject($subject);
                     $msj->to($for);
                 });
 
+            }else{
+                $email_client = $request->get('email_client');
+                $ticket = Ticket::findOrFail($request->get('id_ticket_id'));
+
+                $precio_ticket = PrecioTicket::where('id_ticket', '=', $request->get('id_ticket_id'))->first();
+                $subject = "Ticket KLINMEXICO";
+                $for = $email_client;
+
+                Mail::send('emails.ticket_user_email',['precio_ticket' => $precio_ticket], function($msj) use($subject,$for){
+                    $msj->from("noreply@klinmexico.com");
+                    $msj->subject($subject);
+                    $msj->to($for);
+                });
+
+            }
+
+            try {
                 return redirect()->route('ticket.index')
                 ->with('success', 'Correo enviado exitosamente!');
 
             } catch (\Exception $e) {
                 return redirect()->back()
-                    ->with('error', 'Error al enciar correo');
+                    ->with('error', 'Error al enviar correo');
             }
 
     }
 
-    public function email_user_send($id)
-    {
-        $ticket = Ticket::findOrFail($id);
-
-        $precio_ticket = PrecioTicket::where('id_ticket', '=', $id)->first();
-
-        return view('emails.ticket_user_email', compact('ticket', 'precio_ticket'));
-    }
 
     public function store(Request $request)
     {
@@ -343,6 +355,7 @@ class TicketController extends Controller
 //                $message->subject($emailSubject);
 //                $message->to($arrayEmails);
 //            });
+
         } catch (\Exception $e) {
             return redirect()->back()
                 ->with('error', 'Faltan Validar datos!');

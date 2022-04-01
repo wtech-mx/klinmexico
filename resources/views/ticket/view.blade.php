@@ -38,7 +38,8 @@
                     @endphp
                     {{$newDate}}
                     <br><br>
-                    <strong> Cliente: </strong> {{ $item->Ticket->Client->name }} <br><br>
+                    <strong> Cliente: </strong> {{ $item->Ticket->Client->name }} <br>
+                    <strong> Correo electronico: </strong> {{ $item->Ticket->Client->email}} <br><br>
                     <strong> Prenda: </strong> ({{ $item->DescripcionTicket->marca }},
                     {{ $item->DescripcionTicket->modelo }},
                     {{ $item->DescripcionTicket->talla }},
@@ -290,6 +291,8 @@
                     @csrf
                     <input type="hidden" name="id_ticket_id" id="id_ticket_id" value="{{$item->id}}">
                     <input type="hidden" name="id_user" id="id_user" value="{{$item->Ticket->Client->id}}">
+                    <input type="hidden" name="email_client" id="email_client" value="{{ $item->Ticket->Client->email}}">
+                    <input type="hidden" name="estatus" id="estatus" value="admin">
                       <button type="submit" class="btn btn_modal_send">
                           <i class="fa fa-envelope-o" aria-hidden="true"></i> Enviar Recibo
                       </button>
@@ -311,8 +314,9 @@
                             $entrega_estandar = date("d/m/Y",strtotime($originalDate."+ 8 days"));
                             $entrega_express = date("d/m/Y",strtotime($originalDate."+ 1 days"));
                         @endphp
-                    {{$newDate}}<br>
-                    <strong> Cliente: </strong> {{$item->Ticket->Client->name}} <br><br>
+                    {{$newDate}}<br><br>
+                    <strong> Cliente: </strong> {{$item->Ticket->Client->name}} <br>
+                    <strong> Correo electronico: </strong> {{ $item->Ticket->Client->email}} <br><br>
                     <strong> Prenda: </strong> ({{ $item->DescripcionTicket->marca }},
                     {{ $item->DescripcionTicket->modelo }},
                     {{ $item->DescripcionTicket->talla }},
@@ -533,6 +537,20 @@
                     </p>
 
             </div>
+
+            <div class="d-flex justify-content-center mt-5">
+                <form method="POST" action="{{ route('ticket.sed_mail') }}"  role="form" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="id_ticket_id" id="id_ticket_id" value="{{$item->id}}">
+                    <input type="hidden" name="id_user" id="id_user" value="{{$item->Ticket->Client->id}}">
+                    <input type="hidden" name="email_client" id="email_client" value="{{ $item->Ticket->Client->email}}">
+                    <input type="hidden" name="estatus" id="estatus" value="user">
+                      <button type="submit" class="btn btn_modal_send">
+                          <i class="fa fa-envelope-o" aria-hidden="true"></i> Enviar Recibo
+                      </button>
+                </form>
+            </div>
+
           </div>
 
         </div>

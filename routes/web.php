@@ -52,8 +52,8 @@ Auth::routes();
     //email
     Route::get('/ticket/email/admin/{id}', [App\Http\Controllers\TicketController::class, 'email_admin'])->name('email_admin.email');
     Route::get('/ticket/email/user/{id}', [App\Http\Controllers\TicketController::class, 'email_user'])->name('email_user.email');
-
     Route::post('/ticket/email_send/admin/send', [App\Http\Controllers\TicketController::class, 'sed_mail'])->name('ticket.sed_mail');
+
 
 });
 
