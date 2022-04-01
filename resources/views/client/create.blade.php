@@ -4,6 +4,8 @@
 <link rel="stylesheet" href="{{ asset('css/intlTelInput.css') }}">
 @endsection
 
+@section('active5', 'active')
+
 @section('content')
     <section class="content container-fluid  p-3">
         <div class="row">

@@ -1,4 +1,7 @@
 @extends('layouts.app')
+
+@section('active6', 'active')
+
 @section('content')
 
     <div class="container-fluid ">
@@ -6,8 +9,6 @@
 
             <div class="d-flex justify-content-between mt-5">
                 <h1> Clientes </h1>
-
-
             </div>
 
             <div class="col-12 mt-5 ">

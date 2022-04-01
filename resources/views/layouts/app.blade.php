@@ -78,16 +78,16 @@
             <main>
                 <div class="flex-shrink-0 p-3" style="width: 280px;background:·#C4C6D3">
                     <a href="{{ url('/') }}" class="nav_logo">
-                        <img class="" src="{{asset('image/logo_neon.png')}}" alt="Logo" style="width: 30px">
-                        <span class="nav_logo-name text-dark">Klin</span>
-                  </a>
+                        <img class="" src="{{asset('image/logo_neon.png')}}" alt="Logo" style="width: 60px">
+                        <span class="nav_logo-name text-dark" style="font-size: 30px;">Klin</span>
+                    </a>
                     <ul class="nav nav-pills flex-column mb-auto" style="height: auto;">
 
-                          <li class="nav-item button_sidebar_padre2 ">
+                          <li class="nav-item button_sidebar_padre2  ">
                               <a href="{{ route('ticket.create') }}">
-                              <div class="input-group" style="border: solid 1px #a5a5a5;">
-                                <div class="input-group-prepend sidebar_box_icon">
-                                  <span class="input-group-text span_sidebar" >
+                              <div class="input-group @yield('active1')" style="border: solid 1px #a5a5a5;">
+                                <div class="input-group-prepend  sidebar_box_icon">
+                                  <span class="input-group-text  span_sidebar" >
                                        <i class="fa fa-usd nav_icon_sidebar_morado" aria-hidden="true" ></i>
                                   </span>
                                 </div>
@@ -96,9 +96,9 @@
                               </a>
                           </li>
 
-                          <li class="nav-item button_sidebar_padre2 ">
+                          <li class="nav-item button_sidebar_padre2  ">
                               <a href="{{ route('ticket.index') }}">
-                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
+                              <div class="input-group @yield('active2') hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2'></i>
@@ -109,8 +109,8 @@
                               </a>
                           </li>
 
-                          <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
+                          <li class="nav-item button_sidebar_padre2  ">
+                              <div class="input-group @yield('active3') hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2'></i>
@@ -120,8 +120,8 @@
                               </div>
                           </li>
 
-                          <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
+                          <li class="nav-item button_sidebar_padre2  ">
+                              <div class="input-group @yield('active4') hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2'></i>
@@ -131,9 +131,9 @@
                               </div>
                           </li>
 
-                          <li class="nav-item button_sidebar_padre2 ">
+                          <li class="nav-item button_sidebar_padre2  ">
                               <a href="{{ route('clients.create') }}">
-                              <div class="input-group " style="border: solid 1px #a5a5a5;">
+                              <div class="input-group @yield('active5')" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class="fa fa-user nav_icon_sidebar_morado" aria-hidden="true" ></i>
@@ -144,11 +144,11 @@
                               </a>
                           </li>
 
-                          <li class="nav-item button_sidebar_padre2 ">
+                          <li class="nav-item button_sidebar_padre2">
                               <a href="{{ route('clients.index') }}">
-                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
-                                <div class="input-group-prepend">
-                                  <span class="input-group-text span_sidebar" >
+                              <div class="input-group @yield('active6') hover2" style="border: solid 1px #a5a5a5;">
+                                <div class="input-group-prepend ">
+                                  <span class="input-group-text span_sidebar " >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2 '></i>
                                   </span>
                                 </div>
@@ -157,8 +157,8 @@
                               </a>
                           </li>
 
-                          <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
+                          <li class="nav-item button_sidebar_padre2  ">
+                              <div class="input-group @yield('active7') hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2 '></i>
@@ -168,8 +168,8 @@
                               </div>
                           </li>
 
-                          <li class="nav-item button_sidebar_padre2">
-                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                          <li class="nav-item button_sidebar_padre2 ">
+                              <div class="input-group @yield('active8')" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class="fa fa-desktop nav_icon_sidebar_morado" aria-hidden="true" ></i>
@@ -179,8 +179,8 @@
                               </div>
                           </li>
 
-                          <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
+                          <li class="nav-item button_sidebar_padre2  ">
+                              <div class="input-group @yield('active9') hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2 '></i>
@@ -190,8 +190,8 @@
                               </div>
                           </li>
 
-                          <li class="nav-item button_sidebar_padre2 ">
-                              <div class="input-group hover2" style="border: solid 1px #a5a5a5;">
+                          <li class="nav-item button_sidebar_padre2  ">
+                              <div class="input-group @yield('active10') hover2" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class='bx bxs-right-arrow nav_icon_sidebar2 '></i>
@@ -201,8 +201,8 @@
                               </div>
                           </li>
 
-                          <li class="nav-item button_sidebar_padre2">
-                              <div class="input-group" style="border: solid 1px #a5a5a5;">
+                          <li class="nav-item button_sidebar_padre2 ">
+                              <div class="input-group @yield('active11')" style="border: solid 1px #a5a5a5;">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text span_sidebar" >
                                        <i class="fa fa-cog nav_icon_sidebar_morado" aria-hidden="true" ></i>

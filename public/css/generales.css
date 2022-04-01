@@ -133,6 +133,11 @@
     width: 20%;
 }
 
+.input-group.active{
+    background-color: #6e00ff;
+
+}
+
 @media only screen and (max-width: 768px) {
     .content_card_shadow{
         margin-left: 0rem!important;

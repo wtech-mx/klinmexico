@@ -1,4 +1,7 @@
 @extends('layouts.app')
+
+@section('active2', 'active')
+
 @section('content')
 
     <div class="content container-fluid p-3">

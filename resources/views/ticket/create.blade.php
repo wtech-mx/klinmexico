@@ -4,6 +4,9 @@
 Crear Ventas
 @endsection
 
+@section('active1', 'active')
+
+
 @section('css')
     <link href="{{ asset('css/form.css') }}" rel="stylesheet">
     <link href="{{ asset('css/steps.css') }}" rel="stylesheet">
