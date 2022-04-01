@@ -307,6 +307,7 @@
          $(document).ready(function () {
             $.noConflict();
             var table = $('#tale_id').DataTable({
+                "ordering": false,
                 autoFill: true,
                 responsive: true,
                 fixedHeader: true,
