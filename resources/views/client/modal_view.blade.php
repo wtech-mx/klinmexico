@@ -43,8 +43,10 @@
                     Distinguido 1
                 </div>
 
-                <h5 class="mt-5" style="font-weight: bold; color: #0a10e9;">Dirección</h5>
-
+                <div class="form-group mt-4 col-6 col-md-12 col-lg-12">
+                    <label style="font-weight: bold; color: #0a10e9;">Dirección</label> <br>
+                    {{ $client->calle }}, {{ $client->colonia }}, {{ $client->alcaldia }}, {{ $client->estado }}, {{ $client->cp }}
+                </div>
 
 
 

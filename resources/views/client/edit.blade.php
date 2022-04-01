@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update Client
+    Editar cliente
 @endsection
 
 @section('content')
