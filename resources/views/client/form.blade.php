@@ -19,7 +19,7 @@
 
             <div class="form-group mt-5 col-12 col-md-3 col-lg-3">
                 {{ Form::label('Número de contacto ') }} <br>
-                {{ Form::tel('telefono', $client->telefono, ['class' => 'form-control' . ($errors->has('telefono') ? ' is-invalid' : ''),'id' => 'telefono','placeholder' => '00-00-00-00-00']) }}
+                {{ Form::tel('telefono', $client->telefono, ['class' => 'form-control' . ($errors->has('telefono') ? ' is-invalid' : ''),'id' => 'telefono','placeholder' => '00-00-00-00-00','maxlength' => '14']) }}
                 {!! $errors->first('telefono', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
