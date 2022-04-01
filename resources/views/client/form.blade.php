@@ -30,7 +30,7 @@
 
             <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
                 {{ Form::label('Número de contacto ') }} <br>
-                {{ Form::tel('telefono', $client->telefono, ['class' => 'form-control' . ($errors->has('telefono') ? ' is-invalid' : ''),'id' => 'telefono','placeholder' => '000-000-0000']) }}
+                {{ Form::tel('telefono', $client->telefono, ['class' => 'form-control' . ($errors->has('telefono') ? ' is-invalid' : ''),'id' => 'telefono','placeholder' => '00-00-00-00-00']) }}
                 {!! $errors->first('telefono', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
@@ -87,7 +87,7 @@
 
         <div class="col-12 mb-5">
             <button type="submit" class=" btn_next_tab mt-3 mb-1 next mt-4" style="border: 1px solid;">
-                <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar
+                <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar Datos
             </button>
         </div>
 

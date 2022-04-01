@@ -69,13 +69,18 @@
     background-color: #1EC4E5!important;
 }
 .btn_next_tab{
-    background-color: #0a10e9;
+    background-color: #c4c6d3;
     padding: 10px;
-    color: #fff;
-    border-radius: 15px;
+    color: #000;
+    border-radius: 3px;
     top: 20px;
     position: relative;
     margin-top: 3rem!important;
+    border: solid 1px transparent!important;
+}
+
+.btn_next_tab:hover{
+    border: solid 1px #000000!important;
 }
 
 .content_card_shadow{

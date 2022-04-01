@@ -92,7 +92,7 @@
             .replace(/\s/g, '')
 
             // Agregar un espacio cada dos numeros
-            .replace(/([0-9]{3})/g, '$1 ')
+            .replace(/([0-9]{2})/g, '$1 ')
 
             // Borrar espacio al final
             .trim();

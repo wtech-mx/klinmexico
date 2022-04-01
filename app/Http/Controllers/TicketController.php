@@ -326,36 +326,6 @@ class TicketController extends Controller
             return redirect()->route('ticket.index')
                 ->with('success', 'Ticket creado exitosamente!');
 
-            //Envio de Email
-//            $id_user = $request->get('id_user');
-//            $clients = Client::find($id_user);
-//            $emial_user = $clients->email;
-//
-//            $emailSubject = 'Envio de Ticket';
-//            $emailBody = 'Detalles del Ticket  KLINMEXICO';
-//
-//
-//            //usar para un solo correo de destino
-//            $emaifor = $emial_user;
-//            //usar para varios  correos de destino
-//
-//            // Enviar para Admin
-//            Mail::send('emails.ticket_admin_email', ['msg' => $emailBody], function ($message) use ($emailSubject, $emaifor) {
-//                $message->from("noreply@klinmexico.com", "KlinMexico");
-//                $message->subject($emailSubject);
-//                $message->to($emaifor);
-//            });
-//
-//            // Enviar para cliente
-//            $arrayEmails = ['noreply@klinmexico.com', $emaifor];
-//            $emailBody2 = 'Detalles del Ticket  KLINMEXICO';
-//
-//            Mail::send('emails.ticket_user_email', ['msg' => $emailBody2], function ($message) use ($emailSubject, $arrayEmails) {
-//                $message->from("noreply@klinmexico.com", "KlinMexico");
-//                $message->subject($emailSubject);
-//                $message->to($arrayEmails);
-//            });
-
         } catch (\Exception $e) {
             return redirect()->back()
                 ->with('error', 'Faltan Validar datos!');
