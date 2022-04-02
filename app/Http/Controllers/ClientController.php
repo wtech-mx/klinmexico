@@ -77,6 +77,7 @@ class ClientController extends Controller
             'alcaldia' => $request->alcaldia,
             'colonia' => $request->colonia,
             'fecha_nacimiento' => $request->fecha_nacimiento,
+            'genero' => $request->genero,
             ]);
 
             return redirect()->route('clients.index')

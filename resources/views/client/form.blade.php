@@ -38,8 +38,8 @@
 
             <div class="form-group mt-5 col-12 col-md-3 col-lg-3">
                 {{ Form::label('Genero') }}
-                {{ Form::date('fecha_nacimiento', $client->fecha_nacimiento, ['class' => 'form-control' . ($errors->has('fecha_nacimiento') ? ' is-invalid' : '')]) }}
-                {!! $errors->first('fecha_nacimiento', '<div class="invalid-feedback">:message</div>') !!}
+                {{ Form::text('genero', $client->genero, ['class' => 'form-control' . ($errors->has('genero') ? ' is-invalid' : '')]) }}
+                {!! $errors->first('genero', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
             {{ Form::number('num_compras', $client->num_compras, ['class' => 'form-control' . ($errors->has('num_compras') ? ' is-invalid' : ''),'hidden']) }}
