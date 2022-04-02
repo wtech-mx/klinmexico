@@ -282,9 +282,9 @@
 
                                     <div class="form-group mt-5 col-xs-6 col-md-2 col-lg-2">
                                         <label class="label_steps" for="">Direccion</label> <br>
-                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="rec" disabled>
+                                        <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_direccion" id="rec" disabled>
                                             +
-                                          </button>
+                                          </a>
                                     </div>
 
                                     <div class="form-group mt-5 mb-5 col-6 col-md-3 col-lg-3">
