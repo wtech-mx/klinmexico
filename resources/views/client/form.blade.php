@@ -1,4 +1,51 @@
 <div class="row">
+    <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-sm">Código Postal:</span>
+        </div>
+        <input type="text" class="form-control" name="codigo_postal" id="codigo_postal">
+      </div>
+      <a href="javascript:void(0)" onclick="informacion_cp()" class="btn btn-primary">Obtener información Código Postal</a>
+      <br/>
+
+
+      <label for="cp_response">Código Postal Respuesta:</label>
+      <input type="text" name="cp_response" id="cp_response" class="form-control" disabled readonly>
+      <br>
+
+      <label for="list_colonias">Colonias:</label>
+      <select name="list_colonias" id="list_colonias" class="form-control">
+        <option>Seleccione</option>
+      </select>
+      <br>
+
+      <label for="tipo_asentamiento">Tipo Asentamiento:</label>
+      <input type="text" name="tipo_asentamiento" id="tipo_asentamiento" class="form-control" disabled readonly>
+      <br>
+
+      <label for="municipio">Municipio:</label>
+      <input type="text" name="municipio" id="municipio" class="form-control" disabled readonly>
+      <br>
+
+      <label for="estado">Estado:</label>
+      <input type="text" name="estado" id="estado" class="form-control" disabled readonly>
+      <br>
+
+      <label for="ciudad">Ciudad:</label>
+      <input type="text" name="ciudad" id="ciudad" class="form-control" disabled readonly>
+      <br>
+
+      <label for="pais">País:</label>
+      <input type="text" name="pais" id="pais" class="form-control" disabled readonly>
+      <br>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Token: <a href="javascript:void(0)" onclick="alert('Registrate y obtén tu token en https://api.copomex.com/panel')"> [?] </a></span>
+        </div>
+        <input type="text" class="form-control" placeholder="pruebas" value="pruebas" id="token">
+      </div>
+
             <div class="form-group mt-5 col-12 col-md-6 col-lg-6">
                 {{ Form::label('Nombre(s)') }}
                 {{ Form::text('name', $client->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : '')]) }}
