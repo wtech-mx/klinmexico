@@ -79,17 +79,17 @@
                   </select>
             </div>
 
-            <div class="form-group mt-5 col-3 col-md-3 col-lg-3">
-                {{ Form::label('Ciudad:') }}
-                  <input type="text" name="ciudad" id="ciudad" class="form-control" disabled readonly>
-            </div>
+{{--            <div class="form-group mt-5 col-3 col-md-3 col-lg-3">--}}
+{{--                {{ Form::label('Ciudad:') }}--}}
+{{--                  <input type="text" name="ciudad" id="ciudad" class="form-control" disabled readonly>--}}
+{{--            </div>--}}
 
-            <div class="form-group mt-5 col-3 col-md-3 col-lg-3">
-                {{ Form::label('País:') }}
-                <input type="text" name="pais" id="pais" class="form-control" disabled readonly>
-            </div>
+{{--            <div class="form-group mt-5 col-3 col-md-3 col-lg-3">--}}
+{{--                {{ Form::label('País:') }}--}}
+{{--                <input type="text" name="pais" id="pais" class="form-control" disabled readonly>--}}
+{{--            </div>--}}
 
-            <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
+            <div class="form-group mt-5 col-6 col-md-12 col-lg-12">
                 {{ Form::label('calle') }}
                 {{ Form::text('calle', $client->calle, ['class' => 'form-control' . ($errors->has('calle') ? ' is-invalid' : '')]) }}
                 {!! $errors->first('calle', '<div class="invalid-feedback">:message</div>') !!}
