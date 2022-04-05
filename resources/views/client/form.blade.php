@@ -72,11 +72,21 @@
                 {!! $errors->first('alcaldia', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
+
+
+            @if($client->colonia == null)
+                <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+                    {{ Form::label('colonia') }}
+                      <select class="form-control" name="colonia" id="list_colonias" >
+                        <option>Seleccione</option>
+                      </select>
+                </div>
+            @endif
+
             <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
                 {{ Form::label('colonia') }}
-                  <select class="form-control" name="colonia" id="list_colonias" >
-                    <option>Seleccione</option>
-                  </select>
+                {{ Form::text('colonia', $client->colonia, ['class' => 'form-control' . ($errors->has('colonia') ? ' is-invalid' : ''),'id' => 'colonia',]) }}
+                {!! $errors->first('colonia', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
 {{--            <div class="form-group mt-5 col-3 col-md-3 col-lg-3">--}}
