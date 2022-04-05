@@ -1,50 +1,6 @@
 <div class="row">
-    <div class="input-group input-group-sm mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="inputGroup-sizing-sm">Código Postal:</span>
-        </div>
-        <input type="text" class="form-control" name="codigo_postal" id="codigo_postal">
-      </div>
-      <a href="javascript:void(0)" onclick="informacion_cp()" class="btn btn-primary">Obtener información Código Postal</a>
-      <br/>
 
-
-      <label for="cp_response">Código Postal Respuesta:</label>
-      <input type="text" name="cp_response" id="cp_response" class="form-control" disabled readonly>
-      <br>
-
-      <label for="list_colonias">Colonias:</label>
-      <select name="list_colonias" id="list_colonias" class="form-control">
-        <option>Seleccione</option>
-      </select>
-      <br>
-
-      <label for="tipo_asentamiento">Tipo Asentamiento:</label>
-      <input type="text" name="tipo_asentamiento" id="tipo_asentamiento" class="form-control" disabled readonly>
-      <br>
-
-      <label for="municipio">Municipio:</label>
-      <input type="text" name="municipio" id="municipio" class="form-control" disabled readonly>
-      <br>
-
-      <label for="estado">Estado:</label>
-      <input type="text" name="estado" id="estado" class="form-control" disabled readonly>
-      <br>
-
-      <label for="ciudad">Ciudad:</label>
-      <input type="text" name="ciudad" id="ciudad" class="form-control" disabled readonly>
-      <br>
-
-      <label for="pais">País:</label>
-      <input type="text" name="pais" id="pais" class="form-control" disabled readonly>
-      <br>
-
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">Token: <a href="javascript:void(0)" onclick="alert('Registrate y obtén tu token en https://api.copomex.com/panel')"> [?] </a></span>
-        </div>
-        <input type="text" class="form-control" placeholder="pruebas" value="pruebas" id="token">
-      </div>
+            <input type="hidden" class="form-control" placeholder="pruebas" value="8095d78e-190d-46aa-b793-75830d857d5e" id="token">
 
             <div class="form-group mt-5 col-12 col-md-6 col-lg-6">
                 {{ Form::label('Nombre(s)') }}
@@ -91,31 +47,49 @@
 
             {{ Form::number('num_compras', $client->num_compras, ['class' => 'form-control' . ($errors->has('num_compras') ? ' is-invalid' : ''),'hidden']) }}
 
-            <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+            <div class="form-group mt-5 col-6 col-md-2 col-lg-2">
                 {{ Form::label('cp') }}
-                {{ Form::number('cp', $client->cp, ['class' => 'form-control' . ($errors->has('cp') ? ' is-invalid' : '')]) }}
+                {{ Form::number('cp', $client->cp, ['class' => 'form-control' . ($errors->has('cp') ? ' is-invalid' : ''),'id' => 'codigo_postal',]) }}
                 {!! $errors->first('cp', '<div class="invalid-feedback">:message</div>') !!}
+            </div>
+
+            <div class="form-group mt-5 col-1 col-md-1 col-lg-1">
+                    {{ Form::label('Consultar') }}
+                    <a href="javascript:void(0)" onclick="informacion_cp()" class="btn btn-secondary form-control">
+                        <i class="fa fa-search-plus" aria-hidden="true"></i>
+                    </a>
             </div>
 
             <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
                 {{ Form::label('estado') }}
-                {{ Form::text('estado', $client->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : '')]) }}
+                {{ Form::text('estado', $client->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''),'id' => 'estado',]) }}
                 {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
             <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
-                {{ Form::label('alcaldia') }}
-                {{ Form::text('alcaldia', $client->alcaldia, ['class' => 'form-control' . ($errors->has('alcaldia') ? ' is-invalid' : '')]) }}
+                {{ Form::label('alcaldia/Municipio') }}
+                {{ Form::text('alcaldia', $client->alcaldia, ['class' => 'form-control' . ($errors->has('alcaldia') ? ' is-invalid' : ''),'id' => 'municipio',]) }}
                 {!! $errors->first('alcaldia', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
             <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
                 {{ Form::label('colonia') }}
-                {{ Form::text('colonia', $client->colonia, ['class' => 'form-control' . ($errors->has('colonia') ? ' is-invalid' : '')]) }}
-                {!! $errors->first('colonia', '<div class="invalid-feedback">:message</div>') !!}
+                  <select class="form-control" name="colonia" id="list_colonias" >
+                    <option>Seleccione</option>
+                  </select>
             </div>
 
-            <div class="form-group mt-5 col-12 col-md-12 col-lg-12">
+            <div class="form-group mt-5 col-3 col-md-3 col-lg-3">
+                {{ Form::label('Ciudad:') }}
+                  <input type="text" name="ciudad" id="ciudad" class="form-control" disabled readonly>
+            </div>
+
+            <div class="form-group mt-5 col-3 col-md-3 col-lg-3">
+                {{ Form::label('País:') }}
+                <input type="text" name="pais" id="pais" class="form-control" disabled readonly>
+            </div>
+
+            <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
                 {{ Form::label('calle') }}
                 {{ Form::text('calle', $client->calle, ['class' => 'form-control' . ($errors->has('calle') ? ' is-invalid' : '')]) }}
                 {!! $errors->first('calle', '<div class="invalid-feedback">:message</div>') !!}
