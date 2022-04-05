@@ -2,66 +2,97 @@
     <div class="col-12">
                     <div class="card card_steps b-0">
 
-                        <ul id="progressbar" class="text-center">
-                            <li class="active_steps step0" id="step1"></li>
-                            <li class="step0" id="step2"></li>
-                            <li class="step0" id="step3"></li>
-                            <li class="step0" id="step4"></li>
-                        </ul>
-
                         <fieldset class="show">
                             <div class="form-card text-black">
-                                <div class="row">
+                                   <div class="row">
 
-                                    <div class="form-group col-xs-12 col-md-6 col-lg-6 ">
-                                        <label class="label_steps" for="">Cliente</label> <br>
-                                        <select class="form-select " aria-label="Default select example" name="id_user" id="mi-selector3">
-                                            <option selected>Seleccionar usuario</option>
-                                            @foreach ($client as $item)
-                                                <option value="{{$item->id}}">{{$item->name}}  / {{$item->telefono}} / {{$item->email}} </option>
-                                            @endforeach
-                                        </select>
+                                        <div class="form-group col-xs-12 col-md-12 col-lg-12 ">
+
+                                            <div class="d-flex flex-row bd-highlight mb-3">
+                                              <div class="mb-3 bd-highlight">
+                                                <label class="label_steps" for="">Cliente * </label> <br>
+                                                <select class="form-select" name="id_user" id="mi-selector">
+                                                    <option selected>Seleccionar usuario</option>
+                                                    @foreach ($client as $item)
+                                                        <option value="{{$item->id}}" {{ old($item->id) == "id_user" ? 'selected' : '' }}>{{$item->name}} / {{$item->telefono}} / {{$item->email}} </option>
+                                                    @endforeach
+                                                </select>
+                                              </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
+                                                    <label class="label_steps" for="">Agregar servicio</label>
+
+                                                    <div class="form-check">
+                                                            <input  class="form-check-input " type="radio" name="klin" id="klin" value="Klin Purse">
+                                                            <label class="form-check-label" for="servicio_primario1">
+                                                               Klin Purse
+                                                            </label>
+                                                    </div>
+
+                                                    <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="klin" id="klin" value="Klin Bag">
+                                                            <label class="form-check-label" for="servicio_primario1">
+                                                                Klin Bag
+                                                            </label>
+                                                    </div>
+
+                                                    <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="klin" id="klin" value="Klin Bag Extra">
+                                                            <label class="form-check-label" for="servicio_primario1">
+                                                                Klin Bag Extra
+                                                            </label>
+                                                    </div>
+
+                                                </div>
+
+                                        <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
+                                                    <label class="label_steps" for="">Agregar Extra</label>
+
+                                                      <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="tint" id="tint" value="1">
+                                                        <label class="form-check-label" for="tint">
+                                                            Tint 1
+                                                        </label>
+                                                      </div>
+
+                                                      <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="tint" id="tint" value="2">
+                                                        <label class="form-check-label" for="tint2">
+                                                            Tint 2
+                                                        </label>
+                                                      </div>
+
+                                                      <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="tint" id="tint" value="3">
+                                                        <label class="form-check-label" for="tint3">
+                                                            Tint 3
+                                                        </label>
+                                                      </div>
+
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                          <div class="form-check  mb-3">
+                                                            <input class="form-check-input" type="radio" name="tint" id="tint" value="4">
+                                                            <label class="form-check-label" for="tint4">
+                                                                Tint personalizado
+                                                            </label>
+                                                          </div>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                              <input  class="form-control" type="number" name="tint" id="tint" placeholder="$">
+                                                        </div>
+                                                    </div>
+
+                                                    <label class="label_steps" for="">Descripcion del tint</label> <br>
+                                                    <textarea class="form-control" name="tint_descripcion" id="descripcion" cols="30" rows="4"></textarea>
+
+                                                </div>
+
                                     </div>
-
-                                    <div class="form-group col-xs-12 col-md-2 col-lg-2">
-                                        <label class="label_steps" for="">Klin Bag</label>
-                                        <input  class="form-check-input form-control" type="checkbox" checked disabled>
-                                        <input  type="hidden" value="Klin Bag" name="servicio_primario" id="servicio_primario">
-                                    </div>
-
-                                    <div class="form-group col-xs-12 col-md-4 col-lg-4 ">
-                                        <label class="label_steps" for="">Bolsos & backpacks *</label>
-                                        <select class="form-select select2 " name="klin" id="klin" required>
-                                            <option value="">Selecciona klin</option>
-                                                <option value="Klin Bag">Klin Bag ------------- $160 </option>
-                                                <option value="Klin Purse">Klin Purse ----------- $110</option>
-                                                <option value="Klin Bag Extra">Klin Bag Extra ------- $260</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
-                                        <label class="label_steps" for="">Servicio secundario</label>
-                                        <select class="form-select select2 " name="tint" id="tint3">
-                                            <option value="0" selected>Seleccionar tint</option>
-                                                <option value="1">Tint 1 ----------- $160</option>
-                                                <option value="2">Tint 2 ----------- $300</option>
-                                                <option value="3">Tint 3 ----------- $450</option>
-                                                <option value="4">Personalizado -- $____</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
-                                        <label class="label_steps" for="">Tint personalizado $$</label> <br>
-                                        <input  class="form-control" type="text" name="tint" id="miinput3" disabled>
-                                    </div>
-
-                                    <div class="form-group mt-4 mb-3 col-xs-12 col-md-12 col-lg-12">
-                                        <label class="label_steps" for="">Descripcion del tint</label> <br>
-                                        <textarea class="form-control" name="tint_descripcion" id="descripcion3" cols="30" rows="5" disabled></textarea>
-                                    </div>
-
-
-                                </div>
 
                                     <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
                                         Siguiente

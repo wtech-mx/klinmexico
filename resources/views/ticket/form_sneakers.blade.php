@@ -2,30 +2,27 @@
     <div class="col-12">
                     <div class="card card_steps b-0">
 
-                        <ul id="progressbar" class="text-center">
-                            <li class="active_steps step0" id="step1"></li>
-                            <li class="step0" id="step2"></li>
-                            <li class="step0" id="step3"></li>
-                            <li class="step0" id="step4"></li>
-                        </ul>
-
                         <fieldset class="show">
                             <div class="form-card text-black">
+
                                 <div class="row">
 
-                                    <div class="form-group col-xs-12 col-md-6 col-lg-6 ">
-                                        <label class="label_steps" for="">Cliente *</label> <br>
-                                        <select class="form-select" name="id_user" id="mi-selector">
-                                            <option selected>Seleccionar usuario</option>
-                                            @foreach ($client as $item)
-                                                <option value="{{$item->id}}" {{ old($item->id) == "id_user" ? 'selected' : '' }}>{{$item->name}} / {{$item->telefono}} / {{$item->email}} </option>
-                                            @endforeach
-                                        </select>
+                                    <div class="form-group col-xs-12 col-md-12 col-lg-12 ">
+
+                                        <div class="d-flex flex-row bd-highlight mb-3">
+                                          <div class="mb-3 bd-highlight">
+                                            <label class="label_steps" for="">Cliente * </label> <br>
+                                            <select class="form-select" name="id_user" id="mi-selector">
+                                                <option selected>Seleccionar usuario</option>
+                                                @foreach ($client as $item)
+                                                    <option value="{{$item->id}}" {{ old($item->id) == "id_user" ? 'selected' : '' }}>{{$item->name}} / {{$item->telefono}} / {{$item->email}} </option>
+                                                @endforeach
+                                            </select>
+                                          </div>
+                                        </div>
+
                                     </div>
-                                    <div class="form-group col-xs-12 col-md-4 col-lg-4 ">
-                                    </div>
-                                </div>
-                                <div class="row">
+
                                     <div class="form-group col-xs-12 col-md-3 col-lg-3 ">
                                         <label class="label_steps" for="">Agregar servicio</label>
                                         <div class="form-check">
@@ -34,24 +31,28 @@
                                                 Essential
                                             </label>
                                           </div>
+
                                           <div class="form-check">
                                             <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario2" value="Plus">
                                             <label class="form-check-label" for="servicio_primario2">
                                                 Plus
                                             </label>
                                           </div>
+
                                           <div class="form-check">
                                             <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario3" value="Elite">
                                             <label class="form-check-label" for="servicio_primario3">
                                                 Elite
                                             </label>
                                           </div>
+
                                           <div class="form-check">
                                             <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario4" value="Pure White">
                                             <label class="form-check-label" for="servicio_primario4">
                                                 Pure White
                                             </label>
                                           </div>
+
                                           <div class="form-check">
                                             <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario5" value="Special Care">
                                             <label class="form-check-label" for="servicio_primario5">
@@ -63,38 +64,50 @@
                                     <div class="form-group col-xs-12 col-md-4 col-lg-4 ">
                                         <label class="label_steps" for="">Agregar extra</label>
                                           <div class="form-check mb-2">
-                                            <input class="form-check-input" type="radio" name="unyellow" id="unyellow" value="1">
+                                            <input class="form-check-input" type="checkbox" name="unyellow" id="unyellow" value="1">
                                             <label class="form-check-label" for="unyellow">
                                                 Unyellow
                                             </label>
                                           </div>
+
                                           <div class="form-check">
                                             <input class="form-check-input" type="radio" name="tint" id="tint" value="1">
                                             <label class="form-check-label" for="tint">
                                                 Tint 1
                                             </label>
                                           </div>
+
                                           <div class="form-check">
                                             <input class="form-check-input" type="radio" name="tint" id="tint" value="2">
                                             <label class="form-check-label" for="tint2">
                                                 Tint 2
                                             </label>
                                           </div>
+
                                           <div class="form-check">
                                             <input class="form-check-input" type="radio" name="tint" id="tint" value="3">
                                             <label class="form-check-label" for="tint3">
                                                 Tint 3
                                             </label>
                                           </div>
-                                          <div class="form-check  mb-3">
-                                            <input class="form-check-input" type="radio" name="tint" id="tint" value="4">
-                                            <label class="form-check-label" for="tint4">
-                                                Tint personalizado
-                                            </label>
-                                            <input  class="form-control" type="number" name="tint" id="tint" placeholder="$">
-                                          </div>
+
+                                        <div class="row">
+                                            <div class="col-6">
+                                              <div class="form-check  mb-3">
+                                                <input class="form-check-input" type="radio" name="tint" id="tint" value="4">
+                                                <label class="form-check-label" for="tint4">
+                                                    Tint personalizado
+                                                </label>
+                                              </div>
+                                            </div>
+
+                                            <div class="col-6">
+                                                  <input  class="form-control" type="number" name="tint" id="tint" placeholder="$">
+                                            </div>
+                                        </div>
+
                                           <div class="form-check  mb-2">
-                                            <input class="form-check-input" type="radio" name="klin_dye" id="klin_dye" value="1">
+                                            <input class="form-check-input" type="checkbox" name="klin_dye" id="klin_dye" value="1">
                                             <label class="form-check-label" for="unyellow">
                                                 Klin Dye
                                             </label>
@@ -112,67 +125,83 @@
                                                 Sole Glue Media
                                             </label>
                                           </div>
-                                          <div class="form-check mb-2">
+
+                                          <div class="form-check mb-3">
                                             <input class="form-check-input" type="radio" name="glue" id="glue2" value="2">
                                             <label class="form-check-label" for="glue2">
                                                 Sole Glue Full
                                             </label>
                                           </div>
+
                                           <div class="form-check">
                                             <input class="form-check-input" type="radio" name="sew" id="sew" value="1">
                                             <label class="form-check-label" for="sew">
                                                 Sole Sew 5cm
                                             </label>
                                           </div>
-                                          <div class="form-check mb-2">
+
+                                          <div class="form-check mb-3">
                                             <input class="form-check-input" type="radio" name="sew" id="sew2" value="2">
                                             <label class="form-check-label" for="sew2">
                                                 Sole Sew Full
                                             </label>
                                           </div>
-                                          <div class="form-check mb-2">
+
+                                          <div class="form-check mb-3">
                                             <input class="form-check-input" type="radio" name="sole" id="sole" value="1">
                                             <label class="form-check-label" for="sole">
                                                 Generic Sole AF1
                                             </label>
                                           </div>
+
                                           <div class="form-check">
                                             <input class="form-check-input" type="radio" name="patch" id="patch" value="1">
                                             <label class="form-check-label" for="patch">
                                                 Snkrs patch par
                                             </label>
                                           </div>
+
                                           <div class="form-check">
                                             <input class="form-check-input" type="radio" name="patch" id="patch2" value="2">
                                             <label class="form-check-label" for="patch2">
                                                 Snkrs patch 1pz
                                             </label>
                                           </div>
+
                                           <div class="form-check">
                                             <input class="form-check-input" type="radio" name="patch" id="patch3" value="3">
                                             <label class="form-check-label" for="patch3">
                                                 Heel stopper dama
                                             </label>
                                           </div>
-                                          <div class="form-check mb-2">
+
+                                          <div class="form-check mb-3">
                                             <input class="form-check-input" type="radio" name="patch" id="patch4" value="4">
                                             <label class="form-check-label" for="patch4">
                                                 Heel stopper caballero
                                             </label>
                                           </div>
-                                          <div class="form-check mb-2">
-                                            <input class="form-check-input" type="radio" name="invisible" id="invisible" value="1">
+
+                                          <div class="form-check mb-3">
+                                            <input class="form-check-input" type="checkbox" name="invisible" id="invisible" value="1">
                                             <label class="form-check-label" for="invisible">
                                                 Invisible Snkers Patch
                                             </label>
                                           </div>
-                                          <div class="form-check mb-2">
-                                            <input class="form-check-input" type="radio" name="personalizado" id="personalizado" value="1">
-                                            <label class="form-check-label" for="personalizado">
-                                                Fixer Personalizado
-                                            </label>
-                                            <input class="form-control" type="number" name="personalizado" id="personalizado" placeholder="$">
-                                          </div>
+
+                                         <div class="row">
+                                             <div class="col-6">
+                                              <div class="form-check mb-2">
+                                                <input class="form-check-input" type="checkbox" name="personalizado" id="personalizado" value="1">
+                                                <label class="form-check-label" for="personalizado">
+                                                    Fixer Personalizado
+                                                </label>
+                                              </div>
+                                             </div>
+                                             <div class="col-6">
+                                                 <input class="form-control" type="number" name="personalizado" id="personalizado" placeholder="$">
+                                             </div>
+                                         </div>
 
                                           <label class="label_steps" for="">Descripcion de Fixer</label> <br>
                                           <textarea class="form-control" name="observacion" id="observacion" cols="15" rows="4">
@@ -182,10 +211,11 @@
 
                                 </div>
 
-                                    <a id="next1" class="btn-block  mt-3 mb-1 next mt-4" >
-                                        Siguiente
-                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                    </a>
+                                <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" style="left: 80%;">
+                                    Siguiente
+                                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                                </a>
+
                             </div>
                         </fieldset>
 
@@ -246,11 +276,11 @@
 
                                 </div>
 
-                                    <a class="btn-block btn_prev_tab mt-3 mb-1 prev">
+                                    <a class="btn-block btn_next_tab  mt-3 mb-1 prev" style="margin-right: 1rem;left: 80%;">
                                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                         Anterior
                                     </a>
-                                    <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
+                                    <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" style="left: 80%;">
                                         Siguiente
                                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                     </a>
@@ -293,11 +323,11 @@
 
                                 </div>
 
-                                    <a class="btn-block btn_prev_tab mt-3 mb-1 prev">
+                                    <a class="btn-block btn_next_tab  mt-3 mb-1 prev" style="margin-right: 1rem;left: 80%;">
                                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                         Anterior
                                     </a>
-                                    <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
+                                    <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" style="left: 80%;">
                                         Siguiente
                                         <i class="fa fa-arrow-right" aria-hidden="true"></i>
                                     </a>
@@ -392,14 +422,14 @@
 
                                  </div>
 
-                                    <a class="btn-block btn_prev_tab mt-3 mb-1 prev">
+                                    <a class="btn-block btn_next_tab  mt-3 mb-1 prev" style="margin-right: 1rem;left: 80%">
                                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                         Anterior
                                     </a>
 
-                                <button id="next1" class="btn-block btn_next_tab mt-3 mb-1 next mt-4">
-                                     <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar
-                                </button>
+                                    <button id="next1" class="btn-block btn_next_tab mt-3 mb-1 next mt-4" style="left: 80%">
+                                         <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar
+                                    </button>
 
                             </div>
                         </fieldset>

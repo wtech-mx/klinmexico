@@ -2,34 +2,39 @@
     <div class="col-12">
                     <div class="card card_steps b-0">
 
-                        <ul id="progressbar" class="text-center">
-                            <li class="active_steps step0" id="step1"></li>
-                            <li class="step0" id="step2"></li>
-                            <li class="step0" id="step4"></li>
-                        </ul>
-
                         <fieldset class="show">
                             <div class="form-card text-black">
-                                <div class="row">
+                    <div class="row">
 
-                                    <div class="form-group col-xs-12 col-md-6 col-lg-6 ">
-                                        <label class="label_steps" for="">Cliente</label><br>
-                                        <select class="form-select" aria-label="Default select example" name="id_user" id="mi-selector5">
-                                            <option selected>Seleccionar usuario</option>
-                                            @foreach ($client as $item)
-                                                <option value="{{$item->id}}">{{$item->name}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                        <div class="form-group col-xs-12 col-md-12 col-lg-12 ">
 
-                                    <div class="form-group col-xs-12 col-md-6 col-lg-6">
-                                        <label class="label_steps" for="">Protector -- $55</label>
-                                        <input  class="form-check-input form-control" type="checkbox" checked disabled>
-                                        <input  type="hidden" value="Protector" name="servicio_primario" id="servicio_primario">
-                                        <input  type="hidden" value="55" name="precio_cap" id="precio_cap">
-                                    </div>
+                                            <div class="d-flex flex-row bd-highlight mb-3">
+                                              <div class="mb-3 bd-highlight">
+                                                <label class="label_steps" for="">Cliente * </label> <br>
+                                                <select class="form-select" name="id_user" id="mi-selector">
+                                                    <option selected>Seleccionar usuario</option>
+                                                    @foreach ($client as $item)
+                                                        <option value="{{$item->id}}" {{ old($item->id) == "id_user" ? 'selected' : '' }}>{{$item->name}} / {{$item->telefono}} / {{$item->email}} </option>
+                                                    @endforeach
+                                                </select>
+                                              </div>
+                                            </div>
 
-                                </div>
+                                        </div>
+
+                                        <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
+                                                    <label class="label_steps" for="">Agregar servicio</label>
+
+                                                    <div class="form-check">
+                                                        <label class="label_steps" for="">Protector -- $55</label>
+                                                        <input  class="form-check-input form-control" type="checkbox" checked >
+                                                        <input  type="hidden" value="Protector" name="servicio_primario" id="servicio_primario">
+                                                        <input  type="hidden" value="55" name="precio_cap" id="precio_cap">
+                                                    </div>
+
+                                        </div>
+
+                    </div>
 
                                     <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
                                         Siguiente

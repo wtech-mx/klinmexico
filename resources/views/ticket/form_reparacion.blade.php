@@ -2,76 +2,115 @@
     <div class="col-12">
         <div class="card card_steps b-0">
 
-            <ul id="progressbar" class="text-center">
-                <li class="active_steps step0" id="step1"></li>
-                <li class="step0" id="step2"></li>
-                <li class="step0" id="step3"></li>
-                <li class="step0" id="step4"></li>
-            </ul>
-
             <fieldset class="show">
                 <div class="form-card text-black">
+
                     <div class="row">
 
-                        <div class="form-group col-xs-12 col-md-6 col-lg-6 ">
-                            <label class="label_steps" for="">Cliente</label> <br>
-                            <select class="form-select" aria-label="Default select example" name="id_user" id="mi-selector4">
-                                <option selected>Seleccionar usuario</option>
-                                @foreach ($client as $item)
-                                    <option value="{{$item->id}}">{{$item->name}}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                                        <div class="form-group col-xs-12 col-md-12 col-lg-12 ">
 
-                        <div class="form-group col-xs-12 col-md-3 col-lg-3">
-                            <label class="label_steps" for="">Fixer Snkrs</label>
-                            <input  class="form-check-input form-control" type="checkbox" checked disabled>
-                            <input  type="hidden" value="Fixer Snkrs" name="servicio_primario" id="servicio_primario">
-                        </div>
+                                            <div class="d-flex flex-row bd-highlight mb-3">
+                                              <div class="mb-3 bd-highlight">
+                                                <label class="label_steps" for="">Cliente * </label> <br>
+                                                <select class="form-select" name="id_user" id="mi-selector">
+                                                    <option selected>Seleccionar usuario</option>
+                                                    @foreach ($client as $item)
+                                                        <option value="{{$item->id}}" {{ old($item->id) == "id_user" ? 'selected' : '' }}>{{$item->name}} / {{$item->telefono}} / {{$item->email}} </option>
+                                                    @endforeach
+                                                </select>
+                                              </div>
+                                            </div>
 
-                        <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
-                            <label class="label_steps" for="">Glue</label>
-                            <select class="form-select select2 " name="glue" id="glue">
-                                <option value="" selected>Seleccionar Glue</option>
-                                <option value="1">Sole Glue Media</option>
-                                <option value="2">Sole Glue Full</option>
-                            </select>
-                        </div>
+                                        </div>
 
-                        <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
-                            <label class="label_steps" for="">Sew</label>
-                            <select class="form-select select2 " name="sew" id="sew">
-                                <option value="" selected>Seleccionar Sew</option>
-                                <option value="1">Sole Sew 5cm</option>
-                                <option value="2">Sole Sew Full</option>
-                            </select>
-                        </div>
+                                        <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
+                                                    <label class="label_steps" for="">Agregar servicio</label>
 
-                        <div class="form-group mt-4 col-xs-12 col-md-6 col-lg-6">
-                            <label class="label_steps" for="">Generic Sole AF1</label>
-                            <input  class="form-check-input form-control" type="checkbox" value="1" name="sole" id="sole">
-                        </div>
+                                                    <div class="form-check">
+                                                            <input  class="form-check-input " type="radio" name="glue" id="glue" value="1">
+                                                            <label class="form-check-label" >
+                                                               Sole Glue (Vulcanized) Media
+                                                            </label>
+                                                    </div>
 
-                        <div class="form-group mt-4 col-xs-12 col-md-6 col-lg-6">
-                            <label class="label_steps" for="">Invisible Snkers Patch</label>
-                            <input  class="form-check-input form-control" type="checkbox" value="1" name="invisible" id="invisible">
-                        </div>
+                                                    <div class="form-check mb-3">
+                                                            <input class="form-check-input" type="radio" name="glue" id="glue" value="2">
+                                                            <label class="form-check-label" >
+                                                               Sole Glue (Vulcanized) Ful
+                                                            </label>
+                                                    </div>
 
-                        <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
-                            <label class="label_steps" for="">Fixer Personalizado</label> <br>
-                            <input  class="form-control" type="number" name="personalizado" id="personalizado" placeholder="$">
-                        </div>
+                                                    <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="sew" id="sew" value="1">
+                                                            <label class="form-check-label" >
+                                                               Sole Sew 5cm
+                                                            </label>
+                                                    </div>
 
-                        <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6 ">
-                            <label class="label_steps" for="">Snkrs</label>
-                            <select class="form-select select2 " name="patch" id="patch">
-                                <option value="" selected>Seleccionar Sew</option>
-                                <option value="1">Snkrs patch par</option>
-                                <option value="2">Snkrs patch 1pz</option>
-                                <option value="3">Heel stopper dama</option>
-                                <option value="4">Heel stopper caballero</option>
-                            </select>
-                        </div>
+                                                    <div class="form-check mb-3">
+                                                            <input class="form-check-input" type="radio" name="sew" id="sew" value="2">
+                                                            <label class="form-check-label" >
+                                                               Sole Sew Full
+                                                            </label>
+                                                    </div>
+
+                                                    <div class="form-check mb-3">
+                                                            <input  class="form-check-input form-control" type="checkbox" value="1" name="sole" id="sole">
+                                                            <label class="form-check-label" >
+                                                               Generic Sole AF1
+                                                            </label>
+                                                    </div>
+
+                                                    <div class="form-check">
+                                                            <input  class="form-check-input form-control" type="checkbox" value="1" name="patch" id="patch">
+                                                            <label class="form-check-label" >
+                                                               Snkrs Patch (Talonera) Par
+                                                            </label>
+                                                    </div>
+
+                                                    <div class="form-check mb-3">
+                                                            <input class="form-check-input" type="radio" name="klin" id="klin" value="Klin Bag Extra">
+                                                            <label class="form-check-label" >
+                                                              Snkrs Patch (Talonera) 1PZ
+                                                            </label>
+                                                    </div>
+
+                                                    <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="patch" id="patch" value="3">
+                                                            <label class="form-check-label" >
+                                                              Heel Stopper Dama
+                                                            </label>
+                                                    </div>
+
+                                                    <div class="form-check mb-3">
+                                                            <input class="form-check-input" type="radio" name="patch" id="patch" value="4">
+                                                            <label class="form-check-label" >
+                                                              Heel Stopper Caballero
+                                                            </label>
+                                                    </div>
+
+                                                    <div class="form-check">
+                                                            <input  class="form-check-input " type="checkbox" value="1" name="invisible" id="invisible">
+                                                            <label class="form-check-label" >
+                                                             Invisible Snkers Patch
+                                                            </label>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-6">
+                                                          <div class="form-check  mb-3">
+                                                            <input class="form-check-input" type="radio" name="" id="" value="">
+                                                            <label class="form-check-label" for="tint4">
+                                                                Fixer personalizado
+                                                            </label>
+                                                          </div>
+                                                        </div>
+
+                                                        <div class="col-6">
+                                                              <input  class="form-control" type="number" name="personalizado" id="personalizado" placeholder="$">
+                                                        </div>
+                                                    </div>
+                                        </div>
 
                     </div>
 

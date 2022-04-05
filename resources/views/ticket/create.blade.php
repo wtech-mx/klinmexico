@@ -21,43 +21,40 @@ Crear Ventas
     </style>
 
         <div class="row">
-            <div class="d-flex justify-content-between mt-5">
-                <h1> Nueva Venta </h1>
-            </div>
-
             <div class="col-12">
 
                 @includeif('partials.errors')
 
                   <!-- Nav tabs -->
-                  <div class="card">
+                  <div class="card" style="border:solid 1px #ccc;">
 
-                    <div class="card-header">
+                    <div class="card-header" style="border:solid 1px #ccc;">
+                         <p style="margin-top: 1rem;margin-left: 1rem;"> Nueva Venta </p>
                       <ul class="nav nav-tabs justify-content-center" style=" height: auto;flex-direction: unset;" role="tablist">
                         <li class="nav-item">
                           <a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
-                              <img src="{{ asset('icons/sneakers.png') }}" style="width: 30px"> Snekers
+                               Sneakers & Calzado
                           </a>
 
                         </li>
                         <li class="nav-item">
                           <a class="nav-link " id="pills-Gorras-tab" data-bs-toggle="pill" data-bs-target="#pills-Gorras" type="button" role="tab" aria-controls="pills-Gorras" aria-selected="true">
-                             <img src="{{ asset('icons/cap.png') }}" style="width: 30px"> Gorras
+                              Gorras
                           </a>
                         </li>
                         <li class="nav-item">
                           <a class="nav-link " id="pills-Bolsos-tab" data-bs-toggle="pill" data-bs-target="#pills-Bolsos" type="button" role="tab" aria-controls="pills-Bolsos" aria-selected="true">
-                             <img src="{{ asset('icons/handbag.png') }}" style="width: 30px"> Bolsos
+                              Bolsos & Mochilas
                           </a>
                         </li>
                         <li class="nav-item">
                          <a class="nav-link " id="pills-Reparacion-tab" data-bs-toggle="pill" data-bs-target="#pills-Reparacion" type="button" role="tab" aria-controls="pills-Reparacion" aria-selected="true">
-                             <img src="{{ asset('icons/repair.png') }}" style="width: 30px"> Reparacion
+                              Reparacion
                           </a>
                         </li>
                            <li class="nav-item">
                               <a class="nav-link " id="pills-Nano-tab" data-bs-toggle="pill" data-bs-target="#pills-Nano" type="button" role="tab" aria-controls="pills-Nano" aria-selected="true">
-                                <img src="{{ asset('icons/spray.png') }}" style="width: 30px"> Nano
+                                 Nano
                               </a>
                         </li>
                       </ul>
