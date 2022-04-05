@@ -20,6 +20,15 @@ $(document).ready(function () {
       }
     })
   });
+$(document).ready(function () {
+    $('#tint45').change(function (e) {
+      if ($(this).val() === "2" || $(this).val() === "3" || $(this).val() === "4") {
+        $('#descripcion').prop("disabled", false);
+      } else {
+        $('#descripcion').prop("disabled", true);
+      }
+    })
+  });
 
 // input para tint Gorras
 $(document).ready(function () {

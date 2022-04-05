@@ -112,7 +112,6 @@ class TicketController extends Controller
             'modelo' => 'required',
             'talla' => 'required',
             'categoria' => 'required',
-            'observacion' => 'required',
             'tipo_servicio' => 'required',
             'num_rack' => 'required',
             'pago' => 'required',
@@ -231,6 +230,7 @@ class TicketController extends Controller
             if ($request->get('klin') == 'Klin Bag Extra') {
                 $klin = 260;
             }
+
 
             $suma = $precio_cap + $protector + $tint + $tipo_servicio + $klin + $klin_dye + $unyellow + $glue + $sew + $sole + $patch + $invisible + $request->get('personalizado');
 
