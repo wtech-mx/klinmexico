@@ -81,14 +81,13 @@
                         <option>Seleccione</option>
                       </select>
                 </div>
+            @else
+                <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+                    {{ Form::label('colonia') }}
+                    {{ Form::text('colonia', $client->colonia, ['class' => 'form-control' . ($errors->has('colonia') ? ' is-invalid' : ''),'id' => 'colonia',]) }}
+                    {!! $errors->first('colonia', '<div class="invalid-feedback">:message</div>') !!}
+                </div>
             @endif
-
-            <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
-                {{ Form::label('colonia') }}
-                {{ Form::text('colonia', $client->colonia, ['class' => 'form-control' . ($errors->has('colonia') ? ' is-invalid' : ''),'id' => 'colonia',]) }}
-                {!! $errors->first('colonia', '<div class="invalid-feedback">:message</div>') !!}
-            </div>
-
 {{--            <div class="form-group mt-5 col-3 col-md-3 col-lg-3">--}}
 {{--                {{ Form::label('Ciudad:') }}--}}
 {{--                  <input type="text" name="ciudad" id="ciudad" class="form-control" disabled readonly>--}}
