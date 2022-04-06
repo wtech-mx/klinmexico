@@ -19,4 +19,14 @@ class Venta extends Model
     {
         return $this->belongsTo(Client::class, 'id_user');
     }
+
+    public function Ticket()
+    {
+        return $this->hasOne(Ticket::class, 'id_venta');
+    }
+
+    public function Precio()
+    {
+        return $this->hasOne(PrecioTicket::class, 'id_venta');
+    }
 }

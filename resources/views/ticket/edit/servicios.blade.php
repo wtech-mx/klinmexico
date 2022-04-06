@@ -18,33 +18,33 @@
                 $precio_tint  = $ticket->Ticket->tint;
             }
 
-            if($ticket->Fixer->glue == 1){
+            if($ticket->Ticket->Fixer->glue == 1){
                 $glue = 'Sole Glue (Vulcanized) Media';
-            }elseif ($ticket->Fixer->glue == NULL) {
+            }elseif ($ticket->Ticket->Fixer->glue == NULL) {
                 $glue  = 'Sin glue';
             }else{
                 $glue = 'Sole Glue (Vulcanized) Full';
             }
 
-            if($ticket->Fixer->sew == 1){
+            if($ticket->Ticket->Fixer->sew == 1){
                 $sew = 'Sole Sew 5cm';
-            }elseif ($ticket->Fixer->sew == NULL) {
+            }elseif ($ticket->Ticket->Fixer->sew == NULL) {
                 $sew  = 'Sin sew';
             }else{
                 $sew = 'Sole Sew Full';
             }
 
-            switch($ticket->Fixer->patch){
-                case($ticket->Fixer->patch == '1'):
+            switch($ticket->Ticket->Fixer->patch){
+                case($ticket->Ticket->Fixer->patch == '1'):
                 $patch = 'Snkrs Patch (Talonera) Par';
                     break;
-                case($ticket->Fixer->patch == '2'):
+                case($ticket->Ticket->Fixer->patch == '2'):
                     $patch = 'Snkrs Patch (Talonera) 1PZ';
                     break;
-                case($ticket->Fixer->patch == '3'):
+                case($ticket->Ticket->Fixer->patch == '3'):
                     $patch = 'Heel Stopper Dama';
                     break;
-                case($ticket->Fixer->patch == '4'):
+                case($ticket->Ticket->Fixer->patch == '4'):
                     $patch = 'Heel Stopper Caballero';
                     break;
             }
@@ -131,7 +131,7 @@
                     <div class="form-group col-xs-12 col-md-3 col-lg-3">
                         <label class="label_steps" for="">Glue</label>
                         <select class="form-select" name="glue" id="glue">
-                            <option value="{{$ticket->Fixer->glue}}" selected>{{$glue}}</option>
+                            <option value="{{$ticket->Ticket->Fixer->glue}}" selected>{{$glue}}</option>
                                 <option value="1"{{ old('glue') == 1 ? 'selected' : '' }}>Sole Glue Media ----------- $130</option>
                                 <option value="2"{{ old('glue') == 2 ? 'selected' : '' }}>Sole Glue Full ----------- $130</option>
                         </select>
@@ -140,13 +140,13 @@
                     <div class="form-group col-xs-12 col-md-3 col-lg-3">
                         <label class="label_steps" for="">Sew</label>
                         <select class="form-select" name="sew" id="sew">
-                            <option value="{{$ticket->Fixer->glue}}" selected>{{$sew}}</option>
+                            <option value="{{$ticket->Ticket->Fixer->glue}}" selected>{{$sew}}</option>
                                 <option value="1" {{ old('glue') == 1 ? 'selected' : '' }}>Sole Sew 5cm ----------- $130</option>
                                 <option value="2" {{ old('glue') == 2 ? 'selected' : '' }}>Sole Sew Full ----------- $240</option>
                         </select>
                     </div>
 
-                    @if ($ticket->Fixer->sole == '1')
+                    @if ($ticket->Ticket->Fixer->sole == '1')
                         <div class="form-group col-xs-12 col-md-3 col-lg-3">
                             <label class="label_steps" for="">Generic Sole AF1 --- $520</label>
                             <input  class="form-check-input form-control" type="checkbox" value="1" name="sole" id="sole" checked>
@@ -158,7 +158,7 @@
                         </div>
                     @endif
 
-                    @if ($ticket->Fixer->invisible == '1')
+                    @if ($ticket->Ticket->Fixer->invisible == '1')
                         <div class="form-group col-xs-12 col-md-3 col-lg-3">
                             <label class="label_steps" for="">Invisible Snkers Patch --- $180</label>
                             <input  class="form-check-input form-control" type="checkbox" value="1" name="invisible" id="invisible" checked>
@@ -173,13 +173,13 @@
 
                     <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                         <label class="label_steps" for="">Fixer Personalizado $$</label>
-                        <input class="form-control" type="number" name="personalizado" id="personalizado" value="{{$ticket->Fixer->personalizado}}">
+                        <input class="form-control" type="number" name="personalizado" id="personalizado" value="{{$ticket->Ticket->Fixer->personalizado}}">
                     </div>
 
                     <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                         <label class="label_steps" for="">Snkrs</label>
                         <select class="form-select" name="patch" id="patch">
-                            <option value="{{$ticket->Fixer->patch}}" selected>{{$patch}}</option>
+                            <option value="{{$ticket->Ticket->Fixer->patch}}" selected>{{$patch}}</option>
                                 <option value="1" {{ old('patch') == 1 ? 'selected' : '' }}>Snkrs patch par ----------- $240</option>
                                 <option value="2" {{ old('patch') == 2 ? 'selected' : '' }}>Snkrs patch 1pz ----------- $160</option>
                                 <option value="3" {{ old('patch') == 3 ? 'selected' : '' }}>Heel stopper dama ----------- $160</option>

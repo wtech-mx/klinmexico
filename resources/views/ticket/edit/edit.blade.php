@@ -46,7 +46,7 @@ Editar Venta
 
                                             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
                                                 <label class="label_steps" for="">Marca</label> <br>
-                                                <input class="form-control @error('marca') is-invalid @enderror"  type="text" name="marca" id="marca" value="{{$ticket->DescripcionTicket->marca}}">
+                                                <input class="form-control @error('marca') is-invalid @enderror"  type="text" name="marca" id="marca" value="{{$ticket->Ticket->DescripcionTicket->marca}}">
                                                 @error('marca')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -54,7 +54,7 @@ Editar Venta
 
                                             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
                                                 <label class="label_steps" for="">Modelo</label> <br>
-                                                <input class="form-control @error('modelo') is-invalid @enderror" type="text" name="modelo" id="modelo" value="{{$ticket->DescripcionTicket->modelo}}">
+                                                <input class="form-control @error('modelo') is-invalid @enderror" type="text" name="modelo" id="modelo" value="{{$ticket->Ticket->DescripcionTicket->modelo}}">
                                                 @error('modelo')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -62,7 +62,7 @@ Editar Venta
 
                                             <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
                                                 <label class="label_steps" for="">Color 1</label> <br>
-                                                <input class="form-control @error('color1') is-invalid @enderror" type="color" name="color1" id="color1" value="{{$ticket->DescripcionTicket->color1}}">
+                                                <input class="form-control @error('color1') is-invalid @enderror" type="color" name="color1" id="color1" value="{{$ticket->Ticket->DescripcionTicket->color1}}">
                                                 @error('color1')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -70,7 +70,7 @@ Editar Venta
 
                                             <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
                                                 <label class="label_steps" for="">Color 2</label> <br>
-                                                <input class="form-control @error('color2') is-invalid @enderror" type="color" name="color2" id="color2" value="{{$ticket->DescripcionTicket->color2}}">
+                                                <input class="form-control @error('color2') is-invalid @enderror" type="color" name="color2" id="color2" value="{{$ticket->Ticket->DescripcionTicket->color2}}">
                                                 @error('color2')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -78,7 +78,7 @@ Editar Venta
 
                                             <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
                                                 <label class="label_steps" for="">Talla</label> <br>
-                                                <input class="form-control @error('talla') is-invalid @enderror" type="text" name="talla" id="talla" placeholder="S- M - LG - XL" value="{{$ticket->DescripcionTicket->talla}}">
+                                                <input class="form-control @error('talla') is-invalid @enderror" type="text" name="talla" id="talla" placeholder="S- M - LG - XL" value="{{$ticket->Ticket->DescripcionTicket->talla}}">
                                                 @error('talla')
                                                     <div class="alert alert-danger">{{ $message }}</div>
                                                 @enderror
@@ -87,7 +87,7 @@ Editar Venta
                                             <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
                                                 <label class="label_steps" for="">Categoria</label>
                                                 <select class="form-select select2 " name="categoria" id="categoria">
-                                                        <option value="{{$ticket->DescripcionTicket->categoria}}" selected>{{$ticket->DescripcionTicket->categoria}}</option>
+                                                        <option value="{{$ticket->Ticket->DescripcionTicket->categoria}}" selected>{{$ticket->Ticket->DescripcionTicket->categoria}}</option>
                                                         <option value="Hombre" {{ old('categoria') == "Hombre" ? 'selected' : '' }} >Hombre</option>
                                                         <option value="Mujer" {{ old('categoria') == "Mujer" ? 'selected' : '' }} >Mujer</option>
                                                         <option value="Niño" {{ old('categoria') == "Niño" ? 'selected' : '' }} >Niño</option>
@@ -97,7 +97,7 @@ Editar Venta
                                             <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
                                                 <label class="label_steps" for="">Observaciones</label> <br>
                                                 <textarea class="form-control" name="observacion" id="observacion" cols="30" rows="5">
-                                                    {{$ticket->DescripcionTicket->observacion}}
+                                                    {{$ticket->Ticket->DescripcionTicket->observacion}}
                                                 </textarea>
                                             </div>
                                         </div>
@@ -120,36 +120,36 @@ Editar Venta
 
                                 <fieldset>
                                     @php
-                                        switch($ticket->promocion){
-                                            case($ticket->promocion == 0.10):
+                                        switch($ticket->Precio->promocion){
+                                            case($ticket->Precio->promocion == 0.10):
                                                 $promocion = 'Cliente distinguido 1';
                                                 break;
-                                            case($ticket->promocion == 0.20):
+                                            case($ticket->Precio->promocion == 0.20):
                                                 $promocion = 'Cliente distinguido 2';
                                                 break;
-                                            case($ticket->promocion == 0.100):
+                                            case($ticket->Precio->promocion == 0.100):
                                                 $promocion = 'Cliente distinguido 3';
                                                 break;
                                         }
 
-                                        switch($ticket->por_pagar){
-                                            case($ticket->por_pagar == '2'):
+                                        switch($ticket->Precio->por_pagar){
+                                            case($ticket->Precio->por_pagar == '2'):
                                                 $por_pagar = 'No deja anticipo';
                                                 break;
-                                            case($ticket->por_pagar != '2' || $ticket->por_pagar != '0'):
+                                            case($ticket->Precio->por_pagar != '2' || $ticket->Precio->por_pagar != '0'):
                                                 $por_pagar = 'Anticipo';
                                                 break;
-                                            case($ticket->por_pagar == '0'):
+                                            case($ticket->Precio->por_pagar == '0'):
                                                 $por_pagar = 'Liquida cuenta';
                                                 break;
                                         }
 
-                                        if ($ticket->recoleccion == 0) {
+                                        if ($ticket->Precio->recoleccion == 0) {
                                             $recoleccion = 'No';
                                             $cantidad = "";
                                         }else {
                                             $recoleccion = 'Si';
-                                            $cantidad = $ticket->recoleccion;
+                                            $cantidad = $ticket->Precio->recoleccion;
                                         }
                                     @endphp
                                     <div class="form-card text-black">
@@ -157,7 +157,7 @@ Editar Venta
                                             <div class="form-group mt-5 mb-5 col-6 col-md-4 col-lg-4">
                                                 <label class="label_steps" for="">Aplicar Promocion</label>
                                                 <select class="form-select select2 " name="promocion" id="promocion">
-                                                        <option value="{{$ticket->promocion}}" selected>{{$promocion}}</option>
+                                                        <option value="{{$ticket->Precio->promocion}}" selected>{{$promocion}}</option>
                                                         <option value=".10" {{ old('promocion') == .10 ? 'selected' : '' }}>Cliente Distinguido 1 ---- 10% </option>
                                                         <option value=".20" {{ old('promocion') == .20 ? 'selected' : '' }}>Cliente Distinguido 2 ---- 20% </option>
                                                         <option value=".100" {{ old('promocion') == .100 ? 'selected' : '' }}>Cliente Distinguido 3 ---- 100% </option>
@@ -170,7 +170,7 @@ Editar Venta
                                             <div class="form-group mt-5 mb-5 col-6 col-md-3 col-lg-3">
                                                 <label class="label_steps" for="">Recoleccion</label>
                                                 <select class="form-select select2 " name="recoleccion" id="recoleccio">
-                                                        <option value="{{$ticket->recoleccion}}" selected>{{$recoleccion}}</option>
+                                                        <option value="{{$ticket->Precio->recoleccion}}" selected>{{$recoleccion}}</option>
                                                         <option value="0" >No ---- 0%</option>
                                                         <option value="1" >Si ----- $__</option>
                                                 </select>
@@ -191,7 +191,7 @@ Editar Venta
                                             <div class="form-group mt-5 mb-5 col-6 col-md-3 col-lg-3">
                                                 <label class="label_steps" for="">Forma de pago</label>
                                                 <select class="form-select select2 " name="pago" id="pago">
-                                                        <option value="{{$ticket->pago}}" selected>{{$ticket->pago}}</option>
+                                                        <option value="{{$ticket->Precio->pago}}" selected>{{$ticket->Precio->pago}}</option>
                                                         <option value="Efectivo" {{ old('pago') == "Efectivo" ? 'selected' : '' }}>Efectivo</option>
                                                         <option value="Tarjeta de debito" {{ old('pago') == "Tarjeta de debito" ? 'selected' : '' }}>Tarjeta de Débito</option>
                                                         <option value="Tarjeta de credito" {{ old('pago') == "Tarjeta de credito" ? 'selected' : '' }}>Tarjeta de Crédito</option>
@@ -203,13 +203,13 @@ Editar Venta
 
                                             <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
                                                 <label class="label_steps" for="">Gifcard</label> <br>
-                                                <input class="form-control"  type="text" value="{{$ticket->gifcard}}" name="gifcard" id="gif" disabled>
+                                                <input class="form-control"  type="text" value="{{$ticket->Precio->gifcard}}" name="gifcard" id="gif" disabled>
                                             </div>
 
                                             <div class="form-group mt-5 mb-5 col-6 col-md-3 col-lg-3">
                                                 <label class="label_steps" for="">Por pagar</label>
                                                 <select class="form-select select2 " name="por_pagar" id="por_pagar">
-                                                    <option value="{{$ticket->por_pagar}}" selected>{{$por_pagar}}</option>
+                                                    <option value="{{$ticket->Precio->por_pagar}}" selected>{{$por_pagar}}</option>
                                                     <option value="2">No deja anticipo</option>
                                                     <option value="1">Anticipo</option>
                                                     <option value="0">Liquida la cuenta</option>
@@ -218,13 +218,13 @@ Editar Venta
 
                                             <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
                                                 <label class="label_steps" for="">Anticipo</label> <br>
-                                                <input class="form-control" type="text" name="por_pagar" id="pagar" value="{{$ticket->anticipo}}" disabled>
+                                                <input class="form-control" type="text" name="por_pagar" id="pagar" value="{{$ticket->Precio->anticipo}}" disabled>
                                             </div>
 
                                             <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
                                                 <label class="label_steps" for="">¿Requiere factura?</label>
                                                 <select class="form-select select2 " name="factura" id="factura">
-                                                    <option value="{{$ticket->Ticket->factura}}">{{$ticket->Ticket->factura}}</option>
+                                                    <option value="{{$ticket->Precio->factura}}">{{$ticket->Precio->factura}}</option>
                                                     <option value="no" {{ old('factura') == "no" ? 'selected' : '' }}>No</option>
                                                     <option value="si" {{ old('factura') == "si" ? 'selected' : '' }}>Si</option>
                                                 </select>

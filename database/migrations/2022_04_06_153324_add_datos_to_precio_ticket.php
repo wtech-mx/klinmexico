@@ -14,10 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::table('precio_ticket', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_direccion')->nullable();
-            $table->foreign('id_direccion')
-                ->references('id')->on('direccion')
+            $table->unsignedBigInteger('id_venta')->nullable();
+            $table->foreign('id_venta')
+                ->references('id')->on('nueva_venta')
                 ->inDelete('set null');
+
+            $table->string('factura')->nullable();
+            $table->float('total')->nullable();
+            $table->float('subtotal')->nullable();
         });
     }
 

@@ -35,7 +35,7 @@ return new class extends Migration
                 ->inDelete('set null');
         });
     }
-
+    
     /**
      * Reverse the migrations.
      *

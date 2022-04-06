@@ -160,6 +160,7 @@ class TicketController extends Controller
         $precio->por_pagar = $por_pagar;
         $precio->subtotal = $subtotal;
         $precio->total = $total;
+        $precio->factura = $request->get('factura');
         $precio->save();
 
         return redirect()->route('ticket.index')
@@ -328,8 +329,8 @@ class TicketController extends Controller
             $ticket->tint_descripcion = $request->get('tint_descripcion');
             $ticket->klin = $request->get('klin');
             $ticket->protector = $request->get('protector');
-            $ticket->factura = $request->get('factura');
             $ticket->save();
+
 
             if ($request->get('glue') || $request->get('sew') || $request->get('sole') || $request->get('patch') || $request->get('invisible') || $request->get('personalizado')) {
                 $fixer = new Fixer;
@@ -377,6 +378,7 @@ class TicketController extends Controller
 
 
         } catch (\Exception $e) {
+            // dd($e);
             return redirect()->back()
                 ->with('error', 'Faltan Validar datos!');
         }
@@ -385,7 +387,7 @@ class TicketController extends Controller
     public function  edit($id)
     {
             $client = Client::get();
-            $ticket = PrecioTicket::findOrFail($id);
+            $ticket = Venta::findOrFail($id);
             $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
 
             return view('ticket.edit.edit', compact('ticket', 'client', 'racks2'));

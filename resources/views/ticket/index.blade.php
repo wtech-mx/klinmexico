@@ -32,27 +32,27 @@
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($venta as $item2)
+                                    @foreach ($venta as $item)
+
                                     <?php
-                                        $rest = substr($item2->id, 0, -4);
-                                        $rest2 = substr($item2->id, 1);
+                                        $rest = substr($item->id, 0, -4);
+                                        $rest2 = substr($item->id, 1);
                                     ?>
                                         <tr>
 
                                             <td>0{{$rest}}-{{$rest2}}</td>
-											<td>{{ $item2->Client->name }}</td>
-                                             {{-- <td>{{ $item2->->por_pagar }}</td> --}}
-											{{--<td>{{ $item->por_pagar }}</td>
+											<td>{{ $item->Client->name }}</td>
+                                            <td>{{ $item->Precio->por_pagar }}</td>
                                             <td>{{ $item->Ticket->rack }}</td>
 
-                                                <td>
-                                                    <input data-id="{{ $item->Ticket->id }}" class="toggle-class" type="checkbox"
-                                            data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
-                                            data-on="Active" data-off="InActive" {{ $item->Ticket->estatus ? 'checked disabled' : '' }}>
-                                                </td> --}}
+                                            <td>
+                                                <input data-id="{{ $item->Ticket->id }}" class="toggle-class" type="checkbox"
+                                        data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
+                                        data-on="Active" data-off="InActive" {{ $item->Ticket->estatus ? 'checked disabled' : '' }}>
+                                            </td>
 
 
-                                            {{-- <td>
+                                             <td>
                                                 <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleModal_{{$item->id}}">
                                                     <i class="fa fa-fw fa-eye"></i>
                                                 </a>
@@ -62,16 +62,16 @@
                                                 <a type="submit" class="icon_actions trash">
                                                     <i class="fa fa-fw fa-trash"></i>
                                                 </a>
-                                            </td> --}}
+                                            </td>
                                         </tr>
 
                                     @endforeach
                                 </tbody>
                             </table>
             </div>
-                 {{-- @foreach ($precio_ticket as $item)
+                @foreach ($venta as $item)
                     @include('.ticket.view')
-                 @endforeach --}}
+                 @endforeach
         </div>
     </div>
 @endsection

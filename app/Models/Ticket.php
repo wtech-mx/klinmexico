@@ -19,7 +19,6 @@ class Ticket extends Model
         'tint_descripcion',
         'klin',
         'protector',
-        'factura',
         'estatus',
         'rack',
         'id_descripcion',
@@ -35,12 +34,12 @@ class Ticket extends Model
 
     public function DescripcionTicket()
     {
-        return $this->belongsTo(DescripcionTicket::class, 'id_descripcion');
+        return $this->hasOne(DescripcionTicket::class, 'id_ticket');
     }
 
     public function Fixer()
     {
-        return $this->belongsTo(Fixer::class, 'id_fixer');
+        return $this->hasOne(Fixer::class, 'id_ticket');
     }
 
     public function Direccion()

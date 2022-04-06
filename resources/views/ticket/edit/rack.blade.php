@@ -1,7 +1,7 @@
 @switch($ticket)
     @case($ticket->Ticket->servicio_primario == 'Plus' || $ticket->Ticket->servicio_primario == 'Essential' || $ticket->Ticket->servicio_primario == 'Elite' || $ticket->Ticket->servicio_primario == 'Pure White' || $ticket->Ticket->servicio_primario == 'Special Care')
         @php
-            if ($ticket->DescripcionTicket->tipo_servicio == '0'){
+            if ($ticket->Ticket->DescripcionTicket->tipo_servicio == '0'){
                 $servicio = 'Servicio Estandar';
             }else{
                 $servicio = 'Servicio Express';
@@ -12,7 +12,7 @@
                     <div class="form-group mt-5 mb-5 col-12">
                         <label class="label_steps" for="">Tipo de servicio</label>
                         <select class="form-select select2 " name="tipo_servicio" id="tipo_servicio">
-                                <option value="{{$ticket->DescripcionTicket->tipo_servicio}}" selected>{{$servicio}}</option>
+                                <option value="{{$ticket->Ticket->DescripcionTicket->tipo_servicio}}" selected>{{$servicio}}</option>
                                 <option value="0" >Estandar --------- $0</option>
                                 <option value="110" >Express ---------- $110</option>
                         </select>
