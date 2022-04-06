@@ -29,85 +29,364 @@ Crear Ventas
                   <div class="card" style="border:solid 1px #ccc;">
 
                     <div class="card-header" style="border:solid 1px #ccc;">
-                         <p style="margin-top: 1rem;margin-left: 1rem;"> Nueva Venta </p>
-                      <ul class="nav nav-tabs justify-content-center" style=" height: auto;flex-direction: unset;" role="tablist">
-                        <li class="nav-item">
-                          <a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
-                               Sneakers & Calzado
-                          </a>
 
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link " id="pills-Gorras-tab" data-bs-toggle="pill" data-bs-target="#pills-Gorras" type="button" role="tab" aria-controls="pills-Gorras" aria-selected="true">
-                              Gorras
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link " id="pills-Bolsos-tab" data-bs-toggle="pill" data-bs-target="#pills-Bolsos" type="button" role="tab" aria-controls="pills-Bolsos" aria-selected="true">
-                              Bolsos & Mochilas
-                          </a>
-                        </li>
-                        <li class="nav-item">
-                         <a class="nav-link " id="pills-Reparacion-tab" data-bs-toggle="pill" data-bs-target="#pills-Reparacion" type="button" role="tab" aria-controls="pills-Reparacion" aria-selected="true">
-                              Reparacion
-                          </a>
-                        </li>
-                           <li class="nav-item">
-                              <a class="nav-link " id="pills-Nano-tab" data-bs-toggle="pill" data-bs-target="#pills-Nano" type="button" role="tab" aria-controls="pills-Nano" aria-selected="true">
-                                 Nano
-                              </a>
-                        </li>
-                      </ul>
-                    </div>
+                        <div class="d-flex justify-content-start">
+                             <p style="margin-top: 0.5rem;margin-left: 1rem;margin-right: 5rem"> Nueva Venta </p>
 
-                    <div class="card-body">
-                      <!-- Tab panes -->
-                      <div class="tab-content" id="pills-tabContent">
-                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                            <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
-                                @csrf
-                                @include('ticket.form_sneakers')
-                                @include('ticket.direccion_modal')
-                            </form>
-                        </div>
+                            <ul class="nav nav-tabs justify-content-center" style=" height: auto;flex-direction: unset;border: 1px solid transparent;" role="tablist">
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-Cliente-tab" data-bs-toggle="pill" data-bs-target="#pills-Cliente" type="button" role="tab" aria-controls="pills-Cliente" aria-selected="true" style="border: 1px solid transparent;">
+                                   Seleccionar Cliente
+                                </button>
+                              </li>
 
-                        <div class="tab-pane fade" id="pills-Gorras" role="tabpanel" aria-labelledby="pills-Gorras-tab">
-                            <p class="text-dark mr-5">
-                                <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
-                                    @csrf
-                                    @include('ticket.form_gorros')
-                                </form>
-                            </p>
-                        </div>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-Servicios-tab" data-bs-toggle="pill" data-bs-target="#pills-Servicios" type="button" role="tab" aria-controls="pills-Servicios" aria-selected="false" style="border: 1px solid transparent;">
+                                    Agregar Servicios
+                                </button>
+                              </li>
 
-                        <div class="tab-pane fade" id="pills-Bolsos" role="tabpanel" aria-labelledby="pills-Bolsos-tab">
-                            <p class="text-dark mr-5">
-                                <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
-                                    @csrf
-                                    @include('ticket.form_bolsos')
-                                </form>
-                            </p>
-                        </div>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-Pago-tab" data-bs-toggle="pill" data-bs-target="#pills-Pago" type="button" role="tab" aria-controls="pills-Pago" aria-selected="false" style="border: 1px solid transparent;">
+                                    Pago
+                                </button>
+                              </li>
 
-                        <div class="tab-pane fade" id="pills-Reparacion" role="tabpanel" aria-labelledby="pills-Reparacion-tab">
-                          <p class="text-dark mr-5">
-                            <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
-                                @csrf
-                                @include('ticket.form_reparacion')
-                            </form>
-                          </p>
-                        </div>
+                              <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-Recibo-tab" data-bs-toggle="pill" data-bs-target="#pills-Recibo" type="button" role="tab" aria-controls="pills-Recibo" aria-selected="false" style="border: 1px solid transparent;">
+                                    Recibo
+                                </button>
+                              </li>
 
-                        <div class="tab-pane fade" id="pills-Nano" role="tabpanel" aria-labelledby="pills-Nano-tab">
-                            <p class="text-dark mr-5">
-                                <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
-                                    @csrf
-                                    @include('ticket.form_nano')
-                                </form>
-                            </p>
-                        </div>
+                            </ul>
+                         </div>
 
-                      </div>
+                            <div class="tab-content" id="pills-tabContent">
+                              <div class="tab-pane fade show active" id="pills-Cliente" role="tabpanel" aria-labelledby="pills-Cliente-tab">
+
+                                    <div class="form-group col-xs-12 col-md-12 col-lg-12 ">
+                                        <div class="d-flex flex-row bd-highlight p-5">
+
+                                          <div class=" bd-highlight">
+                                            <label class="label_steps text-dark">Busca y Selecciona al Cliente * </label> <br>
+                                            <select class="form-select" name="id_user" id="mi-selector">
+                                                <option selected>Seleccionar usuario</option>
+                                                @foreach ($client as $item)
+                                                    <option value="{{$item->id}}" {{ old($item->id) == "id_user" ? 'selected' : '' }}>{{$item->name}} / {{$item->telefono}} / {{$item->email}} </option>
+                                                @endforeach
+                                            </select>
+                                          </div>
+
+                                            <div class="contentbtn">
+                                                <label class="label_steps text-dark">-</label> <br>
+                                                <div class="btn btn-secondary" style="margin-left: 2rem;">
+                                                    + Registrar Cliente
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                              </div>
+
+                              <div class="tab-pane fade" id="pills-Servicios" role="tabpanel" aria-labelledby="pills-Servicios-tab">
+
+                                  <ul class="nav nav-tabs justify-content-center" style=" height: auto;flex-direction: unset;" role="tablist">
+                                    <li class="nav-item">
+                                      <a class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+                                           Sneakers & Calzado
+                                      </a>
+
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link " id="pills-Gorras-tab" data-bs-toggle="pill" data-bs-target="#pills-Gorras" type="button" role="tab" aria-controls="pills-Gorras" aria-selected="true">
+                                          Gorras
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                      <a class="nav-link " id="pills-Bolsos-tab" data-bs-toggle="pill" data-bs-target="#pills-Bolsos" type="button" role="tab" aria-controls="pills-Bolsos" aria-selected="true">
+                                          Bolsos & Mochilas
+                                      </a>
+                                    </li>
+                                    <li class="nav-item">
+                                     <a class="nav-link " id="pills-Reparacion-tab" data-bs-toggle="pill" data-bs-target="#pills-Reparacion" type="button" role="tab" aria-controls="pills-Reparacion" aria-selected="true">
+                                          Reparacion
+                                      </a>
+                                    </li>
+                                       <li class="nav-item">
+                                          <a class="nav-link " id="pills-Nano-tab" data-bs-toggle="pill" data-bs-target="#pills-Nano" type="button" role="tab" aria-controls="pills-Nano" aria-selected="true">
+                                             Nano
+                                          </a>
+                                    </li>
+                                  </ul>
+
+                                <div class="card-body">
+                                  <!-- Tab panes -->
+                                  <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                        <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
+                                            @csrf
+                                            @include('ticket.form_sneakers')
+                                            @include('ticket.direccion_modal')
+                                        </form>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="pills-Gorras" role="tabpanel" aria-labelledby="pills-Gorras-tab">
+                                        <p class="text-dark mr-5">
+                                            <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
+                                                @csrf
+                                                @include('ticket.form_gorros')
+                                            </form>
+                                        </p>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="pills-Bolsos" role="tabpanel" aria-labelledby="pills-Bolsos-tab">
+                                        <p class="text-dark mr-5">
+                                            <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
+                                                @csrf
+                                                @include('ticket.form_bolsos')
+                                            </form>
+                                        </p>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="pills-Reparacion" role="tabpanel" aria-labelledby="pills-Reparacion-tab">
+                                      <p class="text-dark mr-5">
+                                        <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
+                                            @csrf
+                                            @include('ticket.form_reparacion')
+                                        </form>
+                                      </p>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="pills-Nano" role="tabpanel" aria-labelledby="pills-Nano-tab">
+                                        <p class="text-dark mr-5">
+                                            <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
+                                                @csrf
+                                                @include('ticket.form_nano')
+                                            </form>
+                                        </p>
+                                    </div>
+
+                                  </div>
+                                </div>
+
+                              </div>
+
+                              <div class="tab-pane fade" id="pills-Pago" role="tabpanel" aria-labelledby="pills-Pago-tab">
+
+                                   <div class="row">
+
+                                        <div class="form-group col-xs-12 col-md-12 col-lg-12 ">
+
+                                            <div class="d-flex flex-row bd-highlight p-5">
+                                              <div class="bd-highlight">
+                                                <label class="label_steps text-dark" for="">Aplicar Promocion</label>
+                                                <select class="form-select select2 " name="promocion" id="promocion">
+                                                        <option value="0" selected>Seleccionar forma</option>
+                                                        <option value=".10" {{ old('promocion') == .10 ? 'selected' : '' }}>Cliente Distinguido 1 ---- 10% </option>
+                                                        <option value=".20" {{ old('promocion') == .20 ? 'selected' : '' }}>Cliente Distinguido 2 ---- 20% </option>
+                                                        <option value=".100" {{ old('promocion') == .100 ? 'selected' : '' }}>Cliente Distinguido 3 ---- 100% </option>
+                                                        <option value=".10" {{ old('promocion') == .10 ? 'selected' : '' }}>Descuento Total --------- 10% </option>
+                                                        <option value=".20" {{ old('promocion') == .20 ? 'selected' : '' }}>Descuento Total --------- 20%</option>
+                                                        <option value=".100" {{ old('promocion') == .100 ? 'selected' : '' }}>Cortesía ------------------ 100%</option>
+                                                </select>
+                                              </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
+                                                   <div class="row text-dark p-4">
+                                                       <label class="label_steps" for="">Recolección</label> <br>
+                                                        <div class="col-3">
+                                                          <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="recoleccion" id="recoleccion" value="0">
+                                                            <label class="form-check-label">
+                                                                si
+                                                            </label>
+                                                          </div>
+                                                        </div>
+
+                                                        <div class="col-3">
+                                                          <div class="form-check  mb-3">
+                                                            <input class="form-check-input" type="radio" name="recoleccion" id="recoleccion" value="1">
+                                                            <label class="form-check-label">
+                                                                No
+                                                            </label>
+                                                          </div>
+                                                        </div>
+
+                                                       <div class="col-6">
+                                                              <input  class="form-control" type="number" name="recoleccion" id="input" >
+                                                       </div>
+
+                                                       <div class="col-12 mt-5">
+                                                           <label class="label_steps" for="">Forma de Pago</label> <br>
+                                                              <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="pago" id="pago" value="Efectivo">
+                                                                <label class="form-check-label">
+                                                                    Efectivo
+                                                                </label>
+                                                              </div>
+                                                       </div>
+
+                                                       <div class="col-12">
+
+                                                              <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="pago" id="pago" value="Tarjeta de debito">
+                                                                <label class="form-check-label">
+                                                                    Tarjeta de Débito
+                                                                </label>
+                                                              </div>
+                                                       </div>
+
+                                                       <div class="col-12">
+
+                                                              <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="pago" id="pago" value="Tarjeta de credito">
+                                                                <label class="form-check-label">
+                                                                    Tarjeta de Crédito
+                                                                </label>
+                                                              </div>
+                                                       </div>
+
+                                                       <div class="col-12">
+
+                                                              <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="pago" id="pago" value="Transferencia bancaria">
+                                                                <label class="form-check-label">
+                                                                    Transferencia Bancaria
+                                                                </label>
+                                                              </div>
+                                                       </div>
+
+                                                       <div class="col-12">
+                                                              <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="pago" id="pago" value="Mercado pago">
+                                                                <label class="form-check-label">
+                                                                    Mercado Pago
+                                                                </label>
+                                                              </div>
+                                                       </div>
+
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                              <div class="form-check  mb-3">
+                                                                <input class="form-check-input" type="radio" name="gif" id="gif" >
+                                                                <label class="form-check-label" for="tint4">
+                                                                   Gifcard
+                                                                </label>
+                                                              </div>
+                                                            </div>
+
+                                                            <div class="col-6">
+                                                                 <input class="form-control"  type="text" name="gifcard" id="gif" >
+                                                            </div>
+                                                        </div>
+
+                                                       <div class="col-12">
+                                                           <label class="label_steps" for="">Factura</label> <br>
+                                                            <div class="col-3">
+                                                              <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="factura" id="factura" value="no">
+                                                                <label class="form-check-label">
+                                                                    No
+                                                                </label>
+                                                              </div>
+                                                            </div>
+
+                                                            <div class="col-3">
+                                                              <div class="form-check  mb-3">
+                                                                <input class="form-check-input" type="radio" name="factura" id="factura" value="si">
+                                                                <label class="form-check-label">
+                                                                    Sí
+                                                                </label>
+                                                              </div>
+                                                            </div>
+
+                                                           <div class="col-6">
+                                                               <button class="btn btn-secondary">Ingresar Datos de Factura</button>
+                                                           </div>
+                                                       </div>
+
+                                                    </div>
+                                        </div>
+
+                                        <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
+                                                   <div class="row text-dark p-4">
+                                                       <label class="label_steps" for="">Dirección de Recolección</label> <br>
+                                                        <div class="col-3">
+                                                          <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="recoleccion" id="recoleccion" value="0">
+                                                            <label class="form-check-label">
+                                                                Registrada
+                                                            </label>
+                                                          </div>
+                                                        </div>
+
+                                                        <div class="col-3">
+                                                          <div class="form-check  mb-3">
+                                                            <input class="form-check-input" type="radio" name="recoleccion" id="recoleccion" value="1">
+                                                            <label class="form-check-label">
+                                                                Otra
+                                                            </label>
+                                                          </div>
+                                                        </div>
+
+                                                       <div class="col-6">
+                                                           <button class="btn btn-primary">
+                                                                Registrar Dirección
+                                                           </button>
+                                                       </div>
+
+                                                       <div class="col-12">
+                                                           <label class="label_steps" for="">Por Pagar</label> <br>
+                                                              <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="pago" id="pago" value="2">
+                                                                <label class="form-check-label">
+                                                                   Sin Anticipo
+                                                                </label>
+                                                              </div>
+                                                       </div>
+
+                                                       <div class="col-12">
+                                                              <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="por_pagar" id="por_pagar" value="0">
+                                                                <label class="form-check-label">
+                                                                   Liquida Cuenta
+                                                                </label>
+                                                              </div>
+                                                       </div>
+
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                              <div class="form-check  mb-3">
+                                                                <input class="form-check-input" type="radio" name="por_pagar" id="por_pagar" >
+                                                                <label class="form-check-label" for="tint4">
+                                                                   Anticipo
+                                                                </label>
+                                                              </div>
+                                                            </div>
+
+                                                            <div class="col-6">
+                                                                 <input class="form-control"  type="text" name="por_pagar" id="pagar" >
+                                                            </div>
+                                                        </div>
+
+
+                                                   </div>
+                                        </div>
+
+                                    </div>
+
+                              </div>
+
+                              <div class="tab-pane fade" id="pills-Recibo" role="tabpanel" aria-labelledby="pills-Recibo-tab">
+
+                              </div>
+                            </div>
+
+
+
                     </div>
 
                   </div>
