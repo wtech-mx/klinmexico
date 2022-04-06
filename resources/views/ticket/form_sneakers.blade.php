@@ -7,22 +7,6 @@
 
                                 <div class="row">
 
-                                    <div class="form-group col-xs-12 col-md-12 col-lg-12 ">
-
-                                        <div class="d-flex flex-row bd-highlight mb-3">
-                                          <div class="mb-3 bd-highlight">
-                                            <label class="label_steps" for="">Cliente * </label> <br>
-                                            <select class="form-select" name="id_user" id="mi-selector">
-                                                <option selected>Seleccionar usuario</option>
-                                                @foreach ($client as $item)
-                                                    <option value="{{$item->id}}" {{ old($item->id) == "id_user" ? 'selected' : '' }}>{{$item->name}} / {{$item->telefono}} / {{$item->email}} </option>
-                                                @endforeach
-                                            </select>
-                                          </div>
-                                        </div>
-
-                                    </div>
-
                                     <div class="form-group col-xs-12 col-md-3 col-lg-3 ">
                                         <label class="label_steps" for="">Agregar servicio</label>
                                         <div class="form-check">
@@ -102,7 +86,7 @@
                                             </div>
 
                                             <div class="col-6">
-                                                  <input  class="form-control" type="number" name="tint" id="tint" placeholder="$">
+                                                  <input  class="form-control" type="number" name="tint_personalizado" id="tint_personalizado" value="0" placeholder="$">
                                             </div>
                                         </div>
 
@@ -242,7 +226,7 @@
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
                                         <label class="label_steps" for="">Color 1</label> <br>
-                                        <input class="form-control @error('color1') is-invalid @enderror" type="color" name="color1" id="color1" value="{{ old('color1') }}">
+                                        <input class="form-control @error('color1') is-invalid @enderror" type="input" name="color1" id="color1" value="{{ old('color1') }}">
                                         @error('color1')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -250,15 +234,15 @@
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
                                         <label class="label_steps" for="">Color 2</label> <br>
-                                        <input class="form-control @error('color2') is-invalid @enderror" type="color" name="color2" id="color2" value="{{ old('color2') }}">
+                                        <input class="form-control @error('color2') is-invalid @enderror" type="input" name="color2" id="color2" value="{{ old('color2') }}">
                                         @error('color2')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
 
                                     <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
-                                        <label class="label_steps" for="">Talla</label> <br>
-                                        <input class="form-control @error('talla') is-invalid @enderror" type="text" name="talla" id="talla" placeholder="S- M - LG - XL" value="{{ old('talla') }}">
+                                        <label class="label_steps" for="">Numero</label> <br>
+                                        <input class="form-control @error('talla') is-invalid @enderror" type="number" name="talla" id="talla" placeholder="Numero de calzado" value="{{ old('talla') }}">
                                         @error('talla')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
@@ -323,18 +307,18 @@
 
                                 </div>
 
-                                    <a class="btn-block btn_next_tab  mt-3 mb-1 prev" style="margin-right: 1rem;left: 80%;">
-                                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                        Anterior
-                                    </a>
-                                    <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" style="left: 80%;">
-                                        Siguiente
-                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                    </a>
+                                <a class="btn-block btn_next_tab  mt-3 mb-1 prev" style="margin-right: 1rem;left: 80%">
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                    Anterior
+                                </a>
+
+                                <button id="next1" class="btn-block btn_next_tab mt-3 mb-1 next mt-4" style="left: 80%">
+                                     <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar
+                                </button>
                             </div>
                         </fieldset>
 
-                        <fieldset>
+                        {{-- <fieldset>
                             <div class="form-card text-black">
                                 <div class="row">
                                     <div class="form-group mt-5 mb-5 col-6 col-md-4 col-lg-4">
@@ -422,17 +406,10 @@
 
                                  </div>
 
-                                    <a class="btn-block btn_next_tab  mt-3 mb-1 prev" style="margin-right: 1rem;left: 80%">
-                                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                        Anterior
-                                    </a>
 
-                                    <button id="next1" class="btn-block btn_next_tab mt-3 mb-1 next mt-4" style="left: 80%">
-                                         <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar
-                                    </button>
 
                             </div>
-                        </fieldset>
+                        </fieldset> --}}
 
                     </div>
                 </div>

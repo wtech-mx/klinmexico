@@ -22,11 +22,35 @@ class Ticket extends Model
         'factura',
         'estatus',
         'rack',
+        'id_descripcion',
+        'id_fixer',
+        'id_direccion',
+        'id_venta',
     ];
 
     public function Client()
     {
         return $this->belongsTo(Client::class, 'id_user');
+    }
+
+    public function DescripcionTicket()
+    {
+        return $this->belongsTo(DescripcionTicket::class, 'id_descripcion');
+    }
+
+    public function Fixer()
+    {
+        return $this->belongsTo(Fixer::class, 'id_fixer');
+    }
+
+    public function Direccion()
+    {
+        return $this->belongsTo(Direccion::class, 'id_direccion');
+    }
+
+    public function Venta()
+    {
+        return $this->belongsTo(Venta::class, 'id_venta');
     }
 
 }

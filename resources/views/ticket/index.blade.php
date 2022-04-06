@@ -21,8 +21,8 @@
                     <table class="table table-striped table-responsive table-hover" id="tale_id" >
                                 <thead class="thead">
                                     <tr>
+                                        <th>ID</th>
 										<th>Cliente</th>
-										<th>Servicio</th>
 										<th>Por pagar</th>
                                         <th>Rack</th>
 										<th>Estatus</th>
@@ -31,22 +31,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($precio_ticket as $item)
+
+                                    @foreach ($venta as $item2)
+                                    <?php
+                                        $rest = substr($item2->id, 0, -4);
+                                        $rest2 = substr($item2->id, 1);
+                                    ?>
                                         <tr>
 
-											<td>{{ $item->Ticket->Client->name }}</td>
-											<td>{{ $item->Ticket->servicio_primario }}</td>
-											<td>{{ $item->por_pagar }}</td>
+                                            <td>0{{$rest}}-{{$rest2}}</td>
+											<td>{{ $item2->Client->name }}</td>
+                                             {{-- <td>{{ $item2->->por_pagar }}</td> --}}
+											{{--<td>{{ $item->por_pagar }}</td>
                                             <td>{{ $item->Ticket->rack }}</td>
 
                                                 <td>
                                                     <input data-id="{{ $item->Ticket->id }}" class="toggle-class" type="checkbox"
                                             data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
                                             data-on="Active" data-off="InActive" {{ $item->Ticket->estatus ? 'checked disabled' : '' }}>
-                                                </td>
+                                                </td> --}}
 
 
-                                            <td>
+                                            {{-- <td>
                                                 <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleModal_{{$item->id}}">
                                                     <i class="fa fa-fw fa-eye"></i>
                                                 </a>
@@ -56,15 +62,16 @@
                                                 <a type="submit" class="icon_actions trash">
                                                     <i class="fa fa-fw fa-trash"></i>
                                                 </a>
-                                            </td>
+                                            </td> --}}
                                         </tr>
+
                                     @endforeach
                                 </tbody>
                             </table>
             </div>
-                 @foreach ($precio_ticket as $item)
+                 {{-- @foreach ($precio_ticket as $item)
                     @include('.ticket.view')
-                 @endforeach
+                 @endforeach --}}
         </div>
     </div>
 @endsection

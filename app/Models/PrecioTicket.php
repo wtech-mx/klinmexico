@@ -17,9 +17,6 @@ class PrecioTicket extends Model
         'recoleccion',
         'pago',
         'por_pagar',
-        'id_descripcion',
-        'id_fixer',
-        'id_direccion',
         'descuento',
     ];
 

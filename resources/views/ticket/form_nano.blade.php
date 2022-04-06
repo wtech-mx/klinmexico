@@ -4,47 +4,29 @@
 
                         <fieldset class="show">
                             <div class="form-card text-black">
-                    <div class="row">
+                                <div class="row">
 
-                                        <div class="form-group col-xs-12 col-md-12 col-lg-12 ">
+                                    <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
+                                                <label class="label_steps" for="">Agregar servicio</label>
 
-                                            <div class="d-flex flex-row bd-highlight mb-3">
-                                              <div class="mb-3 bd-highlight">
-                                                <label class="label_steps" for="">Cliente * </label> <br>
-                                                <select class="form-select" name="id_user" id="mi-selector">
-                                                    <option selected>Seleccionar usuario</option>
-                                                    @foreach ($client as $item)
-                                                        <option value="{{$item->id}}" {{ old($item->id) == "id_user" ? 'selected' : '' }}>{{$item->name}} / {{$item->telefono}} / {{$item->email}} </option>
-                                                    @endforeach
-                                                </select>
-                                              </div>
-                                            </div>
+                                                <div class="form-check">
+                                                    <label class="label_steps" for="">Protector -- $55</label>
+                                                    <input  class="form-check-input form-control" type="checkbox" checked >
+                                                    <input  type="hidden" value="Protector" name="servicio_primario" id="servicio_primario">
+                                                </div>
 
-                                        </div>
+                                    </div>
 
-                                        <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
-                                                    <label class="label_steps" for="">Agregar servicio</label>
+                                </div>
 
-                                                    <div class="form-check">
-                                                        <label class="label_steps" for="">Protector -- $55</label>
-                                                        <input  class="form-check-input form-control" type="checkbox" checked >
-                                                        <input  type="hidden" value="Protector" name="servicio_primario" id="servicio_primario">
-                                                        <input  type="hidden" value="55" name="precio_cap" id="precio_cap">
-                                                    </div>
-
-                                        </div>
-
-                    </div>
-
-                                    <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
-                                        Siguiente
-                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                    </a>
+                                <button id="next1" class="btn-block btn_next_tab mt-3 mb-1 next mt-4">
+                                    <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar
+                                </button>
 
                             </div>
                         </fieldset>
 
-                        <fieldset>
+                        {{-- <fieldset>
                             <div class="form-card text-black">
                                 <div class="row">
 
@@ -118,7 +100,7 @@
                                     <img class="fit-image check-img" src="https://i.imgur.com/QH6Zd6Y.gif">
                                 </div>
                             </div>
-                        </fieldset>
+                        </fieldset> --}}
 
                     </div>
                 </div>

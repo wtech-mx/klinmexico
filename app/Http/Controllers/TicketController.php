@@ -9,10 +9,12 @@ use App\Models\PrecioTicket;
 use App\Models\Direccion;
 use App\Models\Racks;
 use App\Models\Ticket;
+use App\Models\Venta;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Mail;
+Use Alert;
 
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -26,11 +28,16 @@ class TicketController extends Controller
     public function index()
     {
 
-        $ticket = Ticket::get();
+        $ticket = Ticket::orderBy('created_at','DESC')
+        ->get();
 
-        $precio_ticket = PrecioTicket::get();
+        $precio_ticket = PrecioTicket::orderBy('created_at','DESC')
+        ->get();
 
-        return view('ticket.index', compact('ticket', 'precio_ticket'));
+        $venta = Venta::orderBy('created_at','DESC')
+        ->get();
+
+        return view('ticket.index', compact('ticket', 'precio_ticket', 'venta'));
     }
 
     public function create()
@@ -101,12 +108,88 @@ class TicketController extends Controller
 
     }
 
+    public function store_venta(Request $request)
+    {
+        $venta = new Venta;
+        $venta->id_user = $request->get('id_user');
+        $venta->save();
+
+        return redirect()->back();
+
+    }
+
+    public function store_precio(Request $request)
+    {
+        if ($request->get('promocion')) {
+            $promocion = $request->get('promocion');
+        } else {
+            $promocion = 0;
+        }
+
+        $venta = Venta::orderBy('created_at','DESC')
+        ->first();
+
+        $descuento = $venta->suma * $promocion;
+        $subtotal = $venta->suma - $descuento;
+        $total = $subtotal + $request->get('recoleccion');
+
+        if ($request->get('por_pagar') == 2) {
+            $por_pagar2 = $total;
+        } else {
+            $por_pagar2 = $total - $request->get('por_pagar');
+        }
+
+        if ($request->get('gifcard')) {
+            $por_pagar = $por_pagar2 - $request->get('gifcard');
+        } else {
+            $por_pagar = $por_pagar2;
+        }
+
+        if ($request->get('por_pagar') == 0) {
+            $por_pagar = $request->get('por_pagar');
+        }
+
+        $precio = new PrecioTicket;
+        $precio->id_venta = $venta->id;
+        $precio->descuento = $descuento;
+        $precio->anticipo = $request->get('por_pagar');
+        $precio->promocion = $request->get('promocion');
+        $precio->recoleccion = $request->get('recoleccion');
+        $precio->pago = $request->get('pago');
+        $precio->gifcard = $request->get('gifcard');
+        $precio->por_pagar = $por_pagar;
+        $precio->subtotal = $subtotal;
+        $precio->total = $total;
+        $precio->save();
+
+        return redirect()->route('ticket.index')
+                ->with('success', 'Ticket creado exitosamente!');
+
+    }
+
+    public function store_nano(Request $request)
+    {
+        $venta = Venta::orderBy('created_at','DESC')
+        ->first();
+
+        $venta_suma = Venta::findOrFail($venta->id);
+        $venta_suma->suma = $venta->suma + '55';
+        $venta_suma->update();
+
+        $ticket = new Ticket;
+        $ticket->id_venta = $venta->id;
+        $ticket->id_user = $venta->id_user;
+        $ticket->servicio_primario = $request->get('servicio_primario');
+        $ticket->save();
+
+        alert()->html('<i>HTML</i> <u>Servicio agregado</u>',"<a href='#pills-Pago'>Ir a pago</a> <a href='#pills-Servicios'>Agregar otro servicio</a>",'success');
+        return redirect()->back();
+    }
 
     public function store(Request $request)
     {
 
         $validator = Validator::make($request->all(), [
-            'id_user' => 'required',
             'servicio_primario' => 'required',
             'marca' => 'required',
             'modelo' => 'required',
@@ -114,9 +197,6 @@ class TicketController extends Controller
             'categoria' => 'required',
             'tipo_servicio' => 'required',
             'num_rack' => 'required',
-            'pago' => 'required',
-            'por_pagar' => 'required',
-            'factura' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -143,6 +223,8 @@ class TicketController extends Controller
                 $precio_cap = 170;
             } elseif ($request->get('servicio_primario') == 'Special Care') {
                 $precio_cap = 160;
+            } elseif ($request->get('servicio_primario') == 'Klin Cap') {
+                $precio_cap = 60;
             }
 
             if ($request->get('glue')) {
@@ -189,12 +271,6 @@ class TicketController extends Controller
                 $protector = 0;
             }
 
-            if ($request->get('promocion')) {
-                $promocion = $request->get('promocion');
-            } else {
-                $promocion = 0;
-            }
-
             if ($request->get('patch') == 1) {
                 $patch = 240;
             }
@@ -232,31 +308,19 @@ class TicketController extends Controller
             }
 
 
-            $suma = $precio_cap + $protector + $tint + $tipo_servicio + $klin + $klin_dye + $unyellow + $glue + $sew + $sole + $patch + $invisible + $request->get('personalizado');
+            $suma = $precio_cap + $protector + $tint + $request->get('tint_personalizado') + $tipo_servicio + $klin + $klin_dye + $unyellow + $glue + $sew + $sole + $patch + $invisible + $request->get('personalizado');
 
-            $descuento = $suma * $promocion;
-            $subtotal = $suma - $descuento;
-            $total = $subtotal + $request->get('recoleccion');
+            $venta = Venta::orderBy('created_at','DESC')
+            ->first();
 
-            if ($request->get('por_pagar') == 2) {
-                $por_pagar2 = $total;
-            } else {
-                $por_pagar2 = $total - $request->get('por_pagar');
-            }
-
-            if ($request->get('gifcard')) {
-                $por_pagar = $por_pagar2 - $request->get('gifcard');
-            } else {
-                $por_pagar = $por_pagar2;
-            }
-
-            if ($request->get('por_pagar') == 0) {
-                $por_pagar = $request->get('por_pagar');
-            }
+            $venta_suma = Venta::findOrFail($venta->id);
+            $venta_suma->suma = $venta->suma + $suma;
+            $venta_suma->update();
 
             $ticket = new Ticket;
-            $ticket->id_user = $request->get('id_user');
             $ticket->rack = $request->get('num_rack');
+            $ticket->id_venta = $venta->id;
+            $ticket->id_user = $venta->id_user;
             $ticket->estatus = 0;
             $ticket->servicio_primario = $request->get('servicio_primario');
             $ticket->unyellow = $request->get('unyellow');
@@ -265,8 +329,6 @@ class TicketController extends Controller
             $ticket->klin = $request->get('klin');
             $ticket->protector = $request->get('protector');
             $ticket->factura = $request->get('factura');
-            $ticket->subtotal = $subtotal;
-            $ticket->total = $total;
             $ticket->save();
 
             if ($request->get('glue') || $request->get('sew') || $request->get('sole') || $request->get('patch') || $request->get('invisible') || $request->get('personalizado')) {
@@ -304,27 +366,15 @@ class TicketController extends Controller
                 $direccion->save();
             }
 
-            $precio = new PrecioTicket;
-            $precio->id_ticket = $ticket->id;
-            $precio->id_descripcion = $descripcion->id;
-            $precio->id_fixer = $fixer->id;
-            $precio->descuento = $descuento;
-            $precio->anticipo = $request->get('por_pagar');
-            $precio->promocion = $request->get('promocion');
-            $precio->recoleccion = $request->get('recoleccion');
-            $precio->pago = $request->get('pago');
-            $precio->gifcard = $request->get('gifcard');
-            $precio->por_pagar = $por_pagar;
-            $precio->save();
-
             if ($request->get('num_rack') == true) {
                 $racke = Racks::find($request->get('num_rack'));
                 $racke->estatus = 1;
                 $racke->save();
             }
 
-            return redirect()->route('ticket.index')
-                ->with('success', 'Ticket creado exitosamente!');
+            alert()->html('<i>HTML</i> <u>Servicio agregado</u>',"<a href='#pills-Pago'>Ir a pago</a> <a href='#pills-Servicios'>Agregar otro servicio</a>",'success');
+            return redirect()->back();
+
 
         } catch (\Exception $e) {
             return redirect()->back()

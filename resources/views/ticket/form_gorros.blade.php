@@ -6,28 +6,11 @@
                             <div class="form-card text-black">
                                 <div class="row">
 
-                                        <div class="form-group col-xs-12 col-md-12 col-lg-12 ">
-
-                                            <div class="d-flex flex-row bd-highlight mb-3">
-                                              <div class="mb-3 bd-highlight">
-                                                <label class="label_steps" for="">Cliente * </label> <br>
-                                                <select class="form-select" name="id_user" id="mi-selector">
-                                                    <option selected>Seleccionar usuario</option>
-                                                    @foreach ($client as $item)
-                                                        <option value="{{$item->id}}" {{ old($item->id) == "id_user" ? 'selected' : '' }}>{{$item->name}} / {{$item->telefono}} / {{$item->email}} </option>
-                                                    @endforeach
-                                                </select>
-                                              </div>
-                                            </div>
-
-                                        </div>
-
                                         <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
                                                     <label class="label_steps" for="">Agregar servicio</label>
                                                     <div class="form-check">
                                                         <input  class="form-check-input form-control" type="checkbox" checked >
                                                         <input  type="hidden" value="Klin Cap" name="servicio_primario" id="servicio_primario">
-                                                        <input  type="hidden" value="60" name="precio_cap" id="precio_cap">
                                                             <label class="form-check-label" for="servicio_primario1">
                                                                 Klin Cap
                                                             </label>
@@ -75,7 +58,7 @@
                                                         </div>
 
                                                         <div class="col-6">
-                                                              <input  class="form-control" type="number" name="tint" id="tint" placeholder="$">
+                                                              <input  class="form-control" type="number" name="tint_personalizado" id="tint_personalizado" value="0" placeholder="$">
                                                         </div>
                                                     </div>
 
@@ -86,12 +69,10 @@
 
                                     </div>
 
-                                </div>
-
                                 <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
                                     Siguiente<i class="fa fa-arrow-right" aria-hidden="true"></i>
                                 </a>
-
+                            </div>
                         </fieldset>
 
                         <fieldset>
@@ -111,12 +92,12 @@
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
                                         <label class="label_steps" for="">Color 1</label> <br>
-                                        <input class="form-control" type="color" name="color1" id="color1">
+                                        <input class="form-control" type="text" name="color1" id="color1">
                                     </div>
 
                                     <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
                                         <label class="label_steps" for="">Color 2</label> <br>
-                                        <input class="form-control" type="color" name="color2" id="color2">
+                                        <input class="form-control" type="text" name="color2" id="color2">
                                     </div>
 
                                     <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
@@ -158,8 +139,7 @@
                                     <div class="form-group mt-5 mb-5 col-12">
                                         <label class="label_steps" for="">Tipo de servicio</label>
                                         <select class="form-select select2 " name="tipo_servicio" id="tipo_servicio">
-                                                <option value="" selected>Seleccionar servicio</option>
-                                                <option value="0">Estandar --------- $0</option>
+                                                <option value="0" selected>Estandar --------- $0</option>
                                                 <option value="110">Express ---------- $110</option>
                                         </select>
                                     </div>
@@ -191,14 +171,13 @@
                                         <i class="fa fa-arrow-left" aria-hidden="true"></i>
                                         Anterior
                                     </a>
-                                    <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
-                                        Siguiente
-                                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                    </a>
+                                    <button id="next1" class="btn-block btn_next_tab mt-3 mb-1 next mt-4">
+                                        <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar
+                                   </button>
                             </div>
                         </fieldset>
 
-                        <fieldset>
+                        {{-- <fieldset>
                             <div class="form-card text-black">
                                 <div class="row">
                                     <div class="form-group mt-5 mb-5 col-6 col-md-6 col-lg-4">
@@ -292,7 +271,7 @@
                                 </button>
 
                             </div>
-                        </fieldset>
+                        </fieldset> --}}
 
                         <fieldset>
                             <div class="form-card">

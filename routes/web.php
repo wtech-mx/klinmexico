@@ -54,6 +54,11 @@ Auth::routes();
     Route::get('/ticket/email/user/{id}', [App\Http\Controllers\TicketController::class, 'email_user'])->name('email_user.email');
     Route::post('/ticket/email_send/admin/send', [App\Http\Controllers\TicketController::class, 'sed_mail'])->name('ticket.sed_mail');
 
+    // usuarios
+    Route::post('/ticket/store/usuario', [App\Http\Controllers\TicketController::class, 'store_venta'])->name('ticket.store_venta');
+    Route::post('/ticket/store/precio', [App\Http\Controllers\TicketController::class, 'store_precio'])->name('ticket.store_precio');
+    Route::post('/ticket/store/nano', [App\Http\Controllers\TicketController::class, 'store_nano'])->name('ticket.store_nano');
+
 
 });
 
