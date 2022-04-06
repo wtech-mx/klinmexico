@@ -26,7 +26,7 @@
           <div class="tab-pane fade show active" id="pills-home_{{ $item->id }}" role="tabpanel" aria-labelledby="pills-home-tab">
             <div class="limit_ticket">
                 <p class="text-dark">
-                    <strong> Recibo No.  </strong>: {{ $item->Ticket->id }} <br>
+                    <strong> Recibo No.  </strong>: 0{{$rest}}-{{$rest2}} <br>
                     <strong> Sucrusal: </strong> Condesa Nuevo Leon <br>
                     <strong> Fecha: </strong>
                     @php
@@ -40,12 +40,13 @@
                     <br><br>
                     <strong> Cliente: </strong> {{ $item->Ticket->Client->name }} <br>
                     <strong> Correo electronico: </strong> {{ $item->Ticket->Client->email}} <br><br>
-                    <strong> Prenda: </strong> ({{ $item->Ticket->DescripcionTicket->marca }},
+                    <strong> Prenda: </strong>
+                    ({{ $item->Ticket->DescripcionTicket->color1 }},
+                    {{ $item->Ticket->DescripcionTicket->color2 }},
+                    {{ $item->Ticket->DescripcionTicket->marca }},
                     {{ $item->Ticket->DescripcionTicket->modelo }},
                     {{ $item->Ticket->DescripcionTicket->talla }},
-                    {{ $item->Ticket->DescripcionTicket->categoria }},
-                    <span class="badge rounded-pill " style="background-color: {{ $item->Ticket->DescripcionTicket->color1 }}">-</span>
-                    <span class="badge rounded-pill " style="background-color: {{ $item->Ticket->DescripcionTicket->color2 }}">-</span>) <br>
+                    {{ $item->Ticket->DescripcionTicket->categoria }}, <br>
                     @if ($item->Ticket->tint != 0)
                     <strong> Observaciones Tint: </strong> {{ $item->Ticket->tint_descripcion }}, <br>
                     @endif
@@ -66,62 +67,6 @@
                         @endif
 
                 </p>
-                @php
-                    switch($item->Ticket->servicio_primario){
-                        case($item->Ticket->servicio_primario == 'Essential'):
-                            $precio_primario  = 110;
-                            break;
-                        case($item->Ticket->servicio_primario == 'Plus'):
-                            $precio_primario = 160;
-                            break;
-                        case($item->Ticket->servicio_primario == 'Elite'):
-                            $precio_primario = 190;
-                            break;
-                        case($item->Ticket->servicio_primario == 'Pure White'):
-                            $precio_primario = 170;
-                            break;
-                        case($item->Ticket->servicio_primario == 'Special Care'):
-                            $precio_primario = 160;
-                            break;
-                        case($item->Ticket->servicio_primario == 'Klin Cap'):
-                            $precio_primario = 60;
-                            break;
-                        case($item->Ticket->servicio_primario == 'Protector'):
-                            $precio_primario = 55;
-                            break;
-                        }
-
-                        if ($item->Ticket->tint == '1') {
-                            $nombre_tint  = 'Tint 1';
-                            $precio_tint  = 160;
-                        }elseif ($item->Ticket->tint == '2') {
-                            $nombre_tint  = 'Tint 2';
-                            $precio_tint  = 300;
-                        }elseif ($item->Ticket->tint == '3') {
-                            $nombre_tint  = 'Tint 3';
-                            $precio_tint  = 160;
-                        }else {
-                            $nombre_tint  = 'Tint Personalizado';
-                            $precio_tint  = $item->Ticket->tint;
-                        }
-
-                        switch($item->Ticket->klin){
-                        case($item->Ticket->klin == 'Klin Bag'):
-                            $precio_klin  = 160;
-                            break;
-                        case($item->Ticket->klin == 'Klin Purse'):
-                            $precio_klin = 110;
-                            break;
-                        case($item->Ticket->klin == 'Klin Bag Extra'):
-                            $precio_klin = 260;
-                            break;
-                        }
-
-                        $i = 1;
-                        $ii = 1;
-
-                        $anticipo = $item->Ticket->total - $item->por_pagar;
-                @endphp
                     <table class="table table-borderless" id="Admin">
                       <thead>
                         <tr>
@@ -132,156 +77,257 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th>{{$i++}} </th>
-                          <td>{{ $item->Ticket->servicio_primario }}</td>
+                        @foreach ($ticket as $item2)
+                        @if ($item2->id_venta == $item->id)
+                        @php
+                            switch($item2->servicio_primario){
+                                case($item2->servicio_primario == 'Essential'):
+                                    $precio_primario  = 110;
+                                    break;
+                                case($item2->servicio_primario == 'Plus'):
+                                    $precio_primario = 160;
+                                    break;
+                                case($item2->servicio_primario == 'Elite'):
+                                    $precio_primario = 190;
+                                    break;
+                                case($item2->servicio_primario == 'Pure White'):
+                                    $precio_primario = 170;
+                                    break;
+                                case($item2->servicio_primario == 'Special Care'):
+                                    $precio_primario = 160;
+                                    break;
+                                case($item2->servicio_primario == 'Klin Cap'):
+                                    $precio_primario = 60;
+                                    break;
+                                case($item2->servicio_primario == 'Protector'):
+                                    $precio_primario = 55;
+                                    break;
+                                }
 
-                          <td>${{$precio_primario}}.00</td>
-                          <td>${{$precio_primario}}.00</td>
-                        </tr>
-                        @if ($item->Ticket->unyellow == 1)
-                            <tr>
-                            <th>{{$i++}} </th>
-                            <td>
-                                    Unyellow
-                            </td>
-                            <td>$80.00</td>
-                            <td>$80.00</td>
-                            </tr>
-                        @endif
-                        @if ($item->Ticket->tint != 0)
-                            <tr>
-                            <th>{{$i++}} </th>
-                            <td>
-                                {{$nombre_tint}}
-                            </td>
-                            <td>${{$precio_tint}}.00</td>
-                            <td>${{$precio_tint}}.00</td>
-                            </tr>
-                        @endif
-                        @if ($item->Ticket->klin_dye == 1)
-                            <tr>
-                            <th>{{$i++}} </th>
-                            <td>
-                                klin dye
-                            </td>
-                            <td>$260.00</td>
-                            <td>$260.00</td>
-                            </tr>
-                        @endif
-                        @if ($item->Ticket->protector == 1)
-                            <tr>
-                            <th>{{$i++}} </th>
-                            <td>
-                                Protector
-                            </td>
-                            <td>$55.00</td>
-                            <td>$55.00</td>
-                            </tr>
-                        @endif
-                        @if ($item->Ticket->klin != NULL)
-                            <tr>
-                            <th>{{$i++}} </th>
-                            <td>
-                                {{$item->Ticket->klin}}
-                            </td>
-                            <td>${{$precio_klin}}.00</td>
-                            <td>${{$precio_klin}}.00</td>
-                            </tr>
-                        @endif
-                        @if($item->Ticket->Fixer->glue != NULL)
-                            <tr>
-                                <th>{{$i++}} </th>
-                                @if($item->Ticket->Fixer->glue == 1)
-                                    <td>Sole Glue (Vulcanized) Media</td>
-                                    @else
-                                    <td>Sole Glue (Vulcanized) Full</td>
-                                @endif
-                                <td>$130.00</td>
-                                <td>$130.00</td>
-                            </tr>
-                        @endif
-                        @if($item->Ticket->Fixer->sew)
-                            <tr>
-                                <th>{{$i++}} </th>
-                                @if($item->Ticket->Fixer->sew == 1)
-                                    <td>Sole Sew 5cm</td>
-                                    <td>$130.00</td>
-                                    <td>$130.00</td>
-                                    @else
-                                    <td>Sole Sew Full</td>
-                                    <td>$240.00</td>
-                                    <td>$240.00</td>
-                                @endif
-                            </tr>
-                        @endif
-                        @if($item->Ticket->Fixer->sole == 1)
-                            <tr>
-                                <th>{{$i++}} </th>
-                                <td>
-                                    Generic Sole AF1
-                                </td>
-                                <td>$520.00</td>
-                                <td>$520.00</td>
-                            </tr>
-                        @endif
-                        @if($item->Ticket->Fixer->patch)
-                            @switch($item->Ticket->Fixer->patch)
-                                @case($item->Ticket->Fixer->patch == '1')
+                                if ($item2->tint == '1') {
+                                    $nombre_tint  = 'Tint 1';
+                                    $precio_tint  = 160;
+                                }elseif ($item2->tint == '2') {
+                                    $nombre_tint  = 'Tint 2';
+                                    $precio_tint  = 300;
+                                }elseif ($item2->tint == '3') {
+                                    $nombre_tint  = 'Tint 3';
+                                    $precio_tint  = 160;
+                                }else {
+                                    $nombre_tint  = 'Tint Personalizado';
+                                    $precio_tint  = $item2->tint;
+                                }
+
+                                switch($item2->klin){
+                                case($item2->klin == 'Klin Bag'):
+                                    $precio_klin  = 160;
+                                    break;
+                                case($item2->klin == 'Klin Purse'):
+                                    $precio_klin = 110;
+                                    break;
+                                case($item2->klin == 'Klin Bag Extra'):
+                                    $precio_klin = 260;
+                                    break;
+                                }
+
+                                $i = 1;
+                                $ii = 1;
+
+                                $anticipo = $item2->total - $item2->por_pagar;
+                        @endphp
+
                                 <tr>
                                     <th>{{$i++}} </th>
-                                    <td>Snkrs Patch (Talonera) Par </td>
-                                    <td>$240.00</td>
-                                    <td>$240.00</td>
-                                </tr>
-                                    @break
-                                @case($item->Ticket->Fixer->patch == '2')
-                                <tr>
-                                    <th>{{$i++}} </th>
-                                    <td>Snkrs Patch (Talonera) 1PZ</td>
-                                    <td>$160.00</td>
-                                    <td>$160.00</td>
-                                </tr>
-                                    @break
-                                @case($item->Ticket->Fixer->patch == '3'):
-                                <tr>
-                                    <th>{{$i++}} </th>
-                                    <td>Heel Stopper Dama</td>
-                                    <td>$160.00</td>
-                                    <td>$160.00</td>
-                                </tr>
-                                    @break
-                                @case($item->Ticket->Fixer->patch == '4'):
-                                    <tr>
-                                        <th>{{$i++}} </th>
-                                        <td>Heel Stopper Caballero</td>
-                                        <td>$240.00</td>
-                                        <td>$240.00</td>
+                                    <td>{{ $item2->servicio_primario }}</td>
+
+                                    <td>${{$precio_primario}}.00</td>
+                                    <td>${{$precio_primario}}.00</td>
                                     </tr>
-                                        @break
-                            @endswitch
-                        @endif
-                        @if($item->Ticket->Fixer->invisible == 1)
-                            <tr>
-                                <th>{{$i++}} </th>
-                                <td>Invisible Snkers Patch</td>
-                                <td>$180.00</td>
-                                <td>$180.00</td>
-                            </tr>
-                        @endif
-                        @if($item->Ticket->Fixer->personalizado)
-                            <tr>
-                                <th>{{$i++}} </th>
-                                <td>Fixer Personalizado</td>
-                                <td>${{$item->Ticket->Fixer->personalizado}}.00</td>
-                                <td>${{$item->Ticket->Fixer->personalizado}}.00</td>
-                            </tr>
-                        @endif
+                                    @if ($item2->unyellow == 1)
+                                        <tr>
+                                        <th>{{$i++}} </th>
+                                        <td>
+                                                Unyellow
+                                        </td>
+                                        <td>$80.00</td>
+                                        <td>$80.00</td>
+                                        </tr>
+                                    @endif
+                                    @if ($item2->tint != 0)
+                                        <tr>
+                                        <th>{{$i++}} </th>
+                                        <td>
+                                            {{$nombre_tint}}
+                                        </td>
+                                        <td>${{$precio_tint}}.00</td>
+                                        <td>${{$precio_tint}}.00</td>
+                                        </tr>
+                                    @endif
+                                    @if ($item2->klin_dye == 1)
+                                        <tr>
+                                        <th>{{$i++}} </th>
+                                        <td>
+                                            klin dye
+                                        </td>
+                                        <td>$260.00</td>
+                                        <td>$260.00</td>
+                                        </tr>
+                                    @endif
+                                    @if ($item2->protector == 1)
+                                        <tr>
+                                        <th>{{$i++}} </th>
+                                        <td>
+                                            Protector
+                                        </td>
+                                        <td>$55.00</td>
+                                        <td>$55.00</td>
+                                        </tr>
+                                    @endif
+                                    @if ($item2->klin != NULL)
+                                        <tr>
+                                        <th>{{$i++}} </th>
+                                        <td>
+                                            {{$item2->klin}}
+                                        </td>
+                                        <td>${{$precio_klin}}.00</td>
+                                        <td>${{$precio_klin}}.00</td>
+                                        </tr>
+                                    @endif
+                                    @if (!empty($item2->Fixer))
 
+                                        @if($item2->Fixer->glue != NULL)
+                                            <tr>
+                                                <th>{{$i++}} </th>
+                                                @if($item2->Fixer->glue == 1)
+                                                    <td>Sole Glue (Vulcanized) Media</td>
+                                                    @else
+                                                    <td>Sole Glue (Vulcanized) Full</td>
+                                                @endif
+                                                <td>$130.00</td>
+                                                <td>$130.00</td>
+                                            </tr>
+                                        @endif
+                                        @if($item2->Fixer->sew)
+                                            <tr>
+                                                <th>{{$i++}} </th>
+                                                @if($item2->Fixer->sew == 1)
+                                                    <td>Sole Sew 5cm</td>
+                                                    <td>$130.00</td>
+                                                    <td>$130.00</td>
+                                                    @else
+                                                    <td>Sole Sew Full</td>
+                                                    <td>$240.00</td>
+                                                    <td>$240.00</td>
+                                                @endif
+                                            </tr>
+                                        @endif
+                                        @if($item2->Fixer->sole == 1)
+                                            <tr>
+                                                <th>{{$i++}} </th>
+                                                <td>
+                                                    Generic Sole AF1
+                                                </td>
+                                                <td>$520.00</td>
+                                                <td>$520.00</td>
+                                            </tr>
+                                        @endif
+                                        @if($item2->Fixer->patch)
+                                            @switch($item2->Fixer->patch)
+                                                @case($item2->Fixer->patch == '1')
+                                                <tr>
+                                                    <th>{{$i++}} </th>
+                                                    <td>Snkrs Patch (Talonera) Par </td>
+                                                    <td>$240.00</td>
+                                                    <td>$240.00</td>
+                                                </tr>
+                                                    @break
+                                                @case($item2->Fixer->patch == '2')
+                                                <tr>
+                                                    <th>{{$i++}} </th>
+                                                    <td>Snkrs Patch (Talonera) 1PZ</td>
+                                                    <td>$160.00</td>
+                                                    <td>$160.00</td>
+                                                </tr>
+                                                    @break
+                                                @case($item2->Fixer->patch == '3'):
+                                                <tr>
+                                                    <th>{{$i++}} </th>
+                                                    <td>Heel Stopper Dama</td>
+                                                    <td>$160.00</td>
+                                                    <td>$160.00</td>
+                                                </tr>
+                                                    @break
+                                                @case($item2->Fixer->patch == '4'):
+                                                    <tr>
+                                                        <th>{{$i++}} </th>
+                                                        <td>Heel Stopper Caballero</td>
+                                                        <td>$240.00</td>
+                                                        <td>$240.00</td>
+                                                    </tr>
+                                                        @break
+                                            @endswitch
+                                        @endif
+                                        @if($item2->Fixer->invisible == 1)
+                                            <tr>
+                                                <th>{{$i++}} </th>
+                                                <td>Invisible Snkers Patch</td>
+                                                <td>$180.00</td>
+                                                <td>$180.00</td>
+                                            </tr>
+                                        @endif
+                                        @if($item2->Fixer->personalizado)
+                                            <tr>
+                                                <th>{{$i++}} </th>
+                                                <td>Fixer Personalizado</td>
+                                                <td>${{$item2->Fixer->personalizado}}.00</td>
+                                                <td>${{$item2->Fixer->personalizado}}.00</td>
+                                            </tr>
+                                        @endif
+
+                                    @endif
+                            @endif
+                        @endforeach
                       </tbody>
                     </table>
                     <p class="text-dark text-center">
-                       <strong>Subtotal</strong> -------------------- ${{$item->Ticket->subtotal}}
+                       <strong>Subtotal</strong> -------------------- ${{$item->Precio->subtotal}}<br>
+                       @if ($item->Precio->promocion != 0)
+                       <strong>Descuento</strong>-------------------- ${{$item->Precio->descuento}} <br>
+                       @switch($item->Precio->promocion)
+                                @case($item->Precio->promocion == 0.10)
+                                        Cliente distinguido 1 <br>
+                                    @break
+                                @case($item->Precio->promocion == 0.20)
+                                        Cliente distinguido 2 <br>
+                                    @break
+                                @case($item->Precio->promocion == 0.100):
+                                        Cliente distinguido 3 <br>
+                                    @break
+                            @endswitch
+                        @endif
+
+                        <strong>Recolecccion</strong>---------------- ${{$item->Precio->recoleccion}} <br><br>
+
+                        <strong>Total</strong>---------------- ${{$item->Precio->total}}
+                    </p>
+                    <p class="text-dark text-left">
+                        <strong> Forma de pago:  </strong> {{ $item->Precio->pago }} <br>
+
+                        <strong> Factura:  </strong> {{ $item->Precio->factura }} <br><br>
+
+                        @switch($item->Precio->anticipo)
+                             @case($item->Precio->anticipo == '2')
+                                     <strong> No deja anticipo </strong> <br>
+                                     <strong> Por pagar: </strong> ${{ $item->Precio->por_pagar }} <br>
+                                 @break
+                             @case($item->Precio->anticipo != '2' || $item->Precio->anticipo != '0')
+                                     <strong> Anticipo: </strong> ${{$item->Precio->anticipo}} <br>
+                                     <strong> Por pagar: </strong> ${{$item->Precio->por_pagar }} <br>
+                                 @break
+                             @case($item->Precio->anticipo == '0'):
+                                     <strong> Liquida cuenta </strong> <br>
+                                 @break
+                         @endswitch
                     </p>
 
             </div>
@@ -304,7 +350,7 @@
           <div class="tab-pane fade" id="pills-profile_{{ $item->id }}" role="tabpanel" aria-labelledby="pills-profile-tab">
             <div class="limit_ticket">
                 <p class="text-dark">
-                    <strong> Recibo No.:  </strong> 01-0001 <br>
+                    <strong> Recibo No.:  </strong> 0{{$rest}}-{{$rest2}} <br>
                     <strong> Sucrusal: </strong> Condesa Nuevo Leon <br>
                     <strong> Fecha: </strong>
                         @php
@@ -316,14 +362,7 @@
                         @endphp
                     {{$newDate}}<br><br>
                     <strong> Cliente: </strong> {{$item->Ticket->Client->name}} <br>
-                    <strong> Correo electronico: </strong> {{ $item->Ticket->Client->email}} <br><br>
-                    <strong> Prenda: </strong> ({{ $item->Ticket->DescripcionTicket->marca }},
-                    {{ $item->Ticket->DescripcionTicket->modelo }},
-                    {{ $item->Ticket->DescripcionTicket->talla }},
-                    {{ $item->Ticket->DescripcionTicket->categoria }},
-                    <span class="badge rounded-pill " style="background-color: {{ $item->Ticket->DescripcionTicket->color1 }}">-</span>
-                    <span class="badge rounded-pill " style="background-color: {{ $item->Ticket->DescripcionTicket->color2 }}">-</span>) <br>
-                    <strong> Observaciones: </strong> {{$item->Ticket->DescripcionTicket->observacion}} <br>
+                    <strong> Prenda: </strong> {{ $item->Ticket->DescripcionTicket->marca }} <br>
                     <strong>
                         @if ($item->Ticket->DescripcionTicket->tipo_servicio == '0')
                             Servicio Estandar
@@ -349,192 +388,258 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                            <th>{{$ii++}} </th>
-                            <td>{{ $item->Ticket->servicio_primario }}</td>
+                        @foreach ($ticket as $item2)
+                        @if ($item2->id_venta == $item->id)
+                        @php
+                            switch($item2->servicio_primario){
+                                case($item2->servicio_primario == 'Essential'):
+                                    $precio_primario  = 110;
+                                    break;
+                                case($item2->servicio_primario == 'Plus'):
+                                    $precio_primario = 160;
+                                    break;
+                                case($item2->servicio_primario == 'Elite'):
+                                    $precio_primario = 190;
+                                    break;
+                                case($item2->servicio_primario == 'Pure White'):
+                                    $precio_primario = 170;
+                                    break;
+                                case($item2->servicio_primario == 'Special Care'):
+                                    $precio_primario = 160;
+                                    break;
+                                case($item2->servicio_primario == 'Klin Cap'):
+                                    $precio_primario = 60;
+                                    break;
+                                case($item2->servicio_primario == 'Protector'):
+                                    $precio_primario = 55;
+                                    break;
+                                }
 
-                            <td>${{$precio_primario}}.00</td>
-                            <td>${{$precio_primario}}.00</td>
-                          </tr>
-                          @if ($item->Ticket->unyellow == 1)
-                              <tr>
-                              <th>{{$ii++}} </th>
-                              <td>
-                                      Unyellow
-                              </td>
-                              <td>$80.00</td>
-                              <td>$80.00</td>
-                              </tr>
-                          @endif
-                          @if ($item->Ticket->tint != 0)
-                              <tr>
-                              <th>{{$ii++}} </th>
-                              <td>
-                                  {{$nombre_tint}}
-                              </td>
-                              <td>${{$precio_tint}}.00</td>
-                              <td>${{$precio_tint}}.00</td>
-                              </tr>
-                          @endif
-                          @if ($item->Ticket->klin_dye == 1)
-                              <tr>
-                              <th>{{$ii++}} </th>
-                              <td>
-                                  klin dye
-                              </td>
-                              <td>$260.00</td>
-                              <td>$260.00</td>
-                              </tr>
-                          @endif
-                          @if ($item->Ticket->protector == 1)
-                              <tr>
-                              <th>{{$ii++}} </th>
-                              <td>
-                                  Protector
-                              </td>
-                              <td>$55.00</td>
-                              <td>$55.00</td>
-                              </tr>
-                          @endif
-                          @if ($item->Ticket->klin != NULL)
-                              <tr>
-                              <th>{{$ii++}} </th>
-                              <td>
-                                  {{$item->Ticket->klin}}
-                              </td>
-                              <td>${{$precio_klin}}.00</td>
-                              <td>${{$precio_klin}}.00</td>
-                              </tr>
-                          @endif
-                          @if($item->Ticket->Fixer->glue != NULL)
-                              <tr>
-                                  <th>{{$ii++}} </th>
-                                  @if($item->Ticket->Fixer->glue == 1)
-                                      <td>Sole Glue (Vulcanized) Media</td>
-                                      @else
-                                      <td>Sole Glue (Vulcanized) Full</td>
-                                  @endif
-                                  <td>$130.00</td>
-                                  <td>$130.00</td>
-                              </tr>
-                          @endif
-                          @if($item->Ticket->Fixer->sew)
-                              <tr>
-                                  <th>{{$ii++}} </th>
-                                  @if($item->Ticket->Fixer->sew == 1)
-                                      <td>Sole Sew 5cm</td>
-                                      <td>$130.00</td>
-                                      <td>$130.00</td>
-                                      @else
-                                      <td>Sole Sew Full</td>
-                                      <td>$240.00</td>
-                                      <td>$240.00</td>
-                                  @endif
-                              </tr>
-                          @endif
-                          @if($item->Ticket->Fixer->sole == 1)
-                              <tr>
-                                  <th>{{$ii++}} </th>
-                                  <td>
-                                      Generic Sole AF1
-                                  </td>
-                                  <td>$520.00</td>
-                                  <td>$520.00</td>
-                              </tr>
-                          @endif
-                          @if($item->Ticket->Fixer->patch)
-                              @switch($item->Ticket->Fixer->patch)
-                                  @case($item->Ticket->Fixer->patch == '1')
-                                  <tr>
-                                      <th>{{$ii++}} </th>
-                                      <td>Snkrs Patch (Talonera) Par </td>
-                                      <td>$240.00</td>
-                                      <td>$240.00</td>
-                                  </tr>
-                                      @break
-                                  @case($item->Ticket->Fixer->patch == '2')
-                                  <tr>
-                                      <th>{{$ii++}} </th>
-                                      <td>Snkrs Patch (Talonera) 1PZ</td>
-                                      <td>$160.00</td>
-                                      <td>$160.00</td>
-                                  </tr>
-                                      @break
-                                  @case($item->Ticket->Fixer->patch == '3'):
-                                  <tr>
-                                      <th>{{$ii++}} </th>
-                                      <td>Heel Stopper Dama</td>
-                                      <td>$160.00</td>
-                                      <td>$160.00</td>
-                                  </tr>
-                                      @break
-                                  @case($item->Ticket->Fixer->patch == '4'):
-                                      <tr>
-                                          <th>{{$ii++}} </th>
-                                          <td>Heel Stopper Caballero</td>
-                                          <td>$240.00</td>
-                                          <td>$240.00</td>
-                                      </tr>
-                                          @break
-                              @endswitch
-                          @endif
-                          @if($item->Ticket->Fixer->invisible == 1)
-                              <tr>
-                                  <th>{{$ii++}} </th>
-                                  <td>Invisible Snkers Patch</td>
-                                  <td>$180.00</td>
-                                  <td>$180.00</td>
-                              </tr>
-                          @endif
-                          @if($item->Ticket->Fixer->personalizado)
-                              <tr>
-                                  <th>{{$ii++}} </th>
-                                  <td>Fixer Personalizado</td>
-                                  <td>${{$item->Ticket->Fixer->personalizado}}.00</td>
-                                  <td>${{$item->Ticket->Fixer->personalizado}}.00</td>
-                              </tr>
-                          @endif
+                                if ($item2->tint == '1') {
+                                    $nombre_tint  = 'Tint 1';
+                                    $precio_tint  = 160;
+                                }elseif ($item2->tint == '2') {
+                                    $nombre_tint  = 'Tint 2';
+                                    $precio_tint  = 300;
+                                }elseif ($item2->tint == '3') {
+                                    $nombre_tint  = 'Tint 3';
+                                    $precio_tint  = 160;
+                                }else {
+                                    $nombre_tint  = 'Tint Personalizado';
+                                    $precio_tint  = $item2->tint;
+                                }
+
+                                switch($item2->klin){
+                                case($item2->klin == 'Klin Bag'):
+                                    $precio_klin  = 160;
+                                    break;
+                                case($item2->klin == 'Klin Purse'):
+                                    $precio_klin = 110;
+                                    break;
+                                case($item2->klin == 'Klin Bag Extra'):
+                                    $precio_klin = 260;
+                                    break;
+                                }
+
+                                $i = 1;
+                                $ii = 1;
+
+                                $anticipo = $item2->total - $item2->por_pagar;
+                        @endphp
+
+                                <tr>
+                                    <th>{{$i++}} </th>
+                                    <td>{{ $item2->servicio_primario }}</td>
+
+                                    <td>${{$precio_primario}}.00</td>
+                                    <td>${{$precio_primario}}.00</td>
+                                    </tr>
+                                    @if ($item2->unyellow == 1)
+                                        <tr>
+                                        <th>{{$i++}} </th>
+                                        <td>
+                                                Unyellow
+                                        </td>
+                                        <td>$80.00</td>
+                                        <td>$80.00</td>
+                                        </tr>
+                                    @endif
+                                    @if ($item2->tint != 0)
+                                        <tr>
+                                        <th>{{$i++}} </th>
+                                        <td>
+                                            {{$nombre_tint}}
+                                        </td>
+                                        <td>${{$precio_tint}}.00</td>
+                                        <td>${{$precio_tint}}.00</td>
+                                        </tr>
+                                    @endif
+                                    @if ($item2->klin_dye == 1)
+                                        <tr>
+                                        <th>{{$i++}} </th>
+                                        <td>
+                                            klin dye
+                                        </td>
+                                        <td>$260.00</td>
+                                        <td>$260.00</td>
+                                        </tr>
+                                    @endif
+                                    @if ($item2->protector == 1)
+                                        <tr>
+                                        <th>{{$i++}} </th>
+                                        <td>
+                                            Protector
+                                        </td>
+                                        <td>$55.00</td>
+                                        <td>$55.00</td>
+                                        </tr>
+                                    @endif
+                                    @if ($item2->klin != NULL)
+                                        <tr>
+                                        <th>{{$i++}} </th>
+                                        <td>
+                                            {{$item2->klin}}
+                                        </td>
+                                        <td>${{$precio_klin}}.00</td>
+                                        <td>${{$precio_klin}}.00</td>
+                                        </tr>
+                                    @endif
+                                    @if (!empty($item2->Fixer))
+
+                                        @if($item2->Fixer->glue != NULL)
+                                            <tr>
+                                                <th>{{$i++}} </th>
+                                                @if($item2->Fixer->glue == 1)
+                                                    <td>Sole Glue (Vulcanized) Media</td>
+                                                    @else
+                                                    <td>Sole Glue (Vulcanized) Full</td>
+                                                @endif
+                                                <td>$130.00</td>
+                                                <td>$130.00</td>
+                                            </tr>
+                                        @endif
+                                        @if($item2->Fixer->sew)
+                                            <tr>
+                                                <th>{{$i++}} </th>
+                                                @if($item2->Fixer->sew == 1)
+                                                    <td>Sole Sew 5cm</td>
+                                                    <td>$130.00</td>
+                                                    <td>$130.00</td>
+                                                    @else
+                                                    <td>Sole Sew Full</td>
+                                                    <td>$240.00</td>
+                                                    <td>$240.00</td>
+                                                @endif
+                                            </tr>
+                                        @endif
+                                        @if($item2->Fixer->sole == 1)
+                                            <tr>
+                                                <th>{{$i++}} </th>
+                                                <td>
+                                                    Generic Sole AF1
+                                                </td>
+                                                <td>$520.00</td>
+                                                <td>$520.00</td>
+                                            </tr>
+                                        @endif
+                                        @if($item2->Fixer->patch)
+                                            @switch($item2->Fixer->patch)
+                                                @case($item2->Fixer->patch == '1')
+                                                <tr>
+                                                    <th>{{$i++}} </th>
+                                                    <td>Snkrs Patch (Talonera) Par </td>
+                                                    <td>$240.00</td>
+                                                    <td>$240.00</td>
+                                                </tr>
+                                                    @break
+                                                @case($item2->Fixer->patch == '2')
+                                                <tr>
+                                                    <th>{{$i++}} </th>
+                                                    <td>Snkrs Patch (Talonera) 1PZ</td>
+                                                    <td>$160.00</td>
+                                                    <td>$160.00</td>
+                                                </tr>
+                                                    @break
+                                                @case($item2->Fixer->patch == '3'):
+                                                <tr>
+                                                    <th>{{$i++}} </th>
+                                                    <td>Heel Stopper Dama</td>
+                                                    <td>$160.00</td>
+                                                    <td>$160.00</td>
+                                                </tr>
+                                                    @break
+                                                @case($item2->Fixer->patch == '4'):
+                                                    <tr>
+                                                        <th>{{$i++}} </th>
+                                                        <td>Heel Stopper Caballero</td>
+                                                        <td>$240.00</td>
+                                                        <td>$240.00</td>
+                                                    </tr>
+                                                        @break
+                                            @endswitch
+                                        @endif
+                                        @if($item2->Fixer->invisible == 1)
+                                            <tr>
+                                                <th>{{$i++}} </th>
+                                                <td>Invisible Snkers Patch</td>
+                                                <td>$180.00</td>
+                                                <td>$180.00</td>
+                                            </tr>
+                                        @endif
+                                        @if($item2->Fixer->personalizado)
+                                            <tr>
+                                                <th>{{$i++}} </th>
+                                                <td>Fixer Personalizado</td>
+                                                <td>${{$item2->Fixer->personalizado}}.00</td>
+                                                <td>${{$item2->Fixer->personalizado}}.00</td>
+                                            </tr>
+                                        @endif
+
+                                    @endif
+                            @endif
+                        @endforeach
                       </tbody>
                     </table>
                     <p class="text-dark text-center">
-                       <strong>Subtotal</strong> -------------------- ${{$item->Ticket->subtotal}} <br>
-                       @if ($item->promocion != 0)
-                            <strong>Descuento</strong>-------------------- ${{$item->descuento}} <br>
-                            @switch($item->promocion)
-                                @case($item->promocion == 0.10)
-                                        Cliente distinguido 1 <br>
-                                    @break
-                                @case($item->promocion == 0.20)
-                                        Cliente distinguido 2 <br>
-                                    @break
-                                @case($item->promocion == 0.100):
-                                        Cliente distinguido 3 <br>
-                                    @break
-                            @endswitch
-                       @endif
+                        <strong>Subtotal</strong> -------------------- ${{$item->Precio->subtotal}}<br>
+                        @if ($item->Precio->promocion != 0)
+                        <strong>Descuento</strong>-------------------- ${{$item->Precio->descuento}} <br>
+                        @switch($item->Precio->promocion)
+                                 @case($item->Precio->promocion == 0.10)
+                                         Cliente distinguido 1 <br>
+                                     @break
+                                 @case($item->Precio->promocion == 0.20)
+                                         Cliente distinguido 2 <br>
+                                     @break
+                                 @case($item->Precio->promocion == 0.100):
+                                         Cliente distinguido 3 <br>
+                                     @break
+                             @endswitch
+                         @endif
 
-                        <strong>Recolecccion</strong>---------------- ${{$item->recoleccion}} <br>
-                    </p>
-                    <p class="text-dark text-left">
-                       <strong> Forma de pago:  </strong> {{ $item->pago }} <br>
+                         <strong>Recolecccion</strong>---------------- ${{$item->Precio->recoleccion}} <br><br>
 
-                       <strong> Factura:  </strong> No <br><br>
+                         <strong>Total</strong>---------------- ${{$item->Precio->total}}
+                     </p>
+                     <p class="text-dark text-left">
+                         <strong> Forma de pago:  </strong> {{ $item->Precio->pago }} <br>
 
-                       @switch($item->por_pagar)
-                            @case($item->por_pagar == '2')
-                                    <strong> No deja anticipo </strong> <br>
-                                    <strong> Por pagar: </strong> ${{ $item->por_pagar }} <br>
-                                @break
-                            @case($item->por_pagar != '2' || $item->por_pagar != '0')
-                                    <strong> Anticipo: </strong> ${{$item->anticipo}} <br>
-                                    <strong> Por pagar: </strong> ${{$item->por_pagar }} <br>
-                                @break
-                            @case($item->por_pagar == '0'):
-                                    <strong> Liquida cuenta </strong> <br>
-                                @break
-                        @endswitch
+                         <strong> Factura:  </strong> {{ $item->Precio->factura }} <br><br>
 
-                    </p>
+                         @switch($item->Precio->anticipo)
+                              @case($item->Precio->anticipo == '2')
+                                      <strong> No deja anticipo </strong> <br>
+                                      <strong> Por pagar: </strong> ${{ $item->Precio->por_pagar }} <br>
+                                  @break
+                              @case($item->Precio->anticipo != '2' || $item->Precio->anticipo != '0')
+                                      <strong> Anticipo: </strong> ${{$item->Precio->anticipo}} <br>
+                                      <strong> Por pagar: </strong> ${{$item->Precio->por_pagar }} <br>
+                                  @break
+                              @case($item->Precio->anticipo == '0'):
+                                      <strong> Liquida cuenta </strong> <br>
+                                  @break
+                          @endswitch
+                     </p>
 
             </div>
 
