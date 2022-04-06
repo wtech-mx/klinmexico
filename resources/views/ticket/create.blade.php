@@ -196,6 +196,7 @@ Crear Ventas
 
                                         <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
                                                    <div class="row text-dark p-4">
+
                                                        <label class="label_steps" for="">Recolección</label> <br>
                                                         <div class="col-3">
                                                           <div class="form-check">
@@ -283,30 +284,29 @@ Crear Ventas
                                                             </div>
                                                         </div>
 
-                                                       <div class="col-12">
-                                                           <label class="label_steps" for="">Factura</label> <br>
-                                                            <div class="col-3">
-                                                              <div class="form-check">
-                                                                <input class="form-check-input" type="radio" name="factura" id="factura" value="no">
-                                                                <label class="form-check-label">
-                                                                    No
-                                                                </label>
-                                                              </div>
-                                                            </div>
+                                                       <label class="label_steps mt-5" for="">Factura</label> <br>
+                                                        <div class="col-3">
+                                                          <div class="form-check">
+                                                                    <input class="form-check-input" type="radio" name="factura" id="factura" value="no">
+                                                                    <label class="form-check-label">
+                                                                        No
+                                                                    </label>
+                                                          </div>
+                                                        </div>
 
-                                                            <div class="col-3">
-                                                              <div class="form-check  mb-3">
-                                                                <input class="form-check-input" type="radio" name="factura" id="factura" value="si">
-                                                                <label class="form-check-label">
-                                                                    Sí
-                                                                </label>
-                                                              </div>
-                                                            </div>
+                                                        <div class="col-3">
+                                                          <div class="form-check  mb-3">
+                                                                    <input class="form-check-input" type="radio" name="factura" id="factura" value="si">
+                                                                    <label class="form-check-label">
+                                                                        Sí
+                                                                    </label>
+                                                          </div>
+                                                        </div>
 
-                                                           <div class="col-6">
-                                                               <button class="btn btn-secondary">Ingresar Datos de Factura</button>
-                                                           </div>
+                                                       <div class="col-6">
+                                                            <button class="btn btn-secondary">+</button>
                                                        </div>
+
 
                                                     </div>
                                         </div>
@@ -334,7 +334,7 @@ Crear Ventas
 
                                                        <div class="col-6">
                                                            <button class="btn btn-primary">
-                                                                Registrar Dirección
+                                                                Registrar
                                                            </button>
                                                        </div>
 
