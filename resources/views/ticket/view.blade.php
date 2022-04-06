@@ -136,13 +136,17 @@
                                 $anticipo = $item2->total - $item2->por_pagar;
                         @endphp
 
-                                <tr>
+
+                                  @if($item2->servicio_primario != '0')
+                                  <tr>
                                     <th>{{$i++}} </th>
                                     <td>{{ $item2->servicio_primario }}</td>
 
                                     <td>${{$precio_primario}}.00</td>
                                     <td>${{$precio_primario}}.00</td>
-                                    </tr>
+                                  </tr>
+                                  @endif
+
                                     @if ($item2->unyellow == 1)
                                         <tr>
                                         <th>{{$i++}} </th>
