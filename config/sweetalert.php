@@ -14,46 +14,46 @@ return [
 
     'cdn' => env('SWEET_ALERT_CDN'),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Always load the sweetalert.all.js
-    |--------------------------------------------------------------------------
-    | There might be situations where you will always want the sweet alert
-    | js package to be there for you. (for eg. you might use it heavily to
-    | show notifications or you might want to use the native js) then this
-    | might be handy.
-    |
-    */
+/*
+     |----------------------------------------------------------------- -------------------------
+     | Cargue siempre el archivo sweetalert.all.js
+     |----------------------------------------------------------------- -------------------------
+     | Puede haber situaciones en las que siempre querrás la dulce alerta.
+     | js paquete para estar allí para usted. (por ejemplo, puede usarlo mucho para
+     | mostrar notificaciones o es posible que desee usar el js nativo), entonces esto
+     | podría ser útil.
+     |
+     */
 
     'alwaysLoadJS' => env('SWEET_ALERT_ALWAYS_LOAD_JS', false),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Never load the sweetalert.all.js
-    |--------------------------------------------------------------------------
-    | If you want to handle the sweet alert js package by yourself
-    | (for eg. you might want to use laravel mix) then this can be
-    | handy.
-    | If you set always load js to true & never load js to false,
-    | it's going to prioritize the never load js.
-    |
-    | alwaysLoadJs = true  & neverLoadJs = true  => js will not be loaded
-    | alwaysLoadJs = true  & neverLoadJs = false => js will be loaded
-    | alwaysLoadJs = false & neverLoadJs = false => js will be loaded when
-    | you set alert/toast by using the facade/helper functions.
-    */
+/*
+     |----------------------------------------------------------------- -------------------------
+     | Nunca cargue el archivo sweetalert.all.js
+     |----------------------------------------------------------------- -------------------------
+     | Si desea manejar el paquete Sweet Alert js usted mismo
+     | (por ejemplo, es posible que desee usar laravel mix), entonces esto puede ser
+     | práctico.
+     | Si establece siempre cargar js en verdadero y nunca cargar js en falso,
+     | va a priorizar nunca cargar js.
+     |
+     | alwaysLoadJs = true & neverLoadJs = true => js no se cargará
+     | alwaysLoadJs = true & neverLoadJs = false => se cargará js
+     | alwaysLoadJs = false & neverLoadJs = false => js se cargará cuando
+     | usted establece alerta/brindis mediante el uso de las funciones de fachada/ayuda.
+     */
 
     'neverLoadJS' => env('SWEET_ALERT_NEVER_LOAD_JS', false),
 
     /*
-    |--------------------------------------------------------------------------
-    | AutoClose Timer
-    |--------------------------------------------------------------------------
-    |
-    | This is for the all Modal windows.
-    | For specific modal just use the autoClose() helper method.
-    |
-    */
+     |----------------------------------------------------------------- -------------------------
+     | Temporizador de cierre automático
+     |----------------------------------------------------------------- -------------------------
+     |
+     | Esto es para todas las ventanas Modales.
+     | Para un modal específico, simplemente use el método auxiliar autoClose().
+     |
+     */
 
     'timer' => env('SWEET_ALERT_TIMER', 5000),
 
@@ -98,14 +98,14 @@ return [
     'padding' => env('SWEET_ALERT_PADDING', '1.25rem'),
 
     /*
-    |--------------------------------------------------------------------------
-    | Animation
-    |--------------------------------------------------------------------------
-    | Custom animation with [Animate.css](https://daneden.github.io/animate.css/)
-    | If set to false, modal CSS animation will be use default ones.
-    | For specific modal just use the animation() helper method.
-    |
-    */
+     |----------------------------------------------------------------- -------------------------
+     | Animación
+     |----------------------------------------------------------------- -------------------------
+     | Animación personalizada con [Animate.css](https://daneden.github.io/animate.css/)
+     | Si se establece en falso, la animación CSS modal utilizará las predeterminadas.
+     | Para un modal específico, simplemente use el método auxiliar animation().
+     |
+     */
 
     'animation' => [
         'enable' => env('SWEET_ALERT_ANIMATION_ENABLE', false),
@@ -114,62 +114,62 @@ return [
     'animatecss' => env('SWEET_ALERT_ANIMATECSS', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'),
 
     /*
-    |--------------------------------------------------------------------------
-    | ShowConfirmButton
-    |--------------------------------------------------------------------------
-    | If set to false, a "Confirm"-button will not be shown.
-    | It can be useful when you're using custom HTML description.
-    | This is for the all Modal windows.
-    | For specific modal just use the showConfirmButton() helper method.
-    |
-    */
+     |----------------------------------------------------------------- -------------------------
+     | MostrarBotónConfirmar
+     |----------------------------------------------------------------- -------------------------
+     | Si se establece en falso, no se mostrará el botón "Confirmar".
+     | Puede ser útil cuando utiliza una descripción HTML personalizada.
+     | Esto es para todas las ventanas Modales.
+     | Para un modal específico, simplemente use el método auxiliar showConfirmButton().
+     |
+     */
 
     'show_confirm_button' => env('SWEET_ALERT_CONFIRM_BUTTON', true),
 
     /*
-    |--------------------------------------------------------------------------
-    | ShowCloseButton
-    |--------------------------------------------------------------------------
-    | If set to true, a "Close"-button will be shown,
-    | which the user can click on to dismiss the modal.
-    | This is for the all Modal windows.
-    | For specific modal just use the showCloseButton() helper method.
-    |
-    */
+     |----------------------------------------------------------------- -------------------------
+     | MostrarBotónCerrar
+     |----------------------------------------------------------------- -------------------------
+     | Si se establece en verdadero, se mostrará un botón "Cerrar",
+     | en el que el usuario puede hacer clic para descartar el modal.
+     | Esto es para todas las ventanas Modales.
+     | Para un modal específico, simplemente use el método auxiliar showCloseButton().
+     |
+     */
 
-    'show_close_button' => env('SWEET_ALERT_CLOSE_BUTTON', false),
+    'show_close_button' => env('SWEET_ALERT_CLOSE_BUTTON', true),
 
     /*
-    |--------------------------------------------------------------------------
-    | Toast position
-    |--------------------------------------------------------------------------
-    | Modal window or toast position, can be 'top',
-    | 'top-start', 'top-end', 'center', 'center-start',
-    | 'center-end', 'bottom', 'bottom-start', or 'bottom-end'.
-    | For specific modal just use the position() helper method.
-    |
-    */
+     |----------------------------------------------------------------- -------------------------
+     | Posición de brindis
+     |----------------------------------------------------------------- -------------------------
+     | Ventana modal o posición tostada, puede ser 'superior',
+     | 'inicio superior', 'extremo superior', 'centro', 'inicio central',
+     | 'extremo central', 'extremo inferior', 'extremo inferior' o 'extremo inferior'.
+     | Para un modal específico, simplemente use el método auxiliar position().
+     |
+     */
 
     'toast_position' => env('SWEET_ALERT_TOAST_POSITION', 'top-end'),
 
     /*
-    |--------------------------------------------------------------------------
-    | Progress Bar
-    |--------------------------------------------------------------------------
-    | If set to true, a progress bar at the bottom of a popup will be shown.
-    | It can be useful with toasts.
-    |
-    */
+     |----------------------------------------------------------------- -------------------------
+     | Barra de progreso
+     |----------------------------------------------------------------- -------------------------
+     | Si se establece en verdadero, se mostrará una barra de progreso en la parte inferior de una ventana emergente.
+     | Puede ser útil con tostadas.
+     |
+     */
 
-    'timer_progress_bar' => env('SWEET_ALERT_TIMER_PROGRESS_BAR', false),
+    'timer_progress_bar' => env('SWEET_ALERT_TIMER_PROGRESS_BAR', true),
 
     /*
-    |--------------------------------------------------------------------------
-    | Middleware
-    |--------------------------------------------------------------------------
-    | Modal window or toast, config for the Middleware
-    |
-    */
+     |----------------------------------------------------------------- -------------------------
+     | software intermedio
+     |----------------------------------------------------------------- -------------------------
+     | Ventana modal o brindis, configuración para el Middleware
+     |
+     */
 
     'middleware' => [
 
@@ -179,18 +179,18 @@ return [
 
         'toast_close_button' => env('SWEET_ALERT_MIDDLEWARE_TOAST_CLOSE_BUTTON', true),
 
-        'timer' => env('SWEET_ALERT_MIDDLEWARE_ALERT_CLOSE_TIME', 6000),
+        'timer' => env('SWEET_ALERT_MIDDLEWARE_ALERT_CLOSE_TIME', 9000),
 
         'auto_display_error_messages' => env('SWEET_ALERT_AUTO_DISPLAY_ERROR_MESSAGES', false),
     ],
 
     /*
-    |--------------------------------------------------------------------------
-    | Custom Class
-    |--------------------------------------------------------------------------
-    | A custom CSS class for the modal:
-    |
-    */
+     |----------------------------------------------------------------- -------------------------
+     | Clase personalizada
+     |----------------------------------------------------------------- -------------------------
+     | Una clase CSS personalizada para el modal:
+     |
+     */
 
     'customClass' => [
 
