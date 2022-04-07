@@ -44,11 +44,14 @@ class TicketController extends Controller
     {
         $client = Client::get();
 
+        $venta = Venta::orderBy('created_at','DESC')
+        ->get();
+
         $racks = Racks::get();
 
         $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
 
-        return view('ticket.create', compact('client', 'racks', 'racks2'));
+        return view('ticket.create', compact('client', 'racks', 'racks2', 'venta'));
     }
 
     public function sed_mail(Request $request, \Exception $e)
@@ -114,7 +117,7 @@ class TicketController extends Controller
         $venta->id_user = $request->get('id_user');
         $venta->save();
 
-        return redirect()->back();
+        return redirect()->route('ticket_tab.store_venta');
 
     }
 
