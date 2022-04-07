@@ -319,7 +319,11 @@
                         <p class="text-dark text-left">
                             <strong> Forma de pago:  </strong> {{ $item->Precio->pago }} <br>
 
-                            <strong> Factura:  </strong> {{ $item->Precio->factura }} <br><br>
+                            <strong> Factura:  </strong> {{ $item->Precio->factura }} <br>
+                            @if ( $item->Precio->factura == 'si')
+                            {{ $item->Ticket->Client->rfc }}<br>
+                            {{ $item->Ticket->Client->calle }}, {{ $item->Ticket->Client->colonia }}, {{ $item->Ticket->Client->alcaldia }}, {{ $item->Ticket->Client->estado }}, {{ $item->Ticket->Client->cp }} <br><br>
+                            @endif
 
                             @switch($item->Precio->anticipo)
                                 @case($item->Precio->anticipo == '2')

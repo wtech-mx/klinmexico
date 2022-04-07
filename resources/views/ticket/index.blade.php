@@ -71,11 +71,9 @@
                                 </tbody>
                             </table>
             </div>
-            @if (!empty($item->Precio))
                 @foreach ($venta as $item)
                     @include('.ticket.view')
                  @endforeach
-            @endif
         </div>
     </div>
 @endsection

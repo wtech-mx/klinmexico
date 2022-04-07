@@ -41,21 +41,21 @@
                                                     </div>
 
                                                     <div class="form-check mb-3">
-                                                            <input  class="form-check-input form-control" type="checkbox" value="1" name="sole" id="sole">
+                                                            <input  class="form-check-input" type="checkbox" value="1" name="sole" id="sole">
                                                             <label class="form-check-label" >
                                                             Generic Sole AF1
                                                             </label>
                                                     </div>
 
                                                     <div class="form-check">
-                                                            <input  class="form-check-input form-control" type="checkbox" value="1" name="patch" id="patch">
+                                                            <input  class="form-check-input" type="radio" value="1" name="patch" id="patch">
                                                             <label class="form-check-label" >
                                                             Snkrs Patch (Talonera) Par
                                                             </label>
                                                     </div>
 
-                                                    <div class="form-check mb-3">
-                                                            <input class="form-check-input" type="radio" name="klin" id="klin" value="Klin Bag Extra">
+                                                    <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="patch" id="patch" value="2">
                                                             <label class="form-check-label" >
                                                             Snkrs Patch (Talonera) 1PZ
                                                             </label>
@@ -76,7 +76,7 @@
                                                     </div>
 
                                                     <div class="form-check">
-                                                            <input  class="form-check-input " type="checkbox" value="1" name="invisible" id="invisible">
+                                                            <input  class="form-check-input" type="checkbox" value="1" name="invisible" id="invisible">
                                                             <label class="form-check-label" >
                                                             Invisible Snkers Patch
                                                             </label>
@@ -125,12 +125,12 @@
 
                         <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
                             <label class="label_steps" for="">Color 1</label> <br>
-                            <input class="form-control" type="color" name="color1" id="color1">
+                            <input class="form-control" type="text" name="color1" id="color1">
                         </div>
 
                         <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
                             <label class="label_steps" for="">Color 2</label> <br>
-                            <input class="form-control" type="color" name="color2" id="color2">
+                            <input class="form-control" type="text" name="color2" id="color2">
                         </div>
 
                         <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
