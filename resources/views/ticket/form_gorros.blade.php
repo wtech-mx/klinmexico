@@ -273,7 +273,7 @@
                             </div>
                         </fieldset> --}}
 
-                        <fieldset>
+                        {{-- <fieldset>
                             <div class="form-card">
                                 <h5 class="sub-heading mb-4">Success!</h5>
                                 <p class="message">Thank You for choosing our website.<br>Quotation will be sent to your
@@ -282,7 +282,7 @@
                                     <img class="fit-image check-img" src="https://i.imgur.com/QH6Zd6Y.gif">
                                 </div>
                             </div>
-                        </fieldset>
+                        </fieldset> --}}
 
                     </div>
                 </div>
