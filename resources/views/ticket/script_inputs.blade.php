@@ -366,12 +366,12 @@ $(document).ready(function () {
     });
 
     function myTab(){
-       window.location.assign("/ticket/crear#pills-Pago");
+       window.location.assign("/klinmexico/ticket/crear#pills-Pago");
        location.reload();
     }
 
     function myTab2(){
-       window.location.assign("/ticket/crear#pills-Servicios");
+       window.location.assign("/klinmexico/ticket/crear#pills-Servicios");
        location.reload();
     }
 
