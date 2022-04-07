@@ -356,6 +356,25 @@ $(document).ready(function () {
   });
 
 });
+
+    $(document).ready(function(){
+       $(".Pago").click();
+    });
+
+    $(document).ready(function(){
+       $(".Servicios").click();
+    });
+
+    function myTab(){
+       window.location.assign("/ticket/crear#pills-Pago");
+       location.reload();
+    }
+
+    function myTab2(){
+       window.location.assign("/ticket/crear#pills-Servicios");
+       location.reload();
+    }
+
 </script>
 
 <script>

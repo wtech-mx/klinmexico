@@ -44,9 +44,6 @@ Auth::routes();
 
     Route::get('/ticket/crear#pills-Servicios', [App\Http\Controllers\TicketController::class, 'create'])->name('ticket_tab.store_venta');
 
-    Route::get('/ticket/crear#pills-Pago', [App\Http\Controllers\TicketController::class, 'create'])->name('ticket_pago.tab');
-    Route::get('/ticket/crear#pills-Exito', [App\Http\Controllers\TicketController::class, 'index'])->name('ticket_exito.tab');
-
     Route::post('/ticket/store', [App\Http\Controllers\TicketController::class, 'store'])->name('ticket.store');
     Route::get('/ticket/view', [App\Http\Controllers\TicketController::class, 'view'])->name('ticket.view');
     Route::get('/ticket/edit/{id}', [App\Http\Controllers\TicketController::class, 'edit'])->name('ticket.edit');

@@ -103,8 +103,10 @@ Crear Ventas
                               <div class="tab-pane fade" id="pills-Exito" role="tabpanel" aria-labelledby="pills-Exito-tab">
                                   <div class="content p-5">
                                      <p class="text-dark "> Servicio agregado con éxito</p>
-                                     <a class="btn btn-secondary" href="{{ route('ticket_pago.tab') }}"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Más Servicios</a>
-                                     <a class="btn btn-secondary" href=""><i class="fa fa-plus" aria-hidden="true"></i> Ir a Pago</a>
+
+                                     <button class="btn btn-secondary" class="Servicios" onclick='myTab2()'><i class="fa fa-plus" aria-hidden="true"></i> Agregar Más Servicios</button>
+
+                                     <button class="btn btn-secondary" class="Pago" onclick='myTab()'><i class="fa fa-plus" aria-hidden="true"></i> Ir a Pago</button>
                                   </div>
                               </div>
 
