@@ -232,7 +232,7 @@ class TicketController extends Controller
         $ticket->save();
 
         alert()->html('<i>HTML</i> <u>Servicio agregado</u>',"<a href='#pills-Pago'>Ir a pago</a> <a href='#pills-Servicios'>Agregar otro servicio</a>",'success');
-        return redirect()->back();
+        return redirect()->route('ticket_tab_exito.store');
     }
 
     public function store(Request $request)
@@ -410,8 +410,8 @@ class TicketController extends Controller
                 $racke->save();
             }
 
-            alert()->html('<i>HTML</i> <u>Servicio agregado</u>',"<a href='#pills-Pago'>Ir a pago</a> <a href='#pills-Servicios'>Agregar otro servicio</a>",'success');
-            return redirect()->back();
+            return redirect()->route('ticket_tab_exito.store');
+
 
 
         } catch (\Exception $e) {
