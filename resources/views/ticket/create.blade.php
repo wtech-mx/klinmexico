@@ -58,6 +58,12 @@ Crear Ventas
                                 </button>
                               </li>
 
+                              <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="pills-Exito-tab" data-bs-toggle="pill" href="#pills-Exito" type="button" role="tab" aria-controls="pills-Exito" aria-selected="false" style="border: 1px solid transparent;">
+                                    -
+                                </a>
+                              </li>
+
                             </ul>
                          </div>
 
@@ -92,6 +98,14 @@ Crear Ventas
 
                                         </div>
                                     </div>
+                              </div>
+
+                              <div class="tab-pane fade" id="pills-Exito" role="tabpanel" aria-labelledby="pills-Exito-tab">
+                                  <div class="content p-5">
+                                     <p class="text-dark "> Servicio agregado con éxito</p>
+                                     <a class="btn btn-secondary" href="{{ route('ticket_pago.tab') }}"><i class="fa fa-plus" aria-hidden="true"></i> Agregar Más Servicios</a>
+                                     <a class="btn btn-secondary" href=""><i class="fa fa-plus" aria-hidden="true"></i> Ir a Pago</a>
+                                  </div>
                               </div>
 
                               <div class="tab-pane fade" id="pills-Servicios" role="tabpanel" aria-labelledby="pills-Servicios-tab">

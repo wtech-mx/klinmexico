@@ -334,14 +334,21 @@ $(document).ready(function () {
     }, 400);
   }
 
-  $('a[data-toggle="tab"]').on("click", function() {
+ $('a[data-toggle="tab"]').on("click", function() {
     let newUrl;
     const hash = $(this).attr("href");
     if(hash == "#pills-Pago") {
+
       newUrl = url.split("#")[0];
+
     }else if (hash == "#pills-Servicios") {
+
+        newUrl = url.split("#")[0];
+    }else if (hash == "#pills-Exito") {
+
         newUrl = url.split("#")[0];
     }else {
+
       newUrl = url.split("#")[0] + hash;
     }
     newUrl += "/";

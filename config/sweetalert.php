@@ -55,7 +55,7 @@ return [
      |
      */
 
-    'timer' => env('SWEET_ALERT_TIMER', 5000),
+    'timer' => env('SWEET_ALERT_TIMER', 9000),
 
     /*
     |--------------------------------------------------------------------------
@@ -204,8 +204,8 @@ return [
         'content' => env('SWEET_ALERT_CONTENT_CLASS'),
         'input' => env('SWEET_ALERT_INPUT_CLASS'),
         'actions' => env('SWEET_ALERT_ACTIONS_CLASS'),
-        'confirmButton' => env('SWEET_ALERT_CONFIRM_BUTTON_CLASS'),
-        'cancelButton' => env('SWEET_ALERT_CANCEL_BUTTON_CLASS'),
+        'confirmButton' => env('SWEET_ALERT_CONFIRM_BUTTON_CLASS', true),
+        'cancelButton' => env('SWEET_ALERT_CANCEL_BUTTON_CLASS', true),
         'footer' => env('SWEET_ALERT_FOOTER_CLASS'),
     ],
 
