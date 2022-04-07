@@ -294,46 +294,48 @@
                         @endforeach
                       </tbody>
                     </table>
-                    <p class="text-dark text-center">
-                       <strong>Subtotal</strong> -------------------- ${{$item->Precio->subtotal}}<br>
-                       @if ($item->Precio->promocion != 0)
-                       <strong>Descuento</strong>-------------------- ${{$item->Precio->descuento}} <br>
-                       @switch($item->Precio->promocion)
-                                @case($item->Precio->promocion == 0.10)
-                                        Cliente distinguido 1 <br>
+                    @if (!empty($item->Precio))
+                        <p class="text-dark text-center">
+                        <strong>Subtotal</strong> -------------------- ${{$item->Precio->subtotal}}<br>
+                        @if ($item->Precio->promocion != 0)
+                        <strong>Descuento</strong>-------------------- ${{$item->Precio->descuento}} <br>
+                        @switch($item->Precio->promocion)
+                                    @case($item->Precio->promocion == 0.10)
+                                            Cliente distinguido 1 <br>
+                                        @break
+                                    @case($item->Precio->promocion == 0.20)
+                                            Cliente distinguido 2 <br>
+                                        @break
+                                    @case($item->Precio->promocion == 0.100):
+                                            Cliente distinguido 3 <br>
+                                        @break
+                                @endswitch
+                            @endif
+
+                            <strong>Recolecccion</strong>---------------- ${{$item->Precio->recoleccion}} <br><br>
+
+                            <strong>Total</strong>---------------- ${{$item->Precio->total}}
+                        </p>
+                        <p class="text-dark text-left">
+                            <strong> Forma de pago:  </strong> {{ $item->Precio->pago }} <br>
+
+                            <strong> Factura:  </strong> {{ $item->Precio->factura }} <br><br>
+
+                            @switch($item->Precio->anticipo)
+                                @case($item->Precio->anticipo == '2')
+                                        <strong> No deja anticipo </strong> <br>
+                                        <strong> Por pagar: </strong> ${{ $item->Precio->por_pagar }} <br>
                                     @break
-                                @case($item->Precio->promocion == 0.20)
-                                        Cliente distinguido 2 <br>
+                                @case($item->Precio->anticipo != '2' || $item->Precio->anticipo != '0')
+                                        <strong> Anticipo: </strong> ${{$item->Precio->anticipo}} <br>
+                                        <strong> Por pagar: </strong> ${{$item->Precio->por_pagar }} <br>
                                     @break
-                                @case($item->Precio->promocion == 0.100):
-                                        Cliente distinguido 3 <br>
+                                @case($item->Precio->anticipo == '0'):
+                                        <strong> Liquida cuenta </strong> <br>
                                     @break
                             @endswitch
-                        @endif
-
-                        <strong>Recolecccion</strong>---------------- ${{$item->Precio->recoleccion}} <br><br>
-
-                        <strong>Total</strong>---------------- ${{$item->Precio->total}}
-                    </p>
-                    <p class="text-dark text-left">
-                        <strong> Forma de pago:  </strong> {{ $item->Precio->pago }} <br>
-
-                        <strong> Factura:  </strong> {{ $item->Precio->factura }} <br><br>
-
-                        @switch($item->Precio->anticipo)
-                             @case($item->Precio->anticipo == '2')
-                                     <strong> No deja anticipo </strong> <br>
-                                     <strong> Por pagar: </strong> ${{ $item->Precio->por_pagar }} <br>
-                                 @break
-                             @case($item->Precio->anticipo != '2' || $item->Precio->anticipo != '0')
-                                     <strong> Anticipo: </strong> ${{$item->Precio->anticipo}} <br>
-                                     <strong> Por pagar: </strong> ${{$item->Precio->por_pagar }} <br>
-                                 @break
-                             @case($item->Precio->anticipo == '0'):
-                                     <strong> Liquida cuenta </strong> <br>
-                                 @break
-                         @endswitch
-                    </p>
+                        </p>
+                    @endif
 
             </div>
 
@@ -607,6 +609,7 @@
                         @endforeach
                       </tbody>
                     </table>
+                    @if (!empty($item->Precio))
                     <p class="text-dark text-center">
                         <strong>Subtotal</strong> -------------------- ${{$item->Precio->subtotal}}<br>
                         @if ($item->Precio->promocion != 0)
@@ -647,7 +650,7 @@
                                   @break
                           @endswitch
                      </p>
-
+                     @endif
             </div>
 
             <div class="d-flex justify-content-center mt-5">

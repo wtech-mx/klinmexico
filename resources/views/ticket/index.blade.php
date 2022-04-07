@@ -42,6 +42,7 @@
 
                                             <td>0{{$rest}}-{{$rest2}}</td>
 											<td>{{ $item->Client->name }}</td>
+                                            @if (!empty($item->Precio))
                                             <td>{{ $item->Precio->por_pagar }}</td>
                                             <td>{{ $item->Ticket->rack }}</td>
 
@@ -63,15 +64,18 @@
                                                     <i class="fa fa-fw fa-trash"></i>
                                                 </a>
                                             </td>
+                                            @endif
                                         </tr>
 
                                     @endforeach
                                 </tbody>
                             </table>
             </div>
+            @if (!empty($item->Precio))
                 @foreach ($venta as $item)
                     @include('.ticket.view')
                  @endforeach
+            @endif
         </div>
     </div>
 @endsection
