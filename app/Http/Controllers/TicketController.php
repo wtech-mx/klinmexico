@@ -43,15 +43,23 @@ class TicketController extends Controller
     public function create()
     {
         $client = Client::get();
-
-        $venta = Venta::orderBy('created_at','DESC')
-        ->get();
-
-        $racks = Racks::get();
-
         $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
 
-        return view('ticket.create', compact('client', 'racks', 'racks2', 'venta'));
+        $venta = Venta::orderBy('created_at','DESC')
+        ->first();
+
+        if(!empty($venta)){
+            $client_factura = Client::find($venta->id_user);
+
+            $direccion = Direccion::where('id_user', '=', $venta->id_user )
+            ->get();
+
+            return view('ticket.create', compact('client', 'racks2', 'venta', 'direccion', 'client_factura'));
+        }
+
+            return view('ticket.create', compact('client', 'racks2', 'venta'));
+
+
     }
 
     public function sed_mail(Request $request, \Exception $e)
@@ -164,7 +172,36 @@ class TicketController extends Controller
         $precio->subtotal = $subtotal;
         $precio->total = $total;
         $precio->factura = $request->get('factura');
+        if ($request->get('calle') == null) {
+            $precio->id_direccion = $request->get('direccion');
+        }
         $precio->save();
+
+        if ($request->get('cp') != null) {
+            $direccion = new Direccion;
+            $direccion->id_user = $venta->id_user;
+            $direccion->calle = $request->get('calle');
+            $direccion->colonia = $request->get('colonia');
+            $direccion->alcaldia = $request->get('alcaldia');
+            $direccion->estado = $request->get('estado');
+            $direccion->cp = $request->get('cp');
+            $direccion->save();
+
+            $direccion_ticket = PrecioTicket::find($precio->id);
+            $direccion_ticket->id_direccion = $direccion->id;
+            $direccion_ticket->update();
+        }
+
+        if ($request->get('cp_factura') != null) {
+            $direccion_fac = Client::find($venta->id_user);
+            $direccion_fac->calle = $request->get('calle_factura');
+            $direccion_fac->colonia = $request->get('colonia_factura');
+            $direccion_fac->alcaldia = $request->get('alcaldia_factura');
+            $direccion_fac->estado = $request->get('estado_factura');
+            $direccion_fac->cp = $request->get('cp_factura');
+            $direccion_fac->rfc = $request->get('rfc');
+            $direccion_fac->update();
+        }
 
         return redirect()->route('ticket.index')
                 ->with('success', 'Ticket creado exitosamente!');
@@ -358,17 +395,6 @@ class TicketController extends Controller
             $descripcion->observacion = $request->get('observacion');
             $descripcion->tipo_servicio = $request->get('tipo_servicio');
             $descripcion->save();
-
-            if ($request->get('calle') != null) {
-                $direccion = new Direccion;
-                $direccion->id_user = $ticket->id_user;
-                $direccion->calle = $request->get('calle');
-                $direccion->colonia = $request->get('colonia');
-                $direccion->alcaldia = $request->get('alcaldia');
-                $direccion->estado = $request->get('estado');
-                $direccion->cp = $request->get('cp');
-                $direccion->save();
-            }
 
             if ($request->get('num_rack') == true) {
                 $racke = Racks::find($request->get('num_rack'));

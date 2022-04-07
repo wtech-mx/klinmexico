@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Direccion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,7 +22,9 @@ class ClientController extends Controller
     {
         $clients = Client::paginate();
 
-        return view('client.index', compact('clients'))
+        $direccion = Direccion::get();
+
+        return view('client.index', compact('clients', 'direccion'))
             ->with('i', (request()->input('page', 1) - 1) * $clients->perPage());
     }
 
@@ -50,11 +53,11 @@ class ClientController extends Controller
             'apellido_ma' => 'required',
             'apellido_pa' => 'required',
             'telefono' => 'required',
-            'calle' => 'required',
-            'cp' => 'required',
-            'estado' => 'required',
-            'alcaldia' => 'required',
-            'colonia' => 'required',
+            'calle_cliente' => 'required',
+            'cp_cliente' => 'required',
+            'estado_cliente' => 'required',
+            'alcaldia_cliente' => 'required',
+            'colonia_cliente' => 'required',
             'fecha_nacimiento' => 'required',
         ]);
 
@@ -76,9 +79,19 @@ class ClientController extends Controller
             'estado' => $request->estado,
             'alcaldia' => $request->alcaldia,
             'colonia' => $request->colonia,
+            'rfc' => $request->rfc,
             'fecha_nacimiento' => $request->fecha_nacimiento,
             'genero' => $request->genero,
             ]);
+
+            $direccion = Direccion::create([
+                'id_user' =>  $client->id,
+                'calle' => $request->calle_cliente,
+                'cp' => $request->cp_cliente,
+                'estado' => $request->estado_cliente,
+                'alcaldia' => $request->alcaldia_cliente,
+                'colonia' => $request->colonia_cliente,
+                ]);
 
             return redirect()->route('clients.index')
                 ->with('success', 'Cliente creado exitosamente!');

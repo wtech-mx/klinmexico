@@ -37,8 +37,11 @@ class Client extends Model
      *
      * @var array
      */
-    protected $fillable = ['name','email','apellido_ma','apellido_pa','telefono','num_compras','calle','cp','estado','alcaldia','colonia','fecha_nacimiento','genero'];
+    protected $fillable = ['name','email','apellido_ma','apellido_pa','telefono','num_compras','calle','cp','estado','alcaldia','colonia','fecha_nacimiento','genero', 'rfc'];
 
-
+    public function Direccion()
+    {
+        return $this->hasOne(Direccion::class, 'id_user');
+    }
 
 }

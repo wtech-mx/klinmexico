@@ -44,11 +44,20 @@
                 </div>
 
                 <div class="form-group mt-4 col-6 col-md-12 col-lg-12">
-                    <label style="font-weight: bold; color: #0a10e9;">Dirección</label> <br>
-                    {{ $client->calle }}, {{ $client->colonia }}, {{ $client->alcaldia }}, {{ $client->estado }}, {{ $client->cp }}
+                    <label style="font-weight: bold; color: #0a10e9;">Dirección(es)</label> <br><br>
+                    @foreach ($direccion as $item)
+                        @if($item->id_user == $client->id)
+                            {{ $item->calle }}, {{ $item->colonia }}, {{ $item->alcaldia }}, {{ $item->estado }}, {{ $item->cp }}<br><br>
+                        @endif
+                    @endforeach
+
                 </div>
 
-
+                <div class="form-group mt-4 col-6 col-md-12 col-lg-12">
+                    <label style="font-weight: bold; color: #0a10e9;">Datos Factura</label> <br>
+                    <label style="font-weight: bold; color: #0a10e9;">RFC:</label> {{ $client->rfc }}<br>
+                    <label style="font-weight: bold; color: #0a10e9;">Dirección:</label> {{ $client->calle }}, {{ $client->colonia }}, {{ $client->alcaldia }}, {{ $client->estado }}, {{ $client->cp }}
+                </div>
 
               </div>
         </div>

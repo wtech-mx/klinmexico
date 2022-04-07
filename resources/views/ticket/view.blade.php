@@ -40,6 +40,7 @@
                     <br><br>
                     <strong> Cliente: </strong> {{ $item->Ticket->Client->name }} <br>
                     <strong> Correo electronico: </strong> {{ $item->Ticket->Client->email}} <br><br>
+            @if (!empty($item->Ticket->DescripcionTicket))
                     <strong> Prenda: </strong>
                     ({{ $item->Ticket->DescripcionTicket->color1 }},
                     {{ $item->Ticket->DescripcionTicket->color2 }},
@@ -65,7 +66,7 @@
                         @else
                         <strong> Entrega: </strong> {{ $entrega_estandar }} <br>
                         @endif
-
+            @endif
                 </p>
                     <table class="table table-borderless" id="Admin">
                       <thead>
@@ -366,6 +367,7 @@
                         @endphp
                     {{$newDate}}<br><br>
                     <strong> Cliente: </strong> {{$item->Ticket->Client->name}} <br>
+                @if (!empty($item->Ticket->DescripcionTicket))
                     <strong> Prenda: </strong> {{ $item->Ticket->DescripcionTicket->marca }} <br>
                     <strong>
                         @if ($item->Ticket->DescripcionTicket->tipo_servicio == '0')
@@ -381,6 +383,7 @@
                         @else
                         <strong> Entrega: </strong> {{ $entrega_estandar }} <br>
                         @endif
+                @endif
                 </p>
                     <table class="table table-borderless">
                       <thead>

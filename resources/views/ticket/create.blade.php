@@ -66,7 +66,6 @@ Crear Ventas
 
                                     <div class="form-group col-xs-12 col-md-12 col-lg-12 ">
                                         <div class="d-flex flex-row bd-highlight p-5">
-
                                             <form method="POST" action="{{ route('ticket.store_venta') }}"  role="form" enctype="multipart/form-data">
                                                 @csrf
 
@@ -310,9 +309,26 @@ Crear Ventas
                                                                     </div>
                                                                 </div>
 
-                                                            <div class="col-6">
-                                                                    <button class="btn btn-secondary">+</button>
-                                                            </div>
+                                                                <div class="col-6">
+                                                                    <label class="form-check-label">
+                                                                        Datos Factura
+                                                                    </label>
+                                                                    <div class="form-check">
+                                                                        @if (!empty($client_factura))
+                                                                                    <input class="form-check-input" type="radio" name="direccion" id="direccion" value="{{$client_factura->id}}">
+                                                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                                                        {{$client_factura->calle}}, {{$client_factura->colonia}}, {{$client_factura->alcaldia}}, {{$client_factura->estado}}, {{$client_factura->cp}}
+                                                                                    </label>
+                                                                            @else
+                                                                             <strong class="label_steps" for="">No tiene datos de factura registrado</strong>
+                                                                             <div class="col-6">
+                                                                                <button class="btn btn-secondary">+</button>
+                                                                             </div>
+                                                                        @endif
+                                                                     </div>
+                                                                </div>
+
+
 
 
                                                             </div>
@@ -321,6 +337,21 @@ Crear Ventas
                                                 <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
                                                         <div class="row text-dark p-4">
                                                             <label class="label_steps" for="">Dirección de Recolección</label> <br>
+
+                                                            <div class="col-6">
+                                                                <div class="form-check">
+                                                                    @if (!empty($direccion))
+                                                                        @foreach ($direccion as $item)
+                                                                                <input class="form-check-input" type="radio" name="direccion" id="direccion" value="{{$item->id}}">
+                                                                                <label class="form-check-label" for="flexRadioDefault1">
+                                                                                    {{$item->calle}}, {{$item->colonia}}, {{$item->alcaldia}}, {{$item->estado}}, {{$item->cp}}
+                                                                                </label>
+                                                                        @endforeach
+                                                                        @else
+                                                                         <strong class="label_steps" for="">No tiene direccion registrada</strong>
+                                                                    @endif
+                                                                 </div>
+                                                            </div>
 
                                                             <div class="col-6">
                                                                 <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_direccion" id="rec" disabled>
@@ -372,6 +403,7 @@ Crear Ventas
                                                     </button>
                                                 </div>
                                             </div>
+                                            @include('ticket.direccion_modal')
                                         </form>
 
                               </div>
@@ -389,7 +421,7 @@ Crear Ventas
 
             </div>
         </div>
-        @include('ticket.direccion_modal')
+
 @endsection
 
 @section('js')

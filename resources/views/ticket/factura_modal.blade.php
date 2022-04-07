@@ -8,11 +8,17 @@
         </div>
         <div class="modal-body">
           <div class="row">
+
+            <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
+                <label class="label_steps" for="">RFC</label> <br>
+                <input class="form-control"  type="text" name="rfc" id="rfc" placeholder="RFC">
+            </div>
+
             {{-- value="8095d78e-190d-46aa-b793-75830d857d5e" --}}
             <input type="hidden" class="form-control" placeholder="pruebas" value="pruebas" id="token">
             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
                 <label class="label_steps" for="">Codigo Postal</label> <br>
-                <input class="form-control"  type="text" name="cp" id="codigo_postal" placeholder="Cp">
+                <input class="form-control"  type="text" name="cp_factura" id="codigo_postal" placeholder="Cp">
             </div>
 
             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
@@ -24,24 +30,24 @@
 
             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
                 <label class="label_steps" for="">Colonia</label> <br>
-                <select class="form-control" name="colonia" id="list_colonias" >
+                <select class="form-control" name="colonia_factura" id="list_colonias" >
                     <option>Seleccione</option>
                   </select>
             </div>
 
             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
                 <label class="label_steps" for="">Alcaldia</label> <br>
-                <input class="form-control"  type="text" name="alcaldia" id="municipio" placeholder="alcaldia">
+                <input class="form-control"  type="text" name="alcaldia_factura" id="municipio" placeholder="alcaldia">
             </div>
 
             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
                 <label class="label_steps" for="">Estado</label> <br>
-                <input class="form-control"  type="text" name="estado" id="estado" placeholder="estado">
+                <input class="form-control"  type="text" name="estado_factura" id="estado" placeholder="estado">
             </div>
 
             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
                 <label class="label_steps" for="">Calle</label> <br>
-                <input class="form-control"  type="text" name="calle" id="calle" placeholder="calle">
+                <input class="form-control"  type="text" name="calle_factura" id="calle" placeholder="calle">
             </div>
 
 

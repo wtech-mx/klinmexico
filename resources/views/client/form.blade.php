@@ -47,6 +47,54 @@
 
             {{ Form::number('num_compras', $client->num_compras, ['class' => 'form-control' . ($errors->has('num_compras') ? ' is-invalid' : ''),'hidden']) }}
 
+            <div class="d-flex justify-content-between mt-5">
+                <h3> Dirección cliente </h3>
+            </div>
+
+            <div class="row">
+                {{-- value="8095d78e-190d-46aa-b793-75830d857d5e" --}}
+                <input type="hidden" class="form-control" placeholder="pruebas" value="pruebas" id="token">
+                <div class="form-group mt-5 col-6 col-md-2 col-lg-2">
+                    <label class="label_steps" for="">Codigo Postal</label> <br>
+                    <input class="form-control"  type="text" name="cp_cliente" id="codigo_postal" >
+                </div>
+
+                <div class="form-group mt-5 col-1 col-md-1 col-lg-1">
+                    {{ Form::label('Consultar') }}
+                    <a href="javascript:void(0)" onclick="informacion_cp()" class="btn btn-secondary form-control">
+                        <i class="fa fa-search-plus" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+                    <label class="label_steps" for="">Colonia</label> <br>
+                    <select class="form-control" name="colonia_cliente" id="list_colonias" >
+                        <option>Seleccione</option>
+                      </select>
+                </div>
+
+                <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+                    <label class="label_steps" for="">Alcaldia</label> <br>
+                    <input class="form-control"  type="text" name="alcaldia_cliente" id="municipio">
+                </div>
+
+                <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+                    <label class="label_steps" for="">Estado</label> <br>
+                    <input class="form-control"  type="text" name="estado_cliente" id="estado">
+                </div>
+
+                <div class="form-group mt-5 col-6 col-md-12 col-lg-12">
+                    <label class="label_steps" for="">Calle y numero</label> <br>
+                    <input class="form-control"  type="text" name="calle_cliente" id="calle">
+                </div>
+
+
+              </div>
+
+            <div class="d-flex justify-content-between mt-5">
+                <h3> Datos de Factura </h3>
+            </div>
+
             <div class="form-group mt-5 col-6 col-md-2 col-lg-2">
                 {{ Form::label('cp') }}
                 {{ Form::number('cp', $client->cp, ['class' => 'form-control' . ($errors->has('cp') ? ' is-invalid' : ''),'id' => 'codigo_postal',]) }}
@@ -98,10 +146,16 @@
 {{--                <input type="text" name="pais" id="pais" class="form-control" disabled readonly>--}}
 {{--            </div>--}}
 
-            <div class="form-group mt-5 col-6 col-md-12 col-lg-12">
-                {{ Form::label('calle') }}
+            <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
+                {{ Form::label('Calle y numero') }}
                 {{ Form::text('calle', $client->calle, ['class' => 'form-control' . ($errors->has('calle') ? ' is-invalid' : '')]) }}
                 {!! $errors->first('calle', '<div class="invalid-feedback">:message</div>') !!}
+            </div>
+
+            <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
+                {{ Form::label('RFC') }}
+                {{ Form::text('rfc', $client->rfc, ['class' => 'form-control' . ($errors->has('rfc') ? ' is-invalid' : '')]) }}
+                {!! $errors->first('rfc', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
             <div class="col-12 mb-5">
