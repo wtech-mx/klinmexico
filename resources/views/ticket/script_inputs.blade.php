@@ -339,24 +339,15 @@ $(document).ready(function () {
     const hash = $(this).attr("href");
     if(hash == "#pills-Pago") {
       newUrl = url.split("#")[0];
-    } else {
+    }else if (hash == "#pills-Servicios") {
+        newUrl = url.split("#")[0];
+    }else {
       newUrl = url.split("#")[0] + hash;
     }
     newUrl += "/";
     history.replaceState(null, null, newUrl);
   });
 
-  $('a[data-toggle="tab"]').on("click", function() {
-    let newUrl;
-    const hash = $(this).attr("href");
-    if(hash == "#pills-Servicios") {
-      newUrl = url.split("#")[0];
-    } else {
-      newUrl = url.split("#")[0] + hash;
-    }
-    newUrl += "/";
-    history.replaceState(null, null, newUrl);
-  });
 });
 </script>
 

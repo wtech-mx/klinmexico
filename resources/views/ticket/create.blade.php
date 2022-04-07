@@ -66,6 +66,7 @@ Crear Ventas
 
                                     <div class="form-group col-xs-12 col-md-12 col-lg-12 ">
                                         <div class="d-flex flex-row bd-highlight p-5">
+
                                             <form method="POST" action="{{ route('ticket.store_venta') }}"  role="form" enctype="multipart/form-data">
                                                 @csrf
 
