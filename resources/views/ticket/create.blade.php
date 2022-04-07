@@ -331,7 +331,7 @@ Crear Ventas
                                                                     </label>
                                                                     <div class="form-check">
                                                                         @if(!empty($venta))
-                                                                                    <input class="form-check-input" type="radio" name="direccion" id="direccion" value="{{$client_factura->id}}">
+                                                                                    <input class="form-check-input" type="radio" name="factura" id="factura" value="{{$client_factura->id}}">
                                                                                     <label class="form-check-label" for="flexRadioDefault1">
                                                                                         {{$client_factura->calle}} {{$client_factura->colonia}} {{$client_factura->alcaldia}} {{$client_factura->estado}} {{$client_factura->cp}}
                                                                                     </label>
@@ -356,7 +356,7 @@ Crear Ventas
                                                                 <div class="form-check">
                                                                     @if (!empty($direccion))
                                                                         @foreach ($direccion as $item)
-                                                                                <input class="form-check-input" type="radio" name="direccion" id="direccion" value="{{$item->id}}">
+                                                                                <input class="form-check-input" type="radio" name="id_direccion" id="id_direccion" value="{{$item->id}}">
                                                                                 <label class="form-check-label" for="flexRadioDefault1">
                                                                                     {{$item->calle}}, {{$item->colonia}}, {{$item->alcaldia}}, {{$item->estado}}, {{$item->cp}}
                                                                                 </label>
