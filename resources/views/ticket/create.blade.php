@@ -330,17 +330,13 @@ Crear Ventas
                                                                         Datos Factura
                                                                     </label>
                                                                     <div class="form-check">
-                                                                        @if ($client_factura->calle != NULL)
                                                                                     <input class="form-check-input" type="radio" name="direccion" id="direccion" value="{{$client_factura->id}}">
                                                                                     <label class="form-check-label" for="flexRadioDefault1">
                                                                                         {{$client_factura->calle}}, {{$client_factura->colonia}}, {{$client_factura->alcaldia}}, {{$client_factura->estado}}, {{$client_factura->cp}}
                                                                                     </label>
-                                                                            @else
-                                                                             <strong class="label_steps" for="">No tiene datos de factura registrado</strong>
                                                                              <a type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_factura" id="rec" style="margin-left: 2rem;">
                                                                                 +
                                                                             </a>
-                                                                        @endif
                                                                      </div>
                                                                 </div>
 
