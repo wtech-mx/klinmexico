@@ -91,9 +91,9 @@ Crear Ventas
 
                                             <div class="contentbtn">
                                                 <label class="label_steps text-dark">-</label> <br>
-                                                <div class="btn btn-secondary" style="margin-left: 2rem;">
+                                                <a type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_cliente" id="rec" style="margin-left: 2rem;">
                                                     + Registrar Cliente
-                                                </div>
+                                                </a>
                                             </div>
 
                                         </div>
@@ -330,16 +330,16 @@ Crear Ventas
                                                                         Datos Factura
                                                                     </label>
                                                                     <div class="form-check">
-                                                                        @if (!empty($client_factura))
+                                                                        @if ($client_factura->calle != NULL)
                                                                                     <input class="form-check-input" type="radio" name="direccion" id="direccion" value="{{$client_factura->id}}">
                                                                                     <label class="form-check-label" for="flexRadioDefault1">
                                                                                         {{$client_factura->calle}}, {{$client_factura->colonia}}, {{$client_factura->alcaldia}}, {{$client_factura->estado}}, {{$client_factura->cp}}
                                                                                     </label>
                                                                             @else
                                                                              <strong class="label_steps" for="">No tiene datos de factura registrado</strong>
-                                                                             <div class="col-6">
-                                                                                <button class="btn btn-secondary">+</button>
-                                                                             </div>
+                                                                             <a type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_factura" id="rec" style="margin-left: 2rem;">
+                                                                                +
+                                                                            </a>
                                                                         @endif
                                                                      </div>
                                                                 </div>
@@ -420,6 +420,7 @@ Crear Ventas
                                                 </div>
                                             </div>
                                             @include('ticket.direccion_modal')
+                                            @include('ticket.factura_modal')
                                         </form>
 
                               </div>
@@ -434,7 +435,7 @@ Crear Ventas
                     </div>
 
                   </div>
-
+                  @include('ticket.cliente_modal')
             </div>
         </div>
 

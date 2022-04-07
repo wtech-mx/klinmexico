@@ -38,6 +38,7 @@ Auth::routes();
 
     Route::resource('clients', App\Http\Controllers\ClientController::class);
 
+    Route::post('/clients/crear', [App\Http\Controllers\ClientController::class, 'store_venta'])->name('clients.store_venta');
 
     Route::get('/ticket/index', [App\Http\Controllers\TicketController::class, 'index'])->name('ticket.index');
     Route::get('/ticket/crear', [App\Http\Controllers\TicketController::class, 'create'])->name('ticket.create');

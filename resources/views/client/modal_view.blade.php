@@ -23,7 +23,7 @@
                     {{ $client->apellido_ma }}
                 </div>
 
-                <div class="form-group mt-4 col-6 col-md-4 col-lg-4">
+                <div class="form-group mt-4 col-16 col-md-12 col-lg-12">
                     <label style="font-weight: bold; color: #0a10e9;">Correo</label> <br>
                     {{ $client->email }}
                 </div>
@@ -38,7 +38,7 @@
                     {{ $client->fecha_nacimiento }}
                 </div>
 
-                <div class="form-group mt-4 col-6 col-md-12 col-lg-12">
+                <div class="form-group mt-4 col-6 col-md-4 col-lg-4">
                     <label style="font-weight: bold; color: #0a10e9;">Tipo de cliente</label> <br>
                     Distinguido 1
                 </div>

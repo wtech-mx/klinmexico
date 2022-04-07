@@ -9,15 +9,15 @@
             </div>
 
             <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
-                {{ Form::label('apellido materno') }}
-                {{ Form::text('apellido_ma', $client->apellido_ma, ['class' => 'form-control' . ($errors->has('apellido_ma') ? ' is-invalid' : '')]) }}
-                {!! $errors->first('apellido_ma', '<div class="invalid-feedback">:message</div>') !!}
-            </div>
-
-            <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
                 {{ Form::label('apellido paterno') }}
                 {{ Form::text('apellido_pa', $client->apellido_pa, ['class' => 'form-control' . ($errors->has('apellido_pa') ? ' is-invalid' : '')]) }}
                 {!! $errors->first('apellido_pa', '<div class="invalid-feedback">:message</div>') !!}
+            </div>
+
+            <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+                {{ Form::label('apellido materno') }}
+                {{ Form::text('apellido_ma', $client->apellido_ma, ['class' => 'form-control' . ($errors->has('apellido_ma') ? ' is-invalid' : '')]) }}
+                {!! $errors->first('apellido_ma', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
             <div class="form-group mt-5 col-12 col-md-3 col-lg-3">
@@ -54,9 +54,11 @@
             <div class="row">
                 {{-- value="8095d78e-190d-46aa-b793-75830d857d5e" --}}
                 <input type="hidden" class="form-control" placeholder="pruebas" value="8095d78e-190d-46aa-b793-75830d857d5e" id="token">
+
                 <div class="form-group mt-5 col-6 col-md-2 col-lg-2">
-                    <label class="label_steps" for="">Codigo Postal</label> <br>
-                    <input class="form-control"  type="text" name="cp_cliente" id="codigo_postal" >
+                    {{ Form::label('Codigo Postal') }}
+                    {{ Form::number('cp_cliente', $client->Direccion->cp, ['class' => 'form-control' . ($errors->has('cp_cliente') ? ' is-invalid' : ''),'id' => 'codigo_postal',]) }}
+                    {!! $errors->first('cp_cliente', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
 
                 <div class="form-group mt-5 col-1 col-md-1 col-lg-1">
@@ -66,28 +68,38 @@
                     </a>
                 </div>
 
-                <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
-                    <label class="label_steps" for="">Colonia</label> <br>
-                    <select class="form-control" name="colonia_cliente" id="list_colonias" >
-                        <option>Seleccione</option>
-                      </select>
-                </div>
+                @if($client->colonia == null)
+                    <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+                        {{ Form::label('colonia') }}
+                        <select class="form-control" name="colonia_cliente" id="list_colonias" >
+                            <option value="">Seleccione</option>
+                        </select>
+                    </div>
+                @else
+                    <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+                        {{ Form::label('colonia') }}
+                        {{ Form::text('colonia_cliente', $client->Direccion->colonia, ['class' => 'form-control' . ($errors->has('colonia_cliente') ? ' is-invalid' : ''),'id' => 'colonia',]) }}
+                        {!! $errors->first('colonia_cliente', '<div class="invalid-feedback">:message</div>') !!}
+                    </div>
+                @endif
 
                 <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
-                    <label class="label_steps" for="">Alcaldia</label> <br>
-                    <input class="form-control"  type="text" name="alcaldia_cliente" id="municipio">
+                    {{ Form::label('alcaldia/Municipio') }}
+                    {{ Form::text('alcaldia_cliente', $client->Direccion->alcaldia, ['class' => 'form-control' . ($errors->has('alcaldia_cliente') ? ' is-invalid' : ''),'id' => 'municipio',]) }}
+                    {!! $errors->first('alcaldia_cliente', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
 
                 <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
-                    <label class="label_steps" for="">Estado</label> <br>
-                    <input class="form-control"  type="text" name="estado_cliente" id="estado">
+                    {{ Form::label('Estado') }}
+                    {{ Form::text('estado_cliente', $client->Direccion->estado, ['class' => 'form-control' . ($errors->has('estado_cliente') ? ' is-invalid' : ''),'id' => 'estado',]) }}
+                    {!! $errors->first('estado_cliente', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
 
-                <div class="form-group mt-5 col-6 col-md-12 col-lg-12">
-                    <label class="label_steps" for="">Calle y numero</label> <br>
-                    <input class="form-control"  type="text" name="calle_cliente" id="calle">
+                <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
+                    {{ Form::label('Calle y numero') }}
+                    {{ Form::text('calle_cliente', $client->Direccion->calle, ['class' => 'form-control' . ($errors->has('calle_cliente') ? ' is-invalid' : '')]) }}
+                    {!! $errors->first('calle_cliente', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
-
 
               </div>
 
@@ -126,7 +138,7 @@
                 <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
                     {{ Form::label('colonia') }}
                       <select class="form-control" name="colonia" id="list_colonias" >
-                        <option>Seleccione</option>
+                        <option value="">Seleccione</option>
                       </select>
                 </div>
             @else

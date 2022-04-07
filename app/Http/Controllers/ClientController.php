@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use App\Models\Direccion;
+use App\Models\Venta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -53,12 +54,6 @@ class ClientController extends Controller
             'apellido_ma' => 'required',
             'apellido_pa' => 'required',
             'telefono' => 'required',
-            'calle_cliente' => 'required',
-            'cp_cliente' => 'required',
-            'estado_cliente' => 'required',
-            'alcaldia_cliente' => 'required',
-            'colonia_cliente' => 'required',
-            'fecha_nacimiento' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -102,6 +97,43 @@ class ClientController extends Controller
 
     }
 
+
+    public function store_venta(Request $request)
+    {
+       $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'apellido_ma' => 'required',
+            'apellido_pa' => 'required',
+            'telefono' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->with('errorForm', $validator->errors()->getMessages())
+                ->withInput();
+        }
+
+        try {
+            $client = Client::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'apellido_ma' => $request->apellido_ma,
+            'apellido_pa' =>$request->apellido_pa,
+            'telefono' => $request->telefono,
+            ]);
+
+            $venta = new Venta;
+            $venta->id_user = $client->id;
+            $venta->save();
+
+            return redirect()->route('ticket_tab.store_venta');
+        } catch (\Exception $e){
+            return redirect()->back()
+                ->with('error', 'Faltan Validar datos!');
+        }
+
+    }
     /**
      * Display the specified resource.
      *
@@ -142,7 +174,7 @@ class ClientController extends Controller
         $client->update($request->all());
 
         return redirect()->route('clients.index')
-            ->with('success', 'Client updated successfully');
+            ->with('success', 'Cliente actualizado con éxito');
     }
 
     /**
@@ -152,9 +184,10 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
+        $direccion = Direccion::where('id_user', '=', $id)->delete();
         $client = Client::find($id)->delete();
 
         return redirect()->route('clients.index')
-            ->with('success', 'Client deleted successfully');
+            ->with('success', 'Cliente eliminado con éxito');
     }
 }

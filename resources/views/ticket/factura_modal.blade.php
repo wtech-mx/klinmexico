@@ -1,18 +1,13 @@
 <!-- Modal -->
-<div class="modal fade" id="modal_direccion" tabindex="-1" aria-labelledby="modal_direccion" aria-hidden="true">
+<div class="modal fade" id="modal_factura" tabindex="-1" aria-labelledby="modal_factura" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modal_direccion">Direccion</h5>
+          <h5 class="modal-title" id="modal_factura">Factura</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="row">
-
-            <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
-                <label class="label_steps" for="">RFC</label> <br>
-                <input class="form-control"  type="text" name="rfc" id="rfc" placeholder="RFC">
-            </div>
 
             {{-- value="8095d78e-190d-46aa-b793-75830d857d5e" --}}
             <input type="hidden" class="form-control" placeholder="pruebas" value="8095d78e-190d-46aa-b793-75830d857d5e" id="token">
@@ -49,7 +44,11 @@
                 <label class="label_steps" for="">Calle</label> <br>
                 <input class="form-control"  type="text" name="calle_factura" id="calle" placeholder="calle">
             </div>
-
+            
+            <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
+                <label class="label_steps" for="">RFC</label> <br>
+                <input class="form-control"  type="text" name="rfc" id="rfc" placeholder="RFC">
+            </div>
 
           </div>
         </div>

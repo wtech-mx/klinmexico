@@ -81,7 +81,7 @@
       event.preventDefault();
       swal({
           title: '¿Estas seguro?',
-          text: '¡Borrarás al cliente permanentemente!',
+          text: '¡Borrarás todos sus datos del cliente permanentemente!',
           icon: 'warning',
           buttons: ["Cancelar", "¡Si!"],
           }).then(function(value) {
