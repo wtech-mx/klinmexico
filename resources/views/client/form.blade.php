@@ -53,7 +53,7 @@
 
             <div class="row">
                 {{-- value="8095d78e-190d-46aa-b793-75830d857d5e" --}}
-                <input type="hidden" class="form-control" placeholder="pruebas" value="pruebas" id="token">
+                <input type="hidden" class="form-control" placeholder="pruebas" value="8095d78e-190d-46aa-b793-75830d857d5e" id="token">
                 <div class="form-group mt-5 col-6 col-md-2 col-lg-2">
                     <label class="label_steps" for="">Codigo Postal</label> <br>
                     <input class="form-control"  type="text" name="cp_cliente" id="codigo_postal" >
