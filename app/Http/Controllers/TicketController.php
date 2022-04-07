@@ -45,6 +45,14 @@ class TicketController extends Controller
         $client = Client::get();
         $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
 
+        $racks_cap = Racks::where('num_rack', '>', 140)
+        ->where('num_rack', '<', 162)
+        ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+        $racks_bag = Racks::where('num_rack', '>', 161)
+        ->where('num_rack', '<=', 182)
+        ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
         $venta = Venta::orderBy('created_at','DESC')
         ->first();
 
@@ -54,10 +62,10 @@ class TicketController extends Controller
             $direccion = Direccion::where('id_user', '=', $venta->id_user )
             ->get();
 
-            return view('ticket.create', compact('client', 'racks2', 'venta', 'direccion', 'client_factura'));
+            return view('ticket.create', compact('client', 'racks2', 'venta', 'direccion', 'client_factura', 'racks_cap', 'racks_bag'));
         }
 
-            return view('ticket.create', compact('client', 'racks2', 'venta'));
+            return view('ticket.create', compact('client', 'racks2', 'venta', 'racks_cap', 'racks_bag'));
 
 
     }

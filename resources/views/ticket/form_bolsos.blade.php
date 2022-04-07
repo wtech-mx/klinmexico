@@ -157,7 +157,7 @@
 
                                     <label class="label_steps" for="" class="mb-2">Racks para Bolsos & backpacks</label>
 
-                                    @foreach ($racks2 as $item)
+                                    @foreach ($racks_bag as $item)
                                     @if ($item->estatus == 1)
 
                                     <div class="form-group col-2">
