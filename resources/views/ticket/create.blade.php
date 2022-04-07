@@ -333,7 +333,7 @@ Crear Ventas
                                                                         @if(!empty($venta))
                                                                                     <input class="form-check-input" type="radio" name="direccion" id="direccion" value="{{$client_factura->id}}">
                                                                                     <label class="form-check-label" for="flexRadioDefault1">
-                                                                                        {{$client_factura->calle}}, {{$client_factura->colonia}}, {{$client_factura->alcaldia}}, {{$client_factura->estado}}, {{$client_factura->cp}}
+                                                                                        {{$client_factura->calle}} {{$client_factura->colonia}} {{$client_factura->alcaldia}} {{$client_factura->estado}} {{$client_factura->cp}}
                                                                                     </label>
                                                                              <a type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_factura" id="rec" style="margin-left: 2rem;">
                                                                                 +
