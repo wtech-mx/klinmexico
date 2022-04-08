@@ -10,7 +10,7 @@
 
                                         <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
                                                     <label class="label_steps" for="">Agregar servicio</label>
-                                                    <input  type="hidden" value="0" name="servicio_primario" id="servicio_primario">
+                                                    <input  type="hidden" value="Fixer Snkrs" name="servicio_primario" id="servicio_primario">
 
                                                     <div class="form-check">
                                                             <input  class="form-check-input " type="radio" name="glue" id="glue" value="1">

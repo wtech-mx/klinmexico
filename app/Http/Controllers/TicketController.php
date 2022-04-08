@@ -171,7 +171,7 @@ class TicketController extends Controller
         $precio = new PrecioTicket;
         $precio->id_venta = $venta->id;
         $precio->descuento = $descuento;
-        $precio->anticipo = $request->get('por_pagar');
+        $precio->anticipo = $request->get('anticipo');
         $precio->promocion = $request->get('promocion');
         $precio->recoleccion = $request->get('recoleccion');
         $precio->pago = $request->get('pago');
@@ -424,10 +424,29 @@ class TicketController extends Controller
     public function  edit($id)
     {
             $client = Client::get();
-            $ticket = Venta::findOrFail($id);
+            $venta = Venta::findOrFail($id);
+            $ticket = Ticket::where('id_venta', '=', $id)->get();
+
             $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
 
-            return view('ticket.edit.edit', compact('ticket', 'client', 'racks2'));
+            $racks_cap = Racks::where('num_rack', '>', 140)
+            ->where('num_rack', '<', 162)
+            ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+            $racks_bag = Racks::where('num_rack', '>', 161)
+            ->where('num_rack', '<=', 182)
+            ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+            if(!empty($venta)){
+                $client_factura = Client::find($venta->id_user);
+
+                $direccion = Direccion::where('id_user', '=', $venta->id_user )
+                ->get();
+
+                return view('ticket.edit.edit', compact('ticket', 'client', 'racks2', 'racks_cap', 'racks_bag', 'venta', 'client_factura', 'direccion'));
+            }
+
+            return view('ticket.edit.edit', compact('ticket', 'client', 'racks2', 'racks_cap', 'racks_bag', 'venta'));
     }
 
     public function update(Request $request, $id)

@@ -16,252 +16,104 @@ Editar Venta
             display: inline;
         }
     </style>
-
+        <?php
+            $rest = substr($venta->id, 0, -4);
+            $rest2 = substr($venta->id, 1);
+        ?>
+@include('ticket.edit.edit_pago')
         <div class="row">
             <div class="d-flex justify-content-between mt-5">
-                <h1> Editar Venta </h1>
+                <h1> Editar Venta ID: 0{{$rest}}-{{$rest2}}</h1>
             </div>
 
             <div class="card-body">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-12">
-                        <div class="card card_steps b-0">
+                <div class="content container-fluid p-3">
+                    <div class="row">
 
-                            <ul id="progressbar" class="text-center">
-                                <li class="active_steps step0" id="step1"></li>
-                                <li class="step0" id="step2"></li>
-                                <li class="step0" id="step3"></li>
-                                <li class="step0" id="step4"></li>
-                            </ul>
-                            <form method="POST" action="{{route('ticket.update', $ticket->id)}}" enctype="multipart/form-data" role="form">
-                                @csrf
-                                <fieldset class="show">
-                                    @include('ticket.edit.servicios')
-                                </fieldset>
+                        <div class="col-12 mt-5">
+                            @if ($message = Session::get('success'))
+                                <div class="alert alert-success">
+                                    <p>{{ $message }}</p>
+                                </div>
+                            @endif
 
-                                <fieldset>
-                                    <div class="form-card text-black">
-                                        <div class="row">
-                                            <h5 class="text-center mb-4">Descripcion</h5>
+                            <a class="btn icon_actions eye"  data-bs-toggle="modal" data-bs-target="#examplePago_{{$venta->id}}">
+                                <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Pago
+                            </a>
 
-                                            <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
-                                                <label class="label_steps" for="">Marca</label> <br>
-                                                <input class="form-control @error('marca') is-invalid @enderror"  type="text" name="marca" id="marca" value="{{$ticket->Ticket->DescripcionTicket->marca}}">
-                                                @error('marca')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
+                            <table class="table table-striped table-responsive table-hover" id="tale_id" >
+                                <thead class="thead">
+                                    <tr>
+                                        <th>Servicio(s)</th>
+                                        <th>Rack</th>
+                                        <th>Estatus</th>
 
-                                            <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
-                                                <label class="label_steps" for="">Modelo</label> <br>
-                                                <input class="form-control @error('modelo') is-invalid @enderror" type="text" name="modelo" id="modelo" value="{{$ticket->Ticket->DescripcionTicket->modelo}}">
-                                                @error('modelo')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-                                            <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
-                                                <label class="label_steps" for="">Color 1</label> <br>
-                                                <input class="form-control @error('color1') is-invalid @enderror" type="color" name="color1" id="color1" value="{{$ticket->Ticket->DescripcionTicket->color1}}">
-                                                @error('color1')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
+                                    @foreach ($ticket as $item)
 
-                                            <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
-                                                <label class="label_steps" for="">Color 2</label> <br>
-                                                <input class="form-control @error('color2') is-invalid @enderror" type="color" name="color2" id="color2" value="{{$ticket->Ticket->DescripcionTicket->color2}}">
-                                                @error('color2')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
+                                        <tr>
+                                            <td>{{ $item->servicio_primario }}</td>
+                                            <td>{{ $item->rack }}</td>
 
-                                            <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
-                                                <label class="label_steps" for="">Talla</label> <br>
-                                                <input class="form-control @error('talla') is-invalid @enderror" type="text" name="talla" id="talla" placeholder="S- M - LG - XL" value="{{$ticket->Ticket->DescripcionTicket->talla}}">
-                                                @error('talla')
-                                                    <div class="alert alert-danger">{{ $message }}</div>
-                                                @enderror
-                                            </div>
+                                            <td>
+                                                <input data-id="{{ $item->id }}" class="toggle-class" type="checkbox"
+                                        data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
+                                        data-on="Active" data-off="InActive" {{ $item->estatus ? 'checked disabled' : '' }}>
+                                            </td>
 
-                                            <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
-                                                <label class="label_steps" for="">Categoria</label>
-                                                <select class="form-select select2 " name="categoria" id="categoria">
-                                                        <option value="{{$ticket->Ticket->DescripcionTicket->categoria}}" selected>{{$ticket->Ticket->DescripcionTicket->categoria}}</option>
-                                                        <option value="Hombre" {{ old('categoria') == "Hombre" ? 'selected' : '' }} >Hombre</option>
-                                                        <option value="Mujer" {{ old('categoria') == "Mujer" ? 'selected' : '' }} >Mujer</option>
-                                                        <option value="Niño" {{ old('categoria') == "Niño" ? 'selected' : '' }} >Niño</option>
-                                                </select>
-                                            </div>
 
-                                            <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
-                                                <label class="label_steps" for="">Observaciones</label> <br>
-                                                <textarea class="form-control" name="observacion" id="observacion" cols="30" rows="5">
-                                                    {{$ticket->Ticket->DescripcionTicket->observacion}}
-                                                </textarea>
-                                            </div>
-                                        </div>
+                                            <td>
+                                                @if ($item->servicio_primario == 'Essential' || $item->servicio_primario == 'Plus' || $item->servicio_primario == 'Elite' || $item->servicio_primario == 'Pure White' || $item->servicio_primario == 'Special Care')
+                                                    <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleSneakers_{{$item->id}}">
+                                                        <i class="fa fa-fw fa-eye"></i>
+                                                    </a>
+                                                @elseif ($item->servicio_primario == 'Klin Cap')
+                                                    <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleGorras_{{$item->id}}">
+                                                        <i class="fa fa-fw fa-eye"></i>
+                                                    </a>
+                                                @elseif ($item->servicio_primario == 'Bolsos')
+                                                    <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleBolsos_{{$item->id}}">
+                                                        <i class="fa fa-fw fa-eye"></i>
+                                                    </a>
+                                                @elseif ($item->servicio_primario == 'Fixer Snkrs')
+                                                    <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleReparacion_{{$item->id}}">
+                                                        <i class="fa fa-fw fa-eye"></i>
+                                                    </a>
+                                                @elseif ($item->servicio_primario == 'Protector')
+                                                    <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleNano_{{$item->id}}">
+                                                        <i class="fa fa-fw fa-eye"></i>
+                                                    </a>
+                                                @endif
 
-                                            <a class="btn-block btn_prev_tab mt-3 mb-1 prev">
-                                                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                                Anterior
-                                            </a>
-                                            <a id="next1"  class="btn-block btn_next_tab mt-3 mb-1 next mt-4" >
-                                                Siguiente
-                                                <i class="fa fa-arrow-right" aria-hidden="true"></i>
-                                            </a>
 
-                                    </div>
-                                </fieldset>
+                                                {{-- <a class="icon_actions edit" href="{{ route('ticket.edit', $item->id) }}">
+                                                    <i class="fa fa-fw fa-edit"></i>
+                                                </a>
+                                                <a type="submit" class="icon_actions trash">
+                                                    <i class="fa fa-fw fa-trash"></i>
+                                                </a> --}}
+                                            </td>
 
-                                <fieldset>
-                                    @include('ticket.edit.rack')
-                                </fieldset>
-
-                                <fieldset>
-                                    @php
-                                        switch($ticket->Precio->promocion){
-                                            case($ticket->Precio->promocion == 0.10):
-                                                $promocion = 'Cliente distinguido 1';
-                                                break;
-                                            case($ticket->Precio->promocion == 0.20):
-                                                $promocion = 'Cliente distinguido 2';
-                                                break;
-                                            case($ticket->Precio->promocion == 0.100):
-                                                $promocion = 'Cliente distinguido 3';
-                                                break;
-                                        }
-
-                                        switch($ticket->Precio->por_pagar){
-                                            case($ticket->Precio->por_pagar == '2'):
-                                                $por_pagar = 'No deja anticipo';
-                                                break;
-                                            case($ticket->Precio->por_pagar != '2' || $ticket->Precio->por_pagar != '0'):
-                                                $por_pagar = 'Anticipo';
-                                                break;
-                                            case($ticket->Precio->por_pagar == '0'):
-                                                $por_pagar = 'Liquida cuenta';
-                                                break;
-                                        }
-
-                                        if ($ticket->Precio->recoleccion == 0) {
-                                            $recoleccion = 'No';
-                                            $cantidad = "";
-                                        }else {
-                                            $recoleccion = 'Si';
-                                            $cantidad = $ticket->Precio->recoleccion;
-                                        }
-                                    @endphp
-                                    <div class="form-card text-black">
-                                        <div class="row">
-                                            <div class="form-group mt-5 mb-5 col-6 col-md-4 col-lg-4">
-                                                <label class="label_steps" for="">Aplicar Promocion</label>
-                                                <select class="form-select select2 " name="promocion" id="promocion">
-                                                        <option value="{{$ticket->Precio->promocion}}" selected>{{$promocion}}</option>
-                                                        <option value=".10" {{ old('promocion') == .10 ? 'selected' : '' }}>Cliente Distinguido 1 ---- 10% </option>
-                                                        <option value=".20" {{ old('promocion') == .20 ? 'selected' : '' }}>Cliente Distinguido 2 ---- 20% </option>
-                                                        <option value=".100" {{ old('promocion') == .100 ? 'selected' : '' }}>Cliente Distinguido 3 ---- 100% </option>
-                                                        <option value=".10" {{ old('promocion') == .10 ? 'selected' : '' }}>Descuento Total --------- 10% </option>
-                                                        <option value=".20" {{ old('promocion') == .20 ? 'selected' : '' }}>Descuento Total --------- 20%</option>
-                                                        <option value=".100" {{ old('promocion') == .100 ? 'selected' : '' }}>Cortesía ------------------ 100%</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group mt-5 mb-5 col-6 col-md-3 col-lg-3">
-                                                <label class="label_steps" for="">Recoleccion</label>
-                                                <select class="form-select select2 " name="recoleccion" id="recoleccio">
-                                                        <option value="{{$ticket->Precio->recoleccion}}" selected>{{$recoleccion}}</option>
-                                                        <option value="0" >No ---- 0%</option>
-                                                        <option value="1" >Si ----- $__</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
-                                                <label class="label_steps" for="">Recoleccion $</label> <br>
-                                                <input  class="form-control" type="number" value="{{$cantidad}}" name="recoleccion" id="input" disabled>
-                                            </div>
-
-                                            <div class="form-group mt-5 col-xs-6 col-md-2 col-lg-2">
-                                                <label class="label_steps" for="">Direccion</label> <br>
-                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="rec" disabled>
-                                                    +
-                                                </button>
-                                            </div>
-
-                                            <div class="form-group mt-5 mb-5 col-6 col-md-3 col-lg-3">
-                                                <label class="label_steps" for="">Forma de pago</label>
-                                                <select class="form-select select2 " name="pago" id="pago">
-                                                        <option value="{{$ticket->Precio->pago}}" selected>{{$ticket->Precio->pago}}</option>
-                                                        <option value="Efectivo" {{ old('pago') == "Efectivo" ? 'selected' : '' }}>Efectivo</option>
-                                                        <option value="Tarjeta de debito" {{ old('pago') == "Tarjeta de debito" ? 'selected' : '' }}>Tarjeta de Débito</option>
-                                                        <option value="Tarjeta de credito" {{ old('pago') == "Tarjeta de credito" ? 'selected' : '' }}>Tarjeta de Crédito</option>
-                                                        <option value="Transferencia bancaria" {{ old('pago') == "Transferencia bancaria" ? 'selected' : '' }}>Transferencia Bancaria</option>
-                                                        <option value="Mercado pago" {{ old('pago') == "Mercado pago" ? 'selected' : '' }}>Mercado Pago</option>
-                                                        <option value="Gifcard" {{ old('pago') == "Gifcard" ? 'selected' : '' }}>Gifcard --------------- $___</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
-                                                <label class="label_steps" for="">Gifcard</label> <br>
-                                                <input class="form-control"  type="text" value="{{$ticket->Precio->gifcard}}" name="gifcard" id="gif" disabled>
-                                            </div>
-
-                                            <div class="form-group mt-5 mb-5 col-6 col-md-3 col-lg-3">
-                                                <label class="label_steps" for="">Por pagar</label>
-                                                <select class="form-select select2 " name="por_pagar" id="por_pagar">
-                                                    <option value="{{$ticket->Precio->por_pagar}}" selected>{{$por_pagar}}</option>
-                                                    <option value="2">No deja anticipo</option>
-                                                    <option value="1">Anticipo</option>
-                                                    <option value="0">Liquida la cuenta</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
-                                                <label class="label_steps" for="">Anticipo</label> <br>
-                                                <input class="form-control" type="text" name="por_pagar" id="pagar" value="{{$ticket->Precio->anticipo}}" disabled>
-                                            </div>
-
-                                            <div class="form-group mt-5 col-xs-12 col-md-6 col-lg-6">
-                                                <label class="label_steps" for="">¿Requiere factura?</label>
-                                                <select class="form-select select2 " name="factura" id="factura">
-                                                    <option value="{{$ticket->Precio->factura}}">{{$ticket->Precio->factura}}</option>
-                                                    <option value="no" {{ old('factura') == "no" ? 'selected' : '' }}>No</option>
-                                                    <option value="si" {{ old('factura') == "si" ? 'selected' : '' }}>Si</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group mt-5 col-6 col-md-6 col-lg-4">
-                                                <label class="label_steps" for="">Direccion de factura</label> <br>
-                                                <select class="form-select select2 " name="factura" id="facturacion" disabled>
-                                                    <option value="no">Direccion 1</option>
-                                                    <option value="si">Direccion 2</option>
-                                                </select>
-                                            </div>
-
-                                            </div>
-
-                                            <a class="btn-block btn_prev_tab mt-3 mb-1 prev">
-                                                <i class="fa fa-arrow-left" aria-hidden="true"></i>
-                                                Anterior
-                                            </a>
-
-                                        <button id="next1" class="btn-block btn_next_tab mt-3 mb-1 next mt-4">
-                                                <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar
-                                        </button>
-
-                                    </div>
-                                </fieldset>
-                            </form>
+                                        </tr>
+@include('ticket.edit.edit_sneakers')
+@include('ticket.edit.edit_gorras')
+@include('ticket.edit.edit_bolsos')
+@include('ticket.edit.edit_reparacion')
+@include('ticket.edit.edit_nano')
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
 
-@endsection
-
-@section('js')
-    @include('ticket.script_inputs')
 @endsection
 
 

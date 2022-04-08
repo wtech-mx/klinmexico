@@ -25,7 +25,6 @@
 										<th>Cliente</th>
 										<th>Por pagar</th>
                                         <th>Rack</th>
-										<th>Estatus</th>
 
                                         <th>Acciones</th>
                                     </tr>
@@ -45,12 +44,6 @@
                                             @if (!empty($item->Precio))
                                             <td>{{ $item->Precio->por_pagar }}</td>
                                             <td>{{ $item->Ticket->rack }}</td>
-
-                                            <td>
-                                                <input data-id="{{ $item->Ticket->id }}" class="toggle-class" type="checkbox"
-                                        data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
-                                        data-on="Active" data-off="InActive" {{ $item->Ticket->estatus ? 'checked disabled' : '' }}>
-                                            </td>
 
 
                                              <td>

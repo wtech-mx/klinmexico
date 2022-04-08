@@ -103,6 +103,12 @@
                                 case($item2->servicio_primario == 'Protector'):
                                     $precio_primario = 55;
                                     break;
+                                case($item2->servicio_primario == 'Fixer Snkrs'):
+                                    $precio_primario = 0;
+                                    break;
+                                case($item2->servicio_primario == 'Bolsos'):
+                                    $precio_primario = 0;
+                                    break;
                                 }
 
                                 if ($item2->tint == '1') {
@@ -426,6 +432,15 @@
                                 case($item2->servicio_primario == 'Protector'):
                                     $precio_primario = 55;
                                     break;
+                                case($item2->servicio_primario == 'Klin Bag'):
+                                    $precio_primario = 160;
+                                    break;
+                                case($item2->servicio_primario == 'Klin Purse'):
+                                    $precio_primario = 110;
+                                    break;
+                                case($item2->servicio_primario == 'Klin Bag Extra'):
+                                    $precio_primario = 260;
+                                    break;
                                 }
 
                                 if ($item2->tint == '1') {
@@ -675,7 +690,6 @@
         </div>
 
       </div>
-
     </div>
   </div>
 </div>
