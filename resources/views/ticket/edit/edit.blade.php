@@ -67,28 +67,27 @@ Editar Venta
 
 
                                             <td>
-                                                @if ($item->servicio_primario == 'Essential' || $item->servicio_primario == 'Plus' || $item->servicio_primario == 'Elite' || $item->servicio_primario == 'Pure White' || $item->servicio_primario == 'Special Care')
-                                                    <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleSneakers_{{$item->id}}">
-                                                        <i class="fa fa-fw fa-eye"></i>
-                                                    </a>
-                                                @elseif ($item->servicio_primario == 'Klin Cap')
-                                                    <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleGorras_{{$item->id}}">
-                                                        <i class="fa fa-fw fa-eye"></i>
-                                                    </a>
-                                                @elseif ($item->servicio_primario == 'Bolsos')
-                                                    <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleBolsos_{{$item->id}}">
-                                                        <i class="fa fa-fw fa-eye"></i>
-                                                    </a>
-                                                @elseif ($item->servicio_primario == 'Fixer Snkrs')
-                                                    <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleReparacion_{{$item->id}}">
-                                                        <i class="fa fa-fw fa-eye"></i>
-                                                    </a>
-                                                @elseif ($item->servicio_primario == 'Protector')
-                                                    <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleNano_{{$item->id}}">
-                                                        <i class="fa fa-fw fa-eye"></i>
-                                                    </a>
-                                                @endif
-
+                                                    @if ($item->servicio_primario == 'Essential' || $item->servicio_primario == 'Plus' || $item->servicio_primario == 'Elite' || $item->servicio_primario == 'Pure White' || $item->servicio_primario == 'Special Care')
+                                                        <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleSneakers_{{$item->id}}">
+                                                            <i class="fa fa-fw fa-eye"></i>
+                                                        </a>
+                                                    @elseif ($item->servicio_primario == 'Klin Cap')
+                                                        <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleGorras_{{$item->id}}">
+                                                            <i class="fa fa-fw fa-eye"></i>
+                                                        </a>
+                                                    @elseif ($item->servicio_primario == 'Bolsos')
+                                                        <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleBolsos_{{$item->id}}">
+                                                            <i class="fa fa-fw fa-eye"></i>
+                                                        </a>
+                                                    @elseif ($item->servicio_primario == 'Fixer Snkrs')
+                                                        <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleReparacion_{{$item->id}}">
+                                                            <i class="fa fa-fw fa-eye"></i>
+                                                        </a>
+                                                    @elseif ($item->servicio_primario == 'Protector')
+                                                        <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleNano_{{$item->id}}">
+                                                            <i class="fa fa-fw fa-eye"></i>
+                                                        </a>
+                                                    @endif
 
                                                 {{-- <a class="icon_actions edit" href="{{ route('ticket.edit', $item->id) }}">
                                                     <i class="fa fa-fw fa-edit"></i>

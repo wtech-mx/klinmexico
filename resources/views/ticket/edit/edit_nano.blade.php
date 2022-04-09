@@ -3,8 +3,8 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-body">
-
-            <fieldset class="show">
+            <form method="POST" action="{{ route('ticket.update', $item->Venta->id) }}"  role="form" enctype="multipart/form-data">
+                @csrf
                 <div class="form-card text-black">
                     <div class="row">
 
@@ -25,13 +25,14 @@
 
                     </div>
 
-                    <button id="next1" class="btn-block btn_next_tab mt-3 mb-1 next mt-4">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn">
                         <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar
                     </button>
-
                 </div>
-            </fieldset>
-
+            </form>
         </div>
       </div>
     </div>
