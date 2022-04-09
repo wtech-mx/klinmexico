@@ -522,6 +522,8 @@ class TicketController extends Controller
                 $precio_cap = 160;
             } elseif ($request->get('servicio_primario') == 'Bolsos') {
                 $precio_cap = 0;
+            }   elseif ($request->get('servicio_primario') == 'Klin Cap') {
+                $precio_cap = 60;
             }
 
             if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->glue) {

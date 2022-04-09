@@ -83,7 +83,7 @@
                                                 </div>
 
                                             <div class="row">
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     <div class="form-check  mb-3">
                                                     @if ($item->tint == '1' || $item->tint == '2' || $item->tint == '3')
                                                     <input class="form-check-input" type="radio" name="tint" id="tint" value="4" >
@@ -99,7 +99,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-6">
+                                                <div class="col-12">
                                                     @if ($item->tint != '1' || $item->tint != '2' || $item->tint != '3')
                                                         <input  class="form-control" type="number" name="tint_personalizado" id="tint_personalizado" value="{{$item->tin}}">
                                                         @else
