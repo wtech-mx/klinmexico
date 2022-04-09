@@ -54,7 +54,7 @@
             <div class="row">
                 {{-- value="8095d78e-190d-46aa-b793-75830d857d5e" --}}
                 <input type="hidden" class="form-control" placeholder="pruebas" value="8095d78e-190d-46aa-b793-75830d857d5e" id="token">
-
+            @if (!empty($client->Direccion))
                 <div class="form-group mt-5 col-6 col-md-2 col-lg-2">
                     {{ Form::label('Codigo Postal') }}
                     {{ Form::number('cp_cliente', $client->Direccion->cp, ['class' => 'form-control' . ($errors->has('cp_cliente') ? ' is-invalid' : ''),'id' => 'codigo_postal',]) }}
@@ -100,7 +100,41 @@
                     {{ Form::text('calle_cliente', $client->Direccion->calle, ['class' => 'form-control' . ($errors->has('calle_cliente') ? ' is-invalid' : '')]) }}
                     {!! $errors->first('calle_cliente', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
+        @else
+                <div class="form-group mt-5 col-6 col-md-2 col-lg-2">
+                    <label class="label_steps" for="">Codigo Postal</label> <br>
+                    <input class="form-control"  type="text" name="cp" id="codigo_postal">
+                </div>
 
+                <div class="form-group mt-5 col-1 col-md-1 col-lg-1">
+                    {{ Form::label('Consultar') }}
+                    <a href="javascript:void(0)" onclick="informacion_cp()" class="btn btn-secondary form-control">
+                        <i class="fa fa-search-plus" aria-hidden="true"></i>
+                    </a>
+                </div>
+
+                <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+                    <label class="label_steps" for="">Colonia</label> <br>
+                    <select class="form-control" name="colonia" id="list_colonias" >
+                        <option>Seleccione</option>
+                    </select>
+                </div>
+
+                <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+                    <label class="label_steps" for="">Alcaldia</label> <br>
+                    <input class="form-control"  type="text" name="alcaldia" id="municipio">
+                </div>
+
+                <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+                    <label class="label_steps" for="">Estado</label> <br>
+                    <input class="form-control"  type="text" name="estado" id="estado">
+                </div>
+
+                <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
+                    <label class="label_steps" for="">Calle y numero</label> <br>
+                    <input class="form-control"  type="text" name="calle" id="calle">
+                </div>
+            @endif
               </div>
 
             <div class="d-flex justify-content-between mt-5">
