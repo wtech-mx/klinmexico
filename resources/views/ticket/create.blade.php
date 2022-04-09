@@ -376,7 +376,7 @@ Crear Ventas
                                                             <div class="col-12">
                                                                 <label class="label_steps" for="">Por Pagar</label> <br>
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="por_pagar" id="por_pagar" value="2">
+                                                                        <input class="form-check-input" type="radio" name="anticipo" id="anticipo" value="2">
                                                                         <label class="form-check-label">
                                                                         Sin Anticipo
                                                                         </label>
@@ -385,7 +385,7 @@ Crear Ventas
 
                                                             <div class="col-12">
                                                                     <div class="form-check">
-                                                                        <input class="form-check-input" type="radio" name="por_pagar" id="por_pagar" value="0">
+                                                                        <input class="form-check-input" type="radio" name="anticipo" id="anticipo" value="0">
                                                                         <label class="form-check-label">
                                                                         Liquida Cuenta
                                                                         </label>
@@ -395,7 +395,7 @@ Crear Ventas
                                                                 <div class="row">
                                                                     <div class="col-6">
                                                                     <div class="form-check  mb-3">
-                                                                        <input class="form-check-input" type="radio" name="por_pagar" id="por_pagar" >
+                                                                        <input class="form-check-input" type="radio" name="anticipo" id="anticipo" >
                                                                         <label class="form-check-label" for="tint4">
                                                                         Anticipo
                                                                         </label>

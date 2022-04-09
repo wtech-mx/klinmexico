@@ -152,9 +152,9 @@ class TicketController extends Controller
         $subtotal = $venta->suma - $descuento;
         $total = $subtotal + $request->get('recoleccion');
 
-        if ($request->get('por_pagar') == 2) {
+        if ($request->get('anticipo') == 2) {
             $por_pagar2 = $total;
-        } elseif($request->get('por_pagar') == 0) {
+        } elseif($request->get('anticipo') == 0) {
             $por_pagar2 = '0';
         }else{
             $por_pagar2 = $total - $request->get('por_pagar');
