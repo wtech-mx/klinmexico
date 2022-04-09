@@ -51,6 +51,8 @@ Auth::routes();
     Route::get('/ticket/edit/{id}', [App\Http\Controllers\TicketController::class, 'edit'])->name('ticket.edit');
     Route::post('/ticket/update/{id}', [App\Http\Controllers\TicketController::class, 'update'])->name('ticket.update');
 
+    Route::post('/precio/update/{id}', [App\Http\Controllers\TicketController::class, 'update_precio'])->name('ticket.update_precio');
+
     //Status
     Route::get('changeStatus', [App\Http\Controllers\TicketController::class, 'ChangeUserStatus'])->name('ticket.ChangeUserStatus');
 

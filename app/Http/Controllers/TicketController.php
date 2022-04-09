@@ -743,6 +743,82 @@ class TicketController extends Controller
         }
     }
 
+    public function update_precio(Request $request, $id)
+    {
+        if ($request->get('promocion')) {
+            $promocion = $request->get('promocion');
+        } else {
+            $promocion = 0;
+        }
+
+        $venta = Venta::findOrFail($id);
+
+        $descuento = $venta->suma * $promocion;
+        $subtotal = $venta->suma - $descuento;
+        $total = $subtotal + $request->get('recoleccion');
+
+        if ($request->get('anticipo') == 2) {
+            $por_pagar2 = $total;
+        } elseif($request->get('anticipo') == 0) {
+            $por_pagar2 = '0';
+        }else{
+            $por_pagar2 = $total - $request->get('por_pagar');
+        }
+
+        if ($request->get('gifcard')) {
+            $por_pagar = $por_pagar2 - $request->get('gifcard');
+        } else {
+            $por_pagar = $por_pagar2;
+        }
+
+        $precio = PrecioTicket::where('id_venta', '=', $id)->first();
+        $precio->id_venta = $venta->id;
+        $precio->descuento = $descuento;
+        $precio->anticipo = $request->get('anticipo');
+        $precio->promocion = $request->get('promocion');
+        $precio->recoleccion = $request->get('recoleccion');
+        $precio->pago = $request->get('pago');
+        $precio->gifcard = $request->get('gifcard');
+        $precio->por_pagar = $por_pagar;
+        $precio->subtotal = $subtotal;
+        $precio->total = $total;
+        $precio->factura = $request->get('factura');
+        if ($request->get('calle') == null) {
+            $precio->id_direccion = $request->get('direccion');
+        }
+        $precio->update();
+
+        if ($request->get('cp') != null) {
+            $direccion = new Direccion;
+            $direccion->id_user = $venta->id_user;
+            $direccion->calle = $request->get('calle');
+            $direccion->colonia = $request->get('colonia');
+            $direccion->alcaldia = $request->get('alcaldia');
+            $direccion->estado = $request->get('estado');
+            $direccion->cp = $request->get('cp');
+            $direccion->save();
+
+            $direccion_ticket = PrecioTicket::find($precio->id);
+            $direccion_ticket->id_direccion = $direccion->id;
+            $direccion_ticket->update();
+        }
+
+        if ($request->get('cp_factura') != null) {
+            $direccion_fac = Client::find($venta->id_user);
+            $direccion_fac->calle = $request->get('calle_factura');
+            $direccion_fac->colonia = $request->get('colonia_factura');
+            $direccion_fac->alcaldia = $request->get('alcaldia_factura');
+            $direccion_fac->estado = $request->get('estado_factura');
+            $direccion_fac->cp = $request->get('cp_factura');
+            $direccion_fac->rfc = $request->get('rfc');
+            $direccion_fac->update();
+        }
+
+        return redirect()->route('ticket.index')
+                ->with('success', 'Venta editada exitosamente!');
+
+    }
+
     public function changeUserStatus(Request $request)
     {
         $ticket = Ticket::find($request->id);

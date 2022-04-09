@@ -6,7 +6,7 @@
             <h5 class="modal-title">Editar 0{{$rest}}-{{$rest2}}</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="POST" action="{{ route('ticket.update', $venta->id) }}"  role="form" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('ticket.update_precio', $venta->id) }}"  role="form" enctype="multipart/form-data">
             @csrf
             <div class="modal-body">
 
@@ -329,14 +329,14 @@
                                             <div class="col-6">
                                         @if ($venta->Precio->anticipo != '0')
                                             <div class="form-check  mb-3">
-                                                <input class="form-check-input" type="radio" name="anticipo" id="anticipo" >
+                                                <input class="form-check-input" type="radio" name="anticipo" id="anticipo" value="1" >
                                                 <label class="form-check-label" for="tint4">
                                                 Anticipo
                                                 </label>
                                             </div>
                                             @else
                                             <div class="form-check  mb-3">
-                                                <input class="form-check-input" type="radio" name="anticipo" id="anticipo" checked>
+                                                <input class="form-check-input" type="radio" name="anticipo" id="anticipo" value="1" checked>
                                                 <label class="form-check-label" for="tint4">
                                                 Anticipo
                                                 </label>
@@ -346,11 +346,11 @@
 
                                             @if ($venta->Precio->anticipo == '2' || $venta->Precio->anticipo == '0')
                                             <div class="col-6">
-                                                <input class="form-control" type="text" name="anticipo" id="anticipo">
+                                                <input class="form-control" type="text" name="por_pagar" id="por_pagar">
                                             </div>
                                             @else
                                             <div class="col-6">
-                                                <input class="form-control" type="text" name="anticipo" id="anticipo" value="{{$venta->Precio->anticipo}}" >
+                                                <input class="form-control" type="text" name="por_pagar" id="por_pagar" value="{{$venta->Precio->anticipo}}" >
                                             </div>
                                             @endif
                                         </div>
