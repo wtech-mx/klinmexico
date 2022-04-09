@@ -154,7 +154,9 @@ class TicketController extends Controller
 
         if ($request->get('por_pagar') == 2) {
             $por_pagar2 = $total;
-        } else {
+        } elseif($request->get('por_pagar') == 0) {
+            $por_pagar2 = '0';
+        }else{
             $por_pagar2 = $total - $request->get('por_pagar');
         }
 
@@ -162,10 +164,6 @@ class TicketController extends Controller
             $por_pagar = $por_pagar2 - $request->get('gifcard');
         } else {
             $por_pagar = $por_pagar2;
-        }
-
-        if ($request->get('por_pagar') == 0) {
-            $por_pagar = $request->get('por_pagar');
         }
 
         $precio = new PrecioTicket;
@@ -677,18 +675,16 @@ class TicketController extends Controller
 
             if ($venta->Precio->anticipo == 2) {
                 $por_pagar2 = $total;
-            } else {
-                $por_pagar2 = $total - $venta->Precio->por_pagar;
+            } elseif($venta->Precio->anticipo == 0) {
+                $por_pagar2 = '0';
+            }else{
+                $por_pagar2 = $total - $request->get('por_pagar');
             }
 
             if ($venta->Precio->gifcard) {
                 $por_pagar = $por_pagar2 - $venta->Precio->gifcard;
             } else {
                 $por_pagar = $por_pagar2;
-            }
-
-            if ($venta->Precio->anticipo == 0) {
-                $por_pagar = $venta->Precio->por_pagar;
             }
 
             $precio = PrecioTicket::where('id_venta', '=', $id)->first();
