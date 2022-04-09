@@ -88,7 +88,8 @@ class ClientController extends Controller
                 'colonia' => $request->colonia_cliente,
                 ]);
 
-            return redirect()->route('clients.index')
+//            return redirect()->route('clients.index')
+                return redirect()->back()
                 ->with('success', 'Cliente creado exitosamente!');
         } catch (\Exception $e){
             return redirect()->back()

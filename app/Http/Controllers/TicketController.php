@@ -130,10 +130,28 @@ class TicketController extends Controller
     public function store_venta(Request $request)
     {
         $venta = new Venta;
+
+        $validator = Validator::make($request->all(), [
+            'id_user' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->with('errorForm', $validator->errors()->getMessages())
+                ->withInput();
+        }
+
+        try {
         $venta->id_user = $request->get('id_user');
         $venta->save();
 
         return redirect()->route('ticket_tab.store_venta');
+
+        } catch (\Exception $e) {
+            // dd($e);
+            return redirect()->back()
+                ->with('error', 'Faltan seleccionar cliente !');
+        }
 
     }
 

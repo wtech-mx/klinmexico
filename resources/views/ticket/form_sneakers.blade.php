@@ -10,35 +10,35 @@
                                     <div class="form-group col-xs-12 col-md-3 col-lg-3 ">
                                         <label class="label_steps" for="">Agregar servicio</label>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario1" value="Essential" checked>
+                                            <input class="form-check-input" type="checkbox" name="servicio_primario" id="servicio_primario1" value="Essential" checked>
                                             <label class="form-check-label" for="servicio_primario1">
                                                 Essential
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario2" value="Plus">
+                                            <input class="form-check-input" type="checkbox" name="servicio_primario" id="servicio_primario2" value="Plus">
                                             <label class="form-check-label" for="servicio_primario2">
                                                 Plus
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario3" value="Elite">
+                                            <input class="form-check-input" type="checkbox" name="servicio_primario" id="servicio_primario3" value="Elite">
                                             <label class="form-check-label" for="servicio_primario3">
                                                 Elite
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario4" value="Pure White">
+                                            <input class="form-check-input" type="checkbox" name="servicio_primario" id="servicio_primario4" value="Pure White">
                                             <label class="form-check-label" for="servicio_primario4">
                                                 Pure White
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario5" value="Special Care">
+                                            <input class="form-check-input" type="checkbox" name="servicio_primario" id="servicio_primario5" value="Special Care">
                                             <label class="form-check-label" for="servicio_primario5">
                                                 Special Care
                                             </label>
@@ -55,21 +55,21 @@
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="tint" id="tint" value="1">
+                                            <input class="form-check-input" type="checkbox" name="tint" id="tint" value="1">
                                             <label class="form-check-label" for="tint">
                                                 Tint 1
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="tint" id="tint" value="2">
+                                            <input class="form-check-input" type="checkbox" name="tint" id="tint" value="2">
                                             <label class="form-check-label" for="tint2">
                                                 Tint 2
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="tint" id="tint" value="3">
+                                            <input class="form-check-input" type="checkbox" name="tint" id="tint" value="3">
                                             <label class="form-check-label" for="tint3">
                                                 Tint 3
                                             </label>
@@ -78,7 +78,7 @@
                                         <div class="row">
                                             <div class="col-6">
                                               <div class="form-check  mb-3">
-                                                <input class="form-check-input" type="radio" name="tint" id="tint" value="4">
+                                                <input class="form-check-input" type="checkbox" name="tint" id="tint" value="4">
                                                 <label class="form-check-label" for="tint4">
                                                     Tint personalizado
                                                 </label>
@@ -104,63 +104,63 @@
                                     <div class="form-group col-xs-12 col-md-5 col-lg-5 ">
                                         <label class="label_steps" for="">Agregar Fixer</label>
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="glue" id="glue" value="1">
+                                            <input class="form-check-input" type="checkbox" name="glue" id="glue" value="1">
                                             <label class="form-check-label" for="glue">
                                                 Sole Glue Media
                                             </label>
                                           </div>
 
                                           <div class="form-check mb-3">
-                                            <input class="form-check-input" type="radio" name="glue" id="glue2" value="2">
+                                            <input class="form-check-input" type="checkbox" name="glue" id="glue2" value="2">
                                             <label class="form-check-label" for="glue2">
                                                 Sole Glue Full
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="sew" id="sew" value="1">
+                                            <input class="form-check-input" type="checkbox" name="sew" id="sew" value="1">
                                             <label class="form-check-label" for="sew">
                                                 Sole Sew 5cm
                                             </label>
                                           </div>
 
                                           <div class="form-check mb-3">
-                                            <input class="form-check-input" type="radio" name="sew" id="sew2" value="2">
+                                            <input class="form-check-input" type="checkbox" name="sew" id="sew2" value="2">
                                             <label class="form-check-label" for="sew2">
                                                 Sole Sew Full
                                             </label>
                                           </div>
 
                                           <div class="form-check mb-3">
-                                            <input class="form-check-input" type="radio" name="sole" id="sole" value="1">
+                                            <input class="form-check-input" type="checkbox" name="sole" id="sole" value="1">
                                             <label class="form-check-label" for="sole">
                                                 Generic Sole AF1
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="patch" id="patch" value="1">
+                                            <input class="form-check-input" type="checkbox" name="patch" id="patch" value="1">
                                             <label class="form-check-label" for="patch">
                                                 Snkrs patch par
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="patch" id="patch2" value="2">
+                                            <input class="form-check-input" type="checkbox" name="patch" id="patch2" value="2">
                                             <label class="form-check-label" for="patch2">
                                                 Snkrs patch 1pz
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="patch" id="patch3" value="3">
+                                            <input class="form-check-input" type="checkbox" name="patch" id="patch3" value="3">
                                             <label class="form-check-label" for="patch3">
                                                 Heel stopper dama
                                             </label>
                                           </div>
 
                                           <div class="form-check mb-3">
-                                            <input class="form-check-input" type="radio" name="patch" id="patch4" value="4">
+                                            <input class="form-check-input" type="checkbox" name="patch" id="patch4" value="4">
                                             <label class="form-check-label" for="patch4">
                                                 Heel stopper caballero
                                             </label>
@@ -188,9 +188,7 @@
                                          </div>
 
                                           <label class="label_steps" for="">Descripcion de Fixer</label> <br>
-                                          <textarea class="form-control" name="observacion" id="observacion" cols="15" rows="4">
-                                             {{ old('observacion') }}
-                                          </textarea>
+                                          <textarea class="form-control" name="observacion" id="observacion" cols="15" rows="4">{{ old('observacion') }}</textarea>
                                     </div>
 
                                 </div>
@@ -242,7 +240,7 @@
 
                                     <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
                                         <label class="label_steps" for="">Numero</label> <br>
-                                        <input class="form-control @error('talla') is-invalid @enderror" type="number" name="talla" id="talla" placeholder="Numero de calzado" value="{{ old('talla') }}">
+                                        <input class="form-control @error('talla') is-invalid @enderror" type="number" name="talla" id="talla" placeholder="Numero de calzado" value="{{ old('talla') }}" required>
                                         @error('talla')
                                             <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
