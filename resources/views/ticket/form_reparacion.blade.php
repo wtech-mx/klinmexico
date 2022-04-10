@@ -13,28 +13,28 @@
                                                     <input  type="hidden" value="Fixer Snkrs" name="servicio_primario" id="servicio_primario">
 
                                                     <div class="form-check">
-                                                            <input  class="form-check-input " type="radio" name="glue" id="glue" value="1">
+                                                            <input  class="form-check-input " type="checkbox" name="glue" id="glue" value="1">
                                                             <label class="form-check-label" >
                                                             Sole Glue (Vulcanized) Media
                                                             </label>
                                                     </div>
 
                                                     <div class="form-check mb-3">
-                                                            <input class="form-check-input" type="radio" name="glue" id="glue" value="2">
+                                                            <input class="form-check-input" type="checkbox" name="glue" id="glue" value="2">
                                                             <label class="form-check-label" >
                                                             Sole Glue (Vulcanized) Ful
                                                             </label>
                                                     </div>
 
                                                     <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="sew" id="sew" value="1">
+                                                            <input class="form-check-input" type="checkbox" name="sew" id="sew" value="1">
                                                             <label class="form-check-label" >
                                                             Sole Sew 5cm
                                                             </label>
                                                     </div>
 
                                                     <div class="form-check mb-3">
-                                                            <input class="form-check-input" type="radio" name="sew" id="sew" value="2">
+                                                            <input class="form-check-input" type="checkbox" name="sew" id="sew" value="2">
                                                             <label class="form-check-label" >
                                                             Sole Sew Full
                                                             </label>
@@ -48,28 +48,28 @@
                                                     </div>
 
                                                     <div class="form-check">
-                                                            <input  class="form-check-input" type="radio" value="1" name="patch" id="patch">
+                                                            <input  class="form-check-input" type="checkbox" value="1" name="patch" id="patch">
                                                             <label class="form-check-label" >
                                                             Snkrs Patch (Talonera) Par
                                                             </label>
                                                     </div>
 
                                                     <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="patch" id="patch" value="2">
+                                                            <input class="form-check-input" type="checkbox" name="patch" id="patch" value="2">
                                                             <label class="form-check-label" >
                                                             Snkrs Patch (Talonera) 1PZ
                                                             </label>
                                                     </div>
 
                                                     <div class="form-check">
-                                                            <input class="form-check-input" type="radio" name="patch" id="patch" value="3">
+                                                            <input class="form-check-input" type="checkbox" name="patch" id="patch" value="3">
                                                             <label class="form-check-label" >
                                                             Heel Stopper Dama
                                                             </label>
                                                     </div>
 
                                                     <div class="form-check mb-3">
-                                                            <input class="form-check-input" type="radio" name="patch" id="patch" value="4">
+                                                            <input class="form-check-input" type="checkbox" name="patch" id="patch" value="4">
                                                             <label class="form-check-label" >
                                                             Heel Stopper Caballero
                                                             </label>
@@ -85,7 +85,7 @@
                                                     <div class="row">
                                                         <div class="col-6">
                                                         <div class="form-check  mb-3">
-                                                            <input class="form-check-input" type="radio" name="" id="" value="">
+                                                            <input class="form-check-input" type="checkbox" name="" id="" value="">
                                                             <label class="form-check-label" for="tint4">
                                                                 Fixer personalizado
                                                             </label>

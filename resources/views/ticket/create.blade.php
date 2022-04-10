@@ -145,7 +145,7 @@ Crear Ventas
                                   <!-- Tab panes -->
                                   <div class="tab-content" id="pills-tabContent">
                                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                        <form method="POST" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
+                                        <form method="POST" name="formulario" action="{{ route('ticket.store') }}"  role="form" enctype="multipart/form-data">
                                             @csrf
                                             @include('ticket.form_sneakers')
                                         </form>
@@ -194,29 +194,29 @@ Crear Ventas
 
                               <div class="tab-pane fade" id="pills-Pago" role="tabpanel" aria-labelledby="pills-Pago-tab">
 
-                                        <form method="POST" action="{{ route('ticket.store_precio') }}"  role="form" enctype="multipart/form-data">
+                                        <form method="POST" action="{{ route('ticket.store_precio') }}" name="formulario3" role="form" enctype="multipart/form-data">
                                             @csrf
                                             <div class="row">
                                                 <div class="form-group col-xs-12 col-md-12 col-lg-12 ">
 
                                                     <div class="d-flex flex-row bd-highlight p-5">
-                                                    <div class="bd-highlight">
-                                                        <label class="label_steps text-dark" for="">Aplicar Promocion</label>
-                                                        <select class="form-select select2 " name="promocion" id="promocion">
-                                                                <option value="0" selected>Seleccionar forma</option>
-                                                                <option value=".10" {{ old('promocion') == .10 ? 'selected' : '' }}>Cliente Distinguido 1 ---- 10% </option>
-                                                                <option value=".20" {{ old('promocion') == .20 ? 'selected' : '' }}>Cliente Distinguido 2 ---- 20% </option>
-                                                                <option value=".100" {{ old('promocion') == .100 ? 'selected' : '' }}>Cliente Distinguido 3 ---- 100% </option>
-                                                                <option value=".10" {{ old('promocion') == .10 ? 'selected' : '' }}>Descuento Total --------- 10% </option>
-                                                                <option value=".20" {{ old('promocion') == .20 ? 'selected' : '' }}>Descuento Total --------- 20%</option>
-                                                                <option value=".100" {{ old('promocion') == .100 ? 'selected' : '' }}>Cortesía ------------------ 100%</option>
-                                                        </select>
-                                                    </div>
+                                                        <div class="bd-highlight">
+                                                            <label class="label_steps text-dark" for="">Aplicar Promocion</label>
+                                                            <select class="form-select select2 " name="promocion" id="promocion">
+                                                                    <option value="0" selected>Seleccionar forma</option>
+                                                                    <option value=".10" {{ old('promocion') == .10 ? 'selected' : '' }}>Cliente Distinguido 1 ---- 10% </option>
+                                                                    <option value=".20" {{ old('promocion') == .20 ? 'selected' : '' }}>Cliente Distinguido 2 ---- 20% </option>
+                                                                    <option value=".100" {{ old('promocion') == .100 ? 'selected' : '' }}>Cliente Distinguido 3 ---- 100% </option>
+                                                                    <option value=".10" {{ old('promocion') == .10 ? 'selected' : '' }}>Descuento Total --------- 10% </option>
+                                                                    <option value=".20" {{ old('promocion') == .20 ? 'selected' : '' }}>Descuento Total --------- 20%</option>
+                                                                    <option value=".100" {{ old('promocion') == .100 ? 'selected' : '' }}>Cortesía ------------------ 100%</option>
+                                                            </select>
+                                                        </div>
                                                     </div>
 
                                                 </div>
 
-                                                <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
+                                                <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-6">
                                                         <div class="row text-dark p-4">
 
                                                             <label class="label_steps" for="">Recolección</label> <br>
@@ -294,7 +294,7 @@ Crear Ventas
                                                                 <div class="row">
                                                                     <div class="col-6">
                                                                     <div class="form-check  mb-3">
-                                                                        <input class="form-check-input" type="checkbox" name="gif" id="gif" >
+                                                                        <input class="form-check-input" type="checkbox" name="gif" id="gif"  onclick="funcion3()" />
                                                                         <label class="form-check-label" for="tint4">
                                                                         Gifcard
                                                                         </label>
@@ -302,7 +302,7 @@ Crear Ventas
                                                                     </div>
 
                                                                     <div class="col-6">
-                                                                        <input class="form-control"  type="text" name="gifcard" id="gifcard" >
+                                                                        <input class="form-control"  type="text" name="gifcard" id="gifcard" disabled>
                                                                     </div>
                                                                 </div>
 
@@ -325,7 +325,7 @@ Crear Ventas
                                                                     </div>
                                                                 </div>
 
-                                                                <div class="col-6">
+                                                                <div class="col-12">
                                                                     <label class="form-check-label">
                                                                         Datos Factura
                                                                     </label>
@@ -333,7 +333,7 @@ Crear Ventas
                                                                         @if(!empty($venta))
                                                                                     <input class="form-check-input" type="radio" name="factura" id="factura" value="{{$client_factura->id}}">
                                                                                     <label class="form-check-label" for="flexRadioDefault1">
-                                                                                        {{$client_factura->calle}} {{$client_factura->colonia}} {{$client_factura->alcaldia}} {{$client_factura->estado}} {{$client_factura->cp}}
+                                                                                        {{$client_factura->calle}}, {{$client_factura->colonia}}, {{$client_factura->alcaldia}}, {{$client_factura->estado}}, {{$client_factura->cp}}
                                                                                     </label>
                                                                              <a type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_factura" id="rec" style="margin-left: 2rem;">
                                                                                 +
@@ -341,14 +341,10 @@ Crear Ventas
                                                                         @endif
                                                                      </div>
                                                                 </div>
-
-
-
-
                                                             </div>
                                                 </div>
 
-                                                <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-3">
+                                                <div class="form-group mt-4 col-xs-12 col-md-3 col-lg-6">
                                                         <div class="row text-dark p-4">
                                                             <label class="label_steps" for="">Dirección de Recolección</label> <br>
 
@@ -358,7 +354,7 @@ Crear Ventas
                                                                         @foreach ($direccion as $item)
                                                                                 <input class="form-check-input" type="radio" name="id_direccion" id="id_direccion" value="{{$item->id}}">
                                                                                 <label class="form-check-label" for="flexRadioDefault1">
-                                                                                    {{$item->calle}}, {{$item->colonia}}, {{$item->alcaldia}}, {{$item->estado}}, {{$item->cp}}
+                                                                                    {{$item->calle}}, {{$item->colonia}},<br> {{$item->alcaldia}}, {{$item->estado}}, {{$item->cp}}
                                                                                 </label>
                                                                         @endforeach
                                                                         @else
@@ -441,79 +437,8 @@ Crear Ventas
 
 @section('js')
     @include('ticket.script_inputs')
-  <script src="{{ asset('js/intlTelInput.js') }}"></script>
+
   <script>
-    var input = document.querySelector("#telefono");
-    window.intlTelInput(input, {
-       initialCountry: "mx",
-       onlyCountries: [
-         'ar',
-         'us',
-         'ad',
-         'at',
-         'be',
-         'ca',
-         'ch',
-         'de',
-         'ee',
-         'nl',
-         'es',
-         'hk',
-         'hr',
-         'ie',
-         'it',
-         'mc',
-         'mx',
-         'pl',
-         'pt',
-         'qa',
-         'se',
-         'th',
-         'ua',
-         'uk',
-         'za',
-       ],
-       placeholderNumberType: "MOBILE",
-       preferredCountries: ['mx', 'us'],
-       separateDialCode: true,
-       utilsScript: "{{ asset('js/utils.js') }}",
-    });
-
-    // Campo numeros
-    var numeros = document.getElementById('telefono');
-
-    // Poner cursor en el campo numeros
-    numeros.focus();
-
-    numeros.onkeydown = function(e){
-        // Permitir la tecla para borrar
-        if (e.key == 'Backspace') return true;
-
-        // Permitir flecha izquierda
-        if (e.key == 'ArrowLeft') return true;
-
-        // Permitir flecha derecha
-        if (e.key == 'ArrowRight') return true;
-
-        // Bloquear tecla de espacio
-        if (e.key == ' ') return false;
-
-        // Bloquear tecla si no es un numero
-        if (isNaN(e.key)) return false;
-    };
-
-    numeros.onkeyup = function(){
-        numeros.value = numeros.value
-            // Borrar todos los espacios
-            .replace(/\s/g, '')
-
-            // Agregar un espacio cada dos numeros
-            .replace(/([0-9]{2})/g, '$1 ')
-
-            // Borrar espacio al final
-            .trim();
-    };
-
     function informacion_cp(){
         $.ajax({
             url : 'https://api.copomex.com/query/info_cp/' + $("#codigo_postal").val(), //aqui va el endpoint de la api de copomex, con el método de info_cp, se deberá concatenar el CP ya que se recibe como parametro en la url, no como variable GET

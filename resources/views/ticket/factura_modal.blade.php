@@ -3,7 +3,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="modal_factura">Factura</h5>
+          <h5 class="modal-title text-dark" id="modal_factura">Factura</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -44,7 +44,7 @@
                 <label class="label_steps" for="">Calle</label> <br>
                 <input class="form-control"  type="text" name="calle_factura" id="calle" placeholder="calle">
             </div>
-            
+
             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
                 <label class="label_steps" for="">RFC</label> <br>
                 <input class="form-control"  type="text" name="rfc" id="rfc" placeholder="RFC">
