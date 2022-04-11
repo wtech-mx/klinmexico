@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="modal_estatusrack" tabindex="-1" aria-labelledby="modal_estatusracklLabel" aria-hidden="true">
+<div class="modal fade" id="modal_estatusrack_{{ $item->id }}" tabindex="-1" aria-labelledby="modal_estatusracklLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
 

@@ -66,13 +66,11 @@ Editar Venta
                                                 </td>
                                             @else
                                                 <td>
-                                                    <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal_estatusrack">
+                                                    <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal_estatusrack_{{ $item->id }}">
                                                       <i class="fa fa-square-o" aria-hidden="true"></i>
                                                     </a>
                                                 </td>
                                             @endif
-
-
                                             <td>
                                                     @if ($item->servicio_primario == 'Essential' || $item->servicio_primario == 'Plus' || $item->servicio_primario == 'Elite' || $item->servicio_primario == 'Pure White' || $item->servicio_primario == 'Special Care')
                                                         <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleSneakers_{{$item->id}}">
