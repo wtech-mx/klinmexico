@@ -1,10 +1,13 @@
 @extends('layouts.email_template')
 @section('template_email')
-
+<?php
+$rest = substr($venta->id, 0, -4);
+$rest2 = substr($venta->id, 1);
+?>
     <div class="d-flex justify-content-center">
         <div class="limit_ticket">
                 <p class="text-dark">
-                    <strong> Recibo No.:  </strong> 0 <br>
+                    <strong> Recibo No.:  </strong> 0{{$rest}}-{{$rest2}} <br>
                     <strong> Sucrusal: </strong> Condesa Nuevo Leon <br>
                     <strong> Fecha: </strong>
                         @php

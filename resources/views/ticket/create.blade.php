@@ -356,10 +356,14 @@ Crear Ventas
                                                                 <div class="form-check">
                                                                     @if (!empty($direccion))
                                                                         @foreach ($direccion as $item)
+                                                                        @if ($item->calle == Null)
+                                                                        <strong class="label_steps" for="">No tiene direccion registrada</strong>
+                                                                                @else
                                                                                 <input class="form-check-input" type="radio" name="id_direccion" id="id_direccion" value="{{$item->id}}">
                                                                                 <label class="form-check-label" for="flexRadioDefault1">
                                                                                     {{$item->calle}}, {{$item->colonia}},<br> {{$item->alcaldia}}, {{$item->estado}}, {{$item->cp}}
                                                                                 </label>
+                                                                                @endif
                                                                         @endforeach
                                                                         @else
                                                                          <strong class="label_steps" for="">No tiene direccion registrada</strong>
