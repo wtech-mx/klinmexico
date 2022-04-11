@@ -85,14 +85,12 @@ class ClientController extends Controller
                 'cp' => $request->cp_cliente,
                 'estado' => $request->estado_cliente,
                 'alcaldia' => $request->alcaldia_cliente,
-                'colonia' => $request->colonia_cliente,
                 ]);
 
 //            return redirect()->route('clients.index')
                 return redirect()->back()
                 ->with('success', 'Cliente creado exitosamente!');
         } catch (\Exception $e){
-
             return redirect()->back()
                 ->with('error', 'Faltan Validar datos!');
         }
