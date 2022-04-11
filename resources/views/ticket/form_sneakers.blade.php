@@ -10,35 +10,35 @@
                                     <div class="form-group col-xs-12 col-md-3 col-lg-3 ">
                                         <label class="label_steps" for="">Agregar servicio</label>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="servicio_primario" id="servicio_primario1" value="Essential" checked>
+                                            <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario1" value="Essential" checked>
                                             <label class="form-check-label" for="servicio_primario1">
                                                 Essential
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="servicio_primario" id="servicio_primario2" value="Plus">
+                                            <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario2" value="Plus">
                                             <label class="form-check-label" for="servicio_primario2">
                                                 Plus
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="servicio_primario" id="servicio_primario3" value="Elite">
+                                            <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario3" value="Elite">
                                             <label class="form-check-label" for="servicio_primario3">
                                                 Elite
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="servicio_primario" id="servicio_primario4" value="Pure White">
+                                            <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario4" value="Pure White">
                                             <label class="form-check-label" for="servicio_primario4">
                                                 Pure White
                                             </label>
                                           </div>
 
                                           <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="servicio_primario" id="servicio_primario5" value="Special Care">
+                                            <input class="form-check-input" type="radio" name="servicio_primario" id="servicio_primario5" value="Special Care">
                                             <label class="form-check-label" for="servicio_primario5">
                                                 Special Care
                                             </label>
