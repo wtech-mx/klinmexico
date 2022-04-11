@@ -22,6 +22,7 @@ Editar Venta
         ?>
 @include('ticket.edit.edit_pago')
         <div class="row">
+
             <div class="d-flex justify-content-between mt-5">
                 <h1> Editar Venta ID: 0{{$rest}}-{{$rest2}}</h1>
 
@@ -42,14 +43,12 @@ Editar Venta
                                 </div>
                             @endif
 
-
-
                             <table class="table table-striped table-responsive table-hover" id="tale_id" >
                                 <thead class="thead">
                                     <tr>
                                         <th>Servicio(s)</th>
                                         <th>Rack</th>
-                                        <th>Estatus</th>
+                                        <th>Estatus Rack</th>
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
@@ -58,11 +57,22 @@ Editar Venta
                                         <tr>
                                             <td>{{ $item->servicio_primario }}</td>
                                             <td>{{ $item->rack }}</td>
-                                            <td>
-                                                <input data-id="{{ $item->id }}" class="toggle-class" type="checkbox"
-                                        data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
-                                        data-on="Active" data-off="InActive" {{ $item->estatus ? 'checked disabled' : '' }}>
-                                            </td>
+
+                                            @if($item->estatus == 1)
+                                                <td>
+                                                    <a href="#" class="btn" >
+                                                        <i class="fa fa-check-square" aria-hidden="true"></i>
+                                                    </a>
+                                                </td>
+                                            @else
+                                                <td>
+                                                    <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal_estatusrack">
+                                                      <i class="fa fa-square-o" aria-hidden="true"></i>
+                                                    </a>
+                                                </td>
+                                            @endif
+
+
                                             <td>
                                                     @if ($item->servicio_primario == 'Essential' || $item->servicio_primario == 'Plus' || $item->servicio_primario == 'Elite' || $item->servicio_primario == 'Pure White' || $item->servicio_primario == 'Special Care')
                                                         <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleSneakers_{{$item->id}}">
@@ -100,6 +110,7 @@ Editar Venta
                                         @include('ticket.edit.edit_bolsos')
                                         @include('ticket.edit.edit_reparacion')
                                         @include('ticket.edit.edit_nano')
+                                        @include('ticket.edit.modal_estatus')
                                     @endforeach
                                 </tbody>
                             </table>

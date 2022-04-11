@@ -251,6 +251,47 @@ class TicketController extends Controller
         return redirect()->route('ticket_tab_exito.store');
     }
 
+    public function update_rack(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'rack' => 'required',
+            'estatus_rack' => 'required',
+            'ticker_id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()
+                ->with('errorForm', $validator->errors()->getMessages())
+                ->withInput();
+        }
+        try {
+
+        $num_rack =  $request->get('rack');
+        $estatus_rack =  $request->get('estatus_rack');
+        $ticker_id =  $request->get('ticker_id');
+
+        if ($estatus_rack == 1){
+            $rack = Racks::findOrFail($num_rack);
+            $rack->estatus = 0;
+            $rack->update();
+
+            $ticket = Ticket::findOrFail($ticker_id);
+            $ticket->estatus = 1;
+            $ticket->update();
+
+            return redirect()->back()->with('success', 'Rack liberado con exito!');
+        }else{
+            return redirect()->back() ->with('error', 'Solicitud cancelada , el rack sigue ocupado!');
+        }
+
+          } catch (\Exception $e) {
+            // dd($e);
+            return redirect()->back()
+                ->with('error', 'Faltan Validar datos!');
+        }
+
+    }
+
     public function store(Request $request)
     {
 
@@ -476,7 +517,7 @@ class TicketController extends Controller
                 $venta = Venta::findOrFail($id);
                 $venta->suma = 0;
                 $venta->update();
-                
+
                 $ticket = Ticket::where('id_venta', '=', $id)->first();
                 $ticket->rack = $request->get('num_rack');
                 $ticket->estatus = 0;
@@ -825,4 +866,7 @@ class TicketController extends Controller
 
         return response()->json(['success' => 'Se cambio el estado exitosamente.']);
     }
+
+
+
 }

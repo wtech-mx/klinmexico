@@ -66,6 +66,7 @@ Auth::routes();
     Route::post('/ticket/store/precio', [App\Http\Controllers\TicketController::class, 'store_precio'])->name('ticket.store_precio');
     Route::post('/ticket/store/nano', [App\Http\Controllers\TicketController::class, 'store_nano'])->name('ticket.store_nano');
 
+    Route::post('update_rack/{id}', [App\Http\Controllers\TicketController::class, 'update_rack'])->name('rack.update_rack');
 
 });
 
