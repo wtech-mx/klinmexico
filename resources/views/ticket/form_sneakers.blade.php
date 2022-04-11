@@ -78,7 +78,7 @@
                                         <div class="row">
                                             <div class="col-6">
                                               <div class="form-check  mb-3">
-                                                <input class="form-check-input" type="checkbox" name="tint" id="tint" value="4"  onclick="funcion()" />
+                                                <input class="form-check-input" type="checkbox" name="tint" id="tint" value="4"/>
                                                 <label class="form-check-label" for="tint4">
                                                     Tint personalizado
                                                 </label>
@@ -86,7 +86,7 @@
                                             </div>
 
                                             <div class="col-6">
-                                                  <input  class="form-control" type="number" name="tint_personalizado" id="tint_personalizado" value="0" placeholder="$" disabled />
+                                                  <input  class="form-control" type="number" name="tint_personalizado" id="tint_personalizado" value="0" placeholder="$" />
                                             </div>
                                         </div>
 
@@ -176,14 +176,14 @@
                                          <div class="row">
                                              <div class="col-6">
                                               <div class="form-check mb-2">
-                                                <input class="form-check-input" type="checkbox" name="personalizado" id="personalizado" value="1" onclick="funcion2()" />
+                                                <input class="form-check-input" type="checkbox" name="personalizado" id="personalizado" value="1" />
                                                 <label class="form-check-label" for="personalizado">
                                                     Fixer Personalizado
                                                 </label>
                                               </div>
                                              </div>
                                              <div class="col-6">
-                                                 <input class="form-control" type="number" name="personalizado" id="personalizado" placeholder="$" disabled>
+                                                 <input class="form-control" type="number" name="personalizado" id="personalizado" placeholder="$">
                                              </div>
                                          </div>
 

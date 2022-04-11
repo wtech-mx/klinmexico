@@ -21,7 +21,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::paginate();
+        $clients = Client::orderBy('id','DESC')->paginate();
 
         $direccion = Direccion::get();
 
