@@ -177,25 +177,104 @@
                             </select>
                         </div>
 
-                            <label class="label_steps" for="" class="mb-2">Racks para reparacion</label>
-                            @foreach ($racks2 as $item)
-                            @if ($item->estatus == 1)
+                        <div class="col-4">
+                            <label class="label_steps" for="" class="mb-2">Racks Altos</label>
 
-                            <div class="form-group col-2">
-                                <input class="form-check-input" type="checkbox" value="" name="num_rack" id="num_rack" checked disabled>
-                                <label class="form-check-label" for="flexCheckDefault">
-                                {{$item->num_rack}}
-                                </label>
+                            <div class="form-group col-4">
+                                @foreach ($racks_sneakers_altos as $item)
+                                    @if ($item->estatus == 1)
+                                        <input class="form-check-input" type="checkbox" value="" name="num_rack" id="num_rack" checked disabled>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                        {{$item->num_rack}}
+                                        </label>
+                                        @else
+                                            <input class="form-check-input" type="checkbox" value="{{$item->num_rack}}" name="num_rack" id="num_rack">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                            {{$item->num_rack}}
+                                            </label>
+                                    @endif
+                                @endforeach
+                                @foreach ($racks_sneakers_altos2 as $item)
+                                    @if ($item->estatus == 1)
+                                        <input class="form-check-input" type="checkbox" value="" name="num_rack" id="num_rack" checked disabled>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                        {{$item->num_rack}}
+                                        </label>
+                                        @else
+                                            <input class="form-check-input" type="checkbox" value="{{$item->num_rack}}" name="num_rack" id="num_rack">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                            {{$item->num_rack}}
+                                            </label>
+                                    @endif
+                                @endforeach
+                                @foreach ($racks_sneakers_altos3 as $item)
+                                    @if ($item->estatus == 1)
+                                        <input class="form-check-input" type="checkbox" value="" name="num_rack" id="num_rack" checked disabled>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                        {{$item->num_rack}}
+                                        </label>
+                                        @else
+                                            <input class="form-check-input" type="checkbox" value="{{$item->num_rack}}" name="num_rack" id="num_rack">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                            {{$item->num_rack}}
+                                            </label>
+                                    @endif
+                                @endforeach
                             </div>
-                                @else
-                                <div class="form-group col-2">
-                                    <input class="form-check-input" type="checkbox" value="{{$item->num_rack}}" name="num_rack" id="num_rack">
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                    {{$item->num_rack}}
-                                    </label>
-                                </div>
-                            @endif
-                        @endforeach
+                        </div>
+
+                        <div class="col-4">
+                            <label class="label_steps" for="" class="mb-2">Racks Normales</label>
+
+                            <div class="form-group col-4">
+                                @foreach ($racks_sneakers_normales as $item)
+                                    @if ($item->estatus == 1)
+                                        <input class="form-check-input" type="checkbox" value="" name="num_rack" id="num_rack" checked disabled>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                        {{$item->num_rack}}
+                                        </label>
+                                        @else
+                                            <input class="form-check-input" type="checkbox" value="{{$item->num_rack}}" name="num_rack" id="num_rack">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                            {{$item->num_rack}}
+                                            </label>
+                                    @endif
+                                @endforeach
+                                @foreach ($racks_sneakers_normales2 as $item)
+                                    @if ($item->estatus == 1)
+                                        <input class="form-check-input" type="checkbox" value="" name="num_rack" id="num_rack" checked disabled>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                        {{$item->num_rack}}
+                                        </label>
+                                        @else
+                                            <input class="form-check-input" type="checkbox" value="{{$item->num_rack}}" name="num_rack" id="num_rack">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                            {{$item->num_rack}}
+                                            </label>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="col-4">
+                            <label class="label_steps" for="" class="mb-2">Racks Apoyo</label>
+
+                            <div class="form-group col-4">
+                                @foreach ($racks_sneakers_apoyo as $item)
+                                    @if ($item->estatus == 1)
+                                        <input class="form-check-input" type="checkbox" value="" name="num_rack" id="num_rack" checked disabled>
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                        {{$item->num_rack}}
+                                        </label>
+                                        @else
+                                            <input class="form-check-input" type="checkbox" value="{{$item->num_rack}}" name="num_rack" id="num_rack">
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                            {{$item->num_rack}}
+                                            </label>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
 
                     </div>
 

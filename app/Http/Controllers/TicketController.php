@@ -43,7 +43,29 @@ class TicketController extends Controller
     public function create()
     {
         $client = Client::get();
-        $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+        $racks_sneakers_altos = Racks::where('num_rack', '>=', 1)
+        ->where('num_rack', '<', 8)
+        ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+        $racks_sneakers_altos2 = Racks::where('num_rack', '>', 63)
+        ->where('num_rack', '<', 75)
+        ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+        $racks_sneakers_altos3 = Racks::where('num_rack', '>', 89)
+        ->where('num_rack', '<', 96)
+        ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+        $racks_sneakers_normales = Racks::where('num_rack', '>', 8)
+        ->where('num_rack', '<', 64)
+        ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+        $racks_sneakers_normales2 = Racks::where('num_rack', '>', 74)
+        ->where('num_rack', '<', 90)
+        ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+        $racks_sneakers_apoyo = Racks::where('num_rack', '>', 95)
+        ->where('num_rack', '<', 141)
+        ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
 
         $racks_cap = Racks::where('num_rack', '>', 140)
         ->where('num_rack', '<', 162)
@@ -62,10 +84,10 @@ class TicketController extends Controller
             $direccion = Direccion::where('id_user', '=', $venta->id_user )
             ->get();
 
-            return view('ticket.create', compact('client', 'racks2', 'venta', 'direccion', 'client_factura', 'racks_cap', 'racks_bag'));
+            return view('ticket.create', compact('client', 'racks_sneakers_altos', 'racks_sneakers_altos2', 'racks_sneakers_altos3', 'racks_sneakers_normales', 'racks_sneakers_normales2', 'racks_sneakers_apoyo', 'venta', 'direccion', 'client_factura', 'racks_cap', 'racks_bag'));
         }
 
-            return view('ticket.create', compact('client', 'racks2', 'venta', 'racks_cap', 'racks_bag'));
+            return view('ticket.create', compact('client', 'racks_sneakers_altos', 'racks_sneakers_altos2', 'racks_sneakers_altos3', 'racks_sneakers_normales', 'racks_sneakers_normales2', 'racks_sneakers_apoyo', 'venta', 'racks_cap', 'racks_bag'));
 
 
     }
@@ -484,7 +506,29 @@ class TicketController extends Controller
             $venta = Venta::findOrFail($id);
             $ticket = Ticket::where('id_venta', '=', $id)->get();
 
-            $racks2 = Racks::take(140)->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+            $racks_sneakers_altos = Racks::where('num_rack', '>=', 1)
+            ->where('num_rack', '<', 8)
+            ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+            $racks_sneakers_altos2 = Racks::where('num_rack', '>', 63)
+            ->where('num_rack', '<', 75)
+            ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+            $racks_sneakers_altos3 = Racks::where('num_rack', '>', 89)
+            ->where('num_rack', '<', 96)
+            ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+            $racks_sneakers_normales = Racks::where('num_rack', '>', 8)
+            ->where('num_rack', '<', 64)
+            ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+            $racks_sneakers_normales2 = Racks::where('num_rack', '>', 74)
+            ->where('num_rack', '<', 90)
+            ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
+
+            $racks_sneakers_apoyo = Racks::where('num_rack', '>', 95)
+            ->where('num_rack', '<', 141)
+            ->get()->makeHidden(['id', 'id_ticket', 'updated_at', 'created_at']);
 
             $racks_cap = Racks::where('num_rack', '>', 140)
             ->where('num_rack', '<', 162)
@@ -500,10 +544,10 @@ class TicketController extends Controller
                 $direccion = Direccion::where('id_user', '=', $venta->id_user )
                 ->get();
 
-                return view('ticket.edit.edit', compact('ticket', 'client', 'racks2', 'racks_cap', 'racks_bag', 'venta', 'client_factura', 'direccion'));
+                return view('ticket.edit.edit', compact('ticket', 'client', 'racks_sneakers_altos', 'racks_sneakers_altos2', 'racks_sneakers_altos3', 'racks_sneakers_normales', 'racks_sneakers_normales2', 'racks_sneakers_apoyo', 'racks_cap', 'racks_bag', 'venta', 'client_factura', 'direccion'));
             }
 
-            return view('ticket.edit.edit', compact('ticket', 'client', 'racks2', 'racks_cap', 'racks_bag', 'venta'));
+            return view('ticket.edit.edit', compact('ticket', 'client', 'racks_sneakers_altos', 'racks_sneakers_altos2', 'racks_sneakers_altos3', 'racks_sneakers_normales', 'racks_sneakers_normales2', 'racks_sneakers_apoyo', 'racks_cap', 'racks_bag', 'venta'));
     }
 
     public function update(Request $request, $id)
