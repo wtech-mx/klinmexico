@@ -370,7 +370,7 @@ Crear Ventas
                                                             </div>
 
                                                             <div class="col-12">
-                                                                <label class="label_steps" for="">Por Pagar</label> <br>
+                                                                <label class="label_steps mt-5" for="">Por Pagar</label> <br>
                                                                     <div class="form-check">
                                                                         <input class="form-check-input" type="radio" name="anticipo" id="anticipo" value="2">
                                                                         <label class="form-check-label">

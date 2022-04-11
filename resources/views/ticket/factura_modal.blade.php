@@ -9,45 +9,25 @@
         <div class="modal-body">
           <div class="row">
 
-            {{-- value="8095d78e-190d-46aa-b793-75830d857d5e" --}}
-            <input type="hidden" class="form-control" placeholder="pruebas" value="8095d78e-190d-46aa-b793-75830d857d5e" id="token">
             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
-                <label class="label_steps" for="">Codigo Postal</label> <br>
+                <label class="label_steps" for="">Nombre o Razón soacial</label> <br>
                 <input class="form-control"  type="text" name="cp_factura" id="codigo_postal" placeholder="Cp">
             </div>
 
-            <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
-                {{ Form::label('Consultar') }}
-                <a href="javascript:void(0)" onclick="informacion_cp()" class="btn btn-secondary form-control">
-                    <i class="fa fa-search-plus" aria-hidden="true"></i>
-                </a>
-            </div>
 
             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
-                <label class="label_steps" for="">Colonia</label> <br>
-                <select class="form-control" name="colonia_factura" id="list_colonias" >
-                    <option>Seleccione</option>
-                  </select>
-            </div>
-
-            <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
-                <label class="label_steps" for="">Alcaldia</label> <br>
+                <label class="label_steps" for="">Direccion Fiscal</label> <br>
                 <input class="form-control"  type="text" name="alcaldia_factura" id="municipio" placeholder="alcaldia">
             </div>
 
             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
-                <label class="label_steps" for="">Estado</label> <br>
+                <label class="label_steps" for="">RFC</label> <br>
                 <input class="form-control"  type="text" name="estado_factura" id="estado" placeholder="estado">
             </div>
 
             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
-                <label class="label_steps" for="">Calle</label> <br>
+                <label class="label_steps" for="">Uso de Factura</label> <br>
                 <input class="form-control"  type="text" name="calle_factura" id="calle" placeholder="calle">
-            </div>
-
-            <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
-                <label class="label_steps" for="">RFC</label> <br>
-                <input class="form-control"  type="text" name="rfc" id="rfc" placeholder="RFC">
             </div>
 
           </div>

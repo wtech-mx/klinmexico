@@ -32,8 +32,12 @@
                                 </thead>
                                 <tbody>
                                     @foreach ($clients as $client)
+                                    <?php
+                                        $rest = substr($client->id, 0, -4);
+                                        $rest2 = substr($client->id, 1);
+                                    ?>
                                         <tr>
-                                            <td>{{ ++$i }}</td>
+                                            <td>S1-00-{{$rest2}}</td>
                                             <td>{{ $client->name }} <br> {{$client->apellido_pa }} {{$client->apellido_ma }}</td>
 											<td>{{ $client->telefono }}</td>
                                             <td>{{ $client->email }}</td>

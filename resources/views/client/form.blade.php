@@ -141,67 +141,28 @@
                 <h3> Datos de Factura </h3>
             </div>
 
-            <div class="form-group mt-5 col-6 col-md-2 col-lg-2">
-                {{ Form::label('cp') }}
-                {{ Form::number('cp', $client->cp, ['class' => 'form-control' . ($errors->has('cp') ? ' is-invalid' : ''),'id' => 'codigo_postal',]) }}
+            <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+                {{ Form::label('Nombre o Razón soacial') }}
+                {{ Form::text('cp', $client->cp, ['class' => 'form-control' . ($errors->has('cp') ? ' is-invalid' : ''),'id' => 'codigo_postal',]) }}
                 {!! $errors->first('cp', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
-            <div class="form-group mt-5 col-1 col-md-1 col-lg-1">
-                    {{ Form::label('Consultar') }}
-                    <a href="javascript:void(0)" onclick="informacion_cp()" class="btn btn-secondary form-control">
-                        <i class="fa fa-search-plus" aria-hidden="true"></i>
-                    </a>
-            </div>
-
             <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
-                {{ Form::label('estado') }}
+                {{ Form::label('RFC') }}
                 {{ Form::text('estado', $client->estado, ['class' => 'form-control' . ($errors->has('estado') ? ' is-invalid' : ''),'id' => 'estado',]) }}
                 {!! $errors->first('estado', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
             <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
-                {{ Form::label('alcaldia/Municipio') }}
+                {{ Form::label('Direccion Fiscal') }}
                 {{ Form::text('alcaldia', $client->alcaldia, ['class' => 'form-control' . ($errors->has('alcaldia') ? ' is-invalid' : ''),'id' => 'municipio',]) }}
                 {!! $errors->first('alcaldia', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
-
-
-            @if($client->colonia == null)
-                <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
-                    {{ Form::label('colonia') }}
-                      <select class="form-control" name="colonia" id="list_colonias" >
-                        <option value="">Seleccione</option>
-                      </select>
-                </div>
-            @else
-                <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
-                    {{ Form::label('colonia') }}
-                    {{ Form::text('colonia', $client->colonia, ['class' => 'form-control' . ($errors->has('colonia') ? ' is-invalid' : ''),'id' => 'colonia',]) }}
-                    {!! $errors->first('colonia', '<div class="invalid-feedback">:message</div>') !!}
-                </div>
-            @endif
-{{--            <div class="form-group mt-5 col-3 col-md-3 col-lg-3">--}}
-{{--                {{ Form::label('Ciudad:') }}--}}
-{{--                  <input type="text" name="ciudad" id="ciudad" class="form-control" disabled readonly>--}}
-{{--            </div>--}}
-
-{{--            <div class="form-group mt-5 col-3 col-md-3 col-lg-3">--}}
-{{--                {{ Form::label('País:') }}--}}
-{{--                <input type="text" name="pais" id="pais" class="form-control" disabled readonly>--}}
-{{--            </div>--}}
-
-            <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
-                {{ Form::label('Calle y numero') }}
+            <div class="form-group mt-5 col-6 col-md-3 col-lg-3">
+                {{ Form::label('Uso de Factura') }}
                 {{ Form::text('calle', $client->calle, ['class' => 'form-control' . ($errors->has('calle') ? ' is-invalid' : '')]) }}
                 {!! $errors->first('calle', '<div class="invalid-feedback">:message</div>') !!}
-            </div>
-
-            <div class="form-group mt-5 col-6 col-md-6 col-lg-6">
-                {{ Form::label('RFC') }}
-                {{ Form::text('rfc', $client->rfc, ['class' => 'form-control' . ($errors->has('rfc') ? ' is-invalid' : '')]) }}
-                {!! $errors->first('rfc', '<div class="invalid-feedback">:message</div>') !!}
             </div>
 
             <div class="col-12 mb-5">
