@@ -14,10 +14,10 @@
                                     <div class="form-check">
                                         @if ($item->servicio_primario == 'Protector')
                                         <label class="label_steps" for="">Protector -- $55</label>
-                                        <input  class="form-check-input form-control" type="checkbox" value="Protector" name="servicio_primario" id="servicio_primario" checked >
+                                        <input  class="form-check-input form-control" type="checkbox" value="Protector" name="servicio_primario" id="servicio_primario" checked disabled>
                                         @else
                                         <label class="label_steps" for="">Protector -- $55</label>
-                                        <input  class="form-check-input form-control" type="checkbox" value="Protector" name="servicio_primario" id="servicio_primario"  >
+                                        <input  class="form-check-input form-control" type="checkbox" value="Protector" name="servicio_primario" id="servicio_primario"  disabled>
                                         @endif
                                     </div>
 
@@ -28,9 +28,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn">
-                        <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Guardar
-                    </button>
                 </div>
             </form>
         </div>

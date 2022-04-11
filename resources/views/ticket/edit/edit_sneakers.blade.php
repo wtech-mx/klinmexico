@@ -379,10 +379,16 @@
                                         @endif
                                     </div>
 
+                                    @if (!empty($item->DescripcionTicket))
                                     <label class="label_steps" for="">Descripcion de Fixer</label> <br>
                                     <textarea class="form-control" name="observacion" id="observacion" cols="15" rows="4">
                                     {{$item->DescripcionTicket->observacion}}
                                     </textarea>
+                                    @else
+                                    <label class="label_steps" for="">Descripcion de Fixer</label> <br>
+                                    <textarea class="form-control" name="observacion" id="observacion" cols="15" rows="4">
+                                    </textarea>
+                                    @endif
                             </div>
                         </div>
                     </div>
@@ -393,48 +399,85 @@
 
                             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
                                 <label class="label_steps" for="">Marca</label> <br>
-                                <input class="form-control @error('marca') is-invalid @enderror"  type="text" name="marca" id="marca" value="{{$item->DescripcionTicket->marca}}">
-                                @error('marca')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                                @if (!empty($item->DescripcionTicket))
+                                    <input class="form-control @error('marca') is-invalid @enderror"  type="text" name="marca" id="marca" value="{{$item->DescripcionTicket->marca}}">
+                                    @error('marca')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                @else
+                                    <input class="form-control @error('marca') is-invalid @enderror"  type="text" name="marca" id="marca">
+                                    @error('marca')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                @endif
                             </div>
 
                             <div class="form-group mt-3 col-6 col-md-6 col-lg-6">
                                 <label class="label_steps" for="">Modelo</label> <br>
-                                <input class="form-control @error('modelo') is-invalid @enderror" type="text" name="modelo" id="modelo" value="{{$item->DescripcionTicket->modelo}}">
-                                @error('modelo')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                                @if (!empty($item->DescripcionTicket))
+                                    <input class="form-control @error('modelo') is-invalid @enderror" type="text" name="modelo" id="modelo" value="{{$item->DescripcionTicket->modelo}}">
+                                    @error('modelo')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                @else
+                                    <input class="form-control @error('modelo') is-invalid @enderror" type="text" name="modelo" id="modelo">
+                                    @error('modelo')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                @endif
                             </div>
 
                             <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
                                 <label class="label_steps" for="">Color 1</label> <br>
-                                <input class="form-control @error('color1') is-invalid @enderror" type="text" name="color1" id="color1" value="{{$item->DescripcionTicket->color1}}">
-                                @error('color1')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                                @if (!empty($item->DescripcionTicket))
+                                    <input class="form-control @error('color1') is-invalid @enderror" type="text" name="color1" id="color1" value="{{$item->DescripcionTicket->color1}}">
+                                    @error('color1')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                @else
+                                    <input class="form-control @error('color1') is-invalid @enderror" type="text" name="color1" id="color1">
+                                    @error('color1')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                @endif
                             </div>
 
                             <div class="form-group mt-5 col-6 col-md-6 col-lg-3">
                                 <label class="label_steps" for="">Color 2</label> <br>
-                                <input class="form-control @error('color2') is-invalid @enderror" type="text" name="color2" id="color2" value="{{$item->DescripcionTicket->color2}}">
-                                @error('color2')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                                @if (!empty($item->DescripcionTicket))
+                                    <input class="form-control @error('color2') is-invalid @enderror" type="text" name="color2" id="color2" value="{{$item->DescripcionTicket->color2}}">
+                                    @error('color2')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                @else
+                                    <input class="form-control @error('color2') is-invalid @enderror" type="text" name="color2" id="color2">
+                                    @error('color2')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                @endif
                             </div>
 
                             <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
                                 <label class="label_steps" for="">Numero</label> <br>
-                                <input class="form-control @error('talla') is-invalid @enderror" type="number" name="talla" id="talla" value="{{$item->DescripcionTicket->talla}}">
-                                @error('talla')
-                                    <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
+                                @if (!empty($item->DescripcionTicket))
+                                    <input class="form-control @error('talla') is-invalid @enderror" type="number" name="talla" id="talla" value="{{$item->DescripcionTicket->talla}}">
+                                    @error('talla')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                @else
+                                    <input class="form-control @error('talla') is-invalid @enderror" type="number" name="talla" id="talla">
+                                    @error('talla')
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                    @enderror
+                                @endif
                             </div>
 
                             <div class="form-group mt-5 col-xs-12 col-md-12 col-lg-6">
                                 <label class="label_steps" for="">Categoria</label>
                                 <select class="form-select select2 " name="categoria" id="categoria">
+                                    @if (!empty($item->DescripcionTicket))
                                         <option value="{{$item->DescripcionTicket->categoria}}" selected>{{$item->DescripcionTicket->categoria}}</option>
+                                    @endif
                                         <option value="Hombre" {{ old('categoria') == "Hombre" ? 'selected' : '' }} >Hombre</option>
                                         <option value="Mujer" {{ old('categoria') == "Mujer" ? 'selected' : '' }} >Mujer</option>
                                         <option value="Niño" {{ old('categoria') == "Niño" ? 'selected' : '' }} >Niño</option>
@@ -444,19 +487,24 @@
                         </div>
                     </div>
 
-                    @php
-                        if ($item->DescripcionTicket->tipo_servicio == '0') {
-                            $tipo = 'Estandar --------- $0';
-                        }else {
-                            $tipo = 'Express ---------- $110';
-                        }
-                    @endphp
+
+                    @if (!empty($item->DescripcionTicket))
+                        @php
+                            if ($item->DescripcionTicket->tipo_servicio == '0') {
+                                $tipo = 'Estandar --------- $0';
+                            }else {
+                                $tipo = 'Express ---------- $110';
+                            }
+                        @endphp
+                    @endif
                     <div class="form-card text-black">
                         <div class="row">
                             <div class="form-group mt-5 mb-5 col-12">
                                 <label class="label_steps" for="">Tipo de servicio</label>
                                 <select class="form-select select2 " name="tipo_servicio" id="tipo_servicio">
+                                    @if (!empty($item->DescripcionTicket))
                                         <option value="{{$item->DescripcionTicket->tipo_servicio}}" selected>Seleccionar servicio</option>
+                                    @endif
                                         <option value="0" {{ old('tipo_servicio') == 0 ? 'selected' : '' }}>Estandar --------- $0</option>
                                         <option value="110" {{ old('tipo_servicio') == 110 ? 'selected' : '' }}>Express ---------- $110</option>
                                 </select>

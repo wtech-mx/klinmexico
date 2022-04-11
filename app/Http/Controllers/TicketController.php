@@ -467,296 +467,273 @@ class TicketController extends Controller
 
     public function update(Request $request, $id)
     {
+                $precio = PrecioTicket::where('id_venta', '=', $id)->first();
+                $precio->por_pagar = 0;
+                $precio->subtotal = 0;
+                $precio->total = 0;
+                $precio->update();
 
-        $validator = Validator::make($request->all(), [
-            'servicio_primario' => 'required',
-            'marca' => 'required',
-            'modelo' => 'required',
-            'talla' => 'required',
-            'categoria' => 'required',
-            'tipo_servicio' => 'required',
-            'num_rack' => 'required',
-        ]);
+                $venta = Venta::findOrFail($id);
+                $venta->suma = 0;
+                $venta->update();
+                
+                $ticket = Ticket::where('id_venta', '=', $id)->first();
+                $ticket->rack = $request->get('num_rack');
+                $ticket->estatus = 0;
+                $ticket->servicio_primario = $request->get('servicio_primario');
+                $ticket->unyellow = $request->get('unyellow');
+                $ticket->tint = $request->get('tint');
+                $ticket->tint_descripcion = $request->get('tint_descripcion');
+                $ticket->klin = $request->get('klin');
+                $ticket->protector = $request->get('protector');
+                $ticket->update();
 
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->with('errorForm', $validator->errors()->getMessages())
-                ->withInput();
-        }
+                if ($request->get('glue') || $request->get('sew') || $request->get('sole') || $request->get('patch') || $request->get('invisible') || $request->get('personalizado')) {
+                    $fixer = Fixer::where('id_ticket', '=', $ticket->id)->first();
+                    $fixer->glue = $request->get('glue');
+                    $fixer->sew = $request->get('sew');
+                    $fixer->sole = $request->get('sole');
+                    $fixer->patch = $request->get('patch');
+                    $fixer->invisible = $request->get('invisible');
+                    $fixer->personalizado = $request->get('personalizado');
+                    $fixer->update();
+                }
+                $tickets = Ticket::where('id_venta', '=', $id)->get();
 
-        try {
-            $precio = PrecioTicket::where('id_venta', '=', $id)->first();
-            $precio->por_pagar = 0;
-            $precio->subtotal = 0;
-            $precio->total = 0;
-            $precio->update();
+            $contador = count($tickets);
 
-            $venta = Venta::findOrFail($id);
-            $venta->suma = 0;
-            $venta->update();
+            for($i=0; $i<$contador; $i++){
 
-            $ticket = Ticket::where('id_venta', '=', $id)->first();
-            $ticket->rack = $request->get('num_rack');
-            $ticket->estatus = 0;
-            $ticket->servicio_primario = $request->get('servicio_primario');
-            $ticket->unyellow = $request->get('unyellow');
-            $ticket->tint = $request->get('tint');
-            $ticket->tint_descripcion = $request->get('tint_descripcion');
-            $ticket->klin = $request->get('klin');
-            $ticket->protector = $request->get('protector');
-            $ticket->update();
+                $tipo_servicio = $tickets[$i]->DescripcionTicket->tipo_servicio;
+                $tint = $tickets[$i]->tint;
+                $klin = $tickets[$i]->klin;
 
-            if ($request->get('glue') || $request->get('sew') || $request->get('sole') || $request->get('patch') || $request->get('invisible') || $request->get('personalizado')) {
-                $fixer = Fixer::where('id_ticket', '=', $ticket->id)->first();
-                $fixer->glue = $request->get('glue');
-                $fixer->sew = $request->get('sew');
-                $fixer->sole = $request->get('sole');
-                $fixer->patch = $request->get('patch');
-                $fixer->invisible = $request->get('invisible');
-                $fixer->personalizado = $request->get('personalizado');
-                $fixer->update();
-            }
-            $tickets = Ticket::where('id_venta', '=', $id)->get();
+                if ($request->get('servicio_primario') == 'Essential') {
+                    $precio_cap = 110;
+                } elseif ($request->get('servicio_primario') == 'Plus') {
+                    $precio_cap = 160;
+                } elseif ($request->get('servicio_primario') == 'Elite') {
+                    $precio_cap = 190;
+                } elseif ($request->get('servicio_primario') == 'Pure White') {
+                    $precio_cap = 170;
+                } elseif ($request->get('servicio_primario') == 'Special Care') {
+                    $precio_cap = 160;
+                } elseif ($request->get('servicio_primario') == 'Bolsos') {
+                    $precio_cap = 0;
+                }   elseif ($request->get('servicio_primario') == 'Klin Cap') {
+                    $precio_cap = 60;
+                }
 
-        $contador = count($tickets);
+                if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->glue) {
+                    $glue = 130;
+                } else {
+                    $glue = 0;
+                }
 
-        for($i=0; $i<$contador; $i++){
+                if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->klin_dye) {
+                    $klin_dye = 260;
+                } else {
+                    $klin_dye = 0;
+                }
 
-            $tipo_servicio = $tickets[$i]->DescripcionTicket->tipo_servicio;
-            $tint = $tickets[$i]->tint;
-            $klin = $tickets[$i]->klin;
+                if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->unyellow) {
+                    $unyellow = 80;
+                } else {
+                    $unyellow = 0;
+                }
 
-            if ($request->get('servicio_primario') == 'Essential') {
-                $precio_cap = 110;
-            } elseif ($request->get('servicio_primario') == 'Plus') {
-                $precio_cap = 160;
-            } elseif ($request->get('servicio_primario') == 'Elite') {
-                $precio_cap = 190;
-            } elseif ($request->get('servicio_primario') == 'Pure White') {
-                $precio_cap = 170;
-            } elseif ($request->get('servicio_primario') == 'Special Care') {
-                $precio_cap = 160;
-            } elseif ($request->get('servicio_primario') == 'Bolsos') {
-                $precio_cap = 0;
-            }   elseif ($request->get('servicio_primario') == 'Klin Cap') {
-                $precio_cap = 60;
-            }
+                if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->sole) {
+                    $sole = 520;
+                } else {
+                    $sole = 0;
+                }
 
-            if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->glue) {
-                $glue = 130;
-            } else {
-                $glue = 0;
-            }
+                if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->invisible) {
+                    $invisible = 180;
+                } else {
+                    $invisible = 0;
+                }
 
-            if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->klin_dye) {
-                $klin_dye = 260;
-            } else {
-                $klin_dye = 0;
-            }
+                if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->sew == 1) {
+                    $sew = 130;
+                } elseif (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->sew == 2) {
+                    $sew = 240;
+                } else {
+                    $sew = 0;
+                }
 
-            if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->unyellow) {
-                $unyellow = 80;
-            } else {
-                $unyellow = 0;
-            }
+                if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->personalizado != NULL) {
+                    $fixer_per = $tickets[$i]->Fixer->personalizado;
+                }else{
+                    $fixer_per = 0;
+                }
 
-            if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->sole) {
-                $sole = 520;
-            } else {
-                $sole = 0;
-            }
+                if ($tickets[$i]->protector) {
+                    $protector = 55;
+                } else {
+                    $protector = 0;
+                }
 
-            if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->invisible) {
-                $invisible = 180;
-            } else {
-                $invisible = 0;
-            }
+                if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->patch == 1) {
+                    $patch = 240;
+                }elseif (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->patch == 2) {
+                    $patch = 160;
+                }elseif (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->patch == 3) {
+                    $patch = 160;
+                }elseif (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->patch == 4) {
+                    $patch = 240;
+                }else {
+                    $patch = 0;
+                }
 
-            if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->sew == 1) {
-                $sew = 130;
-            } elseif (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->sew == 2) {
-                $sew = 240;
-            } else {
-                $sew = 0;
-            }
+                if ($tickets[$i]->tint == 1) {
+                    $tint = 160;
+                }
+                if ($tickets[$i]->tint == 2) {
+                    $tint = 300;
+                }
+                if ($tickets[$i]->tint == 3) {
+                    $tint = 450;
+                }
 
-            if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->personalizado != NULL) {
-                $fixer_per = $tickets[$i]->Fixer->personalizado;
-            }else{
-                $fixer_per = 0;
-            }
+                if ($tickets[$i]->klin == 'Klin Bag') {
+                    $klin = 160;
+                }elseif ($tickets[$i]->klin == 'Klin Purse') {
+                    $klin = 110;
+                }elseif ($tickets[$i]->klin == 'Klin Bag Extra') {
+                    $klin = 260;
+                }else {
+                    $klin = 0;
+                }
 
-            if ($tickets[$i]->protector) {
-                $protector = 55;
-            } else {
-                $protector = 0;
-            }
+                if ($request->get('tint_personalizado') == NULL) {
+                    $tint_per = 0;
+                }else{
+                    $tint_per = $request->get('tint_personalizado');
+                }
 
-            if (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->patch == 1) {
-                $patch = 240;
-            }elseif (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->patch == 2) {
-                $patch = 160;
-            }elseif (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->patch == 3) {
-                $patch = 160;
-            }elseif (!empty($tickets[$i]->Fixer) && $tickets[$i]->Fixer->patch == 4) {
-                $patch = 240;
-            }else {
-                $patch = 0;
-            }
+                $suma = $precio_cap + $protector + $tint + $tint_per + $tipo_servicio + $klin + $klin_dye + $unyellow + $glue + $sew + $sole + $patch + $invisible + $fixer_per;
 
-            if ($tickets[$i]->tint == 1) {
-                $tint = 160;
-            }
-            if ($tickets[$i]->tint == 2) {
-                $tint = 300;
-            }
-            if ($tickets[$i]->tint == 3) {
-                $tint = 450;
-            }
-
-            if ($tickets[$i]->klin == 'Klin Bag') {
-                $klin = 160;
-            }elseif ($tickets[$i]->klin == 'Klin Purse') {
-                $klin = 110;
-            }elseif ($tickets[$i]->klin == 'Klin Bag Extra') {
-                $klin = 260;
-            }else {
-                $klin = 0;
+                $venta = Venta::findOrFail($id);
+                $venta->suma =  $venta->suma + $suma;
+                $venta->update();
             }
 
-            if ($request->get('tint_personalizado') == NULL) {
-                $tint_per = 0;
-            }else{
-                $tint_per = $request->get('tint_personalizado');
-            }
+                $regresar_ticket = Ticket::where('id_venta', '=', $id)->first();
+                $rack = Racks::find($regresar_ticket->rack);
+                $rack->estatus = 0;
+                $rack->update();
 
-            $suma = $precio_cap + $protector + $tint + $tint_per + $tipo_servicio + $klin + $klin_dye + $unyellow + $glue + $sew + $sole + $patch + $invisible + $fixer_per;
+                $descripcion = DescripcionTicket::where('id_ticket', '=', $ticket->id)->first();
+                $descripcion->marca = $request->get('marca');
+                $descripcion->modelo = $request->get('modelo');
+                $descripcion->color1 = $request->get('color1');
+                $descripcion->color2 = $request->get('color2');
+                $descripcion->talla = $request->get('talla');
+                $descripcion->categoria = $request->get('categoria');
+                $descripcion->observacion = $request->get('observacion');
+                $descripcion->tipo_servicio = $request->get('tipo_servicio');
+                $descripcion->update();
 
-            $venta = Venta::findOrFail($id);
-            $venta->suma =  $venta->suma + $suma;
-            $venta->update();
-        }
+                if ($request->get('cp') != null) {
+                    $direccion = new Direccion;
+                    $direccion->id_user = $regresar_ticket->id_user;
+                    $direccion->calle = $request->get('calle');
+                    $direccion->colonia = $request->get('colonia');
+                    $direccion->alcaldia = $request->get('alcaldia');
+                    $direccion->estado = $request->get('estado');
+                    $direccion->cp = $request->get('cp');
+                    $direccion->update();
 
-            $regresar_ticket = Ticket::where('id_venta', '=', $id)->first();
-            $rack = Racks::find($regresar_ticket->rack);
-            $rack->estatus = 0;
-            $rack->update();
+                    $direccion_ticket = PrecioTicket::where('id_venta', '=', $id)->first();
+                    $direccion_ticket->id_direccion = $direccion->id;
+                    $direccion_ticket->update();
+                }
 
-            $descripcion = DescripcionTicket::where('id_ticket', '=', $ticket->id)->first();
-            $descripcion->marca = $request->get('marca');
-            $descripcion->modelo = $request->get('modelo');
-            $descripcion->color1 = $request->get('color1');
-            $descripcion->color2 = $request->get('color2');
-            $descripcion->talla = $request->get('talla');
-            $descripcion->categoria = $request->get('categoria');
-            $descripcion->observacion = $request->get('observacion');
-            $descripcion->tipo_servicio = $request->get('tipo_servicio');
-            $descripcion->update();
+                if ($request->get('cp_factura') != null) {
+                    $direccion_fac = Client::find($regresar_ticket->id_user);
+                    $direccion_fac->calle = $request->get('calle_factura');
+                    $direccion_fac->colonia = $request->get('colonia_factura');
+                    $direccion_fac->alcaldia = $request->get('alcaldia_factura');
+                    $direccion_fac->estado = $request->get('estado_factura');
+                    $direccion_fac->cp = $request->get('cp_factura');
+                    $direccion_fac->rfc = $request->get('rfc');
+                    $direccion_fac->update();
+                }
 
-            if ($request->get('cp') != null) {
-                $direccion = new Direccion;
-                $direccion->id_user = $regresar_ticket->id_user;
-                $direccion->calle = $request->get('calle');
-                $direccion->colonia = $request->get('colonia');
-                $direccion->alcaldia = $request->get('alcaldia');
-                $direccion->estado = $request->get('estado');
-                $direccion->cp = $request->get('cp');
-                $direccion->update();
+                if ($venta->Precio->promocion) {
+                    $promocion = $venta->Precio->promocion;
+                } else {
+                    $promocion = 0;
+                }
 
-                $direccion_ticket = PrecioTicket::where('id_venta', '=', $id)->first();
-                $direccion_ticket->id_direccion = $direccion->id;
-                $direccion_ticket->update();
-            }
+                $recoleccion = $venta->Precio->recoleccion;
 
-            if ($request->get('cp_factura') != null) {
-                $direccion_fac = Client::find($regresar_ticket->id_user);
-                $direccion_fac->calle = $request->get('calle_factura');
-                $direccion_fac->colonia = $request->get('colonia_factura');
-                $direccion_fac->alcaldia = $request->get('alcaldia_factura');
-                $direccion_fac->estado = $request->get('estado_factura');
-                $direccion_fac->cp = $request->get('cp_factura');
-                $direccion_fac->rfc = $request->get('rfc');
-                $direccion_fac->update();
-            }
+                $descuento = $venta->suma * $promocion;
+                $subtotal = $venta->suma - $descuento;
+                $total = $subtotal + $recoleccion;
 
-            if ($venta->Precio->promocion) {
-                $promocion = $venta->Precio->promocion;
-            } else {
-                $promocion = 0;
-            }
+                if ($venta->Precio->anticipo == 2) {
+                    $por_pagar2 = $total;
+                } elseif($venta->Precio->anticipo == 0) {
+                    $por_pagar2 = '0';
+                }else{
+                    $por_pagar2 = $total - $request->get('por_pagar');
+                }
 
-            $recoleccion = $venta->Precio->recoleccion;
+                if ($venta->Precio->gifcard) {
+                    $por_pagar = $por_pagar2 - $venta->Precio->gifcard;
+                } else {
+                    $por_pagar = $por_pagar2;
+                }
 
-            $descuento = $venta->suma * $promocion;
-            $subtotal = $venta->suma - $descuento;
-            $total = $subtotal + $recoleccion;
-
-            if ($venta->Precio->anticipo == 2) {
-                $por_pagar2 = $total;
-            } elseif($venta->Precio->anticipo == 0) {
-                $por_pagar2 = '0';
-            }else{
-                $por_pagar2 = $total - $request->get('por_pagar');
-            }
-
-            if ($venta->Precio->gifcard) {
-                $por_pagar = $por_pagar2 - $venta->Precio->gifcard;
-            } else {
-                $por_pagar = $por_pagar2;
-            }
-
-            $precio = PrecioTicket::where('id_venta', '=', $id)->first();
-            $precio->descuento = $descuento;
-            $precio->recoleccion = $recoleccion;
-            $precio->por_pagar = $por_pagar;
-            $precio->subtotal = $subtotal;
-            $precio->total = $total;
-            $precio->update();
+                $precio = PrecioTicket::where('id_venta', '=', $id)->first();
+                $precio->descuento = $descuento;
+                $precio->recoleccion = $recoleccion;
+                $precio->por_pagar = $por_pagar;
+                $precio->subtotal = $subtotal;
+                $precio->total = $total;
+                $precio->update();
 
 
-            if ($request->get('num_rack') == true) {
-                $racke = Racks::find($request->get('num_rack'));
-                $racke->estatus = 1;
-                $racke->update();
-            }
+                if ($request->get('num_rack') == true) {
+                    $racke = Racks::find($request->get('num_rack'));
+                    $racke->estatus = 1;
+                    $racke->update();
+                }
 
-            return redirect()->route('ticket.index')
-                ->with('success', 'Venta editada exitosamente!');
+                return redirect()->route('ticket.index')
+                    ->with('success', 'Venta editada exitosamente!');
 
-            // //Envio de Email
-            // $id_user = $request->get('id_user');
-            // $clients = Client::find($id_user);
-            // $emial_user = $clients->email;
+                // //Envio de Email
+                // $id_user = $request->get('id_user');
+                // $clients = Client::find($id_user);
+                // $emial_user = $clients->email;
 
-            // $emailSubject = 'Envio de Ticket';
-            // $emailBody = 'Detalles del Ticket  KLINMEXICO';
+                // $emailSubject = 'Envio de Ticket';
+                // $emailBody = 'Detalles del Ticket  KLINMEXICO';
 
 
-            // //usar para un solo correo de destino
-            // $emaifor = $emial_user;
-            // //usar para varios  correos de destino
+                // //usar para un solo correo de destino
+                // $emaifor = $emial_user;
+                // //usar para varios  correos de destino
 
-            // // Enviar para Admin
-            // Mail::send('emails.ticket_admin_email', ['msg' => $emailBody], function ($message) use ($emailSubject, $emaifor) {
-            //     $message->from("noreply@klinmexico.com", "KlinMexico");
-            //     $message->subject($emailSubject);
-            //     $message->to($emaifor);
-            // });
+                // // Enviar para Admin
+                // Mail::send('emails.ticket_admin_email', ['msg' => $emailBody], function ($message) use ($emailSubject, $emaifor) {
+                //     $message->from("noreply@klinmexico.com", "KlinMexico");
+                //     $message->subject($emailSubject);
+                //     $message->to($emaifor);
+                // });
 
-            // // Enviar para cliente
-            // $arrayEmails = ['noreply@klinmexico.com', $emaifor];
-            // $emailBody2 = 'Detalles del Ticket  KLINMEXICO';
+                // // Enviar para cliente
+                // $arrayEmails = ['noreply@klinmexico.com', $emaifor];
+                // $emailBody2 = 'Detalles del Ticket  KLINMEXICO';
 
-            // Mail::send('emails.ticket_user_email', ['msg' => $emailBody2], function ($message) use ($emailSubject, $arrayEmails) {
-            //     $message->from("noreply@klinmexico.com", "KlinMexico");
-            //     $message->subject($emailSubject);
-            //     $message->to($arrayEmails);
-            // });
-        } catch (\Exception $e) {
-            // dd($e);
-            return redirect()->back()
-                ->with('error', 'Faltan Validar datos!');
-        }
+                // Mail::send('emails.ticket_user_email', ['msg' => $emailBody2], function ($message) use ($emailSubject, $arrayEmails) {
+                //     $message->from("noreply@klinmexico.com", "KlinMexico");
+                //     $message->subject($emailSubject);
+                //     $message->to($arrayEmails);
+                // });
     }
 
     public function update_precio(Request $request, $id)
