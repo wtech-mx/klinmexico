@@ -25,7 +25,6 @@
 										<th>Cliente</th>
 										<th>Por pagar</th>
                                         <th>Rack</th>
-
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>

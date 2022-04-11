@@ -40,6 +40,63 @@ class TicketController extends Controller
         return view('ticket.index', compact('ticket', 'precio_ticket', 'venta'));
     }
 
+    public function sed_mail(Request $request, \Exception $e)
+    {
+
+            $validator = Validator::make($request->all(), [
+                'id_user' => 'required',
+                'id_ticket_id' => 'required',
+                'email_client' => 'required',
+                'estatus' => 'required',
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->back()
+                    ->with('errorForm', $validator->errors()->getMessages())
+                    ->withInput();
+            }
+
+            if($request->get('estatus') == 'admin'){
+
+                $venta = Venta::findOrFail($request->get('id_ticket_id'));
+                $ticket =  Ticket::where('id_venta', '=', $request->get('id_ticket_id'))->get();
+
+                $subject = "Ticket KLINMEXICO";
+                $for = "noreply@klinmexico.com";
+
+                Mail::send('emails.ticket_admin_email',['venta' => $venta,'ticket' => $ticket], function($msj) use($subject,$for){
+                    $msj->from("noreply@klinmexico.com");
+                    $msj->subject($subject);
+                    $msj->to($for);
+                });
+
+            }else{
+                $email_client = $request->get('email_client');
+
+                $venta = Venta::findOrFail($request->get('id_ticket_id'));
+                $ticket =  Ticket::where('id_venta', '=', $request->get('id_ticket_id'))->get();
+
+                $subject = "Ticket KLINMEXICO";
+                $for = $email_client;
+
+                Mail::send('emails.ticket_user_email',['venta' => $venta,'ticket' => $ticket], function($msj) use($subject,$for){
+                    $msj->from("noreply@klinmexico.com");
+                    $msj->subject($subject);
+                    $msj->to($for);
+                });
+            }
+
+            try {
+                return redirect()->route('ticket.index')
+                ->with('success', 'Correo enviado exitosamente!');
+
+            } catch (\Exception $e) {
+                return redirect()->back()
+                    ->with('error', 'Error al enviar correo');
+            }
+
+    }
+
     public function create()
     {
         $client = Client::get();
@@ -89,63 +146,6 @@ class TicketController extends Controller
 
             return view('ticket.create', compact('client', 'racks_sneakers_altos', 'racks_sneakers_altos2', 'racks_sneakers_altos3', 'racks_sneakers_normales', 'racks_sneakers_normales2', 'racks_sneakers_apoyo', 'venta', 'racks_cap', 'racks_bag'));
 
-
-    }
-
-    public function sed_mail(Request $request, \Exception $e)
-    {
-
-            $validator = Validator::make($request->all(), [
-                'id_user' => 'required',
-                'id_ticket_id' => 'required',
-                'email_client' => 'required',
-                'estatus' => 'required',
-            ]);
-
-            if ($validator->fails()) {
-                return redirect()->back()
-                    ->with('errorForm', $validator->errors()->getMessages())
-                    ->withInput();
-            }
-
-            if($request->get('estatus') == 'admin'){
-
-                $ticket = Ticket::findOrFail($request->get('id_ticket_id'));
-                $precio_ticket = PrecioTicket::where('id_ticket', '=', $request->get('id_ticket_id'))->first();
-
-                $subject = "Ticket KLINMEXICO";
-                $for = "noreply@klinmexico.com";
-
-                Mail::send('emails.ticket_admin_email',['precio_ticket' => $precio_ticket], function($msj) use($subject,$for){
-                    $msj->from("noreply@klinmexico.com");
-                    $msj->subject($subject);
-                    $msj->to($for);
-                });
-
-            }else{
-                $email_client = $request->get('email_client');
-                $ticket = Ticket::findOrFail($request->get('id_ticket_id'));
-
-                $precio_ticket = PrecioTicket::where('id_ticket', '=', $request->get('id_ticket_id'))->first();
-                $subject = "Ticket KLINMEXICO";
-                $for = $email_client;
-
-                Mail::send('emails.ticket_user_email',['precio_ticket' => $precio_ticket], function($msj) use($subject,$for){
-                    $msj->from("noreply@klinmexico.com");
-                    $msj->subject($subject);
-                    $msj->to($for);
-                });
-
-            }
-
-            try {
-                return redirect()->route('ticket.index')
-                ->with('success', 'Correo enviado exitosamente!');
-
-            } catch (\Exception $e) {
-                return redirect()->back()
-                    ->with('error', 'Error al enviar correo');
-            }
 
     }
 
