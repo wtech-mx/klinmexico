@@ -92,6 +92,7 @@ class ClientController extends Controller
                 return redirect()->back()
                 ->with('success', 'Cliente creado exitosamente!');
         } catch (\Exception $e){
+
             return redirect()->back()
                 ->with('error', 'Faltan Validar datos!');
         }

@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade" id="exampleReparacion_{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel_{{ $item->id }}" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">Editar {{ $item->servicio_primario }}</h5>

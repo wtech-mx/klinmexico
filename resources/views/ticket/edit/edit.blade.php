@@ -24,6 +24,11 @@ Editar Venta
         <div class="row">
             <div class="d-flex justify-content-between mt-5">
                 <h1> Editar Venta ID: 0{{$rest}}-{{$rest2}}</h1>
+
+               <a class="btn btn-secondary text-white"  data-bs-toggle="modal" data-bs-target="#examplePago_{{$venta->id}}" style="margin-right: 3rem">
+                    <i class="fa fa-money" aria-hidden="true"></i> Editar datos de Pago
+                </a>
+
             </div>
 
             <div class="card-body">
@@ -37,9 +42,7 @@ Editar Venta
                                 </div>
                             @endif
 
-                            <a class="btn icon_actions eye"  data-bs-toggle="modal" data-bs-target="#examplePago_{{$venta->id}}">
-                                <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Pago
-                            </a>
+
 
                             <table class="table table-striped table-responsive table-hover" id="tale_id" >
                                 <thead class="thead">
@@ -47,25 +50,19 @@ Editar Venta
                                         <th>Servicio(s)</th>
                                         <th>Rack</th>
                                         <th>Estatus</th>
-
                                         <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
                                     @foreach ($ticket as $item)
-
                                         <tr>
                                             <td>{{ $item->servicio_primario }}</td>
                                             <td>{{ $item->rack }}</td>
-
                                             <td>
                                                 <input data-id="{{ $item->id }}" class="toggle-class" type="checkbox"
                                         data-onstyle="success" data-offstyle="danger" data-toggle="toggle"
                                         data-on="Active" data-off="InActive" {{ $item->estatus ? 'checked disabled' : '' }}>
                                             </td>
-
-
                                             <td>
                                                     @if ($item->servicio_primario == 'Essential' || $item->servicio_primario == 'Plus' || $item->servicio_primario == 'Elite' || $item->servicio_primario == 'Pure White' || $item->servicio_primario == 'Special Care')
                                                         <a class="icon_actions eye"  data-bs-toggle="modal" data-bs-target="#exampleSneakers_{{$item->id}}">
@@ -98,11 +95,11 @@ Editar Venta
                                             </td>
 
                                         </tr>
-@include('ticket.edit.edit_sneakers')
-@include('ticket.edit.edit_gorras')
-@include('ticket.edit.edit_bolsos')
-@include('ticket.edit.edit_reparacion')
-@include('ticket.edit.edit_nano')
+                                        @include('ticket.edit.edit_sneakers')
+                                        @include('ticket.edit.edit_gorras')
+                                        @include('ticket.edit.edit_bolsos')
+                                        @include('ticket.edit.edit_reparacion')
+                                        @include('ticket.edit.edit_nano')
                                     @endforeach
                                 </tbody>
                             </table>
