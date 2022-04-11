@@ -391,7 +391,7 @@ Crear Ventas
                                                                 <div class="row">
                                                                     <div class="col-6">
                                                                     <div class="form-check  mb-3">
-                                                                        <input class="form-check-input" type="radio" name="anticipo" id="anticipo" >
+                                                                        <input class="form-check-input" type="radio" name="anticipo" id="anticipo" value="1">
                                                                         <label class="form-check-label" for="tint4">
                                                                         Anticipo
                                                                         </label>

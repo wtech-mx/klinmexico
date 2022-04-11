@@ -476,7 +476,7 @@ class TicketController extends Controller
                 $venta = Venta::findOrFail($id);
                 $venta->suma = 0;
                 $venta->update();
-                
+
                 $ticket = Ticket::where('id_venta', '=', $id)->first();
                 $ticket->rack = $request->get('num_rack');
                 $ticket->estatus = 0;
