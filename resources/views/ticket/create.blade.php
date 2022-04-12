@@ -30,10 +30,12 @@ Crear Ventas
 
                     <div class="card-header" style="border:solid 1px #ccc;">
 
+
                         <div class="d-flex justify-content-start">
                              <p style="margin-top: 0.5rem;margin-left: 1rem;margin-right: 5rem"> Nueva Venta </p>
 
                             <ul class="nav nav-tabs justify-content-center" style=" height: auto;flex-direction: unset;border: 1px solid transparent;" role="tablist" id="myTab">
+
                               <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="pills-Cliente-tab" data-bs-toggle="pill" data-bs-target="#pills-Cliente" type="button" role="tab" aria-controls="pills-Cliente" aria-selected="true" style="border: 1px solid transparent;">
                                    Seleccionar Cliente
@@ -68,34 +70,41 @@ Crear Ventas
                          </div>
 
                             <div class="tab-content" id="pills-tabContent">
+
                               <div class="tab-pane fade show active" id="pills-Cliente" role="tabpanel" aria-labelledby="pills-Cliente-tab">
 
                                     <div class="form-group col-xs-12 col-md-12 col-lg-12 ">
                                         <div class="d-flex flex-row bd-highlight p-5">
-                                            <form method="POST" action="{{ route('ticket.store_venta') }}"  role="form" enctype="multipart/form-data">
-                                                @csrf
+                                            @if(!empty($venta))
+                                                @if($venta->suma == NULL)
+                                                    <label class="text-dark " for="">Cliente Seleccionado: {{$venta->Client->name}}</label>
 
-                                                <div class=" bd-highlight">
-                                                    <label class="label_steps text-dark">Busca y Selecciona al Cliente * </label> <br>
-                                                    <select class="form-select" name="id_user" id="mi-selector">
-                                                        <option selected>Seleccionar usuario</option>
-                                                        @foreach ($client as $item)
-                                                            <option value="{{$item->id}}" required>{{$item->name}} / {{$item->telefono}} / {{$item->email}} </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                    <button id="next1" class="btn-block btn_next_tab mt-3 mb-1 next mt-4" style="left: 80%">
-                                                        <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Seleccionar
-                                                    </button>
-                                             </form>
+                                                    @else
+                                                        <form method="POST" action="{{ route('ticket.store_venta') }}"  role="form" enctype="multipart/form-data">
+                                                            @csrf
 
-                                            <div class="contentbtn">
-                                                <label class="label_steps text-dark">-</label> <br>
-                                                <a type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_cliente" id="rec" style="margin-left: 2rem;">
-                                                    + Registrar Cliente
-                                                </a>
-                                            </div>
+                                                            <div class=" bd-highlight">
+                                                                <label class="label_steps text-dark">Busca y Selecciona al Cliente * </label> <br>
+                                                                <select class="form-select" name="id_user" id="mi-selector">
+                                                                    <option selected>Seleccionar usuario</option>
+                                                                    @foreach ($client as $item)
+                                                                        <option value="{{$item->id}}" required>{{$item->name}} / {{$item->telefono}} / {{$item->email}} </option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                                <button id="next1" class="btn-block btn_next_tab mt-3 mb-1 next mt-4" style="left: 80%">
+                                                                    <i class="fa fa-floppy-o mr-3" aria-hidden="true"></i> Seleccionar
+                                                                </button>
+                                                         </form>
 
+                                                        <div class="contentbtn">
+                                                            <label class="label_steps text-dark">-</label> <br>
+                                                            <a type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal_cliente" id="rec" style="margin-left: 2rem;">
+                                                                + Registrar Cliente
+                                                            </a>
+                                                        </div>
+                                                @endif
+                                            @endif
                                         </div>
                                     </div>
                               </div>
