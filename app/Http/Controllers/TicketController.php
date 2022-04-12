@@ -911,6 +911,12 @@ class TicketController extends Controller
         return response()->json(['success' => 'Se cambio el estado exitosamente.']);
     }
 
+    public function destroy($id)
+    {
+        $venta = Venta::find($id)->delete();
 
+        return redirect()->route('ticket.create')
+            ->with('success', 'Cambiar cliente');
+    }
 
 }

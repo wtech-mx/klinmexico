@@ -52,6 +52,7 @@ Auth::routes();
     Route::post('/ticket/update/{id}', [App\Http\Controllers\TicketController::class, 'update'])->name('ticket.update');
 
     Route::post('/precio/update/{id}', [App\Http\Controllers\TicketController::class, 'update_precio'])->name('ticket.update_precio');
+    Route::delete('/ticket/destroy/{id}', [App\Http\Controllers\TicketController::class, 'destroy'])->name('ticket.destroy');
 
     //Status
     Route::get('changeStatus', [App\Http\Controllers\TicketController::class, 'ChangeUserStatus'])->name('ticket.ChangeUserStatus');

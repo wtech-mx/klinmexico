@@ -77,8 +77,14 @@ Crear Ventas
                                         <div class="d-flex flex-row bd-highlight p-5">
                                             @if(!empty($venta))
                                                 @if($venta->suma == NULL)
-                                                    <label class="text-dark " for="">Cliente Seleccionado: {{$venta->Client->name}}</label>
-
+                                                    <p class="text-dark " for="">Cliente Seleccionado: {{$venta->Client->name}}</p>
+                                                    <form action="{{ route('ticket.destroy',$venta->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn">
+                                                            <i class="fa fa-fw fa-edit"></i>Cambiar cliente
+                                                        </button>
+                                                    </form>
                                                     @else
                                                         <form method="POST" action="{{ route('ticket.store_venta') }}"  role="form" enctype="multipart/form-data">
                                                             @csrf
